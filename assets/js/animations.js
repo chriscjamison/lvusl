@@ -637,8 +637,14 @@ function setupPage(time_value)  {
        
         num_of_wndow_elements = $(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
-  
-        bkgrnd_width =  (wndow_width * num_of_wndow_elements).toString();
+        
+        if (inc_bkgrnd === 1) {
+          bkgrnd_width = wndow_width * 2;
+        } else {
+          bkgrnd_width = wndow_width;
+        }
+
+        // bkgrnd_width =  (wndow_width * num_of_wndow_elements).toString();
         bkgrnd_height = (wndow_height).toString();
         // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
         // multiplies it by the number of HTML elements using the selector, ".wndow" and making a string 
@@ -647,12 +653,12 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
+        bkgrnd_img_value = "url('/lvusl/assets/img/bkgrnd/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/amelia/assets/img/sctn/1/1920x1020.jpg')" 
+        // The value of "bkgrnd_img_value" would be "url('/lvusl/assets/img/bkgrnd/1/1920x1020.jpg')" 
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
@@ -668,8 +674,8 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        width_height_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
-                                    "x" + bkgrnd_height + ".jpg')";
+        width_height_css.backgroundImage = "url('/lvusl/assets/img/bkgrnd/main/" + bkgrnd_width +
+                                           "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } // END OF if STATEMENT

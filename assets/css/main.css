@@ -108,9 +108,7 @@ body {
 	width: 38.6em;
 	height: 15.2em;
 	position: absolute;
-	float: right;
-  bottom: 9.2em;
-  left: 12.5em;
+	
   opacity: 0;
 }
 /* Formats a <div> which contains the logo and <ul> list which is displayed 
@@ -118,42 +116,58 @@ body {
  */
 
 #info img {
-  margin: 0 1.7em;
   padding: 1.7em;
 	display: none;
   position: relative;
   float: left;
-  background-color: #967348;
 	opacity: 0;
 }
 /* Formats the logo which is contained within the <div> using the selctor, "#info". */
 
-#info ul {
-  margin: 0.25em 0 0 0;
-  padding: 0;
-  display: none;
-  position: relative;
+#info > div {
+  height: 8.7em;
+  margin: 2.75em 0em 0em 11em;
   float: left;
-	font-family: 'Balthazar', serif;
-	font-size: 1.1em;
-  opacity: 0;
 }
-/* Formats the list which is contained within the <div> using the selctor, "#info". */
+/* 
+ * Formats the <div> element which appears to the right of the logo within a 
+ * desktop browser and contains <a> elements which allow a user to sign up for 
+ * a newsletter or reserve season tickets.
+ */
 
-#info li {
-  width: 17.4em;
-  height: 1.65em;
-	margin: 1em 0;
-  padding: 0.6em 0 0 0;
-  display: none;
+#info > div > a {
+  width: 7.5em;
+  height: 3em;
+  margin-right: 0.5em;
+  padding: 0.75em;
+  display: block;
+  float: left;
+  background-color: #ffff66;
+  font-size: 1em;
+  font-family: 'Istok Web', sans-serif;
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
   text-align: center;
-  color: #fbe7e9;
-  background-color: #632e22;
-	opacity: 0;
 }
-/* Formats the list-items which are contained within the <div> using the selctor, "#info". */
+/* Formats the links which appear to the right of the logo within MAIN LANDING SECTION */
 
+#info > div > a:first-of-type {
+  height: 1.5em;
+  padding: 1.5em 0.75em;
+}
+/* 
+ * Formats the link, 'Email Alerts', which appears to the right of the logo within 
+ * MAIN LANDING SECTION. This link is formatted because the size of the button without 
+ * formatting is smaller than the link, 'Reserve Season Tickets'.
+ */
 
+#info > div > a:nth-child(2) {
+  margin-right: 0;
+}
+/* Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
+ * within MAIN LANDING SECTION.
+ */ 
 
 /* ---- 'SECTION #1' ---- */
 
@@ -936,7 +950,6 @@ body {
 @media screen and (width: 980px) {
   /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
   #info {
-    background-color: #977348;
     width: 61.25em;
     height: 76em;
     position: absolute;
@@ -1318,8 +1331,8 @@ body {
   }
 
   #info {
-    width: 19.2em;
-    height: 27.2em;
+    width: 79em;
+    height: 8.7em;
     bottom: 12.5em;
     left: 5.5em;
   }
@@ -1426,9 +1439,9 @@ body {
   }
 }
 
-@media screen and (min-width: 1340px) and (max-width: 1890px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1890px. 
-  * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
+@media screen and (min-width: 1340px) and (max-width: 1580px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px.
   */
   
   #cntnr {
@@ -1449,10 +1462,8 @@ body {
   }
 
   #info {
-    width: 19.5em;
-    height: 27.2em;
-    bottom: 8.75em;
-    left: 8.75em;
+    width: 99em;
+    height: 9em;
   }
 
   #wndow-sctn_1 > .copy {
@@ -1525,6 +1536,24 @@ body {
     float: left;
     clear: none;
   }
+}
+
+@media screen and (min-width: 1590px) and (max-width: 1900px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
+   * This breakpoint is optimized to fit resolutions of 1366x768px.
+   */
+
+   #info {
+     width: 99em;
+     height: 9em;
+   }
+
+   #info > div {
+    width: 18.5em;
+    height: 7.25em;
+    margin: 1.75em 0 0 33.5em;
+    float: left;
+   }
 }
 
 @media screen and (min-width: 1910px) {
