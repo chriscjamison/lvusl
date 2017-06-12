@@ -189,7 +189,9 @@ body {
 }
 /* Formats the <div> elements which contain the form questions of 'FORM TYPE #2'. */
 
-.sctn_1-blok {
+.sctn_1-blok, 
+.sctn_3-blok, 
+.sctn_4-link {
  	height: initial;
 	padding: 1em 2em;
 	position: absolute;
@@ -251,8 +253,8 @@ body {
 
 /* ---- 'SECTION #2' ---- */
 
-.headr.sctn_2.span {
-	background-color: #b9def0;
+.headr.sctn_2 > span {
+	color: #b9def0;
 }
 /* Formats the color of the <span> which holds the title of 'SECTION #2'. */
 
@@ -267,177 +269,68 @@ body {
  * 
  */
 
-.sctn_2-blok {
-	width: 26.5em;
-  min-width: 320px;
-	height: auto;
-  margin-right: 4.5em;
-	padding: 1em;
-  display: inline-block;
-  background-color: #d9c296;
-	text-align: center;
-  opacity: 0;
-}
-/* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
-
-.sctn_2-blok > img {
-  margin-bottom: 0.4em;
-}
-/* Formats an image which is contained within the <div> 
- * elements or blocks, using the class, '.sctn_2-blok'. 
- */
-
-.sctn_2-blok > ul {
-  width: 74.3%;
-  margin: 0.35em auto;
-  padding: 0;
-  list-style-type: none;
-  border-top: 3px solid #897042;
-}
-/* Formats the list which appears within the <div> 
- * elements or blocks, using the class, '.sctn_2-blok'. 
- */
-
-.sctn_2-blok > ul > li {
-  margin: 0.5em;
-  color: #523a0e
-}
-/* Formats the list-items which appears within the <div> 
- * elements or blocks, using the class, '.sctn_2-blok'. 
- */
-
-.sctn_2-blok > ul > li:first-child {
-  font-weight: 600;
-}
-/* More formatting for the first list-item which appears within the <div> 
- * elements or blocks, using the class, '.sctn_2-blok'. 
- */
-
-.sctn_2-blok-2 {
-	width: 66.35em;
-  height: auto;
-  margin: 0;
-  position: relative;
-  top: 4em;
-  left: -17.5em;
-  float: left;
-  clear: both;
-	opacity: 0;
-}
-/* Formats the secondary blocks that appear below the larger, main blocks in 'SECTION #2'. */
-
-.sctn_2-blok-2 > span {
-	width: 15em;
-	display: block;
-	padding: 1em;
-	margin: 0 auto;
-  background-color: #745925;
-  font-size: 1.1em;
-	font-weight: 600;
-  text-align: center;
-	color: #d9c296;
-}
-/* Formats a <div> element which serves as a 'header' for the secondary blocks 
- * contained within 'SECTION #2'. 
- */
-
-.sctn_2-blok-2 > span + div {
-  width: 53.5em;
-  height: inherit;
-  margin: 0 auto;
-  position: relative;
-  top: 1.5em;
-}
-/* Formats a <div> element which serves as a container for secondary information 
- * within 'SECTION #2. 
- */
-
-.sctn_2-blok-2 > span + div > span {
-	width: 15em;
-	height: 75px;
-	margin-left: 2.1em;
-  padding-top: 2.5em;
-	display: block;
-  float: left;
-  text-align: center;
-  font-weight: 600;
-  color: #523a0e;
-  background-color: #b19563;
-}
-/* Formats the text content of the secondary blocks that appear near the bottom of the 
- * landing page for 'SECTION #2'. 
- */
-
-.sctn_2-spcr {
-  width: 0.1em;
-  height: 4em;
-}
-/* Formats a <div> element which reorders the content contained within 'SECTION #2' 
- * depending on its width and height. 
- */
-
-
 
 /* ---- 'SECTION #3' ---- */
 
-.headr.sctn_3 {
-	background-color: #b7a68e;
+.headr.sctn_3 > span {
+	color: #ffedac;
 }
 /* Formats the color of the <div> which holds the title of 'SECTION #3'. */
+
+#sctn_3-desc-1 {
+  background-color: #e4e1fd;
+  font-family: 'Istok Web', sans-serif;
+}
 
 .sctn_3-blok > span {
 	width: 100%;
 	display: block;
 	padding-bottom: 0.1em;
-	border-bottom: 2px solid;
-	font-size: 2.5em;
-	font-weight: 600;
+	border-bottom: 2px solid #b8b0f5;
+  color: #3a74ba;
+	font-size: 1em;
+	font-weight: 700;
 }
-/* Formats a <span> element which contains a text header for the 'block' within each 
+/* 
+ * Formats a <span> element which contains a text header for the 'block' within each 
  * sub-section. The <span> elements appear within the <div> elements using the selectors, 
  * 'sctn_3-desc-2', 'sctn_3-desc-3', & 'sctn_3-desc-4'.
  */
 
-.sctn_3-blok > p {
-	text-indent: 1.3em;
-	line-height: 1.7em;
+#sctn_3-desc-1 > p {
+  text-indent: 1.3em;
+	line-height: 1.5em;
+	color: #5a92d4;
 }
 /* Formats <p> elements which are contained with an individual block contained 
  * within 'SECTION #3'.
  */
 
-#sctn_3-desc-1 {
-  background-color: #988366;
-  color: #d9cdbc;
-}
-/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
-
-#sctn_3-desc-2 {
-  background-color: #987566;
-  color: #fffcfb;
-}
-/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
-
-#sctn_3-desc-3 {
-  background-color: #988c66;
-  color: #fffbee;
-}
-/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
-
-#sctn_3-desc-4 {
-	background-color: #988366;
-  color: #fff8ee;
-}
-/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
-
-
 
 /* ---- 'SECTION #4' ---- */
 
-.headr.sctn_4 {
-	background-color: #c8586a;
+.headr.sctn_4 > span {
+	color: #b05b4e;
 }
 /* Formats the color of the <div> which holds the title of 'SECTION #4'. */
+
+.sctn_4-link {
+  margin: 0 1.5em 1.5em 0;
+  padding: 0.75em;
+  position: relative;
+  background-color: #d9af83;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.sctn_4-link > a {
+  display: block;
+  color: #51300e;
+  padding-bottom: 0.75em;
+}
+
+.sctn_4-link > span {
+  color: #6b4014;
+}
 
 .sctn_4-blok > p {
 	text-indent: 1em;
@@ -1576,7 +1469,9 @@ body {
      margin-left: 17.5em;
    }
 
-   .sctn_1-blok {
+   .sctn_1-blok, 
+   .sctn_3-blok, 
+   .sctn_4-link {
      width: 20em;
    }
 
@@ -1584,6 +1479,10 @@ body {
      width: 50em;
      height: 28.1em;
      margin-left: 4.5em;
+   }
+
+   .sctn_4-link {
+     height: 5em;
    }
 }
 
