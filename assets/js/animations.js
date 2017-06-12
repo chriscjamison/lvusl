@@ -888,39 +888,23 @@ function animateInfoElement(time_value) {
 
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
-function animateFormPanes() {
+function animateForm(time_value) {
   /* **************** **************** **************** **************** **************** 
    * animateFormPanes animates the content of the HTML elements which make up 
    * the Screening, Rate, and Contact forms.
    * **************** *************** **************** **************** **************** */
 
-  var clmn_1_selector = new String();
-  var clmn_2_selector = new String();
-  
   var page_1_selector = new String();
   var page_2_selector = new String();
   var page_1_element = new Object();
   var page_2_element = new Object();
   
-  var section_value = new Number();
-  // This variable holds a number which represents the Section which is viewable and contains 
-  // the form this function processes.
-
-  var url_info_Array = new Array();
-  
   var page_off_css = new Object();
   var page_on_css = new Object();
+  var opacity_zero_css = new Object();
  
-  url_info_Array = urlInfo();
-  // "url_info_Array" holds the Section and Position values that are 
-  // stored within the URL.
-
-  section_value = url_info_Array[0];
-  // "section_value" now holds the Section value that was held 
-  // by the first index of "url_info_Array".
-
-  page_1_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
-  page_2_selector = "#form-sctn_" + section_value.toString() + " .form-page_2";
+  page_1_selector = "#sctn_1-form > form > div + span > div";
+  page_2_selector = "#sctn_1-form > form > div + span + div + div";
   // "page_1_selector" now holds the selector used by the HTML element which contains 
   // the "first page" of the form this function is processing.
   //
@@ -945,45 +929,64 @@ function animateFormPanes() {
     display: "block"
   };
 
-  if (section_value === 5)  {
-  // If the form this function is processing is held within 'SECTION #5', then 
-  // it is 'FORM TYPE #2', which only has one page.
+  opacity_zero_css = {
+    opacity: "0"
+  };
+
+  if ($(page_1_element).hasClass("visible") === true)  {
+  // If the second page is not visible, this condition is triggered.
+
+    $(page_1_element).fadeTo(time_value, 0);
+    // The opacity of the first page is moved over time from 1 to 0.
+    $(page_1_element).css(page_off_css);
+    // The first page is no longer visible.
+    $(page_1_element).removeClass();
+    // The <div> containing the first page is stripped of the class, 'visible'.
+    $(page_1_element).addClass("not_visible");
+    // The <div> containing the first page has the class, 'not_visible', added.
+    
+    $(page_2_element).css(page_off_css);
+    // The second page is no longer visible.
+    $(page_2_element).removeClass();
+    // The <div> containing the second page is stripped of the class, 'not_visible'.
+    $(page_2_element).addClass("visible");
+    // The <div> containing the second page has the class, 'visible', added, 
+    // preparing it to be made visible.
+    $(page_2_element).css(opacity_zero_css);
+    // The <div> containing the second page has its opacity changed to 0.
+    $(page_2_element).css(page_on_css);
+    // The second page is now able to be displayed.
+    $(page_2_element).fadeTo(time_value, 1);
+    // The opacity of the second page is moved over time from 0 to 1.
+  } else {
+  // Otherwise the second page is visible and the first 
+  // page needs to be made visible.
+
+    $(page_2_element).fadeTo(time_value, 0);
+    // The opacity of the second page is moved over time from 1 to 0.
+    $(page_2_element).css(page_off_css);
+    // The second page is no longer visible.
+    $(page_2_element).removeClass();
+    // The <div> containing the second page is stripped of the class, 'visible'.
+    $(page_2_element).addClass("not_visible");
+    // The <div> containing the second page has the class, 'not_visible', added.
+    
+    $(page_1_element).css(page_off_css);
+    // The first page is no longer visible.
+    $(page_1_element).removeClass();
+    // The <div> containing the first page is stripped of the class, 'not_visible'.
+    $(page_1_element).addClass("visible");
+    // The <div> containing the first page has the class, 'visible', added, 
+    // preparing it to be made visible.
+    $(page_1_element).css(opacity_zero_css);
+    // The <div> containing the first page has its opacity changed to 0.
     $(page_1_element).css(page_on_css);
     // The first page is now able to be displayed.
     $(page_1_element).fadeTo(time_value, 1);
-    // The "opacity" of the page is moved over time from 0 to 1.
-  } else  {
-  // Otherwise, if the form this function is processing is 'FORM TYPE #1' 
-  // or 'FORM TYPE #6', then the "opacity" of the first page 
-  // needs to be checked.
-
-    if ($(page_1_element).css("opacity") === "0")  {
-    // If the first page is not visible, this condition is triggered.
-      $(page_2_element).fadeTo(time_value, 0);
-      // The opacity of the second page is moved over time from 1 to 0.
-      $(page_2_element).css(page_off_css);
-      // The second page is now invisible.
-      $(page_1_element).css(page_on_css);
-      // The first page is now able to be displayed.
-      $(page_1_element).fadeTo(time_value, 1);
-      // The opacity of the first page is moved over time from 0 to 1.
-    } else {
-    // Otherwise the second page needs to be made visible and the first 
-    // page needs to be made invisible.
-
-      $(page_1_element).fadeTo(time_value, 0);
-      // The opacity of the first page is moved from 1 to 0.
-      $(page_1_element).css(page_off_css);
-      // The first page is now invisible.
-      $(page_2_element).css(page_on_css);
-      // The second page is now able to be displayed.
-      $(page_2_element).fadeTo(time_value, 1);  
-      // The opacity of the second page is moved over time from 0 to 1.
-    } // END OF if STATEMENT which is triggered if the opacity 
-      // of the first page this form which this function is processing is 0.
-  } // END OF if STATEMENT which is triggered if the Section value 
-  // of the form this function is processing is 5.
-
+    // The opacity of the first page is moved over time from 0 to 1.
+  } // END OF if STATEMENT which is triggered if the second page is not 
+    // visible.
+  
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animatePageElements(time_value)  {
