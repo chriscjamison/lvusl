@@ -191,7 +191,8 @@ body {
 
 .sctn_1-blok, 
 .sctn_3-blok, 
-.sctn_4-link {
+.sctn_4-link, 
+.sctn_5-blok {
  	height: initial;
 	padding: 1em 2em;
 	position: absolute;
@@ -332,119 +333,18 @@ body {
   color: #6b4014;
 }
 
-.sctn_4-blok > p {
-	text-indent: 1em;
-  line-height: 1.7em;
-}
-/* Formats <p> elements which are contained with an individual block contained 
- * within 'SECTION #4'.
- */
-
-.sctn_4-blok > div {
-	position: absolute;
-	top: -0.3em;
-	left: 0.06em;
-	font-size: 12em;
-}
-/* Formats <div> elements which appear as quotation marks above the blocks 
- * contained within 'SECTION #4'.
- */
-
-.sctn_4-blok > span {
-	width: 100%;
-	display: block;
-	padding-top: 0.3em;
-	border-top: 3px solid;
-	font-size: 1.25em;
-	font-weight: 800;
-	text-align: right;
-}
-/* Formats a <span> element which contains a text header for the 'block' within each 
- * sub-section. The <span> elements appear within the <div> elements using the selectors, 
- * 'sctn_4-desc-2', 'sctn_4-desc-3', & 'sctn_4-desc-4'.
- */
-
-#sctn_4-desc-1 {
-	background-color: #a33042;
-  color: #fbdadf;
-}
-/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
-
-#sctn_4-desc-2 {
-	background-color: #ffd6bc;
-  color: #ac6133
-}
-/* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
-
-#sctn_4-desc-2 div {
-	color: #fbbc95;
-}
-/* Formats the quotation marks which appear above the block 
- * within the 'SECOND WINDOW PANE' of 'SECTION #4'. 
- */
-
-#sctn_4-desc-2 span {
-	color: #d48b5d;
-}
-/* Formats a <span> element which are contained within a  block 
- * within the 'SECOND WINDOW PANE' of 'SECTION #4'. 
- */
-
-#sctn_4-desc-3 {
-  background-color: #FBBC95;
-  color: #AC6133;
-}
-/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
-
-#sctn_4-desc-3 div {
-  color: #FFF2DE;
-}
-/* Formats the quotation marks which appear above the block 
- * within the 'THIRD WINDOW PANE' of 'SECTION #4'. 
- */
-
-#sctn_4-desc-3 span {
-  color: #AC7F33;
-}
-/* Formats a <span> element which are contained within a  block 
- * within the 'THIRD WINDOW PANE' of 'SECTION #4'. 
- */
-
-#sctn_4-desc-4 {
-  background-color: #fbd595;
-  color: #AC7F33;
-}
-/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #4'. */
-
-#sctn_4-desc-4 div {
-  color: #FFF2DE;
-}
-/* Formats the quotation marks which appear above the block 
- * within the 'FOURTH WINDOW PANE' of 'SECTION #4'. 
- */
-
-#sctn_4-desc-4 span {
-  color: #D3A75D;
-}
-/* Formats a <span> element which are contained within a  block 
- * within the 'FOURTH WINDOW PANE' of 'SECTION #4'. 
- */
-
-
 
 /* ---- 'SECTION #5' ---- */
 
-.headr.sctn_5 {
-	background-color: #3C667B;
+.headr.sctn_5 > span {
+	color: #ffe6ce;
 }
 /* Formats the color of the <div> which holds the title of 'SECTION #5'. */
 
 .sctn_5-blok {
-	width: 28.9em;
-  margin-right: 4.5em;
-	padding: 1em 2em;
 	position: relative;
-	opacity: 0;
+  font-family: 'Istok Web', sans-serif;
+  opacity: 1;
 }
 /* Formats the blocks which are contained with 'SECTION #5'. */
 
@@ -456,14 +356,54 @@ body {
  * using the class, '.sctn_5-blok'.
  */
 
-#sctn_5-desc-1 {
-  float: left;
-	background-color: #96C5AA;
-	color: #216F43;
+#sctn_5-listing {
+  position: absolute;
+  left: 44em;
+  background-color: #ffe0c1;
+  font-family: 'Istok Web', sans-serif;
 }
 /* Formats the block which contains text content but does not include a <button> element 
  * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
  */
+
+#sctn_5-listing > span {
+  margin-bottom: 0.75em;
+  display: block;
+  border-bottom: 2px solid #fff6ed;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#sctn_5-listing > div {
+  margin-top: 1em;
+}
+
+#sctn_5-listing > span, 
+#sctn_5-listing > div > span {
+  color: #ee9e4f;
+}
+
+#sctn_5-listing > div > span + span {
+  height: 1em;
+  margin-left: 0.5em;
+  padding: 0 0.35em 0.3em 0.3em;
+  background-color: #ee9e4f;
+  color: #ffe0c1;
+  text-align: center;
+}
+
+#sctn_5-listing > div > span, 
+#sctn_5-listing > div > span + span {
+  display: block;
+  float: left;
+  font-weight: 700;
+}
+
+#sctn_5-listing > div > a {
+  display: block;
+  color: #75a6b2;
+  clear: both;
+}
 
 #sctn_5-desc-2 {
 	width: 29em;
@@ -1471,7 +1411,8 @@ body {
 
    .sctn_1-blok, 
    .sctn_3-blok, 
-   .sctn_4-link {
+   .sctn_4-link, 
+   #sctn_5-job_titles {
      width: 20em;
    }
 
