@@ -698,18 +698,6 @@ function setupPage(time_value)  {
   // "animatePageElements" is called to animate the blocks that are contained within an individual 
   // "window".
 
-  setTimeout(
-    function () {
-      displayVerticalNav();
-    }, (time_value * 1.25)
-  );
-  // The inter-section navigation, which appears on the far-right side of the browser 
-  // within a desktop or laptop display, or in the middle of the page 
-  // within a mobile display is activate.
-  // 
-  // The function runs after a period of time after the other HTML elements of the web page 
-  // are rendered. The time period is twice the value held by the variable, "time_value".
-
 } /* **************** END OF FUNCTION "setupPage" **************** */
 
 
@@ -998,7 +986,7 @@ function animateFormPanes() {
 
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
-function animatePageElements()  {
+function animatePageElements(time_value)  {
   /* **************** **************** **************** **************** **************** 
    * "animatePageElements" triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
@@ -1846,11 +1834,12 @@ function setURL(current_position, url_hash)  {
   // If the browser window is at the top of the webpage, the URL does not include the hash, 
   // "#sctn_main", and the opacity of the HTML element using the selector, "#info" is 0, 
   // this condition is triggered.
-
+      
       url_hash = "#sctn_main";     
   } else {
   // Otherwise, if the webpage appears in a different location from the top, this condition 
   // is triggered.
+    
     section_value_num = determineCurrentSection(current_position);
     // "section_value_num" is passed a Number from the function, "determineCurrentSection", 
     // which represents the Section which is currently visible.
@@ -1859,16 +1848,18 @@ function setURL(current_position, url_hash)  {
     // This condition validates the Section value that the function, "determineCurrentSection", 
     // passes back to this function. If the value of, "section_value_num" lies between a range 
     // of 1 - 6, this condition is triggered.
-
+      
       section_value = "#wndow-sctn_" + section_value_num;
       
       if (current_position >= (wndow_height - window_margin)) {
       // If the current position of the browser window lies below the 'MAIN LANDING SECTION', 
       // this condition is triggered.
+        
         position_value = (determineVisibleCopyElement(section_value)).toString();;  
       } else  {
       // Otherwise, if the browser window lies within the 'MAIN LANDING SECTION', 
       // this condition is triggered.
+        
         position_value = "0";
       } // END OF if STATEMENT that is triggered if the current location of the browser window 
         // lies below the 'MAIN LANDING SECTION'.
@@ -1876,7 +1867,7 @@ function setURL(current_position, url_hash)  {
       if (position_value === "-1")  {
       // If the value passed to, "position_value", is an unknown value, '-1', this 
       // condition is triggered.
-        
+
         position_value = "0";
         // If an unknown value, "-1", is passed on to, "position_value", the "first" 
         // window pane ought to be shown. The Position value for the "first" 
@@ -1991,7 +1982,7 @@ function setPageInitialLocation()  {
     // by a mathematical statement.
 
     wndow_selector = ".wndow";
-    copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
+    copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
     
     wndow_element = $(wndow_selector);
     copy_element = $(copy_selector);
@@ -2022,32 +2013,13 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   
   $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
-      var form_selector = new String();
-      var form_element = new Object();
-
-      if (section_value === 3 || 
-          section_value === 4)  {
+      if (section_value === 2)  {
       // If the current visible Section contains intrasection navigation, 
       // this condition is triggered.
+
         $(sub_nav_element).fadeTo(time_value, 1);
       } // END OF if STATEMENT which is triggered if the current Section 
         // contains intrasection navigation.
-
-      form_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
-      form_element = $(form_selector);
-
-      if ($(form_element).css("opacity") === "0" && 
-          (section_value === 1 && position_value === 1 || 
-           section_value === 5 && position_value === 1 || 
-           section_value === 6 && position_value === 1))  {
-      // If the current visible Section contains a form which is invisible 
-      // and the Section contains a form, this condition is triggered.
-
-        animateFormPanes();
-        // The function, "animateFormPanes" fades the opacity of the form 
-        // contained with the current Section from 0 to 1.
-      } // END OF if STATEMENT which is triggered if a Section contains a form 
-        // that is now to be made visible.
     } // END of FUNCTION which fades in the HTML content of a visible Section.
   );
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */

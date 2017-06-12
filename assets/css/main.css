@@ -60,22 +60,18 @@ body {
  /* Formats the <div> elements which hold the background images for the individual sections. */
 
 .headr {
-	width: 61.2em;
 	height: 6em;
 	position: absolute;
 	top: 3.13em;
-	display: table;
-  opacity: 0;
+	opacity: 0;
 }
 /* Formats the <div> which holds the 'SECTION' title for a given section. */
 
 .headr > span {
-  width: 12em;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  font: 600 2.5em 'Balthazar', 'Cambria', serif;
-	letter-spacing: 2px;
+  width: 14.75em;
+  display: block;
+  font: 400 2.5em 'Alfa Slab One', 'Cambria', serif;
+	letter-spacing: 4px;
 	color: #fff;
 }
 /* Formats the <span> element which holds the text of the 'SECTION' title of a 
@@ -135,7 +131,8 @@ body {
  * a newsletter or reserve season tickets.
  */
 
-#info > div > a {
+#info > div > a, 
+.sctn_nav > div > a {
   width: 7.5em;
   height: 3em;
   margin-right: 0.5em;
@@ -146,7 +143,7 @@ body {
   font-size: 1em;
   font-family: 'Istok Web', sans-serif;
   color: #000;
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
   text-align: center;
 }
@@ -171,90 +168,104 @@ body {
 
 /* ---- 'SECTION #1' ---- */
 
-.headr.sctn_1 {
-	background-color: #92676c;
+.headr.sctn_1 > span {
+	color: #ffe272;
 }
 /* Formats the color of the <div> which holds the title of 'SECTION #1'. */
 
-.sctn_1-blok, 
-.sctn_3-blok,
-.sctn_4-blok, 
-.sctn_6-blok {
-	width: 32.5em;
-	height: initial;
+.visible {
+  display: block;
+}
+/* Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made visible. */
+
+.not_visible {
+  display: none;
+}
+/*  Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made invisible. */
+
+.visible, 
+.not_visible {
+  opacity: 1;
+}
+/* Formats the <div> elements which contain the form questions of 'FORM TYPE #2'. */
+
+.sctn_1-blok {
+ 	height: initial;
 	padding: 1em 2em;
 	position: absolute;
-	z-index: 2;
+  z-index: 2;
 	opacity: 0;
 }
-/* Formats the main 'blocks' which hold <p> elements which contain text content. 
- * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
- * are formatted in this pairing. 
- */
+/* Formats the 'block' which hold <input> elements which contain form questions. */
 
-.sctn_1-blok > span {
+#sctn_1-form {
+  background-color: #ffd283;
+}
+
+#sctn_1-desc-1 {
+  left: 41.25em;
+  background-color: #b6dbda;
+}
+
+#sctn_1-desc-1 > p {
+  font: 400 1em 'Istok Web', sans-serif ;
+  color: #509590;
+}
+
+.sctn_1-blok > form > span {
 	width: 100%;
 	padding-bottom: 0.25em;
 	display: inline-block;
-	border-bottom: 2px solid;
-	font-weight: 800;
-	font-size: 2.5em;
+  font-family: 'Istok Web', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+  color: #af9015;
 }
-/* Formats a <span> element which contains a text header for an individual response from 
- * 'FORM TYPE #1. The <span> elements appear within the <div> elements using the selectors, 
- * 'sctn_1-desc-2' & 'sctn_1-desc-3'.
+/* Formats a <span> element which contains a text header for 'FORM TYPE #2'. */
+
+
+.sctn_1-blok > form > div > div > span {
+  font-family: 'Istok Web', sans-serif;
+  color: #363637;
+}
+/* Formats the text descriptors for the form questions of 'FORM TYPE #2'. */
+
+.sctn_1-blok > form > div > div {
+  margin: 0.75em 0;
+}
+/* Formats the <div> elements which surround form questions of 'FORM TYPE #2. */
+
+.sctn_1-blok > form > div > div:first-of-type, 
+.sctn_1-blok > form > div > div:nth-child(3) {
+  margin-top: 0.1em;
+}
+/* 
+ * Formats the <div> element which surrounds the form questions of 'FORM TYPE #2' 
+ * which appear near the top of the block, '.sctn_1-blok'.
  */
 
-.sctn_1-blok > p {
-	margin-bottom: 2.0em;
-	text-indent: 1.3em;
-	line-height: 1.8em;
-  color: #58262c;
+#ticket-line_3 {
+	margin-bottom: 1.25em;
 }
-/* Formats the <p> elements which hold the text content that is contained by a <div> element
- * using the class, '.sctn_1-blok'.
- */
-
-.sctn_1-blok > p ~ p {
-  margin-bottom: 1.7em;
-  padding-bottom: 1.5em;
-  border-bottom: 3px solid;
-}
-/* More formatting for the <p> elements which hold the text content that is 
- * contained by a <div> element using the class, '.sctn_1-blok'.
- */
-
-#sctn_1-desc-1 {
-	background-color: #e7d4c8;
-}
-/* Contains more formating for a <div> element also using the class, 'sctn_1-blok. 
- * Appears within the 'FIRST WINDOW PANE' or first sub-section of 'SECTION #1' 
- */
-
-#sctn_1-desc-2 {
-	background-color: #e7dcc8;
-	color: #6d5647;
-}
-/* Contains more formating for a <div> element also using the class, 'sctn_1-blok. 
- * Appears within the 'THIRD WINDOW PANE' or third sub-section of 'SECTION #1' 
- */
-
-#sctn_1-desc-3 {
-	background-color: #dec0c3;
-	color: #694448;
-}
-/* Contains more formating for a <div> element also using the class, 'sctn_1-blok. 
- * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
- */
-
-
+/* Formats the text fields of the second question of 'FORM TYPE #2' of 'SECTION #1'. */
 
 /* ---- 'SECTION #2' ---- */
 
-.headr.sctn_2 {
-	background-color: #744725;
+.headr.sctn_2.span {
+	background-color: #b9def0;
 }
-/* Formats the color of the <div> which holds the title of 'SECTION #2'. */
+/* Formats the color of the <span> which holds the title of 'SECTION #2'. */
+
+#sctn_2-video, 
+#sctn_2-document {
+  padding: 1em;
+  background-color: #ccc;
+}
+/* 
+ * Formats the <div> element which serves as a border for the embedded video 
+ * and the splash image. 
+ * 
+ */
 
 .sctn_2-blok {
 	width: 26.5em;
@@ -1539,8 +1550,8 @@ body {
 }
 
 @media screen and (min-width: 1590px) and (max-width: 1900px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
-   * This breakpoint is optimized to fit resolutions of 1366x768px.
+  /* This CSS breakpoint affects browsers which have a width more than 1590px and a width less than 1900px. 
+   * This breakpoint is optimized to fit resolutions of 1600x900px.
    */
 
    #info {
@@ -1553,6 +1564,26 @@ body {
     height: 7.25em;
     margin: 1.75em 0 0 33.5em;
     float: left;
+   }
+
+   .copy {
+     width: 81.5em;
+     height: 48em;
+   }
+
+   .headr {
+     width: 81.5em;
+     margin-left: 17.5em;
+   }
+
+   .sctn_1-blok {
+     width: 20em;
+   }
+
+   #sctn_2-video {
+     width: 50em;
+     height: 28.1em;
+     margin-left: 4.5em;
    }
 }
 

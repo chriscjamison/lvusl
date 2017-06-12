@@ -21,6 +21,7 @@ nav {
   top: 0;
   position: fixed;
   left: -20.45em;
+  opacity: 0;
 	z-index: 2;
 }
 /* Formats the <nav> element which contains the inter-sectional navigation. */
@@ -268,10 +269,7 @@ nav {
  */
 
 .sctn_nav {
-	width: 61.25em;
-	height: 8.44em;
-	position: absolute;
-	top: 39.38em;
+  position: absolute;
 	opacity: 0;
 }
 /* Formats a <div> element which contains the intra-sectional navigation 
@@ -279,8 +277,7 @@ nav {
  */
  
 .sctn_nav > div {
-	width: 46.25em;
-	height: inherit;
+	height: 4.5em;
 	margin: 0 auto;
 }
 /* Formats the <div> element which serves as a container for the <div> and <span> 
@@ -288,117 +285,15 @@ nav {
  * and 'SECTION #4'.
  */
 
-.sctn_nav > div > span {
-	width: 9.38em;
-	height: 2.19em;
-	display: block;
-	position: relative;
-	margin: 0 auto;
-	background-position: 0px 0px;
-	color: #fff;
-	cursor: auto;	
-} 
-/* Formats the <span> element which serves as the menu-button for the intra-sectional 
- * navigation for 'SECTION #3' and 'SECTION #4'. 
- */
-
-.sctn_nav > div > span:hover {
-  cursor: pointer;
+#nav-sctn_2 > div > a:nth-child(1), 
+#nav-sctn_2 > div > a:nth-child(2) {
+  padding: 1.5em 0 0 0;
 }
-/* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
- * which serves as the menu-button for the intra-sectional navigation. 
- */
 
-#nav-sctn_3 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
+#nav-sctn_2 > div > a:nth-child(3) {
+  margin-right: 0;
 }
-/* Formats the background-image of the <span> element which serves as the 
- * menu-button for the intra-sectional navigation for 'SECTION #3'.
- */
 
-#nav-sctn_4 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
-}
-/* Formats the background-image of the <span> element which serves as the 
- * menu-button for the intra-sectional navigation for 'SECTION #4'.
- */
-
-.sctn_nav > div > span.base-sctn_nav {
-	background-position: 0px 0px;
-	cursor: default;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the base click state.
- */
-
-.sctn_nav > div > span.hover-sctn_nav {
-	background-position: 0px -35px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the hover click state.
- */
-
-.sctn_nav > div > span.active-sctn_nav {
-	background-position: 0px -70px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the active click state.
- */
-
-.sctn_nav > div > span.click-sctn_nav {
-	background-position: 0px -105px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the click state which is set once the menu-button has been clicked.
- */
-
-.sctn_nav > div > div {
-	width: 46.25em;
-	height: 2.19em;
-	margin: 0 auto;
-	position: absolute;
-	display: none;
-}
-/* Formats the <div> element which contains the <a> elements which serve as 
- * menu-options of the intra-sectional navigation.
- */
-
-.sctn_nav > div > div > a {
-	width: 6.56em;
-	height: 1.38em;
-	display: block;
-	float: left;
-	margin: 0 0.94em;
-	padding: 0.19em 0 0.38em 0;
-	background-color: #000;
-	border: 2px solid #222;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-	letter-spacing: 1px;
-	cursor: pointer; 
-}
-/* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
-
-.sctn_nav > div > div a:hover {
-	background-color: #333;
-}
-/* Formats the click-state for the <a> elements which serves as menu-options
- * for the intra-sectional navigation.
- * This is the hover click state.
- */
 
 @media screen and (width: 980px) {
   /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
@@ -624,7 +519,7 @@ nav {
   }
 }
 
-@media screen and (min-width: 1260px) {
+@media screen and (min-width: 1030px) and (max-width: 1290px) {
   /* This CSS breakpoint affects browsers which have a width of at least 1260px. 
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
@@ -710,7 +605,7 @@ nav {
   };
 }
 
-@media screen and (min-width: 1340px) and (max-width: 1890px) {
+@media screen and (min-width: 1340px) and (max-width: 1580px) {
   /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1890px. 
   * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
   */
@@ -744,6 +639,22 @@ nav {
     width: 85.38em !important;
     top: 33em !important;
   }
+}
+
+@media screen and (min-width: 1590px) and (max-width: 1900px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1590px and a width less than 1900px. 
+   * This breakpoint is optimized to fit resolutions of 1600x900px.
+   */
+
+  .sctn_nav {
+    width: 99em;
+    top: 42em;
+  }
+
+  .sctn_nav > div {
+    width: 25em;
+  }
+  
 }
 
 @media screen and (min-width: 1910px) {

@@ -617,17 +617,29 @@ $(document).ready(
         setURL(current_position, url_hash);
         // "setURL" matches the URL hash with the current viewable Section.
 
-        if (current_position === 0 && 
-            info_css_opacity_val === "0") {
-        // If the current location of the browser window is 0 and the 
-        // HTML content contained within 'MAIN LANDING SECTION' has an 
-        // opacity of 0, then this condition is triggered.
-          animateInfoElement(time_value);
-          // The HTML content contained within 'MAIN LANDING SECTION' is 
-          // faded into view.
-        } // END of "if" STATEMENT which is triggered if the current 
-          // location of the browser window is 0 and the HTML content 
-          // within 'MAIN LANDING SECTION' has an opacity of 0.
+        if (current_position < 144) {
+        // If the current location of the browser window is above the location of 
+        // the logo, this condition is triggered.
+          if ($("nav").css("opacity") === "1") {
+          // If the main menu is visible, this condition is triggered.
+            $("nav").css("opacity", "0");
+            // The opacity of the main menu is changed to 0.
+          } // END of "if" STATEMENT which is triggered if the main menu 
+            // is visible.
+
+          if (current_position === 0 && 
+              info_css_opacity_val === "0") {
+          // If the current location of the browser window is 0 and the 
+          // HTML content contained within 'MAIN LANDING SECTION' has an 
+          // opacity of 0, then this condition is triggered.
+            animateInfoElement(time_value);
+            // The HTML content contained within 'MAIN LANDING SECTION' is 
+            // faded into view.
+          } // END of "if" STATEMENT which is triggered if the current 
+            // location of the browser window is 0 and the HTML content 
+            // within 'MAIN LANDING SECTION' has an opacity of 0.
+        } // END of "if" STATEMENT which is triggered if the current location 
+          // of the browser window is above the location of the logo.
       } // END of ".on("scroll") Method
     );
     
@@ -676,8 +688,10 @@ $(document).ready(
           nav_width_val = nav_width_string.substring(0, px_search_index_num);
           // The numeric value of the width of the HTML element, "nav", is 
           // extracted from the value of "nav_width_string".
-          nav_width_val = parseInt(nav_width_val);
+          nav_width_val = parseFloat(nav_width_val);
           // The value of "nav_width_val" is changed to an Number.
+          nav_width_val = Math.round(nav_width_val);
+          // The value of "nav_width_val" is rounded up to the nearest Integer.
 
           px_search_index_num = nav_left_string.indexOf(px_search_string);
           nav_left_val = nav_left_string.substring(1, px_search_index_num);
@@ -700,7 +714,7 @@ $(document).ready(
             
             current_position = $(window).scrollTop();
             
-            animatePageElements();
+            animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".
             

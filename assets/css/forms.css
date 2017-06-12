@@ -236,21 +236,24 @@ fieldset > div {
 
 input[type=button],
 input[type=submit] {
-	width: 125px;
-	height: 50px;
+	width: 7.5em;
+  height: 3em;
 	margin: 0 0 0 1.2em;
+	padding: 0.75em;
 	float: right;
-	background-color: #40BDE8;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
-	color: #221763;
-	border: 2px solid #369DBF;
+	background-color: #f7941d;
+	border: 2px solid #a0410d;
+  font-size: 1em;
+  font-family: 'Istok Web', sans-serif;
+  color: #000;
+  text-decoration: none;
 	cursor: pointer;
 }
 /* Formats which appear as buttons throughout the webpage. */
 
 input[type=button]:hover,
 input[type=submit]:hover {
-	background-color: #33CCFF;
+	background-color: #ffff66;
 }
 /* Formats the click-state for the <button> and <submit> elements which appear 
  * throughout the webpage.
@@ -270,12 +273,26 @@ input[type=text],
 input[type=email],
 input[type=number],
 textarea {
-	padding: 0.5em;
-	border: 2px solid #bbb;
-	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
+	padding: 0.35em;
+	border: 2px solid #ccc;
+	font: 400 1em "Istok Web", sans-serif;
 	letter-spacing: 1px;
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
+
+#ticket-question_2 > input {
+	margin-bottom: 0.5em;
+}
+/* Formats the text fields of the second question of 'FORM TYPE #2' of 'SECTION #1'. */
+
+#input-state {
+	margin: 0 0.08em;
+}
+/* 
+ * Formats the 'State' text field of 'FORM TYPE #2' of 'SECTION #1'. Is used to align 
+ * the edge of the 'Zip Code' text field with the text fields which appear in 
+ * the 'Address' fields which appear above.
+ */
 
 input[type=radio],
 input[type=checkbox] {

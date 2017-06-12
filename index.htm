@@ -53,38 +53,41 @@
 				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-form">
+						<form method="GET" action="#" name="sctn_1-request_tickets" id="sctn_1-request_tickets">
+						<span>Ticket Reservation Form</span>
 						<div class="visible">
-							<div id="ticket-qstn_1">
-								<span>Please enter your name as it appears on the card.</span>
+							<div id="ticket-question_1">
+								<span>Please enter your name as it appears on the credit card.</span>
 								<input type="text" size="34" maxlength="60" name="full_name" id="input-full_name" />
 							</div>
-							<div id="ticket-qstn_2">
+							<div id="ticket-question_2">
 								<span>Please enter your billing address.</span>
 								<input type="text" size="34" maxlength="60" name="address_1" id="input-address_1" />
 								<input type="text" size="34" maxlength="60" name="address_2" id="input-address_2" />
 								<div id="ticket-line_3">
-									<input type="text" size="18" maxlength="30" name="city" id="input-city" />
+									<input type="text" size="15" maxlength="30" name="city" id="input-city" />
 									<input type="text" size="2" maxlength="2" name="state" id="input-state" />
-									<input type="text" size="10" maxlength="10" name="zip_code" id="input-zip_code" />
+									<input type="text" size="5" maxlength="10" name="zip_code" id="input-zip_code" />
 								</div>
 							</div>
 							<input type="button" name="ticket-next" value="Next Step" id="input-next_step" />
 						</div>
 						<div class="not_visible">
-							<div id="ticket-qstn_3">
+							<div id="ticket-question_3">
 								<span>Please enter your credit card number.</span>
 								<input type="text" size="34" maxlength="20" name="card_num" id="input-card_num" />
 							</div>
-							<div id="ticket-qstn_4">
+							<div id="ticket-question_4">
 								<span>Please enter your three digit security code.</span>
 								<input type="text" size="3" maxlength="3" name="security_code" id="input-security_code" />
 							</div>
 							<input type="button" name="ticket-previous" value="Previous Step" id="input-previous_step" />
 							<input type="submit" name="ticket-submit_request" value="Submit Request" id="input-submit_request" />
 						</div>
+						</form>
 					</div>
-				</div>
 				<!-- END of WINDOW PANE #1 -->
+				</div>
 				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-desc-1">
@@ -105,34 +108,29 @@
 				<div class="headr sctn_2"><span>About USL</span></div>
 				<!-- WINDOW PANE #1 -->
 				<div class="copy">
-					<div class="visible">
-						<div id="sctn_2-video">
-							<div>
-								<video width="800" height="600" controls>
-									<source src="/assets/video/about_usl.mp4" type="video/mp4">
-									Your browser does not support the video tag.
-								</video>
-							</div>
-						</div>
-					</div>
-					<div class="not_visible">
-						<div id="sctn_2-document">
-							<a href="/lvusl/assets/pdf/about_usl.pdf" target="_blank"><img src="/lvusl/assets/img/about/about_usl.jpg" width="800" height="750" alt="About USL" /></a>
-						</div>
-					</div>
-					<!-- CONTENT LINKS for SECTION #2 -->
-					<div class="sctn_nav" id="nav-sctn_2">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="#video">Hype Video</a>
-								<a href="#pdf">About USL</a>
-								<a href="http://uslsoccer.com/" target="_blank">Visit<br/>USLSoccer.com</a>
-							</div>
-						</div>
-					<!-- END of CONTENT LINKS for SECTION #2 -->
+					<div id="sctn_2-video">
+						<video width="800" height="450" controls>
+							<source src="/lvusl/assets/video/about_usl.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
 				<!-- END of WINDOW PANE #1 -->
+				</div>
+				<!-- WINDOW PANE #2 -->
+				<div class="copy">
+					<div id="sctn_2-document">
+						<a href="/lvusl/assets/pdf/about_usl.pdf" target="_blank"><img src="/lvusl/assets/img/about/about_usl.jpg" width="800" height="750" alt="About USL" /></a>
+					</div>
+				<!-- END of WINDOW PANE #2 -->
+				</div>
+				<!-- CONTENT LINKS for SECTION #2 -->
+				<div class="sctn_nav" id="nav-sctn_2">
+					<div>
+						<a href="#video">Hype Video</a>
+						<a href="#pdf">About USL</a>
+						<a href="http://uslsoccer.com/" target="_blank">Visit<br/>USLSoccer.com</a>
+					</div>
+				<!-- END of CONTENT LINKS for SECTION #2 -->
 				</div>
 			<!-- END of SECTION #2 -->
 			</div>
