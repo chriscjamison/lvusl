@@ -522,6 +522,8 @@ function setupPage(time_value)  {
   var wndow_selector = new String();
   var bkgrnd_selector = new String();
   var nav_selector = new String();
+  var video_selector = new String();
+  var pdf_selector = new String();
   var bkgrnd_div_sub_selector = new String();
   var wndow_sctn_selector = new String();
   // Holds a selector for an individual Section which is worked on by 
@@ -536,6 +538,8 @@ function setupPage(time_value)  {
   var copy_elements = new Object();
   var bkgrnd_element = new Object();
   var nav_elements = new Object();
+  var video_element = new Object();
+  var pdf_element = new Object();
   var bkgrnd_div_sub_elements = new Object();
   var wndow_sctn_element = new Object();
   // Holds the jQuery Object that refers to the HTML element 
@@ -550,6 +554,9 @@ function setupPage(time_value)  {
   var width_height_css = new Object();
   var nav_css = new Object();
   
+  var video_attr = new Object();
+  var pdf_attr = new Object();
+
   var inc_bkgrnd = new Number();
   
   var bkgrnd_img_value = new String();
@@ -580,12 +587,16 @@ function setupPage(time_value)  {
   wndow_selector = ".wndow";
   bkgrnd_selector = "#bkgrnd";
   nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
+  video_selector = "#sctn_2-video > video";
+  pdf_selector = "#sctn_2-document > a > img"
   bkgrnd_div_sub_selector = "#bkgrnd > div";
   
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
   bkgrnd_element = $(bkgrnd_selector);
   nav_elements = $(nav_selector);
+  video_element = $(video_selector);
+  pdf_element = $(pdf_selector);
   bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
   
   cntainr_css = {
@@ -601,6 +612,34 @@ function setupPage(time_value)  {
   nav_css = {
     "left": nav_left_val
   }
+
+  if (wndow_width === 1280)  {
+  // If the width of the browser window is 1280px, this condition 
+  // is triggered.
+
+    video_attr = {
+      width: "680", 
+      height: "382"
+    };
+    // The width and height attributes of the <video> element in SECTION #2 are 
+    // stored in, "video_attr".
+
+    pdf_attr = {
+      width: "519", 
+      height: "388"
+    };
+    // The width and height attributes of the <img> element in SECTION #2 are 
+    // stored in, "pdf_attr".
+
+    $(video_element).attr(video_attr);
+    // The width and height of the <video> element within SECTION #2 are changed to 
+    // better fit the browser window
+    $(pdf_element).attr(pdf_attr);
+    // The width and height of the <img> element within SECTION #2 are changed 
+    // to better fit the browser window.
+
+  } // END of "if" STATEMENT which is triggered if the browser window 
+    // is 1280px.
   
   $(cntainr_element).css(cntainr_css);
   // The HTML element using the selector, "#cntainr", is formatted to 
@@ -614,7 +653,7 @@ function setupPage(time_value)  {
   $(nav_elements).css(nav_css);
   // The HTML elements using the selector, "nav, #nav-bkgrnd, #nav-brdr", 
   // are placed off of the left hand side of the browser window.
-   
+     
   inc_bkgrnd = 0;
   // "inc_bkgrnd" serves as an incrementer which increases in value as 
   // the jQuery Method, ".each", cycles through the HTML elements defined 
@@ -903,8 +942,8 @@ function animateForm(time_value) {
   var page_on_css = new Object();
   var opacity_zero_css = new Object();
  
-  page_1_selector = "#sctn_1-form > form > div + span > div";
-  page_2_selector = "#sctn_1-form > form > div + span + div + div";
+  page_1_selector = "#sctn_1-form > form > span + div";
+  page_2_selector = "#sctn_1-form > form > span + div + div";
   // "page_1_selector" now holds the selector used by the HTML element which contains 
   // the "first page" of the form this function is processing.
   //
@@ -1143,11 +1182,15 @@ function animatePageElements(time_value)  {
 
     window_width = page_dimensions_Array[0];
     // The width, held by, "page_dimensions_Array", is passed to "window_width".
-  
-    bkgrnd_element_width_val = window_width * position_value;
-    // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
-    // It is also the horizontal position within a background for a Section that matches 
-    // up with the viewable "window pane".
+
+    if (section_value === 1)  {
+      bkgrnd_element_width_val = window_width * position_value;
+      // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
+      // It is also the horizontal position within a background for a Section that matches 
+      // up with the viewable "window pane".
+    } else {
+      bkgrnd_element_width_val = 0;
+    }
     
     bkgrnd_element_x_position =  "-" + bkgrnd_element_width_val.toString() + "px 0px";
     // "bkgrnd_element_x_position" holds the value for the CSS property, "backgroundPosition" 

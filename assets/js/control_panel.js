@@ -30,32 +30,8 @@ window_margin = 150;
 url_string = window.location.href;
 url_hash = window.location.hash;
 
-rate_value_search_string = "rateValue=";
-
 $(document).ready(
   function () {
-    if (url_string.indexOf(rate_value_search_string) !== -1) {      
-    // If the GET variable, "rateValue", appears in the URL, this 
-    // condition is triggered.
-      setRateValue(rate_value_search_string);
-    }
-
-    var form_selectors = new String();
-
-    form_selectors = "#form-sctn_6 .form-page_1";
-
-    if (url_hash === "#sctn_6?pos=1" && 
-        url_hash.indexOf("copyValues") === -1)  {
-    // If 'FORM TYPE #3' is viewable and the inter-section navigation 
-    // that appears on the left of the browser window is not visible, 
-    // this condition is triggered.
-      $(form_selectors).css("display", "block");
-      // The form's "first" page is made visible.
-      $(form_selectors).fadeTo(time_value, 1);
-      // The form's "first" page is faded in from an opacity of 0 to 1.
-    } // END of "if" STATEMENT which is triggered if 'FORM TYPE #3' is 
-      // viewable and the inter-section navigation that appears on the 
-      // left of the browser window is not visible.
     
     $("#nav-link").on("mouseover", 
     // Once the user moves the cursor over the "menu icon", the 
@@ -177,108 +153,6 @@ $(document).ready(
       }
     );
 
-    $("#prev-sctn, #next-sctn").on("click", 
-    // If the user clicks one of the arrows that make up the inter-section 
-    // navigation that appears on the right of a desktop browser, the 
-    // browser window navigates to the Section the user wishes to view.
-      function () {
-        interSectionNav(this);
-        // "interSectionNav" navigates the browser window to the Section 
-        // the user wishes to view.
-      }
-    );
-    
-
-    $(".sctn_nav > div > span").on("mouseover",
-    // If the user moves the cursor over the "menu icon" of the intra-section 
-    // navigation, the click-state of the "menu icon" changes.
-			function () {
-        var sctn_nav_selector = new String();
-        var sctn_nav_element = new Object();
-
-        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctn_nav_element = $(sctn_nav_selector);
-
-        if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
-        // If the click-state of "menu icon" of the intra-section navigation 
-        // is not the "click" state, this condition is triggered.
-          animateSctnNav(sctn_nav_element, time_value);
-          // "animateSctnNav" changes the click-state of the menu icon of the 
-        // intra-section navigation.
-        } // END of "if" STATEMENT which is triggered if the click-state of 
-          // the intra-section navigation is not the "click" state.
-			}
-		);
-
-    $(".sctn_nav > div > span").on("mouseout",
-    // If the user moves the cursor away from the "menu icon" of the intra-section 
-    // navigation, the click-state of the "menu icon" changes. 
-			function () {
-        var sctn_nav_selector = new String();
-        var sctn_nav_element = new Object();
-        
-        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctn_nav_element = $(sctn_nav_selector);
-        
-        if ($(sctn_nav_element).css("backgroundPosition") !== "0px 0px")  {
-        // If the click-state of "menu icon" of the intra-section navigation 
-        // is not the "base" state, this condition is triggered.
-          animateSctnNav(sctn_nav_element, time_value);
-          // "animateSctnNav" changes the click-state of the menu icon of the 
-        // intra-section navigation.
-        } // END of "if" STATEMENT which is triggered if the click-state of 
-          // the intra-section navigation is not the "base" state.
-			}
-		);
-
-    $(".sctn_nav > div > span").on("click",
-    // If the user clicks the "menu icon" of the intra-section 
-    // navigation, the menu options become visible and 
-    // the click-state of the "menu icon" changes. 
-			function () {
-        var sctn_nav_element = new String();
-        var sctn_nav_link_element = new String();
-        
-        sctn_nav_element = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctn_nav_link_element = "#" + $(this).parent().parent().attr("id") + " > div > div";
-        
-        animateSctnNavLinks(sctn_nav_link_element);
-        // "animateSctnNavLinks" makes the menu options of the intra-section 
-        // navigation visible.
-        animateSctnNav(sctn_nav_element, time_value);
-        // "animateSctnNav" changes the click-state of the menu icon of the 
-        // intra-section navigation.
-			}
-		);
-
-		$(".sctn_nav > div > div > a").on("click",
-    // Activates when the user clicks on a menu option of the intra-section 
-    // navigation.
-			function () {
-				var current_sctn_nav_id = $(this).parent().parent().parent().attr("id");
-				var current_sctn_nav_id_string = "#" + current_sctn_nav_id + " > div > span";
-				var current_sctn_nav_element = "#" + current_sctn_nav_id + " > div > div";
-				         
-        animateSctnNavLinks(current_sctn_nav_element);
-        // "animateSctnNavLinks" makes the menu options of the intra-section 
-        // navigation invisible.
-        animateSctnNav(current_sctn_nav_id_string, time_value);
-        // "animateSctnNav" changes the click-state of the menu icon of the 
-        // intra-section navigation.
-      }
-		);
-    
-    $("input#sctn_1-start").on("click", 
-    // Activates when the user clicks on a "button" element within "SECTION #1" 
-    // to move to 'FORM TYPE #1'.
-      function () {
-        window.location.hash = "#sctn_1?pos=1";
-
-        animateFormPanes();
-        // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
-      }
-    );
-
     $("#sctn_1-no_1 > fieldset").mouseenter(
     // Activates when the user moves the cursor over the "first" form question 
     // of 'FORM TYPE #1' within 'SECTION #1'.
@@ -333,152 +207,15 @@ $(document).ready(
       }
     );
 
-    $("#sctn_1-prev, #sctn_1-next").click(
+    $("#input-next_step, #input-previous_step").click(
     // Fades in the individual pages of 'FORM TYPE #3' in 'SECTION #6'.
       function () {
-        animateFormPanes();
-        // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
+        animateForm(time_value);
+        // "animateForm" fades in the "second" page of 'FORM TYPE #1'.
       }
     );
 
-    $("input#sctn_5-start").on("click", 
-    // Changes the URL hash to navigate the browser to 'FORM TYPE #2' of 
-    // 'SECTION #5'.
-      function () {
-        window.location.hash = "#sctn_5?pos=1";
-      }
-    );
-
-    $("#sctn_5-no_1 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "first" form question 
-    // of 'FORM TYPE #2' within 'SECTION #5'.
-      function () {
-        validateQuestionField("start", "sctn_5-no_1");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_5-no_1 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "first" form question 
-    // of 'FORM TYPE #2' within 'SECTION #5'.
-      function () {
-        validateQuestionField("reset", "sctn_5-no_1");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_5-no_2 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "second" form question 
-    // of 'FORM TYPE #2' within 'SECTION #5'.
-      function () {
-        validateQuestionField("start", "sctn_5-no_2");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_5-no_2 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "second" form question 
-    // of 'FORM TYPE #2' within 'SECTION #5'.
-      function () {
-        validateQuestionField("reset", "sctn_5-no_2");
-        // The data of the form question is in the process of validation.
-      }
-    );
-    
-    $("input#sctn_5-cntct").click(
-    // Changes the URL hash to navigate the browser to 'FORM TYPE #3' of 
-    // 'SECTION #6'.
-      function () {
-        window.location.hash = "#sctn_6?pos=1";
-      }
-    );
-
-    $("input#sctn_6-start").click(
-    // Changes the URL hash to navigate the browser to 'FORM TYPE #3' of 
-    // 'SECTION #6'.
-      function () {
-        window.location.hash = "#sctn_6?pos=1";
-      }
-    );
-
-    $("#sctn_6-no_1 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "first" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("start", "sctn_6-no_1");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_6-no_1 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "first" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("reset", "sctn_6-no_1");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_6-no_2 > fieldset").mouseenter( 
-    // Activates when the user moves the cursor over the "second" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("start", "sctn_6-no_2");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_6-no_2 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "second" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("reset", "sctn_6-no_2");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_6-no_2 > fieldset > p > input[type='radio']").change(
-    // Removes the data contained within the text field of the "second" 
-    // form question of 'FORM TYPE #3'.
-      function () {
-       $("input#sctn_6-field-email").val("");
-      }
-    );
-
-    $("#sctn_6-no_3 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "third" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("start", "sctn_6-no_3");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("#sctn_6-no_3 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "third" form question 
-    // of 'FORM TYPE #3' within 'SECTION #6'.
-      function () {
-        validateQuestionField("reset", "sctn_6-no_3");
-        // The data of the form question is in the process of validation.
-      }
-    );
-
-    $("input#sctn_6-map").click(
-    // Launches a Bing map inside of the current browser tab or window.
-      function () {
-        window.location.href = "https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027";
-      }
-    );
-    
-    $("#sctn_6-prev, #sctn_6-next").click(
-    // Fades in the "first" page of 'FORM TYPE #3' in 'SECTION #6'.
-      function () {
-        animateFormPanes();
-        // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
-      }
-    );
-
-    $("#form-sctn_1, #form-sctn_5, #form-sctn_6").submit(
+    $("#sctn_1-form").submit(
     // Validates the data contained with either 'FORM TYPE #1', 
     // 'FORM TYPE #2', or 'FORM TYPE #3'.
       function (event) {
@@ -486,20 +223,10 @@ $(document).ready(
         // A Boolean which is set to true if the all of the data 
         // of a form is proper.
         
-        var id_string = new String();
-        // Holds the selector of the <form> HTML element which the user 
-        // is submitting.
-        var section_value = new String();
-        // This variable holds a number which represents the Form 
-        // the user is submitting.
+        var wndow_selector = new String();
+        var wndow_element = new Object();
 
-        var form_selector = new String();
-        var form_element = new Object();
-
-        id_string = $(this).attr("id");
-        section_value = id_string.substring(5);
-        
-        form_complete_flag = validateForm(section_value);
+        form_complete_flag = validateForm();
         // If the data of the form is proper, the value 
         // of "form_complete_flag" will be "true". 
         // 
@@ -509,13 +236,11 @@ $(document).ready(
         if (form_complete_flag === false) {
         // If the form that this function processes contains 
         // improper data, then this condition is triggered.
+          
           var alert_div_element = new String();
           // Holds HTML which makes up an alert which appears 
           // within the browser window to inform the user that 
           // input withing the form needs to change.
-
-          var wndow_selector = new String();
-          var wndow_element = new Object();
 
           var alrt_selector = new String();
           var alrt_element = new Object();
@@ -532,7 +257,7 @@ $(document).ready(
             "  </div>" + 
             "</div>";
 
-          wndow_selector = "#wndow-" + section_value;
+          wndow_selector = "#wndow-sctn_2";
           wndow_element = $(wndow_selector);
 
           $(wndow_element).prepend(alert_div_element);
@@ -638,6 +363,10 @@ $(document).ready(
           } // END of "if" STATEMENT which is triggered if the current 
             // location of the browser window is 0 and the HTML content 
             // within 'MAIN LANDING SECTION' has an opacity of 0.
+        } else {
+          if ($("nav").css("opacity") === "0")  {
+            $("nav").css("opacity", "1");
+          }
         } // END of "if" STATEMENT which is triggered if the current location 
           // of the browser window is above the location of the logo.
       } // END of ".on("scroll") Method
@@ -654,6 +383,7 @@ $(document).ready(
         // If the inter-section navigation which appears on the left 
         // of the browser window is not visible and the URL hash 
         // is not blank, then this condition is triggered.
+          
           var nav_selector = new String();
           var nav_element = new Object();
 
@@ -708,6 +438,7 @@ $(document).ready(
           if (nav_width_val === nav_left_val) {
           // If the main menu of the 
           // browser window is not visible, this condition is triggered.
+            
             var current_position = new Number();
             // Holds a number which matches the vertical position 
             // within the webpage that is viewable.
@@ -717,26 +448,6 @@ $(document).ready(
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".
-            
-            setTimeout(
-              function () {
-                displayVerticalNav();
-              }, (time_value * 1.25)
-            );
-            // The intrapage navigation, which appears on the far-right side 
-            // of the browser within a desktop or laptop display, or 
-            // in the middle of the page within a mobile display is activate.
-          } else if (url_hash === "") {
-          // If the visible Section is now 'MAIN LANDING SECTION', 
-          // this condition is triggered.
-            setTimeout(
-              function () {
-                displayVerticalNav();
-              }, (time_value * 2.5)
-            ); 
-            // The intrapage navigation, which appears on the far-right side 
-            // of the browser within a desktop or laptop display, or 
-            // in the middle of the page within a mobile display is activate.
           } // END of "if" STATEMENT which is triggered if the visible Section 
             // is now 'MAIN LANDING SECTION.
         } // END of "if" STATEMENT which is triggered if the main menu is not 

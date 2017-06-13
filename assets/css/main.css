@@ -60,7 +60,7 @@ body {
  /* Formats the <div> elements which hold the background images for the individual sections. */
 
 .headr {
-	height: 6em;
+	height: 2.7em;
 	position: absolute;
 	top: 3.13em;
 	opacity: 0;
@@ -206,6 +206,7 @@ body {
 /* Formats the 'block' which hold <input> elements which contain form questions. */
 
 #sctn_1-form {
+  height: 21.6em;
   background-color: #ffd283;
 }
 
@@ -832,7 +833,7 @@ body {
 
   .headr {
     width: 73.6em;
-    left: 5.25em;
+    left: 6.25em;
   }
 
   .copy {
@@ -851,8 +852,8 @@ body {
   }
 
   .copy {
-    width: 73.75em;
-    margin: 8.15em 0 0 5.25em;
+    width: 72.75em;
+    margin: 8.15em 0 0 6.25em;
   }
 
   .sctn_1-blok, 
@@ -869,6 +870,11 @@ body {
     width: 42.5em;
     height: 24em;
     margin-left: 11.25em;
+  }
+
+  #sctn_2-document {
+    width: 32.5em;
+    margin-left: 15.5em;
   }
 
   #sctn_5-listing {
