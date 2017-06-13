@@ -609,11 +609,11 @@ nav {
 
   .sctn_nav {
     width: 99em;
-    top: 42em;
+    top: 43em;
   }
 
   .sctn_nav > div {
-    width: 25em;
+    width: 25.75em;
   }
   
 }
