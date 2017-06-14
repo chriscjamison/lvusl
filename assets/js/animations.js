@@ -866,7 +866,7 @@ function animateInfoElement(time_value) {
 		};
 		
     opacity_css = {
-      opacity: 1
+      opacity: "1"
     };
     
 		display_inherit_css = {
@@ -875,7 +875,7 @@ function animateInfoElement(time_value) {
 		
 	  display_opacity_css = {
 			display: "block",
-      opacity: 1
+      opacity: "1"
 		};
     
     time_value_longer = time_value * 2;
@@ -1258,7 +1258,7 @@ function displayVerticalNav() {
   
   intersection_on_css = {
     display: "block",
-    opacity: 1
+    opacity: "1"
   };
 
   current_position = $(window).scrollTop();
@@ -1624,7 +1624,7 @@ if ($(nav_element).css("left") !== "0px")  {
 
     nav_visible_css = {
       left: "0px", 
-      opacity: 1
+      opacity: "1"
     };
 
     nav_mobile_visible_css = {
@@ -1634,7 +1634,7 @@ if ($(nav_element).css("left") !== "0px")  {
     options_staging_css = {
       display: "block", 
       left: -nav_width, 
-      opacity: 1
+      opacity: "1"
     };
 
     element_shifted_right_css = {

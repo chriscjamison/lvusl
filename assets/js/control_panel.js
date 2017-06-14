@@ -376,10 +376,20 @@ $(document).ready(
       function () {
         var url_hash = new String();
 
+        var nav_visible_search_string = new String();
+        // Holds the String, "copyValues=", which is searched for in the value of, 
+        // "url_hash".
+        var sctn_blank_search_string = new String();
+        // Holds a blank String, which is used to determine if the browser has 
+        // just loaded the webpage from the top.
+
         url_hash = window.location.hash;
-        
-        if (url_hash.indexOf("copyValues") === -1 && 
-            url_hash !== "") {
+          
+        nav_visible_search_string = "copyValues=";
+        sctn_blank_search_string = "";
+
+        if (url_hash.indexOf(nav_visible_search_string) === -1 && 
+            url_hash !== sctn_blank_search_string) {
         // If the inter-section navigation which appears on the left 
         // of the browser window is not visible and the URL hash 
         // is not blank, then this condition is triggered.
@@ -405,6 +415,15 @@ $(document).ready(
           var nav_left_val = new Number();
           // Holds the numeric value of the CSS property, "left", of the 
           // HTML element, "nav".
+
+          var section_value_search_string = new String();
+          // Holds the String, "sctn_", which is searched for in the value of, 
+          // "url_hash".
+          var section_value_search_index_num = new Number();
+          // Holds the location within, "url_hash", that the String, "sctn_", is 
+          // located.
+
+          var section_value = new String();
           
           nav_selector = "nav";
           nav_element = $(nav_selector);
@@ -435,6 +454,13 @@ $(document).ready(
           nav_left_val = Math.round(nav_left_val);
           // The numeric value of "nav_left_val" is rounded to an integer.
 
+          section_value_search_string = "sctn_";
+
+          section_value_search_index_num = url_hash.indexOf(section_value_search_string);
+          section_value_search_index_num = section_value_search_index_num + section_value_search_string.length;
+
+          section_value = url_hash.charAt(section_value_search_index_num);
+
           if (nav_width_val === nav_left_val) {
           // If the main menu of the 
           // browser window is not visible, this condition is triggered.
@@ -448,8 +474,71 @@ $(document).ready(
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".
-          } // END of "if" STATEMENT which is triggered if the visible Section 
-            // is now 'MAIN LANDING SECTION.
+          } else if (section_value === "5")  {
+          // If the viewable section is SECTION #5, then this condition 
+          // is triggered.
+
+            var listing_search_string = new String();
+            // Holds the String, "listing=" which will be searched for in the value of,  
+            // "url_hash".
+
+            listing_search_string = "listing=";
+
+            if (url_hash.indexOf(listing_search_string) !== -1) {
+            // If the visitor has made a request to view a job listing, this condition 
+            // is triggered.
+
+              var listing_val = new String();
+              // Holds a Character representing the listing the link within the <a> element 
+              // refers to.
+              var url_hash_length = new Number();
+              // Holds the total number of characters contained in the "src" attribute of the 
+              // <a> element.
+
+              var listing_selector = new String();
+              var listings_selector = new String();
+
+              var listing_element = new Object();
+              var listings_elements = new Object();
+
+              var not_visible_css = new Object();
+              var visible_css = new Object();
+
+              var time_value_short = new Number();
+                            
+              url_hash_length = url_hash.length;
+
+              listing_val = url_hash.charAt(url_hash_length - 1);
+
+              listing_selector = "#sctn_5-job_listing-" + listing_val;
+              listings_selector = ".sctn_5-listing";
+
+              listing_element = $(listing_selector);
+              listings_elements = $(listings_selector);
+
+              not_visible_css = {
+                display: "none"
+              };
+
+              visible_css = {
+                display: "block", 
+                opacity: "0"
+              };
+
+              time_value_short = time_value / 1.25;
+
+              $(listings_elements).css(not_visible_css);
+              $(listings_elements).removeClass();
+              $(listings_elements).addClass("sctn_5-listing not_visible");
+
+              $(listing_element).removeClass();
+              $(listing_element).addClass("sctn_5-listing visible");
+              $(listing_element).css(visible_css);
+              $(listing_element).fadeTo(time_value_short, 1);
+
+            }// END of "if" STATEMENT which is triggered if the visible Section 
+             // is now 'MAIN LANDING SECTION.
+          }
         } // END of "if" STATEMENT which is triggered if the main menu is not 
           // visible and the URL hash is not blank.
       } // END of ".on("hashchange")" Method

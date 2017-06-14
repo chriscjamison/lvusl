@@ -128,7 +128,8 @@ body {
  * a newsletter or reserve season tickets.
  */
 
-#info > div > a, 
+#info > div > a,
+.sctn_4-article + a,  
 .sctn_nav > div > a {
   width: 7.5em;
   height: 3em;
@@ -148,11 +149,13 @@ body {
 /* Formats the links which appear to the right of the logo within MAIN LANDING SECTION */
 
 #info > div > a:hover, 
+.sctn_4-article + a:hover, 
 .sctn_nav > div > a:hover {
   border: 2px solid #a0410d;
 }
 
-#info > div > a:first-of-type {
+#info > div > a:first-of-type, 
+.sctn_4-article + a {
   height: 1.5em;
   padding: 1.5em 0.75em;
 }
@@ -303,7 +306,9 @@ body {
  * 'sctn_3-desc-2', 'sctn_3-desc-3', & 'sctn_3-desc-4'.
  */
 
-#sctn_3-desc-1 > p {
+#sctn_3-desc-1 > p, 
+.sctn_4-article > p, 
+.sctn_5-lising > p {
   text-indent: 1.3em;
 	line-height: 1.5em;
 	color: #5a92d4;
@@ -339,14 +344,38 @@ body {
 }
 
 .sctn_4-article {
-  width: 45em;
+  width: 50em;
   height: initial;
   padding: 1em 2em;
+  float: left;
+  background-color: #a2c1c9;
   font-family: 'Istok Web', sans-serif;
 }
 
+.sctn_4-article > h3 {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+}
+
 .sctn_4-article > span {
-  
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.sctn_4-article > p:first-of-type {
+  margin-top: 0.75em;
+  padding-top: 1em;
+  border-top: 2px solid #33606D;
+}
+
+.sctn_4-article > p {
+  color: #0E3743;
+}
+
+.sctn_4-article + a {
+  margin-left: 1.75em;
+  float: left;
 }
 
 
@@ -358,30 +387,24 @@ body {
 /* Formats the color of the <div> which holds the title of 'SECTION #5'. */
 
 .sctn_5-blok {
-	position: relative;
   font-family: 'Istok Web', sans-serif;
   opacity: 1;
 }
 /* Formats the blocks which are contained with 'SECTION #5'. */
 
-.sctn_5-blok > p {
-	text-indent: 1.3em;
-	line-height: 1.7em;
-}
-/* Formats the <p> elements which hold the text content that is contained by a <div> element
- * using the class, '.sctn_5-blok'.
- */
-
-#sctn_5-listing {
+#sctn_5-job_titles, 
+#sctn_5-job_listings {
   position: absolute;
-  background-color: #ffe0c1;
-  font-family: 'Istok Web', sans-serif;
 }
 /* Formats the block which contains text content but does not include a <button> element 
  * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
  */
 
-#sctn_5-listing > span {
+#sctn_5-catagories {
+  background-color: #ffe0c1
+}
+
+#sctn_5-catagories > span {
   margin-bottom: 0.75em;
   display: block;
   border-bottom: 2px solid #fff6ed;
@@ -389,16 +412,16 @@ body {
   font-weight: 700;
 }
 
-#sctn_5-listing > div {
+#sctn_5-catagories > div {
   margin-top: 1em;
 }
 
-#sctn_5-listing > span, 
-#sctn_5-listing > div > span {
+#sctn_5-catagories > span, 
+#sctn_5-catagories > div > span {
   color: #ee9e4f;
 }
 
-#sctn_5-listing > div > span + span {
+#sctn_5-catagories > div > span + span {
   height: 1em;
   margin-left: 0.5em;
   padding: 0 0.35em 0.3em 0.3em;
@@ -407,18 +430,54 @@ body {
   text-align: center;
 }
 
-#sctn_5-listing > div > span, 
-#sctn_5-listing > div > span + span {
+#sctn_5-catagories > div > span, 
+#sctn_5-catagories > div > span + span {
   display: block;
   float: left;
   font-weight: 700;
 }
 
-#sctn_5-listing > div > a {
+#sctn_5-catagories > div > a {
   display: block;
   color: #75a6b2;
   clear: both;
 }
+
+.sctn_5-listing {
+  width: 50em;
+  padding: 1em 2em;
+  float: left;
+  background-color: #eef1fe;
+  font-family: 'Istok Web', sans-serif;  
+}
+
+.sctn_5-summary > h4 {
+  margin: 0;
+  color: #75a6b2
+}
+
+.sctn_5-summary {
+  border-bottom: 2px solid #ffbb77;
+}
+
+.sctn_5-summary > ul {
+  margin: 0.5em 0 0.6em 0;
+}
+
+.sctn_5-summary > ul > li {
+  list-style: url('/lvusl/assets/img/misc/disc.png');
+}
+
+.sctn_5-summary > h4, 
+.sctn_5-summary > ul > li, 
+.sctn_5-job_desc > p {
+  color: #7facbb;
+}
+
+.sctn_5-job_desc > p {
+  padding-left: 2.5em;
+}
+
 
 
 /* ---- 'SECTION #6' ---- */
@@ -888,65 +947,9 @@ body {
     margin-left: 15.5em;
   }
 
-  #sctn_5-listing {
+  #sctn_5-job_titles {
     left: 50.25em;
   }
-
-  .sctn_2-blok-2 {
-    width: 62.25em;
-    height: 13.45em;
-    left: 0;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    padding-top: 1.25em;
-  }
-
-  #sctn_5-desc-1 {
-    width: 27em;
-  }
-
-  #sctn_5-desc-3 > span {
-    width: 105px;
-    padding: 1.44em;
-  }
-
-  #sctn_5-desc-3 > span + span + span ~ span span {
-    margin-top: 0.6em;
-  }
-
-  #sctn_6-desc-1 {
-    width: 29em;
-  }
-
-  #sctn_6-info-1 {
-    width: 28.75em;
-  }
-
-  #sctn_6-info-2 {
-    width: 32.75em;
-    height: 11.75em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 29.5em;
-  }
-
-  .sctn_6-spcr {
-    width: 68.25em;
-    height: 0.25em;
-    float: left;
-    clear: none;
-  }
-
-  .sctn_6-blok-2 {
-    width: 15.25em;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 12em;
-  }
-
 }
 
 @media screen and (min-width: 1260px) and (min-height: 980px) {
@@ -1091,8 +1094,8 @@ body {
      height: 5em;
    }
 
-   #sctn_5-listing {
-     left: 44.5em;
+   #sctn_5-job_titles {
+     left: 56em;
    }
 }
 

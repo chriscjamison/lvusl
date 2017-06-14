@@ -16,11 +16,8 @@
  * ******************************************************************************************** */
 
 nav {
-	width: 20.45em;
-	height: auto;
-  top: 0;
+	top: 0;
   position: fixed;
-  left: -20.45em;
   opacity: 0;
 	z-index: 2;
 }
@@ -118,7 +115,6 @@ nav {
  */
 
 #options {
-	width: 17.25em;
 	height: inherit;
   display: none;
   position: fixed;
@@ -183,7 +179,7 @@ nav {
 	height: 2.35em;
 	margin: 1em;
 	padding: 1em;
-	display: block;
+	display: inline-block;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.25em;
 	background-color: #000;
@@ -192,80 +188,6 @@ nav {
 }
 /* Formats the <a> elements which serve as menu options in the inter-sectional 
  * menu.
- */
-
-#prev-sctn,
-#next-sctn {
-	width: 12.5em;
-	height: 3.75em;
-	position: fixed;
-	right: 33.8em;
-	bottom: 1.56em;
-	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
-  background-repeat: no-repeat;
-  background-position: 0 -209px;
-  cursor: default;
-}
-/* Formats <div> elements which act as inter-sectional navigation which appears 
- * along the right side of the page.
- */
-
-#prev-sctn {
-  top: 1.06em;
-  padding-top: 1.88em;
-  display: none;
-  background-position: 0 0;
-  opacity: 0;
-}
-/* Formats a <div> element which moves the page upward through previously viewed 
- * sections. 
- */
-
-#next-sctn {
-  background-position: 0px -209px;
-}
-/* Formats a <div> element which moves the page upward through yet-to-be-viewed 
- * sections. 
- */
-
-#prev-sctn:hover,
-#next-sctn:hover {
-  cursor: pointer;  
-}
-/* Sets the cursor state based upon the click-state of the <div> elements, 
- * '#prev-sctn' and '#next-sctn'. 
- */
-
-#prev-sctn:hover {
-  background-position: 0px -111px !important;
-}
-/* More formatting for the cursor state based upon the click-state 
- * of the <div> element, '#prev-sctn'. 
- */
-
-#next-sctn:hover {
-  background-position: 0px -235px !important;
-}
-/* More formatting for the cursor state based upon the click-state 
- * of the <div> element, '#next-sctn'. 
- */
-
-#prev-sctn > span,
-#next-sctn > span {
-	width: 11.25em;
-	height: 2.5em;
-	margin: 0 auto 50px auto;
-	display: block;
-	font-family: 'Franklin Gothic Medium', sans-serif;
-  font-size: 0.8em;
-	color: #fff;	
-	text-align: center;
-	line-height: 1.25em;
-	letter-spacing: 1px;
-}
-/* Formats the text descriptions of the inter-sectional navigation 
- * which appears on the right of the page.
  */
 
 .sctn_nav {
@@ -346,35 +268,6 @@ nav {
     font-size: 2.5em;  
   }
   
-  #prev-sctn, 
-  #next-sctn {
-    width: 22.2em;
-    height: 10em;
-    right: 19em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
-  }
-  
-  #next-sctn { 
-    bottom: 38em;
-    background-position: 0px -310px
-  }
-  
-  #prev-sctn:hover {
-    background-position: 0px 0px;
-  }
-
-  #next-sctn:hover {
-    background-position: 0px -310px;
-  }
-
-  #prev-sctn > span,
-  #next-sctn > span {
-    width: 6.8em;
-    height: 6.56em;
-    margin: 0 auto;
-    font-size: 1.8em;
-  }
-  
   .sctn_nav {
     width: 61.2em !important;
     height: 4.38em !important; 
@@ -388,16 +281,6 @@ nav {
   .sctn_nav > div > span {
     width: 18.8em;
     height: 4.38em;
-  }
-  
-  #nav-sctn_3 > div > span {
-    background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3-mble.png');
-  }
-  
-  #nav-sctn_4 > div > span {
-    background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
   }
   
   .sctn_nav > div > div {
@@ -424,19 +307,6 @@ nav {
     font-size: 1.85em;
   }
   
-  #next-sctn {
-    height: 10em;
-    bottom: 11em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
-    background-position: 0px -310px;
-  }
-
-  #next-sctn > span {
-    width: 6.8em;
-    height: 5.56em;
-    margin: 0 auto;
-  }
-
   .sctn_nav {
     top: 57em !important;
   }
@@ -478,30 +348,6 @@ nav {
   
   #options > a {
     font-size: 1.5em;
-  }
-
-  #prev-sctn, 
-  #next-sctn {
-    width: 22.5em;
-    right: 20.5em;
-  }
-
-  #prev-sctn > span, 
-  #next-sctn > span {
-    display: none;
-  }
-
-  #next-sctn {
-    background-position: 0px -405px;
-    bottom: 1em;
-  }
-
-  #prev-sctn:hover {
-    background-position: 0px 0px !important;
-  }
-
-  #next-sctn:hover {
-    background-position: 0px -405px !important;
   }
 
   .sctn_nav {
@@ -607,6 +453,20 @@ nav {
    * This breakpoint is optimized to fit resolutions of 1600x900px.
    */
 
+   nav, 
+   #nav-bkgrnd {
+     height: 48.1em;
+   }
+
+   nav, 
+   #options, 
+   #nav-bkgrnd, 
+   #nav-brdr {
+     width: 41.25em;
+     left: -41.25em;
+   }
+  
+  
   .sctn_nav {
     width: 99em;
     top: 43em;
