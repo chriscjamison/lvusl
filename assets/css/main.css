@@ -109,7 +109,7 @@ body {
  * in the landing portion.
  */
 
-#info img {
+#info > img {
   padding: 1.7em;
 	display: none;
   position: relative;
@@ -164,6 +164,10 @@ body {
  * MAIN LANDING SECTION. This link is formatted because the size of the button without 
  * formatting is smaller than the link, 'Reserve Season Tickets'.
  */
+
+#info > div > a {
+  opacity: 0;
+}
 
 #info > div > a:nth-child(2) {
   margin-right: 0;
@@ -1086,7 +1090,7 @@ body {
 
    #sctn_2-document {
      width: 38em;
-     height: 28.6em;
+     height: 28.55em;
      margin-left: 22.5em;
    }
 

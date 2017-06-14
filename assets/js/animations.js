@@ -754,7 +754,6 @@ function animateInfoElement(time_value) {
   // The calculated values for the "width" and "height" of various HTML elements 
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
-  
   page_dimensions_Array = parseWindowDimensions();
   // The calculated values for the "width" and "height" of various HTML elements 
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
@@ -835,14 +834,12 @@ function animateInfoElement(time_value) {
     var wndow_selector = new String();
     var info_selector = new String();
     var info_img_selector = new String();
-    var info_ul_li_selector = new String();
-    var info_ul_selector = new String();
+    var info_a_selector = new String();
 
     var wndow_element = new Object();
     var info_element = new Object();
     var info_img_element = new Object();
-    var info_ul_li_element = new Object();
-    var info_ul_element = new Object();
+    var info_a_element = new Object();
 
     var display_block_css = new Object();
     var opacity_css = new Object();
@@ -851,15 +848,13 @@ function animateInfoElement(time_value) {
     
     wndow_selector = "#wndow-sctn_main";
     info_selector = "#info";
-    info_img_selector = "#info img";
-    info_ul_li_selector = "#info ul li";
-    info_ul_selector = "#info ul";
+    info_img_selector = "#info > img";
+    info_a_selector = "#info > div > a";
 
     wndow_element = $(wndow_selector);
     info_element = $(info_selector);
     info_img_element = $(info_img_selector);
-    info_ul_li_element = $(info_ul_li_selector);
-    info_ul_element = $(info_ul_selector);
+    info_a_element = $(info_a_selector);
 
     display_block_css = {
 			display: "block"
@@ -872,12 +867,7 @@ function animateInfoElement(time_value) {
 		display_inherit_css = {
 			display: "inherit"
 		};
-		
-	  display_opacity_css = {
-			display: "block",
-      opacity: "1"
-		};
-    
+		    
     time_value_longer = time_value * 2;
     time_value_long = time_value * 1.5;
 
@@ -907,20 +897,8 @@ function animateInfoElement(time_value) {
     // Fade the HTML element, using the selector, "#info > img" 
     // from an opacity of "0" to "1".
       function () {
-        $(info_ul_li_element).css(display_inherit_css);
-        $(info_ul_element).css(display_opacity_css);
-        // Make the HTML elements using the selector, "#info ul li" visible.
-        // Make the HTML element using the selector, "#info ul" visible.
-
-        $(info_ul_li_element).each(
-          function () {
-            $(this).delay(time_value * 0.75).fadeTo(time_value_long, 1);
-            // For every bullet point, 
-            // or HTML element identified by the selector, "#info ul li", fade in 
-            // that bullet point over a time span of a value calculated by multiplying 
-            // the value of "time_value" by "1.5".
-          }
-        );		
+        $(info_a_element).fadeTo(time_value, 1);
+        // Make the HTML elements using the selector, "#info > img + div > a" visible.
 			}
 		); // END OF METHOD .fadeTo
   } // END OF if STATEMENT
@@ -1226,285 +1204,6 @@ function animatePageElements(time_value)  {
   } // END OF if STATEMENT that is trigged if the intersectional navigation on the left is not visible, 
     // the URL does not contain a hash and Section value.
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
-
-function displayVerticalNav() {
-  /* **************** **************** **************** **************** **************** 
-   * Displays the inter-section navigation that appears on the right hand side 
-   * of the browser window.
-   * 
-   * If the vertical location of the webpage within the browser window is near the top 
-   * of the browser window, the up arrow does not appear. If the webpage's location 
-   * is near the bottom of the webpage, the down arrow does not appear.
-   * **************** **************** **************** **************** **************** */
-
-  var current_position = new Number();
-  // Holds a number which matches the vertical position within the webpage that is viewable.
-   
-  var intersection_off_css = new Object();
-  var intersection_on_css = new Object();
-
-  var prev_sctn_selector = new String();
-  var next_sctn_selector = new String();
-  var wndow_selector = new String();
-  
-  var prev_sctn_element = new Object();
-  var next_sctn_element = new Object();
-  var wndow_elements = new Object();
-  
-  intersection_off_css = {
-    display: "none", 
-    opacity: 0
-  }
-  
-  intersection_on_css = {
-    display: "block",
-    opacity: "1"
-  };
-
-  current_position = $(window).scrollTop();
-  // The current vertical position of the browser window within the webpage 
-  // is passed on to, "current_position".
-  
-  prev_sctn_selector = "#prev-sctn";
-  next_sctn_selector = "#next-sctn";
-
-  prev_sctn_element = $(prev_sctn_selector);
-  next_sctn_element = $(next_sctn_selector);
-  
-  if (current_position === 0)  {
-  // If the vertical location of the visible Section is at the top 
-  // of the webpage, this condition is triggered.
-    $(prev_sctn_element).css(intersection_off_css);
-    // The up arrow is made invisible.
-    $(next_sctn_element).css(intersection_on_css);
-    // The down arrow is made visible.
-  } else {
-  // Otherwise, if the vertical location of the visible Section is lower 
-  // on the webpage, this condition is triggered.
-    if ($(prev_sctn_element).css("display") === "none")  {
-    // If the up arrow is invisible, this condition is triggered.
-      $(prev_sctn_element).css(intersection_on_css);
-      // The up arrow is made visible.
-    } // END OF if STATEMENT which is triggered if the up arrow is invisible.
-    
-    wndow_selector = new String();
-    wndow_elements = new Object();
-    
-    var wndow_height = new Number();
-    // Holds the height of the HTML elements using the selector, ".wndow", 
-    // as passed on from the second index of "page_dimensions_Array".
-    var wndow_location_margin = new Number();
-    // Holds a Number which determines the distance, in pixels, 
-    // between the vertical location of the webpage and its distance 
-    // from the top or bottom of the webpage.
- 
-    var webpage_location_val = new Number();
-    // Holds a Number which is the result of subtracting the height of 
-    // HTML elements using the selector, ".wndow", and a buffer from the top or 
-    // bottom of the webpage from the product of multiplying 
-    // the height of, ".wndow" elements by the number of ".wndow" elements.
-    //
-    // This value marks the vertical location within the webpage that triggers 
-    // a condition that allows for the down arrow to made visible.
-    var num_of_wndow_elements = new Number();
-    // Holds a Number that contains the total number of HTML elements using 
-    // the selector, ".wndow".
-    
-    wndow_selector = ".wndow";
-    wndow_elements = $(wndow_selector);
-
-    wndow_height = $(wndow_elements).height();
-    wndow_location_margin = 100;
-    num_of_wndow_elements = $(wndow_elements).length;
-    // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
-    
-    webpage_location_val = (wndow_height * num_of_wndow_elements) - wndow_height - wndow_location_margin;
-    
-    if (current_position >= webpage_location_val)  {
-    // If the visible portion of the website lies lower on the webpage than the 
-    // value of "webpage_location_val", this condition is triggered.
-      $(next_sctn_element).css(intersection_off_css);
-      // The down arrow is made invisible.
-      $(prev_sctn_element).css(intersection_on_css);
-      // The up arrow is made visible.
-    } else {
-      if ($(next_sctn_element).css("display") === "none") {
-      // If the down arrow is invisible, this condition is triggered.
-        $(next_sctn_element).css(intersection_on_css);
-        // The down arrow is made visible.
-      } // END OF if STATEMENT that is triggered if the down arrow is invisible.
-    } // END OF if STATEMENT that is triggered if the visible portion of the webpage 
-      // is lower than the value of "webpage_location_val".
-  } // END OF if STATEMENT that is triggered if the visible portion of the webpage 
-    // is at the top.
-} /* **************** END OF FUNCTION "displayVerticalNav" **************** */
-
-function animateSctnNav(sctn_nav_element, time_value) {
-  /* **************** **************** **************** **************** **************** 
-   * Animates the intra-section navigation that appears within 'SECTION #3' 
-   * and 'SECTION #4'.
-   * **************** **************** **************** **************** **************** */
-  
-  var sctn_nav_link_selector = new String();
-  var sctn_nav_link_element = new Object();
-
-  var sctn_nav_id_val = new String();
-  // Holds the selector of the <div> HTML element which contains the menu which 
-  // serves as intrasection navigation.
-  
-  var sctn_nav_background_position = new String();
-  // Holds the value of the CSS property "background-position" for the HTML element 
-  // which serves as intrasection navigation.
-
-  var sctn_nav_base_css = new Object();
-  var sctn_nav_hover_css = new Object();
-  var sctn_nav_click_1_css = new Object();
-  var sctn_nav_click_2_css = new Object();
-  var sctn_nav_mobile_base_css = new Object();
-  var sctn_nav_mobile_click_css = new Object();
-
-  sctn_nav_id_val = $(sctn_nav_element).parent().parent().attr("id");
-  // The "id" of the <div> HTML element which contains the individual 
-  // menu options is passed on to, "sctn_nav_id_val".
-
-  sctn_nav_link_selector = "#" + sctn_nav_id_val + " > div > div";
-  // The selector for the <div> element which contains the individual 
-  // menu options is created and passed on to, "sctn_nav_link_selector".
-  sctn_nav_link_element = $(sctn_nav_link_selector);
-
-  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
-  // The value for the CSS property, "background-position", is passed on to 
-  // "sctn_nav_background_position".
-
-  sctn_nav_base_css = {
-    backgroundPosition: "0px 0px"
-  };
-
-  sctn_nav_hover_css = {
-    backgroundPosition: "0px -35px"
-  };
-
-  sctn_nav_click_1_css = {
-    backgroundPosition: "0px -70px"
-  };
-
-  sctn_nav_click_2_css = {
-    backgroundPosition: "0px -105px"
-  };
-
-  sctn_nav_mobile_base_css = {
-    backgroundPosition: "0px 0px", 
-    backgroundColor: "#000"
-  };
-
-  sctn_nav_mobile_click_css = {
-    backgroundPosition: "0px -210px", 
-    backgroundColor: "#666"
-  };
-
-  $(sctn_nav_element).css("opacity", 0);
-  // The <div> element containing the <div> element containing the 
-  // individual menu options is made invisible.
-
-  if (window.navigator.userAgent.indexOf("Mobile") === -1 &&  
-      window.navigator.userAgent.indexOf("Tablet") === -1)  {
-  // If this browser is a desktop browser, this condition is triggered.
-    switch (sctn_nav_background_position) {
-      case "0px 0px":
-        $(sctn_nav_element).css(sctn_nav_hover_css);
-      break;
-      // If the main intrasection navigation menu is in it's 'base' 
-      // click state, change the click state to, 'hover'.
-
-      case "0% 0%":
-        $(sctn_nav_element).css(sctn_nav_hover_css);
-      break;
-      // If the main intrasection navigation menu is in it's 'base' 
-      // click state, change the click state to, 'hover'.
-
-      case "0px -35px":
-        if ($(sctn_nav_link_element).css("display") === "none") {
-        // If the individual menu options are not visible, 
-        // this condition is triggered.
-          $(sctn_nav_element).css(sctn_nav_base_css);
-          // The main intrasection navigation menu is changed to 
-          // its base state.
-        } else if ($(sctn_nav_link_element).css("display") === "block") {
-        // If the individual menu options are visible, this 
-        // condition is triggered.
-          $(sctn_nav_element).css(sctn_nav_click_1_css);
-          // The main intrasection navigation menu is changed to its 
-          // "first" click state.
-          $(sctn_nav_element).fadeTo((time_value / 3), 1);
-          $(sctn_nav_element).fadeTo((time_value / 3), 0);
-          // The main intrasection navigation menu is gradually made 
-          // invisible and then visible yet again.
-
-          $(sctn_nav_element).css(sctn_nav_click_2_css);
-          // The main intrasection navigation menu is changed 
-          // to its "second" click state.
-        }      
-      break;
-      // If the main intrasection navigation menu is in it's 'hover' 
-      // click state, change the click state to the first, 'click', 
-      // click state.
-
-      case "0px -105px":
-        if ($(sctn_nav_link_element).css("display") === "none") {
-          $(sctn_nav_element).css(sctn_nav_base_css);
-        }
-      break;
-      // If the main intrasection navigation is in its "second" click state 
-      // and has been clicked, the click state is changed to its "base" state.
-    }
-  } else {
-  // Otherwise, if the browser is a mobile browser, this condition is triggered.
-    if (sctn_nav_background_position === "0px 0px" && 
-    // If the main intrasection navigation is in its "base" state, 
-    // this condition is triggered.
-      $(sctn_nav_link_element).css("display") === "block") {
-      // The individual menu options are made visible.
-      
-      $(sctn_nav_element).css(sctn_nav_mobile_click_css);
-      // The main intrasection navigation has its click state changed 
-      // to the "click" click state.
-    } else {
-    // Otherwise, if the navigation is in its "click" click state, 
-    // this condition is triggered.
-      $(sctn_nav_element).css(sctn_nav_mobile_base_css);
-      // The main intrasection navigation is changed to the "base" click state.
-    } // END OF if STATEMENT that is triggered when the browser is a mobile browser 
-      // and the main intrasection navigation is in its "base" click state.
-  } // END OF if STATEMENT that is triggered when the browser is a mobile browser.
-  
-  $(sctn_nav_element).fadeTo((time_value / 2), 1);
-  // The main intrasection navigation is faded in.
-}  /* **************** END OF FUNCTION "animateSctnNav" **************** */
-
-function animateSctnNavLinks(sctn_nav_link_element) {
-  /* **************** **************** **************** **************** **************** 
-   * Makes the individual menu options of the intrasection navigation 
-   * that appears within 'SECTION #3' and 'SECTION #4' visible or invisible.
-   * **************** **************** **************** **************** **************** */
-  
-  if ($(sctn_nav_link_element).css("display") === "none")  {
-  // If the individual menu options are invisible, this condition is triggered.
-    $(sctn_nav_link_element).css("opacity", 0);
-    // The main intrasection navigation is faded to an opacity of 0.
-    $(sctn_nav_link_element).css("display", "block");
-    // The main intrasection navigation is ready to be made visible
-    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
-    // The main intrasection navigation is faded to an opacity of 1.
-  } else {
-  // Otherwise, if the individual menu options are visible, 
-  // this condition is triggered.
-    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
-    // The main intrasection navigation is faded to an opacity of 1.
-    $(sctn_nav_link_element).css("display", "none"); 
-    // The main intrasection navigation is made invisible.
-  } // END OF if STATEMENT that is triggered if the individual menu options are 
-    // invisible.
-} /* **************** END OF FUNCTION "animateSctnNavLinks" **************** */
 
 function animateSideNav(time_value) {
   /* **************** **************** **************** **************** **************** 

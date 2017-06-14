@@ -70,36 +70,28 @@ function navLinkHoverState(new_class, time_value) {
    * **************** **************** **************** **************** **************** */
 
   var nav_link_selector = new String();
-  var headr_selector = new String();
   var nav_selector = new String();
   
   var nav_link_element = new Object();
-  var headr_element = new Array();
   var nav_element = new Object();
 
   var current_class = new String();
 
-  var headr_css_display_val = new String();
-  // Holds the value of the CSS property, "display", for the HTML element 
-  // using the selector, ".headr". 
-  // 
-  // The value is used to determine the visibility of the header for an 
-  // individual Section. If the header is visible, the click state of 
-  // the menu icon is changed to "hover", otherwise it is left alone.
-  
+  var nav_left_value = new String();
+  // Holds the value of the CSS property, "left", for the HTML element 
+  // using the selector, "nav".
+
   nav_link_selector = "#nav-link";
-  headr_selector = ".headr";
   nav_selector = "nav";
 
   nav_link_element = $(nav_link_selector);
-  headr_element = $(headr_selector);
   nav_element = $(nav_selector);
-
-  headr_css_display_val = $(headr_element).css("display");
 
   current_class = $(nav_link_element).attr("class");
 
   new_class = "nav-" + new_class;
+
+  nav_left_value = $(nav_element).css("left");
 
   if (new_class === "nav-base") {
   // If the new click state is, "base", this condition is triggered.
@@ -118,7 +110,7 @@ function navLinkHoverState(new_class, time_value) {
     // the "base" state.
    
   if (new_class === "nav-hover" && 
-      headr_css_display_val === "table") {
+      nav_left_value !== "0px") {
   // If the new click state is, "hover", and the header is visible, 
   // then this condition is triggered.
     $(nav_link_element).fadeTo((time_value / 4), 0, 

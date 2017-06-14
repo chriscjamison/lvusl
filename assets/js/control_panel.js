@@ -17,17 +17,11 @@ var window_margin = new Number();
 // The distance in pixels that the browser window can lie either above or below 
 // a Section and still be considered viewing an individual Section.
 
-var url_string = new String();
 var url_hash = new String();
-
-var rate_value_search_string = new String();
-// Holds a String which corresponds with a GET variable that appears in the URL 
-// once the form, 'FORM TYPE #2', has responded to the form submission.
 
 time_value = 500;
 window_margin = 150;
 
-url_string = window.location.href;
 url_hash = window.location.hash;
 
 $(document).ready(
@@ -45,7 +39,22 @@ $(document).ready(
     // Once the user moves the cursor away from the "menu icon", the 
     // click-state of the "menu icon" is changed to the "base" state.
       function () {
-        navLinkHoverState("base", time_value); 
+        var nav_selector = new String();
+        var nav_element = new Object();
+
+        var nav_left_val = new String();
+        // Holds the value of the CSS property, "left", for the HTML 
+        // element using the selector, "nav".
+
+        nav_selector = "nav";
+        nav_element = $(nav_selector);
+
+        nav_left_val = $(nav_element).css("left");
+
+        if (nav_left_val !== "0px") {
+        // If the main menu is not visible, this condition is triggered.
+          navLinkHoverState("base", time_value); 
+        }
       }
     );
     
@@ -285,21 +294,27 @@ $(document).ready(
     $(window).on("load", 
       function () {
         var url_hash = new String();
+        
         var page_dimensions_Array = new Array();
         // The calculated values for the "width" and "height" of various HTML elements 
         // of the webpage within the browser window are passed on to "page_dimensions_Array".
         var window_width = new Number();
         // Holds the numerical value of the width of the browser window.
 
+        var sctn_main_string = new String();
+
         url_hash = window.location.hash;
+        
         page_dimensions_Array = parseWindowDimensions();
         window_width = page_dimensions_Array[0];
         
+        sctn_main_string = "#sctn_main";
+
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 
 
         if (url_hash === "" || 
-            url_hash === "#sctn_main")  {
+            url_hash === sctn_main_string)  {
         // If the URL hash is blank or is "#sctn_main", this condition 
         // is triggered.
           if (window_width > 980) {
@@ -389,7 +404,7 @@ $(document).ready(
         sctn_blank_search_string = "";
 
         if (url_hash.indexOf(nav_visible_search_string) === -1 && 
-            url_hash !== sctn_blank_search_string) {
+            url_hash !== "") {
         // If the inter-section navigation which appears on the left 
         // of the browser window is not visible and the URL hash 
         // is not blank, then this condition is triggered.
@@ -470,74 +485,76 @@ $(document).ready(
             // within the webpage that is viewable.
             
             current_position = $(window).scrollTop();
+
+            if (section_value === "5")  {
+            // If the viewable section is SECTION #5, then this condition 
+            // is triggered.
+
+              var listing_search_string = new String();
+              // Holds the String, "listing=" which will be searched for in the value of,  
+              // "url_hash".
+
+              listing_search_string = "listing=";
+
+              if (url_hash.indexOf(listing_search_string) !== -1) {
+              // If the visitor has made a request to view a job listing, this condition 
+              // is triggered.
+
+                var listing_val = new String();
+                // Holds a Character representing the listing the link within the <a> element 
+                // refers to.
+                var url_hash_length = new Number();
+                // Holds the total number of characters contained in the "src" attribute of the 
+                // <a> element.
+
+                var listing_selector = new String();
+                var listings_selector = new String();
+
+                var listing_element = new Object();
+                var listings_elements = new Object();
+
+                var not_visible_css = new Object();
+                var visible_css = new Object();
+
+                var time_value_short = new Number();
+                              
+                url_hash_length = url_hash.length;
+
+                listing_val = url_hash.charAt(url_hash_length - 1);
+
+                listing_selector = "#sctn_5-job_listing-" + listing_val;
+                listings_selector = ".sctn_5-listing";
+
+                listing_element = $(listing_selector);
+                listings_elements = $(listings_selector);
+
+                not_visible_css = {
+                  display: "none"
+                };
+
+                visible_css = {
+                  display: "block", 
+                  opacity: "0"
+                };
+
+                time_value_short = time_value / 1.25;
+
+                $(listings_elements).css(not_visible_css);
+                $(listings_elements).removeClass();
+                $(listings_elements).addClass("sctn_5-listing not_visible");
+
+                $(listing_element).removeClass();
+                $(listing_element).addClass("sctn_5-listing visible");
+                $(listing_element).css(visible_css);
+                $(listing_element).fadeTo(time_value_short, 1);
+
+              }// END of "if" STATEMENT which is triggered if the visible Section 
+              // is now 'MAIN LANDING SECTION.
+            }
             
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".
-          } else if (section_value === "5")  {
-          // If the viewable section is SECTION #5, then this condition 
-          // is triggered.
-
-            var listing_search_string = new String();
-            // Holds the String, "listing=" which will be searched for in the value of,  
-            // "url_hash".
-
-            listing_search_string = "listing=";
-
-            if (url_hash.indexOf(listing_search_string) !== -1) {
-            // If the visitor has made a request to view a job listing, this condition 
-            // is triggered.
-
-              var listing_val = new String();
-              // Holds a Character representing the listing the link within the <a> element 
-              // refers to.
-              var url_hash_length = new Number();
-              // Holds the total number of characters contained in the "src" attribute of the 
-              // <a> element.
-
-              var listing_selector = new String();
-              var listings_selector = new String();
-
-              var listing_element = new Object();
-              var listings_elements = new Object();
-
-              var not_visible_css = new Object();
-              var visible_css = new Object();
-
-              var time_value_short = new Number();
-                            
-              url_hash_length = url_hash.length;
-
-              listing_val = url_hash.charAt(url_hash_length - 1);
-
-              listing_selector = "#sctn_5-job_listing-" + listing_val;
-              listings_selector = ".sctn_5-listing";
-
-              listing_element = $(listing_selector);
-              listings_elements = $(listings_selector);
-
-              not_visible_css = {
-                display: "none"
-              };
-
-              visible_css = {
-                display: "block", 
-                opacity: "0"
-              };
-
-              time_value_short = time_value / 1.25;
-
-              $(listings_elements).css(not_visible_css);
-              $(listings_elements).removeClass();
-              $(listings_elements).addClass("sctn_5-listing not_visible");
-
-              $(listing_element).removeClass();
-              $(listing_element).addClass("sctn_5-listing visible");
-              $(listing_element).css(visible_css);
-              $(listing_element).fadeTo(time_value_short, 1);
-
-            }// END of "if" STATEMENT which is triggered if the visible Section 
-             // is now 'MAIN LANDING SECTION.
           }
         } // END of "if" STATEMENT which is triggered if the main menu is not 
           // visible and the URL hash is not blank.
