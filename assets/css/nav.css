@@ -507,7 +507,11 @@ nav {
   }
 
   .sctn_nav {
-    width: 119em !important; 
-    top: 42em !important;
+    width: 120em; 
+    top: 44em;
+  }
+
+  .sctn_nav > div {
+    width: 25.75em;
   }
 }

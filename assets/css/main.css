@@ -100,8 +100,6 @@ body {
  */
 
 #info {
-	width: 38.6em;
-	height: 15.2em;
 	position: absolute;
   opacity: 0;
 }
@@ -119,7 +117,7 @@ body {
 /* Formats the logo which is contained within the <div> using the selctor, "#info". */
 
 #info > div {
-  height: 8.7em;
+  height: 6.75em;
   float: left;
 }
 /* 
@@ -542,7 +540,7 @@ body {
     opacity: 1;
   }
 
-  #info img {
+  #info > img {
     width: 480px;
     height: 455px;
     position: absolute;
@@ -551,132 +549,12 @@ body {
     opacity: 1;
   }
 
-  #info > ul {
-    width: 100%;
-    position: absolute;
-    margin: 0;
-    top: 13.5em  ;
-    display: block;
-    opacity: 1;
-    font-size: 2.5em;
-  }
-
-  #info > ul > li {
-    margin: 1em auto;
-    display: block;
-    opacity: 1;
-  }
-
-  .headr > span {
-    font-size: 3em;
-  }
-
   .copy {
     width: 51em;
     height: 100.7em;
     margin-left: 10.25em;
   }
-  
-  .sctn_2-blok {
-    width: 39em;
-    margin-right: 0;
-  }
 
-  .sctn_2-blok-2 {
-    width: 43em;
-    margin-left: 8em;
-    top: 2em;
-    left: 0;
-  }
-
-  .sctn_2-blok-2 > span {
-    width: 8.5em;
-    margin-left: 2.3em;
-  }
-
-  .sctn_2-blok-2 > span + div {
-    width: 100%;
-    height: 29.8em;
-    top: 0;
-    left: 0;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    margin: 0.25em 0;
-    padding: 0.45em 0 1em 0;
-    display: block;
-    line-height: 1.6em;
-  }
-
-  .sctn_1-blok, 
-  .sctn_2-blok-2 > span + div > span
-  .sctn_3-blok,
-  .sctn_4-blok,
-  .sctn_5-blok,
-  .sctn_6-blok,
-  #sctn_5-desc-2,
-  #sctn_6-info-1  {
-    width: 36em;
-  }
-
-  .sctn_1-blok > p,
-  .sctn_2-blok > ul, 
-  .sctn_2-blok-2 > span, 
-  .sctn_2-blok-2 > span + div > span, 
-  .sctn_3-blok > p,
-  .sctn_4-blok > p,
-  .sctn_4-blok > span, 
-  .sctn_5-blok > p,
-  #sctn_5-desc-2 > span,
-  #sctn_5-desc-7 > p,
-  .sctn_6-blok > p,
-  .sctn_6-blok-2 > span,
-  #sctn_6-info-1 > span > span,
-  .sctn_6-blok-2 > div {
-    font-size: 1.75em;
-  }
-
-  .sctn_1-blok,
-  .sctn_3-blok, 
-  .sctn_4-blok,
-  .sctn_6-blok {
-    width: 36.25em;
-  } 
-
-  .sctn_4-blok > div {
-    top: -0.55em;
-  }
-
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p, 
-  .sctn_6-blok-2 > div {
-    font-size: 1.5em;
-  }
-
-  #sctn_5-desc-3 > span {
-    margin: 0.5em 1.35em;
-    display: block;
-    float: left;
-  }
-
-  .sctn_6-blok-2 {
-    width: 18.8em;
-    height: 20.8em;
-    margin-bottom: 1.75em;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 9.25em;
-  }
-
-  #sctn_6-info-2 {
-    width: 40em;
-    height: 19em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 23.5em;
-  }
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
@@ -694,88 +572,6 @@ body {
     margin-left: 10.25em;
   }
 
-  #wndow-sctn_2 > .copy:first-of-type {
-    width: 54.25em;
-    margin-left: 13.75em;
-  }
-
-  .sctn_1-blok, 
-  .sctn_3-blok, 
-  .sctn_4-blok,
-  .sctn_5-blok,
-  .sctn_6-blok,
-  #sctn_5-desc-2,
-  #sctn_6-info-1 {
-    width: 36em;
-  }
-
-  .sctn_1-blok > p, 
-  .sctn_2-blok > ul,
-  .sctn_2-blok-2 > span, 
-  .sctn_3-blok > p,
-  .sctn_4-blok > p, 
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p,
-  #sctn_6-info-1 > span > span, 
-  .sctn_6-blok-2 > span,
-  .sctn_6-blok-2 > div {
-    font-size: 1.5em !important;
-  }
-
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p, 
-  .sctn_6-blok-2 > div {
-    font-size: 1.25em !important;
-  }
-
-  .sctn_2-blok > ul > li {
-    margin: 0.25em;
-  }
-
-  .sctn_2-spcr {
-    width: 41.1em;
-    height: 2em;
-  }
-  
-  .sctn_2-blok-2 {
-    margin-left: 0;
-    top: 1em;
-  }
-
-  .sctn_2-blok-2 > span {
-    margin-left: 8.5em;
-  }
-
-  .sctn_2-blok-2 > span + div {
-    top: 1em;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    width: 8.2em;
-    height: 8em;
-    margin: 0.25em 1.25em 0.25em 0em;
-    padding: 1em;
-    font-size: 1.25em;
-  }
-
-  .sctn_6-blok-2 {
-    width: 19em;
-    height: 20.3em;
-    margin-bottom: 0;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 12em;
-  }
-
-  #sctn_6-info-2 {
-    width: 40em;
-    height: 16em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 28.75em;
-  }
 }
 
 @media screen and (width: 1024px) and (max-height: 1510px)  {
@@ -790,110 +586,7 @@ body {
     left: 10.5em;
   }
 
-  #info img {
-    margin: 1.7em;
-  }
 
-  #info ul {
-    font-size: 1.25em;
-  }
-
-  .copy {
-    height: 77.25em;
-  }
-
-  #wndow-sctn_main {
-    width: 64em;
-    height: 93.75em;
-  }
-
-  #wndow-sctn_1 > .copy, 
-  #wndow-sctn_3 > .copy, 
-  #wndow-sctn_4 > .copy {
-    width: 50.75em;
-    margin-left: 13.25em;
-  }
-
-  #wndow-sctn_2 > .copy {
-    width: 46.5em;
-  }
-
-  #wndow-sctn_5 > .copy, 
-  #wndow-sctn_6 > .copy {
-    width: 48.5em;
-    margin-left: 15.5em;
-  }
-
-  .headr {
-    width: 64em;
-  }
-
-  .sctn_1-blok > p, 
-  .sctn_2-blok > ul,
-  .sctn_2-blok-2 > span, 
-  .sctn_3-blok > p,
-  .sctn_4-blok > p, 
-  #sctn_6-info-1 > span > span, 
-  .sctn_6-blok-2 > span {
-    font-size: 1.5em !important;
-  }
-
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p, 
-  .sctn_6-blok-2 > div {
-    font-size: 1.25em !important;
-  }
-  
-  .sctn_2-blok-2 {
-    width: 64em;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    padding-top: 1em;
-  }
-
-  .sctn_4-blok > div {
-    top: -0.6em;
-  }
-
-  #sctn_5-desc-3 > span {
-    width: 119px;
-  }
-
-  #sctn_5-desc-3 > span > span {
-    margin: 0.5em 0.6em 0 0.25em;
-  }
-
-  #sctn_5-desc-3 > span + span + span ~ span span {
-    margin-top: 0.55em;
-  }
-
-  #sctn_6-info-1 {
-    margin: 2.5em 0 1.5em 0;
-  }
-
-  #sctn_6-info-1 > span {
-    padding-bottom: 1em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 23em;
-  }
-
-  .sctn_6-blok-2 {
-    width: 15.25em;
-    height: 20.3em;
-    margin-bottom: 0;
-  }
-
-  #sctn_6-info-2 {
-    width: 33em;
-    height: 16em;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 9em;
-  }
 }
 
 @media screen and (min-width: 1260px) and (max-width: 1320px) {
@@ -956,17 +649,6 @@ body {
   }
 }
 
-@media screen and (min-width: 1260px) and (min-height: 980px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1260px and a height greater than 980px. 
-  * This breakpoint is optimized to fit resolutions of 1280x1024.
-  */
-
-  #info {
-    height: 28.1em;
-    bottom: 12.5em;
-  }
-}
-
 @media screen and (min-width: 1340px) and (max-width: 1580px) {
   /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
   * This breakpoint is optimized to fit resolutions of 1366x768px.
@@ -1008,43 +690,6 @@ body {
      height: 28.1em;
      margin-left: 4.5em;
    }
-
-  .sctn_2-blok-2 {
-    width: 62.25em;
-    height: 13.45em;
-    left: 0;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    padding-top: 1.75em;
-  }
-
-  .sctn_4-blok > div {
-    top: -0.59em;
-  }
-
-  .sctn_6-blok-2 {
-    width: 17.25em !important;
-    height: 12em !important;
-    margin-bottom: 1em;
-  }
-
-  .sctn_6-blok-2 > span, 
-  .sctn_6-blok-2 > div {
-    width: 13.8em !important;
-  }
-
-  #sctn_6-info-2 > span, 
-  #sctn_6-info-2 > div {
-    width: 29.75em !important;
-  }
-
-  .sctn_6-spcr {
-    width: 72em;
-    height: 0.8em;
-    float: left;
-    clear: none;
-  }
 }
 
 @media screen and (min-width: 1590px) and (max-width: 1900px) {
@@ -1108,175 +753,51 @@ body {
    * This breakpoint is optimized to fit resolutions of 1920x1020px.
    */
 
-  .headr {
+  #info {
     width: 120em;
+    height: 6.75em;
   }
 
-  #wndow-sctn_1 > .copy {
-    width: 107.5em !important;
-    height: 59.35em;
-    margin-left: 11.5em;
-  }
-  
-  #wndow-sctn_2 > .copy {
-    width: 93.2em !important;
-    margin-left: 25.75em;
+  #info > div {
+    width: 19em;
+    margin: 1.75em 0 0 54.25em;
   }
 
-  #wndow-sctn_3 > .copy , 
-  #wndow-sctn_4 > .copy {
-    width: 79.2em !important;
-    margin-left: 39.75em;
+  .headr {
+    width: 113.75em;
+    margin: 4em 0 0 6.25em;
   }
 
-  #wndow-sctn_5 > .copy {
-    width: 98.5em !important;
-    margin-left: 20.5em;
-  }  
-  
-  #wndow-sctn_6 > .copy {
-    width: 97em !important;
-    margin-left: 22em;
-  }
-
-  .sctn_1-blok, 
-  .sctn_2-blok, 
-  .sctn_2-blok-2, 
-  .sctn_3-blok,
-  .sctn_4-blok,
-  .sctn_5-blok > p, 
-  #sctn_5-desc-3 > span + span + span ~ span span, 
-  #sctn_6-desc-1 > p, 
-  .sctn_6-blok-2 > span {
-    font-size: 1.1em;
+  .copy {
+    width: 113.5em;
+    height: 55.5em;  
+    margin: 12em 0 0 6.5em;
   }
 
   .sctn_1-blok, 
   .sctn_3-blok, 
-  .sctn_4-blok {
-    position: relative;
+  .sctn_4-link, 
+  #sctn_5-job_titles {
+    width: 20em;
   }
 
-  .sctn_1-blok {
-    left: 31.75em !important;
+  #sctn_1-desc-1 {
+    left: 84.5em;
   }
 
-  .sctn_3-blok, 
-  .sctn_4-blok {
-    left: 0 !important;
-  }
-  
-  #sctn_1-desc-1  {
-    left: 25.75em !important;
-    position: absolute;
-  }
+  #sctn_2-video {
+     width: 50em;
+     height: 28.1em;
+     margin-left: 27em;
+   }
 
-  #sctn_1-desc-2 {
-    left: 0 !important;
-  }
+   #sctn_2-document {
+     width: 38em;
+     height: 28.55em;
+     margin-left: 33em;
+   }
 
-  #sctn_1-desc-3 {
-    left: 25.5em !important;
-  }
-
-  .sctn_2-spcr {
-    display: inline-block;
-  }
-
-  .sctn_2-blok-2 {
-    width: 62em;
-    height: 13.1em;
-    left: 0;
-  }
-
-  .sctn_2-blok-2 > span + div {
-    width: 61.25em;
-  }
-
-  .sctn_2-blok-2 > span > div {
-    width: 81.8em;
-    height: inherit;
-  }
-
-  .sctn_2-blok-2 > span + div > span:first-of-type {
-    margin-left: 0;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    padding: 2em 2em 1.1em 2em;
-  }
-  
-  .sctn_3-blok, 
-  .sctn_4-blok, 
-  .sctn_5-blok,
-  #sctn_5-desc-2,  
-  .sctn_6-blok,
-  .sctn_6-blok-2 {
-    width: 32.5em;
-  }
-  
-  .sctn_3-blok > span {
-    font-size: 2em;
-  }
-  
-  .sctn_4-blok div {
-    top: -0.6em !important;
-  }
-
-  #sctn_5-desc-3 > span {
-    padding: 1.67em;
-  }
-
-  #sctn_5-desc-3 > span + span + span ~ span span {
-    margin-top: 0.6em;
-  }
-
-  .sctn_6-blok {
-    margin-right: 4.5em;
-  }
-
-  #sctn_6-desc-1 > p {
-    line-height: 1.8em;
-  }
-
-  .sctn_6-spcr {
-    width: 36.5em;
-  }
-
-  .sctn_6-blok-2 {
-    width: 17em;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 13.75em;
-  }
-
-  #sctn_6-info-1 {
-    width: 28.8em;
-    left: 41em;
-    clear: both;
-  }
-
-  #sctn_6-info-1 > span {
-    width: 24em;
-    margin: 0 auto;
-  }
-
-  #sctn_6-info-1 > span > span {
-    font-size: 1.25em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 29.5em;
-    margin-top: 10em;
-    left: 3.7em;
-  }
+   #sctn_5-job_titles {
+     left: 56em;
+   }
 }
-
-html[data-useragent*='Windows NT 6.3'] .sctn_4-blok > div {
-  top: -0.6em;
-}
-/* Formats a <div> element which holds quotation marks 
- * which appears within 'SECTION #4'.
- * This statement affect only Internet Explorer browsers.
- */
