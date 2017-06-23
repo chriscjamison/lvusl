@@ -453,8 +453,8 @@ function cssAdjustment()  {
     
     info_img_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
-      "width": "480", 
-      "height": "455"
+      width: "480", 
+      height: "455"
     };
 
     $(info_img_element).attr(info_img_css);
@@ -579,10 +579,6 @@ function setupPage(time_value)  {
   // "wndow_height" holds the height of the HTML elements using the selector, ".wndow" and 
   // uses the second index of the Array, "page_dimensions_Array".
   
-  page_height = $(window).height() * $(".wndow").length;
-  nav_width = $("nav").width();
-  nav_left_val = -nav_width;
-  
   cntainr_selctor = "#cntainr";
   wndow_selector = ".wndow";
   bkgrnd_selector = "#bkgrnd";
@@ -598,19 +594,23 @@ function setupPage(time_value)  {
   video_element = $(video_selector);
   pdf_element = $(pdf_selector);
   bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
+
+  page_height = $(window).height() * $(wndow_elements).length;
+  nav_width = $(nav_elements).width();
+  nav_left_val = -nav_width;
   
   cntainr_css = {
-    "width": page_dimensions_Array[0],
-    "height": page_height
+    width: page_dimensions_Array[0],
+    height: page_height
   };
   
   width_height_css = {
-    "width": page_dimensions_Array[0],
-    "height": page_dimensions_Array[1]
+    width: page_dimensions_Array[0],
+    height: page_dimensions_Array[1]
   };
   
   nav_css = {
-    "left": nav_left_val
+    left: nav_left_val
   }
 
   if (wndow_width === 1280)  {
@@ -692,12 +692,12 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/lvusl/assets/img/bkgrnd/" + 
+        bkgrnd_img_value = "url('/usl/assets/img/bkgrnd/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/lvusl/assets/img/bkgrnd/1/1920x1020.jpg')" 
+        // The value of "bkgrnd_img_value" would be "url('/usl/assets/img/bkgrnd/1/1920x1020.jpg')" 
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
@@ -713,7 +713,7 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        width_height_css.backgroundImage = "url('/lvusl/assets/img/bkgrnd/main/" + bkgrnd_width +
+        width_height_css.backgroundImage = "url('/usl/assets/img/bkgrnd/main/" + bkgrnd_width +
                                            "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.

@@ -1,0 +1,803 @@
+/* Filename: main.css 
+ *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
+ * 
+ *  + All measurements are given in terms of 'em' except for background position values which are 
+ *    given in terms of 'px'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+
+body {
+  margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+/* Formats the <body> HTML tag */
+
+#cntainr {
+  width: initial;
+  height: initial;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clear: both;
+	z-index: 1;
+}
+/* Formats the <div> which holds all of the text and form content. */
+
+.wndow {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/* Formats the <div> which holds the text and form content of a particular 'SECTION' */
+
+#bkgrnd {
+	position: absolute;
+	top: 0;
+  left: 0;
+	z-index: 0;
+}
+/* Formats the <div> which holds the <div> elements which hold the background images 
+ * for the individual sections. 
+ */
+
+ #bkgrnd > div {
+   background-repeat: no-repeat;
+ }
+ /* Formats the <div> elements which hold the background images for the individual sections. */
+
+.headr {
+	height: 2.7em;
+	position: absolute;
+	top: 3.13em;
+	opacity: 0;
+}
+/* Formats the <div> which holds the 'SECTION' title for a given section. */
+
+.headr > span {
+  width: 14.75em;
+  display: block;
+  font: 400 2.5em 'Alfa Slab One', 'Cambria', serif;
+	letter-spacing: 4px;
+	color: #fff;
+}
+/* Formats the <span> element which holds the text of the 'SECTION' title of a 
+ *  particular section. 
+ */
+
+.copy {
+  display: none;
+	position: absolute;
+  float: left;
+  top: 0;
+  left: 0;
+	font: 400 1em 'Glegoo', 'Palatino', serif;
+}
+/* Formats the <div> which holds the text or form content within a section. 
+   '.copy' elements differ from '.wndow' elements in that '.copy' elements only 
+   hold the content of one sub-section, while '.wndow' elements hold many 
+   sub-sections.
+*/
+
+
+
+/* ---- 'MAIN LANDING PAGE' ---- 
+ * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
+ * portion of this template.
+ */
+
+#info {
+	position: absolute;
+  opacity: 0;
+}
+/* Formats a <div> which contains the logo and <ul> list which is displayed 
+ * in the landing portion.
+ */
+
+#info > img {
+  padding: 1.7em;
+	display: none;
+  position: relative;
+  float: left;
+	opacity: 0;
+}
+/* Formats the logo which is contained within the <div> using the selctor, "#info". */
+
+#info > div {
+  height: 6.75em;
+  float: left;
+}
+/* 
+ * Formats the <div> element which appears to the right of the logo within a 
+ * desktop browser and contains <a> elements which allow a user to sign up for 
+ * a newsletter or reserve season tickets.
+ */
+
+#info > div > a,
+.sctn_4-article + a,  
+.sctn_nav > div > a {
+  width: 7.5em;
+  height: 3em;
+  margin-right: 0.5em;
+  padding: 0.75em;
+  display: block;
+  float: left;
+  background-color: #ffff66;
+  border: 2px solid #ffff66;
+  font-size: 1em;
+  font-family: 'Istok Web', sans-serif;
+  color: #000;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+}
+/* Formats the links which appear to the right of the logo within MAIN LANDING SECTION */
+
+#info > div > a:hover, 
+.sctn_4-article + a:hover, 
+.sctn_nav > div > a:hover {
+  border: 2px solid #a0410d;
+}
+
+#info > div > a:first-of-type, 
+.sctn_4-article + a {
+  height: 1.5em;
+  padding: 1.5em 0.75em;
+}
+/* 
+ * Formats the link, 'Email Alerts', which appears to the right of the logo within 
+ * MAIN LANDING SECTION. This link is formatted because the size of the button without 
+ * formatting is smaller than the link, 'Reserve Season Tickets'.
+ */
+
+#info > div > a {
+  opacity: 0;
+}
+
+#info > div > a:nth-child(2) {
+  margin-right: 0;
+}
+/* Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
+ * within MAIN LANDING SECTION.
+ */ 
+
+/* ---- 'SECTION #1' ---- */
+
+.headr.sctn_1 > span {
+	color: #ffe272;
+}
+/* Formats the color of the <div> which holds the title of 'SECTION #1'. */
+
+.visible {
+  display: block;
+}
+/* Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made visible. */
+
+.not_visible {
+  display: none;
+}
+/*  Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made invisible. */
+
+.visible, 
+.not_visible {
+  opacity: 1;
+}
+/* Formats the <div> elements which contain the form questions of 'FORM TYPE #2'. */
+
+.sctn_1-blok, 
+.sctn_3-blok, 
+.sctn_4-link, 
+.sctn_5-blok, 
+.sctn_6-blok {
+ 	height: initial;
+	padding: 1em 2em;
+	position: absolute;
+  z-index: 2;
+	opacity: 0;
+}
+/* Formats the 'block' which hold <input> elements which contain form questions. */
+
+#sctn_1-form {
+  height: 21.6em;
+  background-color: #ffd283;
+}
+
+#sctn_1-desc-1 {
+  left: 41.25em;
+  background-color: #b6dbda;
+}
+
+#sctn_1-desc-1 > p {
+  font: 400 1em 'Istok Web', sans-serif ;
+  color: #509590;
+}
+
+.sctn_1-blok > form > span {
+	width: 100%;
+	padding-bottom: 0.25em;
+	display: inline-block;
+  font-family: 'Istok Web', sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+  color: #af9015;
+}
+/* Formats a <span> element which contains a text header for 'FORM TYPE #2'. */
+
+
+.sctn_1-blok > form > div > div > span {
+  font-family: 'Istok Web', sans-serif;
+  color: #363637;
+}
+/* Formats the text descriptors for the form questions of 'FORM TYPE #2'. */
+
+.sctn_1-blok > form > div > div {
+  margin: 0.75em 0;
+}
+/* Formats the <div> elements which surround form questions of 'FORM TYPE #2. */
+
+.sctn_1-blok > form > div > div:first-of-type, 
+.sctn_1-blok > form > div > div:nth-child(3) {
+  margin-top: 0.1em;
+}
+/* 
+ * Formats the <div> element which surrounds the form questions of 'FORM TYPE #2' 
+ * which appear near the top of the block, '.sctn_1-blok'.
+ */
+
+#ticket-line_3 {
+	margin-bottom: 1.25em;
+}
+/* Formats the text fields of the second question of 'FORM TYPE #2' of 'SECTION #1'. */
+
+/* ---- 'SECTION #2' ---- */
+
+.headr.sctn_2 > span {
+	color: #b9def0;
+}
+/* Formats the color of the <span> which holds the title of 'SECTION #2'. */
+
+#sctn_2-video, 
+#sctn_2-document {
+  padding: 1em;
+  background-color: #ccc;
+}
+/* 
+ * Formats the <div> element which serves as a border for the embedded video 
+ * and the splash image. 
+ * 
+ */
+
+
+/* ---- 'SECTION #3' ---- */
+
+.headr.sctn_3 > span {
+	color: #ffedac;
+}
+/* Formats the color of the <div> which holds the title of 'SECTION #3'. */
+
+#sctn_3-desc-1 {
+  background-color: #e4e1fd;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.sctn_3-blok > span {
+	width: 100%;
+	display: block;
+	padding-bottom: 0.1em;
+	border-bottom: 2px solid #b8b0f5;
+  color: #3a74ba;
+	font-size: 1em;
+	font-weight: 700;
+}
+/* 
+ * Formats a <span> element which contains a text header for the 'block' within each 
+ * sub-section. The <span> elements appear within the <div> elements using the selectors, 
+ * 'sctn_3-desc-2', 'sctn_3-desc-3', & 'sctn_3-desc-4'.
+ */
+
+#sctn_3-desc-1 > p, 
+.sctn_4-article > p, 
+.sctn_5-lising > p {
+  text-indent: 1.3em;
+	line-height: 1.5em;
+	color: #5a92d4;
+}
+/* Formats <p> elements which are contained with an individual block contained 
+ * within 'SECTION #3'.
+ */
+
+
+/* ---- 'SECTION #4' ---- */
+
+.headr.sctn_4 > span {
+	color: #b05b4e;
+}
+/* Formats the color of the <div> which holds the title of 'SECTION #4'. */
+
+.sctn_4-link {
+  margin: 0 1.5em 1.5em 0;
+  padding: 0.75em;
+  position: relative;
+  background-color: #d9af83;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.sctn_4-link > a {
+  display: block;
+  color: #51300e;
+  padding-bottom: 0.75em;
+}
+
+.sctn_4-link > span {
+  color: #6b4014;
+}
+
+.sctn_4-article {
+  width: 50em;
+  height: initial;
+  padding: 1em 2em;
+  float: left;
+  background-color: #a2c1c9;
+  font-family: 'Istok Web', sans-serif;
+}
+
+.sctn_4-article > h3 {
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+}
+
+.sctn_4-article > span {
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.sctn_4-article > p:first-of-type {
+  margin-top: 0.75em;
+  padding-top: 1em;
+  border-top: 2px solid #33606D;
+}
+
+.sctn_4-article > p {
+  color: #0E3743;
+}
+
+.sctn_4-article + a {
+  margin-left: 1.75em;
+  float: left;
+}
+
+
+/* ---- 'SECTION #5' ---- */
+
+.headr.sctn_5 > span {
+	color: #ffe6ce;
+}
+/* Formats the color of the <div> which holds the title of 'SECTION #5'. */
+
+.sctn_5-blok {
+  font-family: 'Istok Web', sans-serif;
+  opacity: 1;
+}
+/* Formats the blocks which are contained with 'SECTION #5'. */
+
+#sctn_5-job_titles, 
+#sctn_5-job_listings {
+  position: absolute;
+}
+/* Formats the block which contains text content but does not include a <button> element 
+ * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+ */
+
+#sctn_5-catagories {
+  background-color: #ffe0c1
+}
+
+#sctn_5-catagories > span {
+  margin-bottom: 0.75em;
+  display: block;
+  border-bottom: 2px solid #fff6ed;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#sctn_5-catagories > div {
+  margin-top: 1em;
+}
+
+#sctn_5-catagories > span, 
+#sctn_5-catagories > div > span {
+  color: #ee9e4f;
+}
+
+#sctn_5-catagories > div > span + span {
+  height: 1em;
+  margin-left: 0.5em;
+  padding: 0 0.35em 0.3em 0.3em;
+  background-color: #ee9e4f;
+  color: #ffe0c1;
+  text-align: center;
+}
+
+#sctn_5-catagories > div > span, 
+#sctn_5-catagories > div > span + span {
+  display: block;
+  float: left;
+  font-weight: 700;
+}
+
+#sctn_5-catagories > div > a {
+  display: block;
+  color: #75a6b2;
+  clear: both;
+}
+
+.sctn_5-listing {
+  width: 50em;
+  padding: 1em 2em;
+  float: left;
+  background-color: #eef1fe;
+  font-family: 'Istok Web', sans-serif;  
+}
+
+.sctn_5-summary > h4 {
+  margin: 0;
+  color: #75a6b2
+}
+
+.sctn_5-summary {
+  border-bottom: 2px solid #ffbb77;
+}
+
+.sctn_5-summary > ul {
+  margin: 0.5em 0 0.6em 0;
+}
+
+.sctn_5-summary > ul > li {
+  list-style: url('/usl/assets/img/misc/disc.png');
+}
+
+.sctn_5-summary > h4, 
+.sctn_5-summary > ul > li, 
+.sctn_5-job_desc > p {
+  color: #7facbb;
+}
+
+.sctn_5-job_desc > p {
+  padding-left: 2.5em;
+}
+
+
+
+/* ---- 'SECTION #6' ---- */
+
+.headr.sctn_6 > span {
+	color: #f4c887;
+}
+/* Formats the color of the <div> which holds the title of 'SECTION #6'. */
+
+.sctn_6-blok {
+  width: 40.5em;
+  padding: 0;
+}
+
+.sctn_6-social_media_link {
+  width: 16em;
+  height: 8em;
+  margin: 0 2em 2em 0;
+  padding: 1em;
+  float: left;
+  background-color: #C7C5E4;
+  font-family: 'Istok Web', sans-serif;
+  color: #f4c887;
+}
+
+.sctn_6-social_media_link > a > img {
+  margin: 0 auto 0.5em auto;
+  display: block;
+}
+
+.sctn_6-social_media_link > a + a {
+  width: 16em;
+  margin: 0 auto;
+  display: block;
+  color: #3a5a98;
+}
+
+#sctn_6-instagram > a + a {
+  width: 16.25em;
+}
+
+#sctn_6-twitter > a + a {
+  width: 14.75em;
+}
+
+#sctn_6-youtube > a + a {
+  width: 15.5em;
+}
+
+@media screen and (width: 980px) {
+  /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
+  #info {
+    width: 61.25em;
+    height: 76em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+
+  #info > img {
+    width: 480px;
+    height: 455px;
+    position: absolute;
+    margin: 3em 14em;
+    display: block;
+    opacity: 1;
+  }
+
+  .copy {
+    width: 51em;
+    height: 100.7em;
+    margin-left: 10.25em;
+  }
+
+}
+
+@media screen and (width: 980px) and (max-height: 1310px) {
+  /* This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
+  * This breakpoint is optimized to fit the iPad. 
+  */
+
+  #info {
+    height: 72em;
+  }
+  
+  .copy {
+    width: 51em;
+    height: 73.7em;
+    margin-left: 10.25em;
+  }
+
+}
+
+@media screen and (width: 1024px) and (max-height: 1510px)  {
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  * This breakpoint is optimized to fit the iPad Pro. 
+  */
+
+  #info {
+    width: 45.6em;
+    height: 17em;
+    bottom: 17em;
+    left: 10.5em;
+  }
+
+
+}
+
+@media screen and (min-width: 1260px) and (max-width: 1320px) {
+  /* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
+  * This breakpoint is optimized to fit resolutions of 1280x800. 
+  */
+
+  #cntainr {
+    width: 80em;
+  }
+
+  .headr {
+    width: 73.6em;
+    left: 6.25em;
+  }
+
+  .copy {
+    height: 56em;
+    margin-left: 27.9em;
+  }
+
+  #info {
+    width: 79em;
+    height: 6.7em;
+  }
+
+  #info > div {
+    height: 4.5em;
+    margin: 1.55em 0 0 13em;
+  }
+
+  .copy {
+    width: 72.75em;
+    margin: 8.15em 0 0 6.25em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-link {
+    width: 20em;
+  }
+
+  #sctn_1-desc-1 {
+    left: 44.5em;
+  }
+
+  #sctn_2-video {
+    width: 42.5em;
+    height: 24em;
+    margin-left: 11.25em;
+  }
+
+  #sctn_2-document {
+    width: 32.5em;
+    margin-left: 15.5em;
+  }
+
+  #sctn_5-job_titles {
+    left: 50.25em;
+  }
+}
+
+@media screen and (min-width: 1340px) and (max-width: 1580px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px.
+  */
+  
+  #cntnr {
+    width: 85.38em;
+  }
+
+  #bkgrnd {
+    width: 85.38em;
+  }
+
+  .headr {
+    width: 85.38em;
+  }
+
+  .copy {
+    height: 39.85em;
+    font-size: 0.95em;
+  }
+
+  #info {
+    width: 99em;
+    height: 9em;
+  }
+
+  .copy {
+    width: 79em;
+    margin: 8.15em 0 0 9.75em;
+  }
+  
+  #sctn_1-desc-1 {
+    left: 17em;
+  }
+
+  #sctn_2-video {
+     width: 50em;
+     height: 28.1em;
+     margin-left: 4.5em;
+   }
+}
+
+@media screen and (min-width: 1590px) and (max-width: 1900px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1590px and a width less than 1900px. 
+   * This breakpoint is optimized to fit resolutions of 1600x900px.
+   */
+
+   #info {
+     width: 99em;
+     height: 9em;
+   }
+
+   #info > div {
+    width: 19em;
+    height: 4.75em;
+    margin: 1.75em 0 0 32.75em;
+    float: left;
+   }
+
+   .copy {
+     width: 92.5em;
+     height: 43.75em;
+     margin: 12em 0 0 6.5em;
+   }
+
+   .headr {
+     width: 92.5em;
+     margin: 3.25em 0 0 6.5em;
+   }
+
+   .sctn_1-blok, 
+   .sctn_3-blok, 
+   .sctn_4-link, 
+   #sctn_5-job_titles {
+     width: 20em;
+   }
+
+   #sctn_2-video {
+     width: 50em;
+     height: 28.1em;
+     margin-left: 17em;
+   }
+
+   #sctn_2-document {
+     width: 38em;
+     height: 28.55em;
+     margin-left: 22.5em;
+   }
+
+   .sctn_4-link {
+     height: 5em;
+   }
+
+   #sctn_5-job_titles {
+     left: 56em;
+   }
+}
+
+@media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px. 
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+
+  #info {
+    width: 120em;
+    height: 6.75em;
+  }
+
+  #info > div {
+    width: 19em;
+    margin: 1.75em 0 0 54.25em;
+  }
+
+  .headr {
+    width: 113.75em;
+    margin: 4em 0 0 6.25em;
+  }
+
+  .copy {
+    width: 113.5em;
+    height: 55.5em;  
+    margin: 12em 0 0 6.5em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-link, 
+  #sctn_5-job_titles {
+    width: 20em;
+  }
+
+  #sctn_1-desc-1 {
+    left: 84.5em;
+  }
+
+  #sctn_2-video {
+     width: 50em;
+     height: 28.1em;
+     margin-left: 27em;
+   }
+
+   #sctn_2-document {
+     width: 38em;
+     height: 28.55em;
+     margin-left: 33em;
+   }
+
+   #sctn_5-job_titles {
+     left: 56em;
+   }
+}

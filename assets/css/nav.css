@@ -48,7 +48,7 @@ nav {
 	top: 25px;
 	left: 25px;
 	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/nav.png');
+	background-image: url('/usl/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
 /* Formats a <div> element which serves as the menu 'button'. */
@@ -386,16 +386,8 @@ nav {
   * This breakpoint is optimized to fit resolutions of 1280x1024.
   */
 
-  nav {
-    width: 32em;
-    left: -32em;
-  }
-  
-  #nav-bkgrnd {
-    width: 32em;
-    left: -32em;
-  }
-  
+  nav, 
+  #nav-bkgrnd, 
   #nav-brdr {
     width: 32em;
     left: -32em;
@@ -417,16 +409,8 @@ nav {
   * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
   */
 
-  nav {
-    width: 39.1em;
-    left: -39.1em;
-  }
-
-  #nav-bkgrnd {
-    width: 39.1em;
-    left: -39.1em;
-  }
-
+  nav, 
+  #nav-bkgrnd, 
   #nav-brdr {
     width: 39.1em;
     left: -39.1em;
