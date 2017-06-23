@@ -199,6 +199,7 @@ nav {
  */
  
 .sctn_nav > div {
+  width: 25.75em;
 	height: 4.75em;
 	margin: 0 auto;
 }
@@ -355,10 +356,6 @@ nav {
     top: 54em !important;
   }
 
-  .sctn_nav > div {
-    width: 43.25em !important;
-  }
-
   .sctn_nav > div > div {
     height: 2.75em !important;
     margin-top: 1.5em !important;
@@ -374,10 +371,6 @@ nav {
     width: 79em !important;
     height: 6.1em !important;
     top: 35.75em !important;
-  }
-  
-  .sctn_nav > div {
-    width: 25.75em !important;
   }
 }
 
@@ -427,8 +420,8 @@ nav {
   }
   
   .sctn_nav {
-    width: 85.38em !important;
-    top: 33em !important;
+    width: 85.25em;
+    top: 40em;
   }
 }
 
@@ -455,11 +448,6 @@ nav {
     width: 99em;
     top: 43em;
   }
-
-  .sctn_nav > div {
-    width: 25.75em;
-  }
-  
 }
 
 @media screen and (min-width: 1910px) {
@@ -493,9 +481,5 @@ nav {
   .sctn_nav {
     width: 120em; 
     top: 44em;
-  }
-
-  .sctn_nav > div {
-    width: 25.75em;
   }
 }

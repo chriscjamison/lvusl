@@ -613,7 +613,8 @@ function setupPage(time_value)  {
     left: nav_left_val
   }
 
-  if (wndow_width === 1280)  {
+  if (wndow_width === 1280 || 
+      wndow_width === 1366)  {
   // If the width of the browser window is 1280px, this condition 
   // is triggered.
 

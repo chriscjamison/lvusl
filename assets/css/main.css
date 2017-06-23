@@ -402,6 +402,7 @@ body {
  */
 
 #sctn_5-catagories {
+  width: 14em;
   background-color: #ffe0c1;
 }
 
@@ -655,6 +656,11 @@ body {
     width: 85.38em;
   }
 
+  #info {
+    width: 99em;
+    height: 9em;
+  }
+
   #info > div {
     margin: 1.75em 1.75em 0 18.5em;
   }
@@ -668,22 +674,25 @@ body {
     height: 38.75em;
     margin: 11.75em 0 0 7em;
   }
-
-
-  #info {
-    width: 99em;
-    height: 9em;
-  }
   
   #sctn_1-desc-1 {
     left: 17em;
   }
 
   #sctn_2-video {
-     width: 50em;
-     height: 28.1em;
-     margin-left: 4.5em;
-   }
+    width: 42.5em;
+    height: 24em;
+    margin-left: 13em;
+  }
+
+  #sctn_2-document {
+    width: 32.5em;
+    margin-left: 18.25em;
+  }
+
+  #sctn_5-job_titles {
+    left: 56.5em;
+  }
 }
 
 @media screen and (min-width: 1590px) and (max-width: 1900px) {
