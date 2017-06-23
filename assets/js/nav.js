@@ -16,10 +16,10 @@
  *      of the browser window.
  *      
  *      Called by: 
- *        + $("#nav-link").on("mouseover") (control_panel.js)
- *        + $("#nav-link").on("mouseout") (control_panel.js)
- *        + $("#nav-link").on("click") (control_panel.js)
- *        + $("#options > a").on("click") (control_panel.js)
+ *        + $jQ("#nav-link").on("mouseover") (control_panel.js)
+ *        + $jQ("#nav-link").on("mouseout") (control_panel.js)
+ *        + $jQ("#nav-link").on("click") (control_panel.js)
+ *        + $jQ("#options > a").on("click") (control_panel.js)
  *    
  *    determineVisibleCopyElement
  *      Determines the HTML element using the selector, ".copy", which is visible within 
@@ -36,8 +36,8 @@
  *      to the URL string currently in the browser window.
  * 
  *      Called by:
- *        + $("#options > a").on("click") (control_panel.js)
- *        + $("#nav-link").on("click") (control_panel.js)
+ *        + $jQ("#options > a").on("click") (control_panel.js)
+ *        + $jQ("#nav-link").on("click") (control_panel.js)
  * 
  *    interSectionNav 
  *      Animates the vertical location of the browser window within the webpage based upon 
@@ -49,7 +49,7 @@
  *      "Click here to view the next section" is clicked.
  *      
  *      Called by:
- *        + $("#prev-sctn, #next-sctn").on("click") (control_panel.js)
+ *        + $jQ("#prev-sctn, #next-sctn").on("click") (control_panel.js)
  * 
  *    activateSideNav
  *      Places the browser window at a vertical position which allows for a Section 
@@ -57,7 +57,7 @@
  *      on the left side of the browser window appears.
  * 
  *      Called by:
- *        + $("#options > a").on("click") (control_panel.js)
+ *        + $jQ("#options > a").on("click") (control_panel.js)
  * 
  * ******************************************************************************************** */
 
@@ -84,25 +84,25 @@ function navLinkHoverState(new_class, time_value) {
   nav_link_selector = "#nav-link";
   nav_selector = "nav";
 
-  nav_link_element = $(nav_link_selector);
-  nav_element = $(nav_selector);
+  nav_link_element = $jQ(nav_link_selector);
+  nav_element = $jQ(nav_selector);
 
-  current_class = $(nav_link_element).attr("class");
+  current_class = $jQ(nav_link_element).attr("class");
 
   new_class = "nav-" + new_class;
 
-  nav_left_value = $(nav_element).css("left");
+  nav_left_value = $jQ(nav_element).css("left");
 
   if (new_class === "nav-base") {
   // If the new click state is, "base", this condition is triggered.
-    $(nav_link_element).fadeTo((time_value / 4), 0, 
+    $jQ(nav_link_element).fadeTo((time_value / 4), 0, 
     // The menu icon is faded out from an opacity of 1 to 0.
       function () {
-        $(nav_link_element).removeClass();
+        $jQ(nav_link_element).removeClass();
         // The current class defining the click state is removed.
-        $(nav_link_element).addClass("nav-base");
+        $jQ(nav_link_element).addClass("nav-base");
         // The new class defining the "base" click state is added.
-        $(nav_link_element).fadeTo((time_value / 8), 1);
+        $jQ(nav_link_element).fadeTo((time_value / 8), 1);
         // The menu icon is faded in from an opacity of 0 to 1.
       }
     );
@@ -113,14 +113,14 @@ function navLinkHoverState(new_class, time_value) {
       nav_left_value !== "0px") {
   // If the new click state is, "hover", and the header is visible, 
   // then this condition is triggered.
-    $(nav_link_element).fadeTo((time_value / 4), 0, 
+    $jQ(nav_link_element).fadeTo((time_value / 4), 0, 
     // The menu icon is faded out from an opacity of 1 to 0.
       function () {
-        $(nav_link_element).removeClass();
+        $jQ(nav_link_element).removeClass();
         // The current class defining the click state is removed.
-        $(nav_link_element).addClass("nav-hover");
+        $jQ(nav_link_element).addClass("nav-hover");
         // The new class defining the "hover" click state is added.
-        $(nav_link_element).fadeTo((time_value / 8), 1);
+        $jQ(nav_link_element).fadeTo((time_value / 8), 1);
         // The menu icon is faded in from an opacity of 0 to 1.
       }
     );  // END of "fadeTo()" Method
@@ -129,24 +129,24 @@ function navLinkHoverState(new_class, time_value) {
   
   if (new_class === "nav-click")  {
   // If the new click state is, "click", then this condition is triggered.
-    $(nav_link_element).fadeTo((time_value / 3), 0, 
+    $jQ(nav_link_element).fadeTo((time_value / 3), 0, 
     // The menu icon is faded out from an opacity of 1 to 0.
       function () {
-        $(nav_link_element).removeClass();
+        $jQ(nav_link_element).removeClass();
         // The current class defining the click state is removed.
-        $(nav_link_element).addClass("nav-click_1");
+        $jQ(nav_link_element).addClass("nav-click_1");
         // The initial "click" click state is added.
-        $(nav_link_element).fadeTo((time_value / 3), 1, 
+        $jQ(nav_link_element).fadeTo((time_value / 3), 1, 
         // The menu icon is faded in from an opacity of 0 to 1.
           function () {
-            $(nav_link_element).fadeTo((time_value / 4), 0, 
+            $jQ(nav_link_element).fadeTo((time_value / 4), 0, 
             // The menu icon is faded out from an opacity of 0 to 1.
               function () {
-                $(nav_link_element).removeClass();
+                $jQ(nav_link_element).removeClass();
                 // The class defining the intitial "click" click state is removed.
-                $(nav_link_element).addClass("nav-click_2");
+                $jQ(nav_link_element).addClass("nav-click_2");
                 // The final "click" click state is added.
-                $(nav_link_element).fadeTo((time_value / 3), 1);
+                $jQ(nav_link_element).fadeTo((time_value / 3), 1);
                 // The menu icon is faded in from an opacity of 0 to 1.
               }
             );  // END of "fadeTo()" Method
@@ -186,9 +186,9 @@ function determineVisibleCopyElement(wndow_selector)  {
   // This Boolean is made true once the "while" loop finds a visible element using the 
   // selector, ".copy", that lies within an visible Section.
       
-  wndow_element = $(wndow_selector);   
+  wndow_element = $jQ(wndow_selector);   
 
-  wndow_element_copy_length = $(wndow_element).children(".copy").length;
+  wndow_element_copy_length = $jQ(wndow_element).children(".copy").length;
   
   visible_copy_element_val = 2;
   copy_element_visible_flag = false;
@@ -205,8 +205,8 @@ function determineVisibleCopyElement(wndow_selector)  {
       // "copy_selector" is made to refer to a ".copy" element which matches the "child" 
       // index within the DOM of the webpage.
       
-      if ($(wndow_element).children(copy_selector).css("display") === "none" || 
-          $(wndow_element).children(copy_selector).css("display") === undefined) {
+      if ($jQ(wndow_element).children(copy_selector).css("display") === "none" || 
+          $jQ(wndow_element).children(copy_selector).css("display") === undefined) {
       // If the element using the selector, ".copy" is not visible, this condition 
       // is triggered.
         visible_copy_element_val++;
@@ -268,7 +268,7 @@ function assembleURLString(time_value)  {
 
   var inc = new Number();
 
-  wndow_elements = $(".wndow");
+  wndow_elements = $jQ(".wndow");
   
   copy_values_string = "copyValues=";
   
@@ -277,13 +277,13 @@ function assembleURLString(time_value)  {
   if (url_hash.indexOf(copy_values_string) === -1)  {
   // If the inter-section navigation on the left side of the browser is not 
   // visible, this condition is triggered.
-    $(wndow_elements).each(
+    $jQ(wndow_elements).each(
     // For each HTML element using the selector, ".wndow", this 
     // loop runs.
       function () {
         wndow_element = this;
 
-        current_window_id = "#" + $(wndow_element).attr("id");
+        current_window_id = "#" + $jQ(wndow_element).attr("id");
         // A selector is formed using the "id" of an individual 
         // ".wndow", element.
 
@@ -379,7 +379,7 @@ function assembleURLString(time_value)  {
 
     wndow_selector = ".wndow";
 
-    wndow_elements = $(wndow_selector);
+    wndow_elements = $jQ(wndow_selector);
 
     element_visible_css = {
       display: "block"
@@ -412,42 +412,42 @@ function assembleURLString(time_value)  {
     inc = 0;
     // An incrementer is initialized to 0.
 
-    $(wndow_elements).each(
+    $jQ(wndow_elements).each(
     // For each HTML element using the selector, ".wndow", this 
     // loop runs.
       function () {
         wndow_element = this;
     
-        if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
+        if ($jQ(wndow_element).attr("id") !== "wndow-sctn_main") {
         // If the ".wndow" element is not, 'MAIN LANDING SECTION',
         // this condition is triggered.
           if (url_hash_values_Array[inc] !== "-") {
           // If the value contained within the index represented by, "inc", is visible, 
           // this condition is triggered.
-            copy_selector = "#" + $(wndow_element).attr("id") + " > .copy:nth-child(" + (parseInt(url_hash_values_Array[inc]) + 3) + ")";
+            copy_selector = "#" + $jQ(wndow_element).attr("id") + " > .copy:nth-child(" + (parseInt(url_hash_values_Array[inc]) + 3) + ")";
             // A selector is formed using the "id" of an individual ".wndow" element 
             // this loop processes and the value held within "url_hash_values_Array" 
             // that is represented by, "inc".
 
             setTimeout(
               function () {
-                $(copy_selector).css(element_visible_css);
+                $jQ(copy_selector).css(element_visible_css);
                 // The "window pane" of the Section this loop processes is now visible.
               }, (time_value * 2)
             );
 
 
-            if (($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "3" ||
-                ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "4")  {
+            if (($jQ(wndow_element).attr("id")).charAt($jQ(wndow_element).attr("id").length - 1) === "3" ||
+                ($jQ(wndow_element).attr("id")).charAt($jQ(wndow_element).attr("id").length - 1) === "4")  {
             // If the ".wndow" element this loop processes contains intrasection navigation, 
             // this condition is triggered.
-              var sub_nav_selector = "#nav-sctn_" + ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1);
+              var sub_nav_selector = "#nav-sctn_" + ($jQ(wndow_element).attr("id")).charAt($jQ(wndow_element).attr("id").length - 1);
               // A selector is made using the "id" of the ".wndow" element 
               // this loop processes.
               
               setTimeout(
                 function () {
-                  $(sub_nav_selector).css(element_visible_css);
+                  $jQ(sub_nav_selector).css(element_visible_css);
                   // The intrasection navigation in this Section is now visible.
                 }, (time_value * 2)
               );
@@ -509,7 +509,7 @@ function interSectionNav(inter_nav_element)  {
   
   url_hash = window.location.hash;
 
-  current_position = $(window).scrollTop();
+  current_position = $jQ(window).scrollTop();
 
   section_value = determineCurrentSection(current_position);
   // Based upon the vertical position of the viewable portion of the webpage 
@@ -522,11 +522,11 @@ function interSectionNav(inter_nav_element)  {
   current_section_string = section_search_string + section_value;
   // A selector is made using the prefix of a Section Value and a Section Value.
   
-  sctn_nav_selector = $(inter_nav_element).attr("id");
+  sctn_nav_selector = $jQ(inter_nav_element).attr("id");
   wndow_selector = ".wndow";
-  wndow_elements = $(wndow_selector);
+  wndow_elements = $jQ(wndow_selector);
 
-  wndow_height = $(wndow_elements).height();
+  wndow_height = $jQ(wndow_elements).height();
 
   num_of_wndow_elements = wndow_elements.length;
   // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
@@ -625,9 +625,9 @@ function interSectionNav(inter_nav_element)  {
       // the selector, "#info".
 
       info_selector = "#info";
-      info_element = $(info_selector);
+      info_element = $jQ(info_selector);
       
-      info_top_val = $(info_element).css("top");
+      info_top_val = $jQ(info_element).css("top");
 
       if (info_top_val === "0px") {
       // If the content of 'MAIN LANDING SECTION' is not visible, this condition 
@@ -655,7 +655,7 @@ function interSectionNav(inter_nav_element)  {
   } // END of "if" STATEMENT that is triggered if the width of the browser 
     // is 980px.
   
-  $("html, body").animate(
+  $jQ("html, body").animate(
   // This Method animates the browser window to the vertical location 
   // of the Section to be navigated to.
     { scrollTop: scroll_to_value },
@@ -692,7 +692,7 @@ function activateSideNav(option_element)  {
   // the form this function processes.
   var scroll_to_value = new Number();
     
-  section_value = $(option_element).attr("id");
+  section_value = $jQ(option_element).attr("id");
   // Holds a value which matches the vertical location, in pixels.
 
   if (section_value === "sctn_main") {
@@ -709,9 +709,9 @@ function activateSideNav(option_element)  {
     var wndow_height = new Number();
 
     wndow_selector = ".wndow";
-    wndow_elements = $(wndow_selector);
+    wndow_elements = $jQ(wndow_selector);
 
-    wndow_height = $(wndow_elements).height();
+    wndow_height = $jQ(wndow_elements).height();
     
     scroll_to_value = parseInt(section_value.charAt(section_value.length - 1)) * wndow_height;
     // The vertical location to be navigated to is equal to the product 
@@ -720,7 +720,7 @@ function activateSideNav(option_element)  {
   } // END of "if" STATEMENT which is triggered if the Section being navigated 
     // to is 'MAIN LANDING SECTION'.
   
-  $(window).scrollTop(scroll_to_value);
+  $jQ(window).scrollTop(scroll_to_value);
   // The browser window is navigated to the vertical location of the Section 
   // being navigated to.
 } /* **************** END OF FUNCTION "activateSideNav" **************** */

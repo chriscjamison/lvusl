@@ -11,6 +11,8 @@
  *    
  * ******************************************************************************************** */
 
+var $jQ = jQuery.noConflict();
+
 var time_value = new Number();
 // Holds the length of time, in miliseconds, that animations are to take place.
 var window_margin = new Number();
@@ -24,10 +26,10 @@ window_margin = 150;
 
 url_hash = window.location.hash;
 
-$(document).ready(
+$jQ(document).ready(
   function () {
     
-    $("#nav-link").on("mouseover", 
+    $jQ("#nav-link").on("mouseover", 
     // Once the user moves the cursor over the "menu icon", the 
     // click-state of the "menu icon" is changed to the "hover" state.
       function () {
@@ -35,7 +37,7 @@ $(document).ready(
       }
     );
 
-    $("#nav-link").on("mouseout", 
+    $jQ("#nav-link").on("mouseout", 
     // Once the user moves the cursor away from the "menu icon", the 
     // click-state of the "menu icon" is changed to the "base" state.
       function () {
@@ -47,9 +49,9 @@ $(document).ready(
         // element using the selector, "nav".
 
         nav_selector = "nav";
-        nav_element = $(nav_selector);
+        nav_element = $jQ(nav_selector);
 
-        nav_left_val = $(nav_element).css("left");
+        nav_left_val = $jQ(nav_element).css("left");
 
         if (nav_left_val !== "0px") {
         // If the main menu is not visible, this condition is triggered.
@@ -58,7 +60,7 @@ $(document).ready(
       }
     );
     
-    $("#nav-link").on("click", 
+    $jQ("#nav-link").on("click", 
     // Once the user clicks the "menu icon", the inter-section 
     // navigation that appears on the left side of the browser window 
     // is made visible and the click-state of the "menu icon" is changed 
@@ -72,9 +74,9 @@ $(document).ready(
         // HTML element using the selector, "nav".
 
         nav_selector = "nav";
-        nav_element = $(nav_selector);
+        nav_element = $jQ(nav_selector);
 
-        nav_left_value = $(nav_element).css("left");
+        nav_left_value = $jQ(nav_element).css("left");
 
         if (nav_left_value === "0px") {
         // If the main menu of the 
@@ -104,7 +106,7 @@ $(document).ready(
       }
     );
     
-   $("#options > a").on("mouseenter",
+   $jQ("#options > a").on("mouseenter",
    // If the user moves the cursor over one of the menu options of the 
    // main menu of the browser window, 
    // the click-state of the menu option is changed.
@@ -118,7 +120,7 @@ $(document).ready(
       }
     );
 
-    $("#options > a").on("mouseleave", 
+    $jQ("#options > a").on("mouseleave", 
     // If the user moves the cursor over one of the menu options of the 
     // main menu of the browser window, 
     // the click-state of the menu option is changed.
@@ -132,7 +134,7 @@ $(document).ready(
       }
     );
     
-    $("#options > a").on("click",
+    $jQ("#options > a").on("click",
     // If the user clicks on one of the menu options, the visible Positions 
     // within the Sections are found and passed on to the URL hash, 
     // the main menu side of the 
@@ -162,61 +164,115 @@ $(document).ready(
       }
     );
 
-    $("#sctn_1-no_1 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "first" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-full_name").mouseenter(
+    // Activates when the user moves the cursor over the form questions which 
+    // this visitor enters in their full name.
       function () {
-        validateQuestionField("start", "sctn_1-no_1");
+        validateQuestionField("start", "input-full_name");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $("#sctn_1-no_1 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "first" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-full_name").mouseleave(
+    // Activates when the user moves the cursor away from the form questions which 
+    // this visitor enters in their full name.
       function () {
-        validateQuestionField("reset", "sctn_1-no_1");
+        validateQuestionField("reset", "input-full_name");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $("#sctn_1-no_3 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "third" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-address_1").mouseenter(
+    // Activates when the user moves the cursor over the form questions which 
+    // this visitor enters in their street number and street.
       function () {
-        validateQuestionField("start", "sctn_1-no_3");
+        validateQuestionField("start", "input-address_1);
         // The data of the form question is in the process of validation.
       }
     );
     
-    $("#sctn_1-no_3 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "third" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-address_1").mouseleave(
+    // Activates when the user moves the cursor away from the form questions which 
+    // this visitor enters in their street number and street.
       function () {
-        validateQuestionField("reset", "sctn_1-no_3");
+        validateQuestionField("reset", "input-address_1");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $("#sctn_1-no_4 > fieldset").mouseenter(
-    // Activates when the user moves the cursor over the "fourth" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-address_2").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
-        validateQuestionField("start", "sctn_1-no_4");
+        validateQuestionField("start", "input-address_2");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $("#sctn_1-no_4 > fieldset").mouseleave(
-    // Activates when the user moves the cursor away from the "fourth" form question 
-    // of 'FORM TYPE #1' within 'SECTION #1'.
+    $jQ("#input-address_2").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
-        validateQuestionField("reset", "sctn_1-no_4");
+        validateQuestionField("reset", "input-address_2");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $("#input-next_step, #input-previous_step").click(
+    $jQ("#input-city").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter their city name.
+      function () {
+        validateQuestionField("start", "input-city");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-city").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter their city name.
+      function () {
+        validateQuestionField("reset", "input-city");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-state").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter the state name.
+      function () {
+        validateQuestionField("start", "input-state");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-state").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter the state name.
+      function () {
+        validateQuestionField("reset", "input-state");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-zip_code").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter their zip code.
+      function () {
+        validateQuestionField("start", "input-zip_code");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-zip_code").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter their zip code.
+      function () {
+        validateQuestionField("reset", "input-zip_code");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("input-address_2").click(
     // Fades in the individual pages of 'FORM TYPE #3' in 'SECTION #6'.
       function () {
         animateForm(time_value);
@@ -224,7 +280,7 @@ $(document).ready(
       }
     );
 
-    $("#sctn_1-form").submit(
+    $jQ("#sctn_1-form").submit(
     // Validates the data contained with either 'FORM TYPE #1', 
     // 'FORM TYPE #2', or 'FORM TYPE #3'.
       function (event) {
@@ -267,18 +323,18 @@ $(document).ready(
             "</div>";
 
           wndow_selector = "#wndow-sctn_2";
-          wndow_element = $(wndow_selector);
+          wndow_element = $jQ(wndow_selector);
 
-          $(wndow_element).prepend(alert_div_element);
+          $jQ(wndow_element).prepend(alert_div_element);
           // The HTML of "alert_div_element" is inserted into the HTML of the webpage.
 
-          $("#alrt").click(
+          $jQ("#alrt").click(
           // Activates when the user clicks on the alert message.
             function () {
-              $(this).fadeTo(time_value, 0, 
+              $jQ(this).fadeTo(time_value, 0, 
               // The alert message fades out.
                 function () {
-                  $(this).detach();
+                  $jQ(this).detach();
                   // The HTML code is removed from the webpage.
                 }
               );
@@ -291,7 +347,7 @@ $(document).ready(
       }
     );
 
-    $(window).on("load", 
+    $jQ(window).on("load", 
       function () {
         var url_hash = new String();
         
@@ -333,7 +389,7 @@ $(document).ready(
     );
     
 
-    $(window).on("scroll", 
+    $jQ(window).on("scroll", 
       function () {
         var current_position = new Number();
         // Holds a number which matches the vertical position within the webpage that is viewable.
@@ -349,16 +405,16 @@ $(document).ready(
         // Holds the value of the CSS property, "opacity" for the HTML element 
         // using the selector, "#info".
         
-        current_position = $(window).scrollTop();
+        current_position = $jQ(window).scrollTop();
         url_hash = window.location.hash;
 
         info_selector = "#info";
         nav_selector = "nav";
 
-        info_element = $(info_selector);
-        nav_element = $(nav_selector);
+        info_element = $jQ(info_selector);
+        nav_element = $jQ(nav_selector);
 
-        info_css_opacity_val = $(info_element).css("opacity");
+        info_css_opacity_val = $jQ(info_element).css("opacity");
         
         setURL(current_position, url_hash);
         // "setURL" matches the URL hash with the current viewable Section.
@@ -366,9 +422,9 @@ $(document).ready(
         if (current_position < 144) {
         // If the current location of the browser window is above the location of 
         // the logo, this condition is triggered.
-          if ($(nav_element).css("opacity") === "1") {
+          if ($jQ(nav_element).css("opacity") === "1") {
           // If the main menu is visible, this condition is triggered.
-            $(nav_element).css("opacity", "0");
+            $jQ(nav_element).css("opacity", "0");
             // The opacity of the main menu is changed to 0.
           } // END of "if" STATEMENT which is triggered if the main menu 
             // is visible.
@@ -385,15 +441,15 @@ $(document).ready(
             // location of the browser window is 0 and the HTML content 
             // within 'MAIN LANDING SECTION' has an opacity of 0.
         } else {
-          if ($(nav_element).css("opacity") === "0")  {
-            $(nav_element).css("opacity", "1");
+          if ($jQ(nav_element).css("opacity") === "0")  {
+            $jQ(nav_element).css("opacity", "1");
           }
         } // END of "if" STATEMENT which is triggered if the current location 
           // of the browser window is above the location of the logo.
       } // END of ".on("scroll") Method
     );
     
-    $(window).on("hashchange",
+    $jQ(window).on("hashchange",
       function () {
         var url_hash = new String();
 
@@ -447,10 +503,10 @@ $(document).ready(
           var section_value = new String();
           
           nav_selector = "nav";
-          nav_element = $(nav_selector);
+          nav_element = $jQ(nav_selector);
           
-          nav_width_string = $(nav_element).css("width");
-          nav_left_string = $(nav_element).css("left");
+          nav_width_string = $jQ(nav_element).css("width");
+          nav_left_string = $jQ(nav_element).css("left");
           
           px_search_string = "px";
           px_search_index_num = nav_width_string.indexOf(px_search_string);
@@ -490,7 +546,7 @@ $(document).ready(
             // Holds a number which matches the vertical position 
             // within the webpage that is viewable.
             
-            current_position = $(window).scrollTop();
+            current_position = $jQ(window).scrollTop();
 
             if (section_value === "5")  {
             // If the viewable section is SECTION #5, then this condition 
@@ -531,8 +587,8 @@ $(document).ready(
                 listing_selector = "#sctn_5-job_listing-" + listing_val;
                 listings_selector = ".sctn_5-listing";
 
-                listing_element = $(listing_selector);
-                listings_elements = $(listings_selector);
+                listing_element = $jQ(listing_selector);
+                listings_elements = $jQ(listings_selector);
 
                 not_visible_css = {
                   display: "none"
@@ -545,14 +601,14 @@ $(document).ready(
 
                 time_value_short = time_value / 1.25;
 
-                $(listings_elements).css(not_visible_css);
-                $(listings_elements).removeClass();
-                $(listings_elements).addClass("sctn_5-listing not_visible");
+                $jQ(listings_elements).css(not_visible_css);
+                $jQ(listings_elements).removeClass();
+                $jQ(listings_elements).addClass("sctn_5-listing not_visible");
 
-                $(listing_element).removeClass();
-                $(listing_element).addClass("sctn_5-listing visible");
-                $(listing_element).css(visible_css);
-                $(listing_element).fadeTo(time_value_short, 1);
+                $jQ(listing_element).removeClass();
+                $jQ(listing_element).addClass("sctn_5-listing visible");
+                $jQ(listing_element).css(visible_css);
+                $jQ(listing_element).fadeTo(time_value_short, 1);
 
               }// END of "if" STATEMENT which is triggered if the visible Section 
               // is now 'MAIN LANDING SECTION.
@@ -567,7 +623,7 @@ $(document).ready(
       } // END of ".on("hashchange")" Method
     );
     
-    $(window).on("resize", 
+    $jQ(window).on("resize", 
       function () {
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 

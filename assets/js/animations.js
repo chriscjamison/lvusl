@@ -41,8 +41,8 @@
  *      Initializes the layout of various HTML elements once the page has loaded or resized.
  *      
  *      Called by:
- *        + $(window).on("resize") (control_panel.js)
- *        + $(window).on("load") (control_panel.js)
+ *        + $jQ(window).on("resize") (control_panel.js)
+ *        + $jQ(window).on("load") (control_panel.js)
  * 
  *    animateInfoElement
  *      Animates the content of the HTML element using the selector, "#info", which appears 
@@ -51,8 +51,8 @@
  *      Called by:
  *        + setURL
  *        + interSectionNav (nav.js)
- *        + $(window).on("load") (control_panel.js)
- *        + $(window).on("scroll") (control_panel.js)
+ *        + $jQ(window).on("load") (control_panel.js)
+ *        + $jQ(window).on("scroll") (control_panel.js)
  * 
  *    animateFormPanes
  *      Animates HTML elements which are contained within the forms located 
@@ -69,7 +69,7 @@
  * 
  *      Called by:
  *        + setupPage
- *        + $(window).on("hashchange") (control_panel.js)
+ *        + $jQ(window).on("hashchange") (control_panel.js)
  * 
  *    displayVerticalNav
  *      Displays the inter-section which appears as two white arrows located 
@@ -80,17 +80,17 @@
  *        + setupPage
  *        + setURL
  *        + interSectionNav (nav.js)
- *        + $(window).on("hashchange") (control_panel.js) *        
+ *        + $jQ(window).on("hashchange") (control_panel.js) *        
  * 
  *    animateSctnNav
  *        Animates the click-states of the menu-icon for the intra-sectional navigation 
  *        which appears within, 'SECTION #3' and 'SECTION #4'.
  * 
  *        Called by:
- *          + $(".sctn_nav > div > span").on("mouseover") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("mouseout") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *          + $(".sctn_nav > div > div > a").on("click") (control_panel.js)
+ *          + $jQ(".sctn_nav > div > span").on("mouseover") (control_panel.js)
+ *          + $jQ(".sctn_nav > div > span").on("mouseout") (control_panel.js)
+ *          + $jQ(".sctn_nav > div > span").on("click") (control_panel.js)
+ *          + $jQ(".sctn_nav > div > div > a").on("click") (control_panel.js)
  * 
  * 
  *    animateSctnNavLinks
@@ -98,15 +98,15 @@
  *      which appears within, 'SECTION #3' and 'SECTION #4'.
  * 
  *      Called by:
- *        + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *        + $(".sctn_nav > div > div > a").on("click") (control_panel.js)        
+ *        + $jQ(".sctn_nav > div > span").on("click") (control_panel.js)
+ *        + $jQ(".sctn_nav > div > div > a").on("click") (control_panel.js)        
  * 
  *    animateSideNav
  *      Animates the movement of the main menu of the browser window.
  *    
  *      Called by:
- *        + $("#nav-link").on("click") (control_panel.js)
- *        + $("#options > a").on("click") (control_panel.js)
+ *        + $jQ("#nav-link").on("click") (control_panel.js)
+ *        + $jQ("#options > a").on("click") (control_panel.js)
  * 
  *    determineCurrentSection
  *      Returns a numerical value which represents the Section which is visible 
@@ -122,15 +122,15 @@
  *      within the Section which is viewable.
  * 
  *      Called by:
- *        + $(window).on("scroll") (control_panel.js)
+ *        + $jQ(window).on("scroll") (control_panel.js)
  * 
  *    animateMenuOptions
  *      Animates the appearance of the click-states for the menu-options of the inter-sectional 
  *      navigation which appears on the left hand side of the browser window.
  * 
  *      Called by:
- *        + $("#options > a").on("mouseenter") (control_panel.js)
- *        + $("#options > a").on("mouseleave") (control_panel.js)
+ *        + $jQ("#options > a").on("mouseenter") (control_panel.js)
+ *        + $jQ("#options > a").on("mouseleave") (control_panel.js)
  * 
  *    setPageInitialLocation
  *      Once the webpage loads, the scroll-bar is moved to the position within the webpage 
@@ -169,9 +169,9 @@ function parseWindowDimensions() {
   // Holds the calculated values of the width and height of the visible area of the browser. 
   // The value is calculated by the variables "window_width" and "window_height".
 
-  window_width = $(window).width();
+  window_width = $jQ(window).width();
   // Equal to the width of the visible area of the browser.
-  window_height = $(window).height();
+  window_height = $jQ(window).height();
   // Equal to the height of the visible area of the browser.
   
   if (window_width <= 980) {
@@ -376,8 +376,8 @@ function cssAdjustment()  {
     prev_sctn_selector = "#prev-sctn";
     next_sctn_selector = "#next-sctn";
    
-    prev_sctn_element = $(prev_sctn_selector);
-    next_sctn_element = $(next_sctn_selector);
+    prev_sctn_element = $jQ(prev_sctn_selector);
+    next_sctn_element = $jQ(next_sctn_selector);
     
     if (window_width >= 1260 && 
         window_width < 1920)  {
@@ -390,10 +390,10 @@ function cssAdjustment()  {
         right: "33.6em"
       };
       
-      $(next_sctn_element).css(inter_nav_css);
+      $jQ(next_sctn_element).css(inter_nav_css);
       // The HTML element identified by the selector, "#next-sctn", is formatted by 
       // using the value held by the Object, "inter_nav_css".
-      $(prev_sctn_element).css(inter_nav_css);
+      $jQ(prev_sctn_element).css(inter_nav_css);
       // The HTML element identified by the selector, "#prev-sctn", is formatted by 
       // using the value held by the Object, "inter_nav_css".
     } // END OF if STATEMENT
@@ -408,7 +408,7 @@ function cssAdjustment()  {
      
       info_selector = "#info";
       
-      info_element = $(info_selector);
+      info_element = $jQ(info_selector);
       
       info_css = {
         bottom: "8.25em",
@@ -420,12 +420,12 @@ function cssAdjustment()  {
         bottom: "6em"
       };
 
-      $(info_element).css(info_css);
+      $jQ(info_element).css(info_css);
       // The HTML element using the selector, "#info", is placed in a position 
       // within the browser window to make it more clearly visible.
 
-      $(next_sctn_element).css(inter_nav_2_css);
-      $(prev_sctn_element).css(inter_nav_2_css);
+      $jQ(next_sctn_element).css(inter_nav_2_css);
+      $jQ(prev_sctn_element).css(inter_nav_2_css);
       // The inter-section which consists of white arrows 
       // appears in the middle top and middle bottom of the browser window.
 
@@ -447,9 +447,9 @@ function cssAdjustment()  {
     prev_sctn_span_selector = "#prev-sctn > span";
     next_sctn_span_selector = "#next-sctn > span";
     
-    info_img_element = $(info_img_selector);
-    next_sctn_span_element = $(next_sctn_span_selector);
-    prev_sctn_span_element = $(prev_sctn_span_selector);
+    info_img_element = $jQ(info_img_selector);
+    next_sctn_span_element = $jQ(next_sctn_span_selector);
+    prev_sctn_span_element = $jQ(prev_sctn_span_selector);
     
     info_img_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
@@ -457,19 +457,19 @@ function cssAdjustment()  {
       height: "455"
     };
 
-    $(info_img_element).attr(info_img_css);
+    $jQ(info_img_element).attr(info_img_css);
     // Sets the HTML attributes, "src", "width", and "height", of the HTML element 
     // using the selector, "#info > img", using the values held by, "info_img_css".
     // 
     // The HTML element, "#info > img", is passed these attributes to display a smaller 
     // image to fit a mobile browser.
 
-    $(prev_sctn_span_element).html("");
+    $jQ(prev_sctn_span_element).html("");
     // Removes the HTML from the HTML element using the selector, "#prev-sctn > span".
     //
     // The above HTML element has text to describe the navigation function of this element.
     // The Method, ".html", strips that HTML.
-    $(next_sctn_span_element).html("Press to view the next section");
+    $jQ(next_sctn_span_element).html("Press to view the next section");
     // Sets the HTML from the HTML element using the selector, "#next-sctn > span"
     // to "Press to view the next section".
     //
@@ -587,16 +587,16 @@ function setupPage(time_value)  {
   pdf_selector = "#sctn_2-document > a > img"
   bkgrnd_div_sub_selector = "#bkgrnd > div";
   
-  cntainr_element = $(cntainr_selector);
-  wndow_elements = $(wndow_selector);
-  bkgrnd_element = $(bkgrnd_selector);
-  nav_elements = $(nav_selector);
-  video_element = $(video_selector);
-  pdf_element = $(pdf_selector);
-  bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
+  cntainr_element = $jQ(cntainr_selector);
+  wndow_elements = $jQ(wndow_selector);
+  bkgrnd_element = $jQ(bkgrnd_selector);
+  nav_elements = $jQ(nav_selector);
+  video_element = $jQ(video_selector);
+  pdf_element = $jQ(pdf_selector);
+  bkgrnd_div_sub_elements = $jQ(bkgrnd_div_sub_selector);
 
-  page_height = $(window).height() * $(wndow_elements).length;
-  nav_width = $(nav_elements).width();
+  page_height = $jQ(window).height() * $jQ(wndow_elements).length;
+  nav_width = $jQ(nav_elements).width();
   nav_left_val = -nav_width;
   
   cntainr_css = {
@@ -632,26 +632,26 @@ function setupPage(time_value)  {
     // The width and height attributes of the <img> element in SECTION #2 are 
     // stored in, "pdf_attr".
 
-    $(video_element).attr(video_attr);
+    $jQ(video_element).attr(video_attr);
     // The width and height of the <video> element within SECTION #2 are changed to 
     // better fit the browser window
-    $(pdf_element).attr(pdf_attr);
+    $jQ(pdf_element).attr(pdf_attr);
     // The width and height of the <img> element within SECTION #2 are changed 
     // to better fit the browser window.
 
   } // END of "if" STATEMENT which is triggered if the browser window 
     // is 1280px.
   
-  $(cntainr_element).css(cntainr_css);
+  $jQ(cntainr_element).css(cntainr_css);
   // The HTML element using the selector, "#cntainr", is formatted to 
   // fit the dimensions of the webpage.
-  $(wndow_elements).css(width_height_css);
+  $jQ(wndow_elements).css(width_height_css);
   // The HTML elements using the selector, ".wndow", is formatted to fit 
   // dimensions of a given "window".
-  $(bkgrnd_element).css(width_height_css);
+  $jQ(bkgrnd_element).css(width_height_css);
   // The HTML element using the selector, "#bkgrnd", is is formatted to fit 
   // dimensions of a given "window".
-  $(nav_elements).css(nav_css);
+  $jQ(nav_elements).css(nav_css);
   // The HTML elements using the selector, "nav, #nav-bkgrnd, #nav-brdr", 
   // are placed off of the left hand side of the browser window.
      
@@ -660,7 +660,7 @@ function setupPage(time_value)  {
   // the jQuery Method, ".each", cycles through the HTML elements defined 
   // by the selector, "#bkgrnd > div".
 
-  $(bkgrnd_div_sub_elements).each(
+  $jQ(bkgrnd_div_sub_elements).each(
     function () {
       if (inc_bkgrnd > 0) {
       // If the individual <div> element, which is a part of the set of <div> elements that this 
@@ -671,11 +671,11 @@ function setupPage(time_value)  {
         // 
         // The value of "wndow_sctn_selector" would be "#wndow-sctn_1" if the second <div> 
         // element, within the set of HTML elements referred to by the selector, "#bkgrnd > div".
-        wndow_sctn_element = $(wndow_sctn_selector);
+        wndow_sctn_element = $jQ(wndow_sctn_selector);
         // "wndow_sctn_element" now holds the jQuery Object for the selector which is held by 
         // "wndow_sctn_selector".
        
-        num_of_wndow_elements = $(wndow_sctn_element).children(".copy").length
+        num_of_wndow_elements = $jQ(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
         
         if (inc_bkgrnd === 1) {
@@ -720,7 +720,7 @@ function setupPage(time_value)  {
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } // END OF if STATEMENT
       
-      $(this).css(width_height_css);
+      $jQ(this).css(width_height_css);
       // The <div> element which this loop is processing has its CSS formatted to fit the width and 
       // height of the browser window along with its background image.
       
@@ -790,15 +790,15 @@ function animateInfoElement(time_value) {
     next_sctn_span_selector = "#next-sctn > span";
     nav_link_selector = "#nav-link";
 
-    info_element = $(info_selector);
-    next_sctn_element = $(next_sctn_selector);
-    prev_sctn_element = $(prev_sctn_selector);
-    nav_element = $(nav_selector);
-    next_sctn_span_element = $(next_sctn_span_selector);
-    nav_link_element = $(nav_link_selector);
+    info_element = $jQ(info_selector);
+    next_sctn_element = $jQ(next_sctn_selector);
+    prev_sctn_element = $jQ(prev_sctn_selector);
+    nav_element = $jQ(nav_selector);
+    next_sctn_span_element = $jQ(next_sctn_span_selector);
+    nav_link_element = $jQ(nav_link_selector);
     
     info_css = {
-      "top": -($("#info").height())
+      "top": -($jQ("#info").height())
     };
     
     next_sctn_css = {
@@ -819,13 +819,13 @@ function animateInfoElement(time_value) {
       display: "block"
     };
 
-    $(info_element).animate(info_css, time_value, 
+    $jQ(info_element).animate(info_css, time_value, 
       function () {
-        $(next_sctn_element).css(next_sctn_css);
-        $(prev_sctn_element).css(prev_sctn_css);
-        $(nav_element).css(nav_css);
-        $(next_sctn_span_element).detach();
-        $(nav_link_element).fadeTo(time_value, 1);
+        $jQ(next_sctn_element).css(next_sctn_css);
+        $jQ(prev_sctn_element).css(prev_sctn_css);
+        $jQ(nav_element).css(nav_css);
+        $jQ(next_sctn_span_element).detach();
+        $jQ(nav_link_element).fadeTo(time_value, 1);
       });
     
   } else {
@@ -852,10 +852,10 @@ function animateInfoElement(time_value) {
     info_img_selector = "#info > img";
     info_a_selector = "#info > div > a";
 
-    wndow_element = $(wndow_selector);
-    info_element = $(info_selector);
-    info_img_element = $(info_img_selector);
-    info_a_element = $(info_a_selector);
+    wndow_element = $jQ(wndow_selector);
+    info_element = $jQ(info_selector);
+    info_img_element = $jQ(info_img_selector);
+    info_a_element = $jQ(info_a_selector);
 
     display_block_css = {
 			display: "block"
@@ -872,14 +872,14 @@ function animateInfoElement(time_value) {
     time_value_longer = time_value * 2;
     time_value_long = time_value * 1.5;
 
-    $(wndow_element).show("drop", time_value_longer);
+    $jQ(wndow_element).show("drop", time_value_longer);
     // This jQuery Method, "show", "drops" or animates the panel which serves 
     // as the background of the logo and other items on the landing page 
     // down from the top of the browser window.
     // 
     // This animation occurs over an interval which is twice the time of 
     // a "menu" HTML element to animate.
-		$(info_element).css(display_block_css).css(opacity_css);
+		$jQ(info_element).css(display_block_css).css(opacity_css);
     // Allow the HTML element, which uses the selctor, "#info", to be visible 
     // within a browser window. The "display" CSS property is set to "display" 
     // and the "opacity" of "#info" is set to "1".
@@ -888,17 +888,17 @@ function animateInfoElement(time_value) {
     //
     // The jQuery Method, ".css", is used twice because using both variables 
     // within one ".css" call would make the HTML element, "#info" visibly flash. 
-    $(info_img_element).css(display_block_css);
+    $jQ(info_img_element).css(display_block_css);
     // The HTML element using the selctor, "#info > img" is made visible by 
     // setting the "display" CSS property to "block".
     //
     // The CSS values are applied using the jQuery Method, ".css".
 
-    $(info_img_element).delay(time_value).fadeTo(time_value_long, 1, 
+    $jQ(info_img_element).delay(time_value).fadeTo(time_value_long, 1, 
     // Fade the HTML element, using the selector, "#info > img" 
     // from an opacity of "0" to "1".
       function () {
-        $(info_a_element).fadeTo(time_value, 1);
+        $jQ(info_a_element).fadeTo(time_value, 1);
         // Make the HTML elements using the selector, "#info > img + div > a" visible.
 			}
 		); // END OF METHOD .fadeTo
@@ -929,8 +929,8 @@ function animateForm(time_value) {
   // "page_2_selector" now holds the selector used by the HTML element which contains 
   // the "second page" of the form this function is processing.
 
-  page_1_element = $(page_1_selector);
-  page_2_element = $(page_2_selector);
+  page_1_element = $jQ(page_1_selector);
+  page_2_element = $jQ(page_2_selector);
   // "page_1_element" now holds the jQuery Object for the HTML element referred 
   // by the selector which defines the "first page" of the form this function 
   // is processing.
@@ -951,56 +951,56 @@ function animateForm(time_value) {
     opacity: "0"
   };
 
-  if ($(page_1_element).hasClass("visible") === true)  {
+  if ($jQ(page_1_element).hasClass("visible") === true)  {
   // If the second page is not visible, this condition is triggered.
 
-    $(page_1_element).fadeTo(time_value, 0);
+    $jQ(page_1_element).fadeTo(time_value, 0);
     // The opacity of the first page is moved over time from 1 to 0.
-    $(page_1_element).css(page_off_css);
+    $jQ(page_1_element).css(page_off_css);
     // The first page is no longer visible.
-    $(page_1_element).removeClass();
+    $jQ(page_1_element).removeClass();
     // The <div> containing the first page is stripped of the class, 'visible'.
-    $(page_1_element).addClass("not_visible");
+    $jQ(page_1_element).addClass("not_visible");
     // The <div> containing the first page has the class, 'not_visible', added.
     
-    $(page_2_element).css(page_off_css);
+    $jQ(page_2_element).css(page_off_css);
     // The second page is no longer visible.
-    $(page_2_element).removeClass();
+    $jQ(page_2_element).removeClass();
     // The <div> containing the second page is stripped of the class, 'not_visible'.
-    $(page_2_element).addClass("visible");
+    $jQ(page_2_element).addClass("visible");
     // The <div> containing the second page has the class, 'visible', added, 
     // preparing it to be made visible.
-    $(page_2_element).css(opacity_zero_css);
+    $jQ(page_2_element).css(opacity_zero_css);
     // The <div> containing the second page has its opacity changed to 0.
-    $(page_2_element).css(page_on_css);
+    $jQ(page_2_element).css(page_on_css);
     // The second page is now able to be displayed.
-    $(page_2_element).fadeTo(time_value, 1);
+    $jQ(page_2_element).fadeTo(time_value, 1);
     // The opacity of the second page is moved over time from 0 to 1.
   } else {
   // Otherwise the second page is visible and the first 
   // page needs to be made visible.
 
-    $(page_2_element).fadeTo(time_value, 0);
+    $jQ(page_2_element).fadeTo(time_value, 0);
     // The opacity of the second page is moved over time from 1 to 0.
-    $(page_2_element).css(page_off_css);
+    $jQ(page_2_element).css(page_off_css);
     // The second page is no longer visible.
-    $(page_2_element).removeClass();
+    $jQ(page_2_element).removeClass();
     // The <div> containing the second page is stripped of the class, 'visible'.
-    $(page_2_element).addClass("not_visible");
+    $jQ(page_2_element).addClass("not_visible");
     // The <div> containing the second page has the class, 'not_visible', added.
     
-    $(page_1_element).css(page_off_css);
+    $jQ(page_1_element).css(page_off_css);
     // The first page is no longer visible.
-    $(page_1_element).removeClass();
+    $jQ(page_1_element).removeClass();
     // The <div> containing the first page is stripped of the class, 'not_visible'.
-    $(page_1_element).addClass("visible");
+    $jQ(page_1_element).addClass("visible");
     // The <div> containing the first page has the class, 'visible', added, 
     // preparing it to be made visible.
-    $(page_1_element).css(opacity_zero_css);
+    $jQ(page_1_element).css(opacity_zero_css);
     // The <div> containing the first page has its opacity changed to 0.
-    $(page_1_element).css(page_on_css);
+    $jQ(page_1_element).css(page_on_css);
     // The first page is now able to be displayed.
-    $(page_1_element).fadeTo(time_value, 1);
+    $jQ(page_1_element).fadeTo(time_value, 1);
     // The opacity of the first page is moved over time from 0 to 1.
   } // END OF if STATEMENT which is triggered if the second page is not 
     // visible.
@@ -1087,7 +1087,7 @@ function animatePageElements(time_value)  {
   // of the background of a Section.
   
   nav_selector = "nav";
-  nav_element = $(nav_selector);
+  nav_element = $jQ(nav_selector);
   
   section_search_string = "sctn_main";
   // "section_search_string" holds a string that is looked for within "url_hash".
@@ -1096,14 +1096,14 @@ function animatePageElements(time_value)  {
   // "section_search_string" needs to be updated.
   url_hash = window.location.hash;
   
-  if ($(nav_element).css("left") !== "0px" && 
+  if ($jQ(nav_element).css("left") !== "0px" && 
       url_hash !== "" && 
       url_hash.indexOf(section_search_string) === -1) {
   // If the HTML element, "<nav>", is not viewable, the URL does not include a hash of any kind 
   // and the string held by, "section_search_string", is not contained within "url_hash", 
   // this condition is triggered.
   
-    current_position = $(window).scrollTop();
+    current_position = $jQ(window).scrollTop();
 
     section_value = determineCurrentSection(current_position);
     // Based upon the vertical position of the viewable portion of the webpage 
@@ -1141,11 +1141,11 @@ function animatePageElements(time_value)  {
     sub_nav_selector = "#nav-sctn_" + section_value.toString();
     bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
 
-    all_copy_element = $(all_copy_selector);
-    single_copy_element = $(single_copy_selector);
-    headr_element = $(headr_selector);
-    sub_nav_element = $(sub_nav_selector);
-    bkgrnd_element = $(bkgrnd_selector);
+    all_copy_element = $jQ(all_copy_selector);
+    single_copy_element = $jQ(single_copy_selector);
+    headr_element = $jQ(headr_selector);
+    sub_nav_element = $jQ(sub_nav_selector);
+    bkgrnd_element = $jQ(bkgrnd_selector);
 
     element_off_css = {
       display: "none"
@@ -1175,25 +1175,25 @@ function animatePageElements(time_value)  {
     // "bkgrnd_element_x_position" holds the value for the CSS property, "backgroundPosition" 
     // for the Section that this function is processing.
 
-    $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
+    $jQ(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
     // The background of the current Section that this function is processing 
     //  is made to now match the viewable window pane.
 
-    $(all_copy_element).css(element_off_css);
+    $jQ(all_copy_element).css(element_off_css);
     // In order to isolate the content of the viewable window pane, all webpage content
     // is made invisible.
-    $(single_copy_element).css(element_on_css);
+    $jQ(single_copy_element).css(element_on_css);
     // Now, the content of the Section that this function is processing is made visible.
 
-    if ($(sub_nav_element) !== undefined) {
+    if ($jQ(sub_nav_element) !== undefined) {
     // If the Section this function is processing contains intra-sectional navigation 
     // this condition is triggered.
-      $(sub_nav_element).css(element_on_css);
+      $jQ(sub_nav_element).css(element_on_css);
       // The <div> HTML element which contains the intra-sectional navigation is now 
       // made visible.
     } // END OF if STATEMENT triggered if this Section contains intra-sectional navigation.
     
-    $(headr_element).fadeTo(time_value, 1, 
+    $jQ(headr_element).fadeTo(time_value, 1, 
     // The contents of the window pane of the Section this function is processing are faded 
     // into view, starting with the HTML element serving as the header.  
       function () {
@@ -1278,32 +1278,32 @@ function animateSideNav(time_value) {
   prev_next_sctn_selector = "#prev-sctn, #next-sctn";
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
 
-  nav_element = $(nav_selector);
-  options_element = $(options_selector);
-  nav_bkgrnd_element = $(nav_bkgrnd_selector);
-  nav_brdr_element = $(nav_brdr_selector);
-  cntainr_element = $(cntainr_selector);
-  wndow_elements = $(wndow_selector);
-  headr_elements = $(headr_selector);
-  copy_elements = $(copy_selector);
-  info_element = $(info_selector);
-  sctn_nav_element = $(sctn_nav_selector);
-  prev_next_sctn_element = $(prev_next_sctn_selector);
-  bkgrnd_element = $(bkgrnd_selector);
+  nav_element = $jQ(nav_selector);
+  options_element = $jQ(options_selector);
+  nav_bkgrnd_element = $jQ(nav_bkgrnd_selector);
+  nav_brdr_element = $jQ(nav_brdr_selector);
+  cntainr_element = $jQ(cntainr_selector);
+  wndow_elements = $jQ(wndow_selector);
+  headr_elements = $jQ(headr_selector);
+  copy_elements = $jQ(copy_selector);
+  info_element = $jQ(info_selector);
+  sctn_nav_element = $jQ(sctn_nav_selector);
+  prev_next_sctn_element = $jQ(prev_next_sctn_selector);
+  bkgrnd_element = $jQ(bkgrnd_selector);
 
-  nav_width = $(nav_element).width();
+  nav_width = $jQ(nav_element).width();
   // The width of the HTML element using the selector, "#nav" is 
   // calculated using the jQuery Method, ".width();
   // 
   // That value is passed onto the variable, "nav_width".
   
-  window_width = $(window).width();
+  window_width = $jQ(window).width();
   page_dimensions_Array = parseWindowDimensions();
   // The calculated values for the "width" and "height" of various HTML elements 
     // of the webpage within the browser window are passed on to "page_dimensions_Array".
   wndow_width = page_dimensions_Array[0];
 
-if ($(nav_element).css("left") !== "0px")  {
+if ($jQ(nav_element).css("left") !== "0px")  {
 // If the intersection navigation that appears on the left side of the webpage 
 // is visible, this condition is triggered.
     element_width = window_width - nav_width;
@@ -1350,25 +1350,25 @@ if ($(nav_element).css("left") !== "0px")  {
       display: "none"
     };
     
-    $(info_element).css(element_invisible_css);
+    $jQ(info_element).css(element_invisible_css);
     // The block of HTML content that appears in the 'MAIN LANDING SECTION' 
     // is made invisible.
 
-    $(headr_elements).css(element_invisible_css);
-    $(copy_elements).css(element_invisible_css);
-    $(sctn_nav_element).css(element_invisible_css);
+    $jQ(headr_elements).css(element_invisible_css);
+    $jQ(copy_elements).css(element_invisible_css);
+    $jQ(sctn_nav_element).css(element_invisible_css);
     // The visible headers, HTML content, and intrasection navigation is
     // made invisible.
     
-    $(options_element).css(options_staging_css);
+    $jQ(options_element).css(options_staging_css);
     // The menu options of the intersection navigation are ready to be viewed 
     // once the panel containing the intersection navigation scrolls in 
     // from the left.
 
-    $(nav_element).animate(nav_visible_css, time_value)
-    $(nav_bkgrnd_element).animate(nav_visible_css, time_value);
-    $(nav_brdr_element).animate(nav_visible_css, time_value);
-    $(options_element).animate(nav_visible_css, time_value);
+    $jQ(nav_element).animate(nav_visible_css, time_value)
+    $jQ(nav_bkgrnd_element).animate(nav_visible_css, time_value);
+    $jQ(nav_brdr_element).animate(nav_visible_css, time_value);
+    $jQ(options_element).animate(nav_visible_css, time_value);
     // The main intersection that appears on the left of the webpage scrolls 
     // in from the left to the right.
     //
@@ -1380,10 +1380,10 @@ if ($(nav_element).css("left") !== "0px")  {
     // If the width of a HTML element using the selector, ".wndow", is 
     // 980 or 1024, or fits a mobile device, this condition is triggered.
 
-      $(nav_element).css(nav_mobile_visible_css);
-      $(nav_bkgrnd_element).css(nav_mobile_visible_css);
-      $(nav_brdr_element).css(nav_mobile_visible_css);
-      $(bkgrnd_element).css(element_extended_css);
+      $jQ(nav_element).css(nav_mobile_visible_css);
+      $jQ(nav_bkgrnd_element).css(nav_mobile_visible_css);
+      $jQ(nav_brdr_element).css(nav_mobile_visible_css);
+      $jQ(bkgrnd_element).css(element_extended_css);
       // The intersection navigation is now visible. Also the background 
       // is shifted to the right, out of view.
 
@@ -1391,15 +1391,15 @@ if ($(nav_element).css("left") !== "0px")  {
       // The CSS properties and values held by "element_extended_css" are 
       // combined with the CSS properties and values held by "element_invisible_css".
 
-      $(cntainr_element).css(element_extended_css);
-      $(wndow_elements).css(element_extended_css);
-      $(prev_next_sctn_element).css(element_invisible_css);
+      $jQ(cntainr_element).css(element_extended_css);
+      $jQ(wndow_elements).css(element_extended_css);
+      $jQ(prev_next_sctn_element).css(element_invisible_css);
       // The visible content of the webpage is made invisible.
     } else {
     // Otherwise, if the browser is a desktop browser, this condition 
     // is triggered.
-      $(cntainr_element).animate(element_shifted_right_css, time_value);
-      $(bkgrnd_element).animate(element_shifted_right_css, time_value);
+      $jQ(cntainr_element).animate(element_shifted_right_css, time_value);
+      $jQ(bkgrnd_element).animate(element_shifted_right_css, time_value);
       // The HTML content and the background is shifted to the right, out of view.
     }
   } else  {
@@ -1411,7 +1411,7 @@ if ($(nav_element).css("left") !== "0px")  {
     var element_visible_css = new Object();
     var headr_visible = new Object();
 
-    window_width = $(window).width();
+    window_width = $jQ(window).width();
     
     nav_invisible_css = {
       left: -nav_width
@@ -1429,38 +1429,38 @@ if ($(nav_element).css("left") !== "0px")  {
       display: "table"
     };
 
-    $(options_element).animate(nav_invisible_css, time_value, 
+    $jQ(options_element).animate(nav_invisible_css, time_value, 
     // The individual menu options of the intersection navigation is made invisible 
     // by scrolling the options to the left, out of view.
       function () {
-        $(nav_element).animate(nav_invisible_css, time_value);
-        $(nav_bkgrnd_element).animate(nav_invisible_css, time_value);
-        $(nav_brdr_element).animate(nav_invisible_css, time_value);
+        $jQ(nav_element).animate(nav_invisible_css, time_value);
+        $jQ(nav_bkgrnd_element).animate(nav_invisible_css, time_value);
+        $jQ(nav_brdr_element).animate(nav_invisible_css, time_value);
         // The background of the intersection navigation is made invisible 
         // by scrolling the HTML elements to the left, out of view.
 
         if (wndow_width === 980)  {
         // If the browser is a mobile browser, this condition is triggered.
-          $(cntainr_element).css(element_visible_css);
-          $(wndow_elements).css(element_shifted_left_css);
-          $(bkgrnd_element).css(element_visible_css);
-          $(prev_next_sctn_element).css(element_visible_css);
+          $jQ(cntainr_element).css(element_visible_css);
+          $jQ(wndow_elements).css(element_shifted_left_css);
+          $jQ(bkgrnd_element).css(element_visible_css);
+          $jQ(prev_next_sctn_element).css(element_visible_css);
           // The HTML content, backgrounds, and intersection navigation that 
           // appears in the middle of the webpage is made visible.
         }
 
-        $(cntainr_element).animate(element_shifted_left_css, time_value);
+        $jQ(cntainr_element).animate(element_shifted_left_css, time_value);
         // The HTML element which contains the HTML content and other forms 
         // of content is scrolled back to the left, into view.
-        $(bkgrnd_element).animate(element_shifted_left_css, time_value, 
+        $jQ(bkgrnd_element).animate(element_shifted_left_css, time_value, 
           function () {
-            $(cntainr_element).width(window_width);
-            $(sctn_nav_element).width(window_width);
-            $(bkgrnd_element).width(window_width);
-            $(wndow_elements).width(window_width);
-            $(headr_elements).css(headr_visible);
-            $(copy_elements).css(element_visible_css);
-            $(info_element).css(element_visible_css);
+            $jQ(cntainr_element).width(window_width);
+            $jQ(sctn_nav_element).width(window_width);
+            $jQ(bkgrnd_element).width(window_width);
+            $jQ(wndow_elements).width(window_width);
+            $jQ(headr_elements).css(headr_visible);
+            $jQ(copy_elements).css(element_visible_css);
+            $jQ(info_element).css(element_visible_css);
             // Once the background is made visible, the visible HTML element 
             // containing content, intrasection navigation, headers, 
             // and other content is made visible.
@@ -1506,11 +1506,11 @@ function determineCurrentSection(current_position)  {
   cntainr_selector = "#cntainr";
   wndows_selector = ".wndow";
 
-  cntainr_element = $(cntainr_selector);
-  wndows_elements = $(wndows_selector);
+  cntainr_element = $jQ(cntainr_selector);
+  wndows_elements = $jQ(wndows_selector);
 
-  cntainr_height = $(cntainr_element).height();
-  wndow_height = $(wndows_elements).height();
+  cntainr_height = $jQ(cntainr_element).height();
+  wndow_height = $jQ(wndows_elements).height();
 
   window_margin = 0.05;
 
@@ -1565,14 +1565,14 @@ function setURL(current_position, url_hash)  {
   wndow_selector = ".wndow";
   info_selector = "#info";
   
-  wndow_elements = $(wndow_selector);
-  info_element = $(info_selector);
+  wndow_elements = $jQ(wndow_selector);
+  info_element = $jQ(info_selector);
 
-  wndow_height = $(wndow_elements).height(); 
+  wndow_height = $jQ(wndow_elements).height(); 
   window_margin = 150;
   // "wndow_margin" is given a range of 150 pixels that the current location of the 
   // browser window can fall into and still be considered part of the previous section.
-  info_opacity_value = $(info_element).css("opacity");
+  info_opacity_value = $jQ(info_element).css("opacity");
 
   if ((current_position === 0) && 
       (url_hash.indexOf("sctn_main") === -1) && 
@@ -1667,15 +1667,15 @@ function animateMenuOptions(option_element) {
   time_value_long = time_value / 2;
   time_value_short = time_value / 4;
   
-  if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
+  if ($jQ(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
   // If the click state of the menu option is in its "base" state, 
   // this condition is triggered.
-    $(option_element).animate(hover_css, time_value_long);
+    $jQ(option_element).animate(hover_css, time_value_long);
     // The click state of the menu option is changed to its "hover" state.
   } else {
   // Otherwise if the click state of the menu option is in its "hover" state 
   // this condition is triggered.
-    $(option_element).animate(base_css, time_value_short);
+    $jQ(option_element).animate(base_css, time_value_short);
     // The click state of the menu option is changed to its "base" state.
   } // END OF if STATEMENT which is triggered if the menu option is in 
     // its "base" click state.
@@ -1730,23 +1730,23 @@ function setPageInitialLocation()  {
     wndow_selector = ".wndow";
     copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
     
-    wndow_element = $(wndow_selector);
-    copy_element = $(copy_selector);
+    wndow_element = $jQ(wndow_selector);
+    copy_element = $jQ(copy_selector);
 
-    wndow_height = $(wndow_element).height();
+    wndow_height = $jQ(wndow_element).height();
     
     scroll_to_value = section_value * wndow_height;
     // The vertical location of the visible window is set. 
 
-    $(copy_element).css(copy_visible_css);
+    $jQ(copy_element).css(copy_visible_css);
     
-    $(window).scrollTop(scroll_to_value);
+    $jQ(window).scrollTop(scroll_to_value);
     // The browser window is placed to view the complete window pane of the 
     // visible Section .
   } else  {
   // Otherwise, if the current visible Section is 'MAIN LANDING SECTION', 
   // this condition is triggered.
-    $(window).scrollTop(0);
+    $jQ(window).scrollTop(0);
   } // END OF if STATMENT which is triggered if the visible Section is not 
     // 'MAIN LANDING SECTION'.
 } /* **************** END OF FUNCTION "setInitialLocation" **************** */
@@ -1757,21 +1757,21 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
    * from 0 to 1.
    * **************** **************** **************** **************** **************** */
   
-  $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
+  $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
       if (section_value === 2)  {
       // If the current visible Section contains intrasection navigation, 
       // this condition is triggered.
 
-        $(sub_nav_element).fadeTo(time_value, 1);
+        $jQ(sub_nav_element).fadeTo(time_value, 1);
       } else if (section_value === 5) {
         var job_catagories_selector = new String();
         var job_catagories_element = new Object();
         
         job_catagories_selector = "#sctn_5-catagories";
-        job_catagories_element = $(job_catagories_selector);
+        job_catagories_element = $jQ(job_catagories_selector);
 
-        $(job_catagories_element).fadeTo(time_value, 1);
+        $jQ(job_catagories_element).fadeTo(time_value, 1);
       } // END OF if STATEMENT which is triggered if the current Section 
         // contains intrasection navigation.
     } // END of FUNCTION which fades in the HTML content of a visible Section.
