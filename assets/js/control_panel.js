@@ -340,7 +340,10 @@ $(document).ready(
         var url_hash = new String();
 
         var info_selector = new String();
+        var nav_selector = new String();
+
         var info_element = new Object();
+        var nav_element = new Object();
 
         var info_css_opacity_val = new String();
         // Holds the value of the CSS property, "opacity" for the HTML element 
@@ -350,7 +353,10 @@ $(document).ready(
         url_hash = window.location.hash;
 
         info_selector = "#info";
+        nav_selector = "nav";
+
         info_element = $(info_selector);
+        nav_element = $(nav_selector);
 
         info_css_opacity_val = $(info_element).css("opacity");
         
@@ -360,9 +366,9 @@ $(document).ready(
         if (current_position < 144) {
         // If the current location of the browser window is above the location of 
         // the logo, this condition is triggered.
-          if ($("nav").css("opacity") === "1") {
+          if ($(nav_element).css("opacity") === "1") {
           // If the main menu is visible, this condition is triggered.
-            $("nav").css("opacity", "0");
+            $(nav_element).css("opacity", "0");
             // The opacity of the main menu is changed to 0.
           } // END of "if" STATEMENT which is triggered if the main menu 
             // is visible.
@@ -379,8 +385,8 @@ $(document).ready(
             // location of the browser window is 0 and the HTML content 
             // within 'MAIN LANDING SECTION' has an opacity of 0.
         } else {
-          if ($("nav").css("opacity") === "0")  {
-            $("nav").css("opacity", "1");
+          if ($(nav_element).css("opacity") === "0")  {
+            $(nav_element).css("opacity", "1");
           }
         } // END of "if" STATEMENT which is triggered if the current location 
           // of the browser window is above the location of the logo.

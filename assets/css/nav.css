@@ -48,7 +48,7 @@ nav {
 	top: 25px;
 	left: 25px;
 	z-index: 5;
-	background-image: url('/usl/assets/img/nav/nav.png');
+	background-image: url('/lvusl/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
 /* Formats a <div> element which serves as the menu 'button'. */
@@ -239,7 +239,7 @@ nav {
     height: 100px;
     top: 50px;
     left: 50px;
-    background-image: url('/amelia/assets/img/nav/nav_mobile.png');
+    background-image: url('/lvusl/assets/img/nav/nav_mobile.png');
     opacity: 0;
   }
   

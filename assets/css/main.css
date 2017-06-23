@@ -61,6 +61,7 @@ body {
 
 .headr {
 	height: 2.7em;
+  margin: 3.25em 0 0 6.5em;
 	position: absolute;
 	top: 3.13em;
 	opacity: 0;
@@ -72,7 +73,6 @@ body {
   display: block;
   font: 400 2.5em 'Alfa Slab One', 'Cambria', serif;
 	letter-spacing: 4px;
-	color: #fff;
 }
 /* Formats the <span> element which holds the text of the 'SECTION' title of a 
  *  particular section. 
@@ -84,7 +84,6 @@ body {
   float: left;
   top: 0;
   left: 0;
-	font: 400 1em 'Glegoo', 'Palatino', serif;
 }
 /* Formats the <div> which holds the text or form content within a section. 
    '.copy' elements differ from '.wndow' elements in that '.copy' elements only 
@@ -117,7 +116,7 @@ body {
 /* Formats the logo which is contained within the <div> using the selctor, "#info". */
 
 #info > div {
-  height: 6.75em;
+  height: 4.75em;
   float: left;
 }
 /* 
@@ -202,6 +201,7 @@ body {
 .sctn_4-link, 
 .sctn_5-blok, 
 .sctn_6-blok {
+  width: 20em;
  	height: initial;
 	padding: 1em 2em;
 	position: absolute;
@@ -402,7 +402,7 @@ body {
  */
 
 #sctn_5-catagories {
-  background-color: #ffe0c1
+  background-color: #ffe0c1;
 }
 
 #sctn_5-catagories > span {
@@ -622,12 +622,6 @@ body {
     margin: 8.15em 0 0 6.25em;
   }
 
-  .sctn_1-blok, 
-  .sctn_3-blok, 
-  .sctn_4-link {
-    width: 20em;
-  }
-
   #sctn_1-desc-1 {
     left: 44.5em;
   }
@@ -661,23 +655,24 @@ body {
     width: 85.38em;
   }
 
+  #info > div {
+    margin: 1.75em 1.75em 0 18.5em;
+  }
+
   .headr {
-    width: 85.38em;
+    width: 84.25em;
   }
 
   .copy {
-    height: 39.85em;
-    font-size: 0.95em;
+    width: 81.75em;
+    height: 38.75em;
+    margin: 11.75em 0 0 7em;
   }
+
 
   #info {
     width: 99em;
     height: 9em;
-  }
-
-  .copy {
-    width: 79em;
-    margin: 8.15em 0 0 9.75em;
   }
   
   #sctn_1-desc-1 {
@@ -764,7 +759,6 @@ body {
 
   .headr {
     width: 113.75em;
-    margin: 4em 0 0 6.25em;
   }
 
   .copy {

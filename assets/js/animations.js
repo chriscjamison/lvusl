@@ -692,12 +692,12 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/usl/assets/img/bkgrnd/" + 
+        bkgrnd_img_value = "url('/lvusl/assets/img/bkgrnd/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/usl/assets/img/bkgrnd/1/1920x1020.jpg')" 
+        // The value of "bkgrnd_img_value" would be "url('/lvusl/assets/img/bkgrnd/1/1920x1020.jpg')" 
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
@@ -713,7 +713,7 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        width_height_css.backgroundImage = "url('/usl/assets/img/bkgrnd/main/" + bkgrnd_width +
+        width_height_css.backgroundImage = "url('/lvusl/assets/img/bkgrnd/main/" + bkgrnd_width +
                                            "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
@@ -1763,6 +1763,14 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
       // this condition is triggered.
 
         $(sub_nav_element).fadeTo(time_value, 1);
+      } else if (section_value === 5) {
+        var job_catagories_selector = new String();
+        var job_catagories_element = new Object();
+        
+        job_catagories_selector = "#sctn_5-catagories";
+        job_catagories_element = $(job_catagories_selector);
+
+        $(job_catagories_element).fadeTo(time_value, 1);
       } // END OF if STATEMENT which is triggered if the current Section 
         // contains intrasection navigation.
     } // END of FUNCTION which fades in the HTML content of a visible Section.
