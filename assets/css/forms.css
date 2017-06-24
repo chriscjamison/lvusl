@@ -96,12 +96,36 @@ input[type=submit] {
 
 input[type=text],
 input[type=email] {
-	padding: 0.35em;
+	padding: 0.35em 0 0.2em 0.6em;
 	border: 2px solid #ccc;
 	font: 400 1em "Istok Web", sans-serif;
+	color: #aaa;
 	letter-spacing: 1px;
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
+
+#input-full_name, 
+#input-address_1, 
+#input-address_2,
+#input-card_num {
+	width: 20em;
+}
+
+#input-city {
+	width: 10.82em;
+}
+
+#input-state {
+	width: 2.7em;
+}
+
+#input-zip_code {
+	width: 5.8em;
+}
+
+#input-security_code {
+	width: 3.5em;
+}
 
 #ticket-question_2 > input {
 	margin-bottom: 0.5em;
@@ -118,7 +142,7 @@ input[type=email] {
  */
 
 #ticket-question_4 {
-	margin-bottom: 8.45em;
+	margin-bottom: 8.15em;
 }
 
 @media screen and (width: 980px) {

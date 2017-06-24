@@ -6,7 +6,7 @@
  *  + JavaScript functions which control the layout and  physical appearance of the webpage 
  *    are contained within, 'animations.js'.
  *  + JavaScript functions which assist the page with navigation are located within, 'nav.js'.
- *  + JavaScript functions which are called when a user interacts with a form located 
+ *  + JavaScript functions which are called when a visitor interacts with a form located 
  *    on the webpage are contained within, 'forms.js'.
  *    
  * ******************************************************************************************** */
@@ -26,11 +26,35 @@ window_margin = 150;
 
 url_hash = window.location.hash;
 
+function formQuestionFocusCheck(question_value, default_text, error_text) {
+  var question_selector = new String();
+  var question_element = new Object();
+
+  var form_field_value = new String();
+  // Holds the value of the form field this function processes.
+
+  question_selector = "#input-" + question_value;
+  question_element = $jQ(question_selector);
+
+  form_field_value = $jQ(question_element).val();
+
+  if (form_field_value === default_text || 
+      form_field_value === error_text)  {
+  // If the cursor enters the form question and the default value of the question 
+  // has not been changed, this condition is triggered.
+    validateQuestionField("start", question_value);
+    // The form question is initialized.
+  } else {
+    validateQuestionField("reset", question_value); 
+    // The data of the form question is checked for validity.
+  } // END of "if" STATEMENT
+}
+
 $jQ(document).ready(
   function () {
     
     $jQ("#nav-link").on("mouseover", 
-    // Once the user moves the cursor over the "menu icon", the 
+    // Once the visitor moves the cursor over the "menu icon", the 
     // click-state of the "menu icon" is changed to the "hover" state.
       function () {
         navLinkHoverState("hover", time_value);
@@ -38,7 +62,7 @@ $jQ(document).ready(
     );
 
     $jQ("#nav-link").on("mouseout", 
-    // Once the user moves the cursor away from the "menu icon", the 
+    // Once the visitor moves the cursor away from the "menu icon", the 
     // click-state of the "menu icon" is changed to the "base" state.
       function () {
         var nav_selector = new String();
@@ -61,7 +85,7 @@ $jQ(document).ready(
     );
     
     $jQ("#nav-link").on("click", 
-    // Once the user clicks the "menu icon", the inter-section 
+    // Once the visitor clicks the "menu icon", the inter-section 
     // navigation that appears on the left side of the browser window 
     // is made visible and the click-state of the "menu icon" is changed 
     // to the "first" "click" state.
@@ -107,7 +131,7 @@ $jQ(document).ready(
     );
     
    $jQ("#options > a").on("mouseenter",
-   // If the user moves the cursor over one of the menu options of the 
+   // If the visitor moves the cursor over one of the menu options of the 
    // main menu of the browser window, 
    // the click-state of the menu option is changed.
       function () {
@@ -121,7 +145,7 @@ $jQ(document).ready(
     );
 
     $jQ("#options > a").on("mouseleave", 
-    // If the user moves the cursor over one of the menu options of the 
+    // If the visitor moves the cursor over one of the menu options of the 
     // main menu of the browser window, 
     // the click-state of the menu option is changed.
       function () {
@@ -135,12 +159,12 @@ $jQ(document).ready(
     );
     
     $jQ("#options > a").on("click",
-    // If the user clicks on one of the menu options, the visible Positions 
+    // If the visitor clicks on one of the menu options, the visible Positions 
     // within the Sections are found and passed on to the URL hash, 
     // the main menu side of the 
     // browser window is made visible, the click-state of the "menu icon" 
     // is changed and the browser window navigates to the Section 
-    // that the user wishes to view.
+    // that the visitor wishes to view.
       function () {
         var option_element = new Object();
 
@@ -159,32 +183,84 @@ $jQ(document).ready(
             // The click-state of the "menu icon" is changed to "base".
             activateSideNav(option_element);
             // "activateSideNav" navigates the browser window to the Section 
-            // the user wishes to view.
+            // the visitor wishes to view.
           }, (time_value * 2.5));
       }
     );
 
     $jQ("#input-full_name").mouseenter(
-    // Activates when the user moves the cursor over the form questions which 
-    // this visitor enters in their full name.
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their full name.
       function () {
         validateQuestionField("start", "full_name");
-        // The data of the form question is in the process of validation.
+        // The form question is initialized.
       }
     );
 
     $jQ("#input-full_name").mouseleave(
-    // Activates when the user moves the cursor away from the form questions which 
-    // this visitor enters in their full name.
+    // Activates when the visitor moves the cursor away from the form question which 
+    // this visitor enters their full name.
       function () {
         validateQuestionField("reset", "full_name");
-        // The data of the form question is in the process of validation.
+        // The data of the form question is checked for validity.
+      }
+    );
+    
+    $jQ("#input-full_name").focus(
+    // Activates when the cursor enters the form field in which the visitor enters 
+    // their full name.
+      function () {
+        var input_element = this;
+
+        var question_value = new String();
+        // Holds a String which identifies the form question in which the visitor 
+        // enters their full name.
+
+        var full_name_default_value = new String();
+        // Holds a String which matches the default value for the form question 
+        // which contains the full name.
+        var full_name_error_value = new String();
+        // Holds a String which matches the error message which appears if 
+        // the visitor enters invalid data.
+
+        full_name_default_value = "Please enter your full name";
+        full_name_error_value = "Please enter a space in your name";
+
+        question_value = $jQ(input_element).attr("id").slice(5);
+        
+        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
+      }
+    );
+
+    $jQ("#input-full_name").blur(
+    // Activates when the cursor leaves the form question in which the visitor 
+    // enters their full name.
+      function () {
+        var input_element = this;
+
+        var question_value = new String();
+        // Holds a String which identifies the form question in which the visitor 
+        // enters their full name.
+
+        var full_name_default_value = new String();
+        // Holds a String which matches the default value for the form question 
+        // which contains the full name.
+        var full_name_error_value = new String();
+        // Holds a String which matches the error message which appears if 
+        // the visitor enters invalid data.
+
+        full_name_default_value = "Please enter your full name";
+        full_name_error_value = "Please enter a space in your name";
+
+        question_value = $jQ(input_element).attr("id").slice(5);
+        
+        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
       }
     );
 
     $jQ("#input-address_1").mouseenter(
-    // Activates when the user moves the cursor over the form questions which 
-    // this visitor enters in their street number and street.
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
       function () {
         validateQuestionField("start", "address_1");
         // The data of the form question is in the process of validation.
@@ -192,7 +268,7 @@ $jQ(document).ready(
     );
     
     $jQ("#input-address_1").mouseleave(
-    // Activates when the user moves the cursor away from the form questions which 
+    // Activates when the visitor moves the cursor away from the form questions which 
     // this visitor enters in their street number and street.
       function () {
         validateQuestionField("reset", "address_1");
@@ -201,7 +277,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-address_2").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
         validateQuestionField("start", "address_2");
@@ -210,7 +286,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-address_2").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
         validateQuestionField("reset", "address_2");
@@ -219,7 +295,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-city").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter their city name.
       function () {
         validateQuestionField("start", "city");
@@ -228,7 +304,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-city").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter their city name.
       function () {
         validateQuestionField("reset", "city");
@@ -237,7 +313,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-state").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter the state name.
       function () {
         validateQuestionField("start", "state");
@@ -246,7 +322,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-state").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter the state name.
       function () {
         validateQuestionField("reset", "state");
@@ -255,7 +331,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-zip_code").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter their zip code.
       function () {
         validateQuestionField("start", "zip_code");
@@ -264,7 +340,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-zip_code").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter their zip code.
       function () {
         validateQuestionField("reset", "zip_code");
@@ -273,7 +349,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-card_num").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter their credit card number.
       function () {
         validateQuestionField("start", "card_num");
@@ -282,7 +358,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-card_num").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter their credit card number.
       function () {
         validateQuestionField("reset", "card_num");
@@ -291,7 +367,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-security_code").mouseenter(
-    // Activates when the user moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter the 3 digit security code of their credit card number.
       function () {
         validateQuestionField("start", "security_code");
@@ -300,7 +376,7 @@ $jQ(document).ready(
     );
 
     $jQ("#input-security_code").mouseleave(
-    // Activates when the user moves the cursor away from the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter the 3 digit security code of their credit card number.
       function () {
         validateQuestionField("reset", "security_code");
@@ -340,7 +416,7 @@ $jQ(document).ready(
           
           var alert_div_element = new String();
           // Holds HTML which makes up an alert which appears 
-          // within the browser window to inform the user that 
+          // within the browser window to inform the visitor that 
           // input withing the form needs to change.
 
           var alrt_selector = new String();
@@ -365,7 +441,7 @@ $jQ(document).ready(
           // The HTML of "alert_div_element" is inserted into the HTML of the webpage.
 
           $jQ("#alrt").click(
-          // Activates when the user clicks on the alert message.
+          // Activates when the visitor clicks on the alert message.
             function () {
               $jQ(this).fadeTo(time_value, 0, 
               // The alert message fades out.

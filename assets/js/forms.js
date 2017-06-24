@@ -47,7 +47,7 @@
  * 
  * ******************************************************************************************** */
 
-function validateFullname(validation_type, question_value, error_border_css, base_border_css) {
+function validateFullname(validation_type, question_value, appearance_css_Array) {
   var field_selector = new String();
   var field_element = new Object();
 
@@ -86,9 +86,9 @@ function validateFullname(validation_type, question_value, error_border_css, bas
     if ($jQ(field_element).val() === "Please enter your full name")  {
     // If the visitor has moved the mouse over the form question after not entering 
     // proper form data into the text field, this condition is triggered.
-      $jQ(field_element).css(base_border_css);
+      $jQ(field_element).css(appearance_css_Array[2]);
       // The border surrounding the question is returned to its default color.
-      $jQ(field_element).css(base_text_css);
+      $jQ(field_element).css(appearance_css_Array[3]);
       // The color of the text is returned to its default.
       $jQ(field_element).val("");
       // The text, "Please enter your first name", is removed from the text 
@@ -99,9 +99,9 @@ function validateFullname(validation_type, question_value, error_border_css, bas
   // If the visitor has moved the mouse away from the form question and the 
   // name contained in the text field does not include a space, 
   // this condition is triggered.
-    $jQ(field_element).css(error_border_css);
+    $jQ(field_element).css(appearance_css_Array[0]);
     // The border surrounding the question is made to appear red.
-    $jQ(field_element).css(error_text_css);
+    $jQ(field_element).css(appearance_css_Array[1]);
     // The color of the text is made to appear red.
     $jQ(field_element).val("Please include a space in your name");
     // The text, "Please include a space in your name", is placed within the 
@@ -111,7 +111,7 @@ function validateFullname(validation_type, question_value, error_border_css, bas
     // into the text field.
 } /* **************** END OF FUNCTION "validateFullname" **************** */
 
-function validateCheckbox(validation_type, question_value, error_border_css, base_border_css) {
+function validateCheckbox(validation_type, question_value, appearance_css_Array, border_color_rgb) {
   var checked_selector = new String();
   var field_selector = new String();
 
@@ -178,36 +178,46 @@ function validateQuestionField(validation_type, question_value)  {
   var base_text_css = new Object();
   var error_text_css = new Object();
 
+  var appearance_css_Array = new Array();
+  // An Array which holds variables containing CSS properties and values.
+  
   field_selector = "#input-" + question_value;
   field_element = $jQ(field_selector);
 
-   error_border_css = {
-      borderColor: "rgb(151, 27, 30)"
-    };
+  error_border_css = {
+    borderColor: "rgb(151, 27, 30)"
+  };
 
-    base_border_css = {
-      borderColor: "#cfd7a3"
-    };
-      
-    base_text_css = {
-      color: "#000"
-    };
+  base_border_css = {
+    borderColor: "#cfd7a3"
+  };
+    
+  base_text_css = {
+    color: "#000"
+  };
 
-    error_text_css = {
-      color: "rgb(151, 27, 30)"
-    };
+  error_text_css = {
+    color: "rgb(151, 27, 30)"
+  };
+
+  appearance_css_Array = [
+    error_border_css, 
+    error_text_css, 
+    base_border_css, 
+    base_text_css
+  ];
 
   switch (question_value) {
   // This routes the input of the form to be correctly processed by this function.
     case "full_name":
-      validateFullname(validation_type, question_value, error_border_css, base_border_css);
+      validateFullname(validation_type, question_value, appearance_css_Array);
       // The text field which contains the full name is checked for validity.
     break;  
     // END of condition for the form question which contains the full name 
     // of the visitor.
 
     case "address_1":
-      validateAddress(validation_type, question_value, error_border_css, base_border_css);
+      validateAddress(validation_type, question_value, appearance_css_Array);
       // The text field which contains the street name and street number is checked for 
       // validity.
     break;  // END of condition for the "third" question of 'FORM TYPE #1'
@@ -234,8 +244,12 @@ function validateQuestionField(validation_type, question_value)  {
       var checked_selector = new String();
       var checked_element = new Object(); 
 
+      var border_color_rgb = new String();
+
       checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
       checked_element = $jQ(checked_selector);
+
+      border_color_rgb = "rgb(151, 27, 30)";
         
       if (validation_type === "reset" && 
           ($jQ(checked_element).attr("name") === undefined ||  
@@ -245,7 +259,7 @@ function validateQuestionField(validation_type, question_value)  {
         $jQ(fieldset_element).css(error_border_css);
         // The border surrounding the question is made to appear red.
       } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+                 $jQ(fieldset_element).css("borderColor") === border_color_rgb) {
         $jQ(fieldset_element).css(base_border_css);
         // The border surrounding the question is returned to the default color.
       }
