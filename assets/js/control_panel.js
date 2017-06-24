@@ -26,30 +26,6 @@ window_margin = 150;
 
 url_hash = window.location.hash;
 
-function formQuestionFocusCheck(question_value, default_text, error_text) {
-  var question_selector = new String();
-  var question_element = new Object();
-
-  var form_field_value = new String();
-  // Holds the value of the form field this function processes.
-
-  question_selector = "#input-" + question_value;
-  question_element = $jQ(question_selector);
-
-  form_field_value = $jQ(question_element).val();
-
-  if (form_field_value === default_text || 
-      form_field_value === error_text)  {
-  // If the cursor enters the form question and the default value of the question 
-  // has not been changed, this condition is triggered.
-    validateQuestionField("start", question_value);
-    // The form question is initialized.
-  } else {
-    validateQuestionField("reset", question_value); 
-    // The data of the form question is checked for validity.
-  } // END of "if" STATEMENT
-}
-
 $jQ(document).ready(
   function () {
     
@@ -224,9 +200,9 @@ $jQ(document).ready(
         // the visitor enters invalid data.
 
         full_name_default_value = "Please enter your full name";
-        full_name_error_value = "Please enter a space in your name";
+        full_name_error_value = "Please include a space in your full name";
 
-        question_value = $jQ(input_element).attr("id").slice(5);
+        question_value = $jQ(input_element).attr("id").slice(6);
         
         formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
       }
@@ -250,9 +226,9 @@ $jQ(document).ready(
         // the visitor enters invalid data.
 
         full_name_default_value = "Please enter your full name";
-        full_name_error_value = "Please enter a space in your name";
+        full_name_error_value = "Please include a space in your full name";
 
-        question_value = $jQ(input_element).attr("id").slice(5);
+        question_value = $jQ(input_element).attr("id").slice(6);
         
         formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
       }

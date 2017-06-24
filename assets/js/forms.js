@@ -64,6 +64,13 @@ function validateFullname(validation_type, question_value, appearance_css_Array)
   var field_text_Array_length = new Number();
   // Holds the length, in indices, of, "field_text_Array".
 
+  var error_border_css = new Object();
+  var error_text_css = new Object();
+  var base_border_css = new Object();
+  var base_text_css = new Object();
+
+  var border_color_rgb = new String();
+
   field_selector = "#input-" + question_value;
   field_element = $jQ(field_selector);
 
@@ -75,43 +82,84 @@ function validateFullname(validation_type, question_value, appearance_css_Array)
   field_text_Array = field_text.split(" ");
   field_text_Array_length = field_text_Array.length;
 
+  error_border_css = appearance_css_Array[0];
+  error_text_css = appearance_css_Array[1];
+  base_border_css = appearance_css_Array[2];
+  base_text_css = appearance_css_Array[3];
+
   if (field_text_Array_length > 1)  {
     has_space = true;
   }
 
-  if (has_space === true)  {
-  // If the value contained in the text field contains a space, the value is either 
-  // the initial value of "Please enter your full name", or a valid name. When the 
-  // value of the text field contains a space, this condition is triggered.
-    if ($jQ(field_element).val() === "Please enter your full name")  {
-    // If the visitor has moved the mouse over the form question after not entering 
-    // proper form data into the text field, this condition is triggered.
-      $jQ(field_element).css(appearance_css_Array[2]);
-      // The border surrounding the question is returned to its default color.
-      $jQ(field_element).css(appearance_css_Array[3]);
-      // The color of the text is returned to its default.
-      $jQ(field_element).val("");
-      // The text, "Please enter your first name", is removed from the text 
-      // field.
-    } // END of "if" STATEMENT
-  } else if (validation_type === "reset" && 
-             field_text_Array_length === 1)  {
-  // If the visitor has moved the mouse away from the form question and the 
-  // name contained in the text field does not include a space, 
-  // this condition is triggered.
-    $jQ(field_element).css(appearance_css_Array[0]);
-    // The border surrounding the question is made to appear red.
-    $jQ(field_element).css(appearance_css_Array[1]);
-    // The color of the text is made to appear red.
-    $jQ(field_element).val("Please include a space in your name");
-    // The text, "Please include a space in your name", is placed within the 
-    // text field.
-  } // END of "if" STATEMENT which is triggered if the visitor has moved the 
-    // mouse over the form question after not entering proper form data 
-    // into the text field.
+  if (validation_type === "start")  {
+    // If the mouse moves over the text field for a visitor to enter their full name 
+    // or the cursor enters the same text field, this condition is triggered.
+
+    if (has_space === true)  {
+    // If the value contained in the text field contains a space, the value is either 
+    // the initial value of "Please enter your full name", or a valid name. When the 
+    // value of the text field contains a space, this condition is triggered.
+    
+      if ($jQ(field_element).val() === "Please enter your full name" || 
+          $jQ(field_element).val() === "Please include a space in your full name")  {
+      // If the visitor has moved the mouse over the form question after not entering 
+      // proper form data into the text field, this condition is triggered.
+
+        $jQ(field_element).css(base_border_css);
+        // The border surrounding the question is returned to its default color.
+        $jQ(field_element).css(base_text_css);
+        // The color of the text is returned to its default.
+        $jQ(field_element).val("");
+        // The text, "Please enter your first name", is removed from the text 
+        // field.
+      
+      } // END of "if" STATEMENT
+
+    } // END of "if" STATEMENT which is triggered if the value contained within 
+      // the text field includes a space.
+
+  } else {
+  // Otherwise, if the mouse moves away from the text field for a visitor to enter 
+  // their full name or the cursor moves away from the same text field, this condition 
+  // is triggered.
+  
+    if (field_length === 0 || 
+        field_text_Array_length === 1)  {
+      // If the visitor has moved the mouse away from the form question and the 
+      // name contained in the text field does not include a space, 
+      // this condition is triggered.
+
+      $jQ(field_element).css(error_border_css);
+      // The border surrounding the question is made to appear red.
+      $jQ(field_element).css(error_text_css);
+      // The color of the text is made to appear red.
+      
+      if (field_length === 0) {
+      // If the text field is empty, this condition is triggered.
+
+        $jQ(field_element).val("Please enter your full name");
+        // The text, "Please include a space in your name", is placed within the 
+        // text field.
+      } else {
+      // Otherwise, if there are no spaces in the data contained within the 
+      // text field, this condition is triggered.
+
+        $jQ(field_element).val("Please include a space in your full name");
+        // The text, "Please include a space in your name", is placed within the 
+        // text field.
+      } // END of "if" STATEMENT
+    
+    } // END of "if" STATEMENT which is triggered if the visitor has moved the 
+      // mouse away from the form question and the name contained in the text field 
+      // does not include a space.
+  
+  } // END of "if" STATEMENT which is triggered if the mouse moves away from the text 
+    // field for a visitor to enter their full name or the cursor moves away 
+    // from the same text field.
+
 } /* **************** END OF FUNCTION "validateFullname" **************** */
 
-function validateCheckbox(validation_type, question_value, appearance_css_Array, border_color_rgb) {
+function validateCheckbox(validation_type, question_value, appearance_css_Array) {
   var checked_selector = new String();
   var field_selector = new String();
 
@@ -140,7 +188,7 @@ function validateCheckbox(validation_type, question_value, appearance_css_Array,
     // from the form question and has not entered a response.
 } /* **************** END OF FUNCTION "validateCheckbox" **************** */
 
-function validateRadioInput(validation_type, question_value, error_border_css, base_border_css) {
+function validateRadioInput(validation_type, question_value, appearance_css_Array) {
   // If the form question undergoing validation is the "third" question 
   // of 'FORM TYPE #1', this condition is triggered.
   var checked_selector = new String();
@@ -162,6 +210,143 @@ function validateRadioInput(validation_type, question_value, error_border_css, b
     $jQ(fieldset_element).css(base_border_css);
     // The border surrounding the question is returned to the default color.
   }
+} /* **************** END OF FUNCTION "validateRadioInput" **************** */
+
+function formQuestionFocusCheck(question_value, default_text, error_text) {
+  var question_selector = new String();
+  var question_element = new Object();
+
+  var form_field_value = new String();
+  // Holds the value of the form field this function processes.
+
+  question_selector = "#input-" + question_value;
+  question_element = $jQ(question_selector);
+
+  form_field_value = $jQ(question_element).val();
+  
+  if (form_field_value === default_text || 
+      form_field_value === error_text || 
+      form_field_value === "")  {
+  // If the cursor enters the form question and the default value of the question 
+  // has not been changed, this condition is triggered.
+
+    validateQuestionField("start", question_value);
+    // The form question is initialized.
+  } else {
+    validateQuestionField("reset", question_value); 
+    // The data of the form question is checked for validity.
+  } // END of "if" STATEMENT
+} /* **************** END OF FUNCTION "formQuestionFocusCheck" **************** */
+
+function validateAddress(validation_type, question_value, appearance_css_Array) {
+  var input_selector = new String();
+  var other_address_selector = new String();
+
+  var input_element = new Object();
+  var other_address_element = new Object();
+
+  var input_element_value = new String();
+  var other_address_element_value = new String();
+  
+  var address_value = new String();
+  // Holds the text data contained within the question field which the visitor 
+  // enters in their address.
+
+  var input_element_value_Array = new Array();
+  // Holds the individual terms of the data contained by the text field this 
+  // function processes.
+  var input_element_value_Array_length = new Number();
+  // Holds the number of individual indicies which make up, 
+  // "input_element_value_Array".
+  var current_value = new String();
+  // Holds an individual index of, "input_element_value_Array".
+
+  var street_num_regexp = new RegExp();
+  // Holds a Object which contains a regular expression that searches for integers 
+  // at the beginning of the text for, "input-address_1" and the end of the 
+  // the text for, "input-address_2".
+  var street_suffix_regexp = new RegExp();
+  // Holds a Object which contains a regular expression that searches for street 
+  // suffixes which may be misspelled or mispuncutated within the text 
+  // for, "input-address_1".
+  var apartment_regex = new RegExp();
+  // Holds a Object which contains a regular expression that searches for the 
+  // proper spellings of mailboxes for PO Boxes, Apartments and Suites.
+
+  var is_found = new Boolean;
+  // Holds the value, "true", if one of the regular expressions matches the values 
+  // contained by, "input_element_value" or "other_address_element_value".
+
+  var inc = new Number();
+
+  input_selector = "#input-" + question_value;
+  
+  if (input_selector = "#input-address_1")  {
+  // If the question field under processing is, "Address #1", then this 
+  // condition is triggered.
+
+    other_address_selector = "#input-address_2";
+    // The selector for the address field not under processing is, "#input-address_2".
+  } else {
+  // Otherwise, if the question field under processing is, "Address #2", then 
+  // this condition is triggered.
+  
+    other_address_selector = "#input-address_1";
+    // The selector for the address field not under processing is, "#input-address_1".
+  
+  } // END of "if" STATEMENT
+
+  input_element = $jQ(input_selector);
+  other_address_element = $jQ(other_address_selector);
+
+  input_element_value = $jQ(input_element).val();
+  // The value of the text field this function processes is passed on.
+  other_address_element_value = $jQ(other_address_element).val();
+  // The value of the other text field is passed on.
+
+  input_element_value_Array = input_element_value.split(" ");
+  // The value of the text field this function processes 
+  // is split up according to the number of spaces in between 
+  // terms.
+
+  street_num_regexp = [0-99999]/b;
+  street_suffix_regexp = /Street|St.|St|Drive|Dr.|Dr|Road|Rd.|Rd|Avenue|Ave.|Ave|Court|Ct.|Ct|Boulevard|Blvd.|Blvd;
+  inc = 0;
+  // A loop incrementer is initialized.
+  input_element_value_Array_length = input_element_value_Array.length;
+  // The number of indicies within, "input_element_value_Array" 
+  // is passed on.
+
+  while (inc < input_element_value_Array_length && 
+         is_found === true)  {
+    current_value = input_element_value_Array[inc];
+
+    if (inc === 0)  {
+    // If the loop processes the first index, this condition is 
+    // triggered.
+
+      is_found = street_num_regexp.test(current_value);
+      // The first index is tested to find out if it contains only 
+      // numbers. If so, "is_found", is set to "true".
+
+      if (is_found === true)  {
+      // If the regular expression test passes, the loop will continue 
+      // and this condition is triggered.
+
+        inc++;  
+      } // END of "if" STATEMENT
+    } else {
+      is_found = street_suffix_regexp.test(current_value);
+
+    }
+
+    
+  }
+
+
+
+
+
 }
 
 function validateQuestionField(validation_type, question_value)  {
