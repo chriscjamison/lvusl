@@ -53,21 +53,21 @@
 				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-form">
-						<form method="GET" action="#" name="sctn_1-request_tickets" id="sctn_1-request_tickets">
+						<form method="get" action="#" name="sctn_1-request_tickets" id="sctn_1-request_tickets">
 						<span>Ticket Reservation Form</span>
 						<div class="visible">
 							<div id="ticket-question_1">
 								<span>Please enter your name as it appears on the credit card.</span>
-								<input type="text" size="34" maxlength="60" name="full_name" id="input-full_name" />
+								<input type="text" size="34" maxlength="60" value="Please enter your full name" name="full_name" id="input-full_name" />
 							</div>
 							<div id="ticket-question_2">
 								<span>Please enter your billing address.</span>
-								<input type="text" size="34" maxlength="60" name="address_1" id="input-address_1" />
-								<input type="text" size="34" maxlength="60" name="address_2" id="input-address_2" />
+								<input type="text" size="34" maxlength="60" value="Address Line #1" name="address_1" id="input-address_1" />
+								<input type="text" size="34" maxlength="60" value="If needed, Address Line #2" name="address_2" id="input-address_2" />
 								<div id="ticket-line_3">
-									<input type="text" size="15" maxlength="30" name="city" id="input-city" />
-									<input type="text" size="2" maxlength="2" name="state" id="input-state" />
-									<input type="text" size="5" maxlength="10" name="zip_code" id="input-zip_code" />
+									<input type="text" size="15" maxlength="30" value="City" name="city" id="input-city" />
+									<input type="text" size="2" maxlength="2" value="ST" name="state" id="input-state" />
+									<input type="text" size="5" maxlength="10" value="Zip Code" name="zip_code" id="input-zip_code" />
 								</div>
 							</div>
 							<input type="button" name="ticket-next" value="Next Step" id="input-next_step" />
@@ -75,11 +75,11 @@
 						<div class="not_visible">
 							<div id="ticket-question_3">
 								<span>Please enter your credit card number.</span>
-								<input type="text" size="34" maxlength="20" name="card_num" id="input-card_num" />
+								<input type="text" size="34" maxlength="19" value="XXXX-XXXX-XXXX-XXXX" name="card_num" id="input-card_num" />
 							</div>
 							<div id="ticket-question_4">
 								<span>Please enter your three digit security code.</span>
-								<input type="text" size="3" maxlength="3" name="security_code" id="input-security_code" />
+								<input type="text" size="3" maxlength="3" value="XXX" name="security_code" id="input-security_code" />
 							</div>
 							<input type="submit" name="ticket-submit_request" value="Submit Request" id="input-submit_request" />
 							<input type="button" name="ticket-previous" value="Previous Step" id="input-previous_step" />

@@ -168,7 +168,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form questions which 
     // this visitor enters in their full name.
       function () {
-        validateQuestionField("start", "input-full_name");
+        validateQuestionField("start", "full_name");
         // The data of the form question is in the process of validation.
       }
     );
@@ -177,7 +177,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form questions which 
     // this visitor enters in their full name.
       function () {
-        validateQuestionField("reset", "input-full_name");
+        validateQuestionField("reset", "full_name");
         // The data of the form question is in the process of validation.
       }
     );
@@ -186,7 +186,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form questions which 
     // this visitor enters in their street number and street.
       function () {
-        validateQuestionField("start", "input-address_1);
+        validateQuestionField("start", "address_1");
         // The data of the form question is in the process of validation.
       }
     );
@@ -195,7 +195,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form questions which 
     // this visitor enters in their street number and street.
       function () {
-        validateQuestionField("reset", "input-address_1");
+        validateQuestionField("reset", "address_1");
         // The data of the form question is in the process of validation.
       }
     );
@@ -204,7 +204,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form question which 
     // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
-        validateQuestionField("start", "input-address_2");
+        validateQuestionField("start", "address_2");
         // The data of the form question is in the process of validation.
       }
     );
@@ -213,7 +213,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form question which 
     // the visitor would enter their apartment, PO Box number, or suite number.
       function () {
-        validateQuestionField("reset", "input-address_2");
+        validateQuestionField("reset", "address_2");
         // The data of the form question is in the process of validation.
       }
     );
@@ -222,7 +222,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form question which 
     // the visitor would enter their city name.
       function () {
-        validateQuestionField("start", "input-city");
+        validateQuestionField("start", "city");
         // The data of the form question is in the process of validation.
       }
     );
@@ -231,7 +231,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form question which 
     // the visitor would enter their city name.
       function () {
-        validateQuestionField("reset", "input-city");
+        validateQuestionField("reset", "city");
         // The data of the form question is in the process of validation.
       }
     );
@@ -240,7 +240,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form question which 
     // the visitor would enter the state name.
       function () {
-        validateQuestionField("start", "input-state");
+        validateQuestionField("start", "state");
         // The data of the form question is in the process of validation.
       }
     );
@@ -249,7 +249,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form question which 
     // the visitor would enter the state name.
       function () {
-        validateQuestionField("reset", "input-state");
+        validateQuestionField("reset", "state");
         // The data of the form question is in the process of validation.
       }
     );
@@ -258,7 +258,7 @@ $jQ(document).ready(
     // Activates when the user moves the cursor over the form question which 
     // the visitor would enter their zip code.
       function () {
-        validateQuestionField("start", "input-zip_code");
+        validateQuestionField("start", "zip_code");
         // The data of the form question is in the process of validation.
       }
     );
@@ -267,12 +267,48 @@ $jQ(document).ready(
     // Activates when the user moves the cursor away from the form question which 
     // the visitor would enter their zip code.
       function () {
-        validateQuestionField("reset", "input-zip_code");
+        validateQuestionField("reset", "zip_code");
         // The data of the form question is in the process of validation.
       }
     );
 
-    $jQ("input-address_2").click(
+    $jQ("#input-card_num").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter their credit card number.
+      function () {
+        validateQuestionField("start", "card_num");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-card_num").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter their credit card number.
+      function () {
+        validateQuestionField("reset", "card_num");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-security_code").mouseenter(
+    // Activates when the user moves the cursor over the form question which 
+    // the visitor would enter the 3 digit security code of their credit card number.
+      function () {
+        validateQuestionField("start", "security_code");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-security_code").mouseleave(
+    // Activates when the user moves the cursor away from the form question which 
+    // the visitor would enter the 3 digit security code of their credit card number.
+      function () {
+        validateQuestionField("reset", "security_code");
+        // The data of the form question is in the process of validation.
+      }
+    );
+
+    $jQ("#input-next_step, #input-previous_step").click(
     // Fades in the individual pages of 'FORM TYPE #3' in 'SECTION #6'.
       function () {
         animateForm(time_value);
@@ -280,7 +316,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#sctn_1-form").submit(
+    $jQ("#sctn_1-request_tickets").submit(
     // Validates the data contained with either 'FORM TYPE #1', 
     // 'FORM TYPE #2', or 'FORM TYPE #3'.
       function (event) {

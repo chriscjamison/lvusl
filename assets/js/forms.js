@@ -1,6 +1,6 @@
 /* Filename: forms.js
  *  Contains all JavaScript functions and behavior that controls the 
- *  user interaction with and submission of HTML forms contained within 
+ *  visitor interaction with and submission of HTML forms contained within 
  *  the 'One Page' template.
  * 
  *  --- NOTE! ---
@@ -12,24 +12,26 @@
  * 
  *  --- FUNCTIONS CONTAINED WITHIN 'nav.js' ---
  *    validateQuestionField
- *      Determines if a user has given a proper response to a form question and 
- *      if not an error message is passed to the user.
+ *      Determines if a visitor has given a proper response to a form question and 
+ *      if not an error message is passed to the visitor.
  *      
  *      Called by: 
- *        + $jQ("#sctn_1-no_1 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_1-no_3 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_1-no_3 > fieldset").on("mouseleave") (control_panel.js)
- *        + $jQ("#sctn_1-no_4 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_5-no_1 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_5-no_1 > fieldset").on("mouseleave") (control_panel.js)
- *        + $jQ("#sctn_5-no_2 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_5-no_2 > fieldset").on("mouseleave") (control_panel.js)
- *        + $jQ("#sctn_6-no_1 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_6-no_1 > fieldset").on("mouseleave") (control_panel.js)
- *        + $jQ("#sctn_6-no_2 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_6-no_2 > fieldset").on("mouseleave") (control_panel.js)
- *        + $jQ("#sctn_6-no_3 > fieldset").on("mouseenter") (control_panel.js)
- *        + $jQ("#sctn_6-no_3 > fieldset").on("mouseleave") (control_panel.js)
+ *        + $jQ("#input-full_name").mouseenter() (control_panel.js)
+ *        + $jQ("#input-full_name").mouseleave() (control_panel.js)
+ *        + $jQ("#input-address_1").mouseenter() (control_panel.js)
+ *        + $jQ("#input-address_1").mouseleave() (control_panel.js)
+ *        + $jQ("#input-address_2").mouseenter() (control_panel.js)
+ *        + $jQ("#input-address_2").mouseleave() (control_panel.js)
+ *        + $jQ("#input-city").mouseenter() (control_panel.js)
+ *        + $jQ("#input-city").mouseleave() (control_panel.js)
+ *        + $jQ("#input-state").mouseenter() (control_panel.js)
+ *        + $jQ("#input-state").mouseleave() (control_panel.js)
+ *        + $jQ("#input-zip_code").mouseenter() (control_panel.js)
+ *        + $jQ("#input-zip_code").mouseleave() (control_panel.js)
+ *        + $jQ("#input-card_num").mouseenter() (control_panel.js)
+ *        + $jQ("#input-card_num").mouseleave() (control_panel.js)
+ *        + $jQ("#input-security_code").mouseenter() (control_panel.js)
+ *        + $jQ("#input-security_code").mouseleave() (control_panel.js)
  * 
  *    
  *    validateForm
@@ -41,35 +43,143 @@
  *        + setURL (animations.js)
  * 
  *      Called by:
- *        + $jQ("#form-sctn_1, #form-sctn_5, #form-sctn_6").submit() (control_panel.js)
- * 
- *    setRateValue 
- *      Passes the value of the GET variable, "rateValue", which appears when 'FORM TYPE #3' 
- *      is submitted to a HTML element using the selector, 
- *      "#sctn_5-desc-6 > span > span:first-of-type" 
- *      or "#sctn_5-desc-6 > span > span > sup + span"
- *      
- *      Called by:
- *        + $jQ(document).ready() (control_panel.js)
+ *        + $jQ("#sctn_1-request_tickets").submit( (control_panel.js)
  * 
  * ******************************************************************************************** */
 
+function validateFullname(validation_type, question_value, error_border_css, base_border_css) {
+  var field_selector = new String();
+  var field_element = new Object();
+
+  var field_text = new String();
+  // Holds the value of the form field identified by, "question_value".
+  var field_length = new Number();
+  // Holds the length, in characters, of the value of the form field.
+  var has_space = new Boolean();
+  // Holds a Boolean which is, "true", if the value of the form field contains 
+  // spaces.
+  var field_text_Array = new Array();
+  // Holds the individual names contained in the value of the form field 
+  // which are seperated by spaces.
+  var field_text_Array_length = new Number();
+  // Holds the length, in indices, of, "field_text_Array".
+
+  field_selector = "#input-" + question_value;
+  field_element = $jQ(field_selector);
+
+  field_text = $jQ(field_element).val();
+  field_length = field_text.length;
+
+  has_space = false;
+
+  field_text_Array = field_text.split(" ");
+  field_text_Array_length = field_text_Array.length;
+
+  if (field_text_Array_length > 1)  {
+    has_space = true;
+  }
+
+  if (has_space === true)  {
+  // If the value contained in the text field contains a space, the value is either 
+  // the initial value of "Please enter your full name", or a valid name. When the 
+  // value of the text field contains a space, this condition is triggered.
+    if ($jQ(field_element).val() === "Please enter your full name")  {
+    // If the visitor has moved the mouse over the form question after not entering 
+    // proper form data into the text field, this condition is triggered.
+      $jQ(field_element).css(base_border_css);
+      // The border surrounding the question is returned to its default color.
+      $jQ(field_element).css(base_text_css);
+      // The color of the text is returned to its default.
+      $jQ(field_element).val("");
+      // The text, "Please enter your first name", is removed from the text 
+      // field.
+    } // END of "if" STATEMENT
+  } else if (validation_type === "reset" && 
+             field_text_Array_length === 1)  {
+  // If the visitor has moved the mouse away from the form question and the 
+  // name contained in the text field does not include a space, 
+  // this condition is triggered.
+    $jQ(field_element).css(error_border_css);
+    // The border surrounding the question is made to appear red.
+    $jQ(field_element).css(error_text_css);
+    // The color of the text is made to appear red.
+    $jQ(field_element).val("Please include a space in your name");
+    // The text, "Please include a space in your name", is placed within the 
+    // text field.
+  } // END of "if" STATEMENT which is triggered if the visitor has moved the 
+    // mouse over the form question after not entering proper form data 
+    // into the text field.
+} /* **************** END OF FUNCTION "validateFullname" **************** */
+
+function validateCheckbox(validation_type, question_value, error_border_css, base_border_css) {
+  var checked_selector = new String();
+  var field_selector = new String();
+
+  var checked_element = new Object(); 
+  var field_element = new Object();
+
+  checked_selector = "#input-" + question_value + " input:checked";
+  field_selector = "#input-" + question_value;
+
+  checked_element = $jQ(checked_selector);
+  field_element = $jQ(field_selector);
+
+  if (validation_type === "reset" && 
+      $jQ(checked_element).attr("name") === undefined) {
+  // If the visitor moves the cursor from the form question 
+  // and the visitor has not entered a response, this condition is triggered.
+    $jQ(field_element).css(error_border_css);
+    // The border surrounding the question is made to appear red.
+  } else if (validation_type === "start" && 
+              $jQ(field_element).css("borderColor") === "rgb(151, 27, 30)") {
+  // If the visitor has moved the mouse into the form question and the border is red, 
+  // this condition is triggered.
+    $jQ(fieldset_element).css(base_border_css);
+    // The border surrounding the question is returned to the default color.
+  } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
+    // from the form question and has not entered a response.
+} /* **************** END OF FUNCTION "validateCheckbox" **************** */
+
+function validateRadioInput(validation_type, question_value, error_border_css, base_border_css) {
+  // If the form question undergoing validation is the "third" question 
+  // of 'FORM TYPE #1', this condition is triggered.
+  var checked_selector = new String();
+  var checked_element = new Object(); 
+
+  checked_selector = fieldset_selector + " > p > input:checked";
+  checked_element = $jQ(checked_selector);
+    
+  if (validation_type === "reset" && 
+      $jQ(checked_element).attr("name") === undefined) {
+  // If the mouse moves from the form question and the visitor has not entered a 
+  // response, this condition is triggered.
+    $jQ(fieldset_element).css(error_border_css);
+    // The border surrounding the question is made to appear red.
+  } else if (validation_type === "start" && 
+              $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+  // If the visitor has moved the mouse into the form question and the border is red, 
+  // this condition is triggered.
+    $jQ(fieldset_element).css(base_border_css);
+    // The border surrounding the question is returned to the default color.
+  }
+}
+
 function validateQuestionField(validation_type, question_value)  {
   /* **************** **************** **************** **************** **************** 
-   *  Determines if a user has given a proper response to a form question and 
-   *  if not an error message is passed to the user.
+   *  Determines if a visitor has given a proper response to a form question and 
+   *  if not an error message is passed to the visitor.
    * **************** **************** **************** **************** **************** */
 
-  var fieldset_selector = new String();
-  var fieldset_element = new Object();  
-
+  var field_selector = new String();
+  var field_element = new Object();
+  
   var error_border_css = new Object();
   var base_border_css = new Object();
   var base_text_css = new Object();
   var error_text_css = new Object();
 
-  fieldset_selector = "#" + question_value + " > fieldset";
-  fieldset_element = $jQ(fieldset_selector);
+  field_selector = "#input-" + question_value;
+  field_element = $jQ(field_selector);
 
    error_border_css = {
       borderColor: "rgb(151, 27, 30)"
@@ -89,53 +199,17 @@ function validateQuestionField(validation_type, question_value)  {
 
   switch (question_value) {
   // This routes the input of the form to be correctly processed by this function.
-    case "sctn_1-no_1":
-    // If the form question being validated is the "first" question 
-    // of 'FORM TYPE #1', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object(); 
+    case "full_name":
+      validateFullname(validation_type, question_value, error_border_css, base_border_css);
+      // The text field which contains the full name is checked for validity.
+    break;  
+    // END of condition for the form question which contains the full name 
+    // of the visitor.
 
-      checked_selector = "#" + question_value + " input:checked";
-      checked_element = $jQ(checked_selector);
-      
-      if (validation_type === "reset" && 
-          $jQ(checked_element).attr("name") === undefined) {
-      // If the user moves the cursor from the form question 
-      // and the user has not entered a response, this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
-        // The border surrounding the question is made to appear red.
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
-      // If the user has moved the mouse into the form question and the border is red, 
-      // this condition is triggered.
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to the default color.
-      } // END of "if" STATEMENT which is triggered if the user moves the cursor 
-        // from the form question and has not entered a response.
-    break;  // END of condition for the "first" question of 'FORM TYPE #1'
-
-    case "sctn_1-no_3":
-    // If the form question undergoing validation is the "third" question 
-    // of 'FORM TYPE #1', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object(); 
-
-      checked_selector = fieldset_selector + " > p > input:checked";
-      checked_element = $jQ(checked_selector);
-       
-      if (validation_type === "reset" && 
-          $jQ(checked_element).attr("name") === undefined) {
-      // If the mouse moves from the form question and the user has not entered a 
-      // response, this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
-        // The border surrounding the question is made to appear red.
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
-      // If the user has moved the mouse into the form question and the border is red, 
-      // this condition is triggered.
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to the default color.
-      }
+    case "address_1":
+      validateAddress(validation_type, question_value, error_border_css, base_border_css);
+      // The text field which contains the street name and street number is checked for 
+      // validity.
     break;  // END of condition for the "third" question of 'FORM TYPE #1'
 
     case "sctn_1-no_4":
@@ -166,7 +240,7 @@ function validateQuestionField(validation_type, question_value)  {
       if (validation_type === "reset" && 
           ($jQ(checked_element).attr("name") === undefined ||  
            $jQ(checked_element).attr("name") === "monthly_income")) {
-      // If the mouse moves from the form question and the user has not entered a 
+      // If the mouse moves from the form question and the visitor has not entered a 
       // response, this condition is triggered.
         $jQ(fieldset_element).css(error_border_css);
         // The border surrounding the question is made to appear red.
@@ -188,7 +262,7 @@ function validateQuestionField(validation_type, question_value)  {
       
       if (validation_type === "reset" && 
           $jQ(checked_element).attr("name") === undefined) {
-      // If the mouse moves from the form question and the user has not entered a 
+      // If the mouse moves from the form question and the visitor has not entered a 
       // response, this condition is triggered.
         $jQ(fieldset_element).css(error_border_css);
         // The border surrounding the question is made to appear red.
@@ -210,7 +284,7 @@ function validateQuestionField(validation_type, question_value)  {
       field_element = $jQ(field_selector);
       
       if ($jQ(field_element).val() === "Please enter your first name")  {
-      // If the user has moved the mouse over the form question after not entering 
+      // If the visitor has moved the mouse over the form question after not entering 
       // proper form data into the text field, this condition is triggered.
         $jQ(fieldset_element).css(base_border_css);
         // The border surrounding the question is returned to its default color.
@@ -221,7 +295,7 @@ function validateQuestionField(validation_type, question_value)  {
         // field.
       } else if (validation_type === "reset" && 
                  $jQ(field_element).val().length <= 2)  {
-      // If the user has moved the mouse away from the form question and the user 
+      // If the visitor has moved the mouse away from the form question and the visitor 
       // has entered an improper response, a response of two or less characters, 
       // this condition is triggered.
         $jQ(fieldset_element).css(error_border_css);
@@ -231,7 +305,7 @@ function validateQuestionField(validation_type, question_value)  {
         $jQ(field_element).val("Please enter your first name");
         // The text, "Please enter your first name", is placed within the 
         // text field.
-      } // END of "if" STATEMENT which is triggered if the user has moved the 
+      } // END of "if" STATEMENT which is triggered if the visitor has moved the 
         // mouse over the form question after not entering proper form data 
         // into the text field.
     break;  // END of condition for the "first" question of 'FORM TYPE #3'
@@ -249,11 +323,11 @@ function validateQuestionField(validation_type, question_value)  {
       checked_element = $jQ(checked_selector);
       
       if ($jQ(checked_element).attr("id") === "sctn_6-email") {
-      // If the radio button offering the option to a user to enter their email 
+      // If the radio button offering the option to a visitor to enter their email 
       // is selected, this condition is triggered.
         if (validation_type === "start" && 
             $jQ(field_element).val() === "Please enter a valid email address") {
-        // If the user moves the cursor over the form question after not 
+        // If the visitor moves the cursor over the form question after not 
         // entering proper form data into the text field, this condition 
         // is triggered. 
           $jQ(fieldset_element).css(base_border_css);
@@ -274,7 +348,7 @@ function validateQuestionField(validation_type, question_value)  {
                $jQ(field_element).val().indexOf(".org") === -1 && 
                $jQ(field_element).val().indexOf(".edu") === -1 && 
                $jQ(field_element).val().indexOf(".mil") === -1)))  {
-          // If the user has moved the cursor away from the form question 
+          // If the visitor has moved the cursor away from the form question 
           // and there is not a value within the text field or the value 
           // within the text field does not include an "@" symbol or a valid 
           // domain, this condition is triggered.
@@ -287,10 +361,10 @@ function validateQuestionField(validation_type, question_value)  {
             // the text field.
           } // END of "if" STATEMENT which is triggered if the data contained within 
             // the text field is improper.
-        } // END of "if" STATEMENT which is triggered if the user moves the cursor 
+        } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
           // over the form question after not entering proper form data.
       } else if ($jQ(checked_element).attr("id") === "sctn_6-phone") {
-      // If the radio button offering the option to a user to enter a phone number 
+      // If the radio button offering the option to a visitor to enter a phone number 
       // is selected, this condition is triggered.
         var phone_number_val = new String();
         // Holds the value of the data contained within the text field.
@@ -348,7 +422,7 @@ function validateQuestionField(validation_type, question_value)  {
                    (phone_number_val.length === 0 ||  
                    (phone_number_val.length < 10 || 
                     phone_number_val.length > 10))) {
-        // If the user has moved the cursor away from the form question and 
+        // If the visitor has moved the cursor away from the form question and 
         // the phone number does not have a proper number of digits, 
         // then this condition is triggered.
           $jQ(fieldset_element).css(error_border_css);
@@ -361,7 +435,7 @@ function validateQuestionField(validation_type, question_value)  {
         } // END of "if" STATEMENT which is triggered if the value of the text 
           // field is "Please enter your phone number".
       } // END of "if" STATEMENT which is triggered if the radio button offering 
-        // the option to a user to enter their email is selected.
+        // the option to a visitor to enter their email is selected.
     break;  // END of condition for the "second" question of 'FORM TYPE #2'
 
     case "sctn_6-no_3":
@@ -375,7 +449,7 @@ function validateQuestionField(validation_type, question_value)  {
       
       if (validation_type === "reset" && 
           $jQ(checked_element).attr("name") === undefined) {
-      // If the mouse moves from the form question and the user has not entered a 
+      // If the mouse moves from the form question and the visitor has not entered a 
       // response, this condition is triggered.
         $jQ(fieldset_element).css(error_border_css);
         // The border surrounding the question is made to appear red.
@@ -384,7 +458,7 @@ function validateQuestionField(validation_type, question_value)  {
       // The border surrounding the question is made to appear red.
         $jQ(fieldset_element).css(base_border_css);
         // The border surrounding the question is returned to the default color.
-      } // END of "if" STATEMENT which is triggered if the user moves the cursor 
+      } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
         // from the form question and has not entered a response.
     break;  // END of condition for the "third" question of 'FORM TYPE #3'
   } // END of "switch" STATEMENT which routes the input of the form to 
@@ -418,7 +492,7 @@ function validateForm(section_value)  {
   // or text field. 
   //
   // If one of the Booleans is false, the form will pass an 
-  // error message to the user.
+  // error message to the visitor.
 
   form_questions_selector = "#form-" + section_value + " .form_cntnt";
   form_questions_elements = $jQ(form_questions_selector);
@@ -477,7 +551,7 @@ function validateForm(section_value)  {
             radio_element_property = $jQ(input_element).prop("checked");
             
             if (radio_element_property === true) {
-            // If the input element has been checked by the user, 
+            // If the input element has been checked by the visitor, 
             // this condition is triggered.
               input_element_checked_flag = true;
               // The input element contains proper data.
@@ -491,7 +565,7 @@ function validateForm(section_value)  {
             checkbox_element_property = $jQ(input_element).prop("checked");
 
             if (checkbox_element_property === true)  {
-            // If the input element has been checked by the user, 
+            // If the input element has been checked by the visitor, 
             // this condition is triggered.
               input_element_checked_flag = true;
               // The input element contains proper data.
