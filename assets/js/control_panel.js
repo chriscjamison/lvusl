@@ -171,18 +171,14 @@ $jQ(document).ready(
         validateQuestionField("start", "full_name");
         // The form question is initialized.
       }
-    );
-
-    $jQ("#input-full_name").mouseleave(
+    ).mouseleave(
     // Activates when the visitor moves the cursor away from the form question which 
     // this visitor enters their full name.
       function () {
         validateQuestionField("reset", "full_name");
         // The data of the form question is checked for validity.
       }
-    );
-    
-    $jQ("#input-full_name").focus(
+    ).focus(
     // Activates when the cursor enters the form field in which the visitor enters 
     // their full name.
       function () {
@@ -206,33 +202,31 @@ $jQ(document).ready(
         
         formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
       }
-    );
-
-    $jQ("#input-full_name").blur(
+    ).blur(
     // Activates when the cursor leaves the form question in which the visitor 
     // enters their full name.
-      function () {
-        var input_element = this;
+        function () {
+          var input_element = this;
 
-        var question_value = new String();
-        // Holds a String which identifies the form question in which the visitor 
-        // enters their full name.
+          var question_value = new String();
+          // Holds a String which identifies the form question in which the visitor 
+          // enters their full name.
 
-        var full_name_default_value = new String();
-        // Holds a String which matches the default value for the form question 
-        // which contains the full name.
-        var full_name_error_value = new String();
-        // Holds a String which matches the error message which appears if 
-        // the visitor enters invalid data.
+          var full_name_default_value = new String();
+          // Holds a String which matches the default value for the form question 
+          // which contains the full name.
+          var full_name_error_value = new String();
+          // Holds a String which matches the error message which appears if 
+          // the visitor enters invalid data.
 
-        full_name_default_value = "Please enter your full name";
-        full_name_error_value = "Please include a space in your full name";
+          full_name_default_value = "Please enter your full name";
+          full_name_error_value = "Please include a space in your full name";
 
-        question_value = $jQ(input_element).attr("id").slice(6);
-        
-        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
-      }
-    );
+          question_value = $jQ(input_element).attr("id").slice(6);
+          
+          formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
+        }
+      );
 
     $jQ("#input-address_1").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
@@ -241,29 +235,53 @@ $jQ(document).ready(
         validateQuestionField("start", "address_1");
         // The data of the form question is in the process of validation.
       }
-    );
-    
-    $jQ("#input-address_1").mouseleave(
+    ).mouseleave(
     // Activates when the visitor moves the cursor away from the form questions which 
     // this visitor enters in their street number and street.
       function () {
         validateQuestionField("reset", "address_1");
         // The data of the form question is in the process of validation.
       }
+    ).focus(
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
+      function () {
+        validateQuestionField("start", "address_1");
+        // The data of the form question is in the process of validation.
+      }
+    ).blur(
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
+      function () {
+        validateQuestionField("reset", "address_1");
+        // The data of the form question is in the process of validation.
+      }
     );
-
-    $jQ("#input-address_2").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
-    // the visitor would enter their apartment, PO Box number, or suite number.
+    
+     $jQ("#input-address_2").mouseenter(
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
       function () {
         validateQuestionField("start", "address_2");
         // The data of the form question is in the process of validation.
       }
-    );
-
-    $jQ("#input-address_2").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter their apartment, PO Box number, or suite number.
+    ).mouseleave(
+    // Activates when the visitor moves the cursor away from the form questions which 
+    // this visitor enters in their street number and street.
+      function () {
+        validateQuestionField("reset", "address_2");
+        // The data of the form question is in the process of validation.
+      }
+    ).focus(
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
+      function () {
+        validateQuestionField("start", "address_2");
+        // The data of the form question is in the process of validation.
+      }
+    ).blur(
+    // Activates when the visitor moves the cursor over the form questions which 
+    // this visitor enters their street number and street.
       function () {
         validateQuestionField("reset", "address_2");
         // The data of the form question is in the process of validation.

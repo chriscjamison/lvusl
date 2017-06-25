@@ -204,7 +204,7 @@ function validateRadioInput(validation_type, question_value, appearance_css_Arra
     $jQ(fieldset_element).css(error_border_css);
     // The border surrounding the question is made to appear red.
   } else if (validation_type === "start" && 
-              $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+             $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
   // If the visitor has moved the mouse into the form question and the border is red, 
   // this condition is triggered.
     $jQ(fieldset_element).css(base_border_css);
@@ -239,28 +239,31 @@ function formQuestionFocusCheck(question_value, default_text, error_text) {
 } /* **************** END OF FUNCTION "formQuestionFocusCheck" **************** */
 
 function validateAddress(validation_type, question_value, appearance_css_Array) {
-  var input_selector = new String();
-  var other_address_selector = new String();
+  var address_1_selector = new String();
+  var address_2_selector = new String();
 
-  var input_element = new Object();
-  var other_address_element = new Object();
+  var address_1_element = new Object();
+  var address_2_element = new Object();
 
-  var input_element_value = new String();
-  var other_address_element_value = new String();
+  var address_1_element_value = new String();
+  var address_2_element_value = new String();
   
   var address_value = new String();
   // Holds the text data contained within the question field which the visitor 
   // enters in their address.
 
-  var input_element_value_Array = new Array();
-  // Holds the individual terms of the data contained by the text field this 
-  // function processes.
-  var input_element_value_Array_length = new Number();
+  var address_1_element_value_Array = new Array();
+  // Holds the individual terms of the data contained by the first address 
+  // field.
+  var address_1_element_value_Array_length = new Number();
   // Holds the number of individual indicies which make up, 
-  // "input_element_value_Array".
-  var current_value = new String();
-  // Holds an individual index of, "input_element_value_Array".
-
+  // "address_1_element_value_Array".
+  var address_2_element_value_Array = new Array();
+  // Holds the individual terms of the data contained by the second address field.
+  var address_2_element_value_Array_length = new Number();
+  // Holds the number of the individual indicies which make up, 
+  // "other_adress_element_value_Array".
+  
   var street_num_regexp = new RegExp();
   // Holds a Object which contains a regular expression that searches for integers 
   // at the beginning of the text for, "input-address_1" and the end of the 
@@ -269,84 +272,212 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
   // Holds a Object which contains a regular expression that searches for street 
   // suffixes which may be misspelled or mispuncutated within the text 
   // for, "input-address_1".
-  var apartment_regex = new RegExp();
+  var apartment_abbrv_regexp = new RegExp();
   // Holds a Object which contains a regular expression that searches for the 
   // proper spellings of mailboxes for PO Boxes, Apartments and Suites.
+  var apartment_num_regexp = new RegExp();
+  // Holds a Object which contains a regular expression that searches for 
+  // integers at the end of the data entered in the text field.
 
-  var is_found = new Boolean;
+  var error_border_css = new Object();
+  var error_text_css = new Object();
+  var base_border_css = new Object();
+  var base_text_css = new Object();
+
+  var is_valid = new Boolean;
   // Holds the value, "true", if one of the regular expressions matches the values 
-  // contained by, "input_element_value" or "other_address_element_value".
-
-  var inc = new Number();
-
-  input_selector = "#input-" + question_value;
+  // contained by, "address_1_element_value" or "address_2_element_value".
   
-  if (input_selector = "#input-address_1")  {
+  address_1_selector = "#input-" + question_value;
+  
+  if (address_1_selector = "#input-address_1")  {
   // If the question field under processing is, "Address #1", then this 
   // condition is triggered.
 
-    other_address_selector = "#input-address_2";
-    // The selector for the address field not under processing is, "#input-address_2".
+    address_2_selector = "#input-address_2";
   } else {
   // Otherwise, if the question field under processing is, "Address #2", then 
   // this condition is triggered.
   
-    other_address_selector = "#input-address_1";
-    // The selector for the address field not under processing is, "#input-address_1".
+    address_1_selector = "#input-address_1";
+    address_2_selector = "#input-address_2";
   
   } // END of "if" STATEMENT
 
-  input_element = $jQ(input_selector);
-  other_address_element = $jQ(other_address_selector);
+  address_1_element = $jQ(address_1_selector);
+  address_2_element = $jQ(address_2_selector);
 
-  input_element_value = $jQ(input_element).val();
+  address_1_element_value = $jQ(address_1_element).val();
   // The value of the text field this function processes is passed on.
-  other_address_element_value = $jQ(other_address_element).val();
+  address_2_element_value = $jQ(address_2_element).val();
   // The value of the other text field is passed on.
 
-  input_element_value_Array = input_element_value.split(" ");
+  address_1_element_value_Array = address_1_element_value.split(" ");
   // The value of the text field this function processes 
   // is split up according to the number of spaces in between 
   // terms.
+  
+  street_num_regexp = /[0-99999]\b/;
+  street_location_regexp = /(North|N|South|S|East|E|West)/; 
+  street_suffix_regexp = /(Street|St|Drive|Dr|Road|Rd|Avenue|Ave|Court|Ct|Boulevard|Blvd)/;
+  apartment_abbv_regexp = /(Apartment|Apt|#|PO Box|P.O. Box|Suite|Ste)/;
+  apartment_num_regexp = /[0-9999]|[a-z]\i/;  
 
-  street_num_regexp = [0-99999]/b;
-  street_suffix_regexp = /Street|St.|St|Drive|Dr.|Dr|Road|Rd.|Rd|Avenue|Ave.|Ave|Court|Ct.|Ct|Boulevard|Blvd.|Blvd;
-  inc = 0;
-  // A loop incrementer is initialized.
-  input_element_value_Array_length = input_element_value_Array.length;
-  // The number of indicies within, "input_element_value_Array" 
+  address_1_element_value_Array_length = address_1_element_value_Array.length;
+  // The number of indicies within, "address_1_element_value_Array" 
   // is passed on.
 
-  while (inc < input_element_value_Array_length && 
-         is_found === true)  {
-    current_value = input_element_value_Array[inc];
+  error_border_css = appearance_css_Array[0];
+  error_text_css = appearance_css_Array[1];
+  base_border_css = appearance_css_Array[2];
+  base_text_css = appearance_css_Array[3];
 
-    if (inc === 0)  {
-    // If the loop processes the first index, this condition is 
-    // triggered.
+  is_valid = false;
 
-      is_found = street_num_regexp.test(current_value);
-      // The first index is tested to find out if it contains only 
-      // numbers. If so, "is_found", is set to "true".
+  if (street_num_regexp.test(address_1_element_value_Array[0]) === true)  {
+  // If the first term of the address is a number, this 
+  // condition is triggered.
 
-      if (is_found === true)  {
-      // If the regular expression test passes, the loop will continue 
-      // and this condition is triggered.
+    if (address_1_element_value_Array_length === 3) {
+    // If the address only has three terms - a street number, 
+    // a street name, and a street suffix, this condition is triggered.
 
-        inc++;  
-      } // END of "if" STATEMENT
+      if (street_num_regexp.test(address_1_element_value_Array[0]) === true)  {
+      // If the first term in the first term of the first address field 
+      // contains digits, this condition will trigger.
+
+        if (street_suffix_regexp.test(address_1_element_value_Array[address_1_element_value_Array_length - 1]) === true) {
+        // If the last term of the address is the street suffix, 
+        // this condition is triggered.
+  
+          is_valid = true;
+          // The address is in a valid format.
+        } 
+      
+      } 
     } else {
-      is_found = street_suffix_regexp.test(current_value);
+    // If the address has more than a street number, street name, 
+    // and street suffix, this condition is triggered.
 
+      if (apartment_num_regexp.test(address_1_element_value_Array[address_1_element_value_Array_length - 1]) === true) {
+      // Otherwise, if the last term of the address is an apartment number, 
+      // this condition is triggered.
+        if (apartment_abbv_regexp.test(address_1_element_value_Array[address_1_element_value_Array_length - 2]))  {
+        // If the next to the last term is an apartment number, 
+        // this condition is triggered.
+
+          if (street_num_regexp.test(address_1_element_value_Array[0]) === true)  {
+          // If the first term in the first term of the first address field 
+          // contains digits, this condition will trigger.
+
+            is_valid = true;
+            // The address is in a valid format.
+          }
+        }
+      } else if (street_suffix_regexp.test(address_1_element_value_Array[address_1_element_value_Array_length - 1]) === true) {
+        if (street_num_regexp.test(address_1_element_value_Array[0]) === true)  {
+        // If the first term in the first term of the first address field 
+        // contains digits, this condition will trigger.
+
+          is_valid = true;
+          // The address is in a valid format.
+        }
+      }
     }
-
-    
   }
 
+// console.log("address_2_element_value = " + address_2_element_value);
+  
 
+  if (validation_type === "reset")  {
+  // If the mouse has moved away from either of the two address fields or the cursor 
+  // has moved out of the two address fields, this condition is triggered.
+    
+    if (is_valid === false) {
+    // If the value contained in either address field is invalid, this 
+    // condition is triggered.
 
+      if (question_value === "address_1") {
+      // If the value contained in the first address field is invalid, 
+      // this condition is triggered.
 
+        $jQ(address_1_element).css(error_border_css);
+        // The border surrounding the question is made to appear red.
+        $jQ(address_1_element).css(error_text_css);
+        // The color of the text is made to appear red.
+        $jQ(address_1_element).val("Please enter your address again");
+        // The error message is passed to the first address field.
+      } else if (question_value === "address_1" && 
+                 address_1_element_value === "") {
+      // Otherwise, if the value does not contain data, 
+      // this condition is triggered.
+        $jQ(address_1_element).css(error_border_css);
+        // The border surrounding the question is made to appear red.
+        $jQ(address_1_element).css(error_text_css);
+        // The color of the text is made to appear red.
+        $jQ(address_1_element).val("Please enter your address");
+        // The error message is passed to the first address field.
+      } else if (question_value === "address_2") {
+        
+        if (address_2_element_value !== "If needed, enter Address Line #2") {
+        // If the value contained in the second address field has changed, 
+        // this condition is triggered.
 
+          if (address_2_element_value !== "" && 
+              (apartment_abbv_regexp.test(address_2_element_value) === false || 
+               apartment_num_regexp.test(address_2_element_value) === false)) {
+          // If the value contained in the second address field contains an 
+          // apartment prefix, this condition is triggered.
+
+            $jQ(address_2_element).css(error_border_css);
+            // The border surrounding the question is made to appear red.
+            $jQ(address_2_element).css(error_text_css);
+            // The color of the text is made to appear red.
+            $jQ(address_2_element).val("Please enter your address again");
+          }
+        }
+      } /*else if (question_value === "address_2" && 
+                 address_2_element_value === "")  {
+      // If value of the second address field is blank, this condition 
+      // is triggered.
+
+        $jQ(address_2_element).css(base_border_css);
+        // The border surrounding the question is reset to its default color.
+        $jQ(address_2_element).css(base_text_css);
+        // The color of the text is reset to its default color.
+        $jQ(address_2_element).val("");
+        // The second address field is initalized.
+      }*/
+    }
+  } else if (validation_type === "start") {
+  // Otherwise, if the mouse has moved over either of the two address 
+  // fields or the cursor has moved into one of the two address fields, 
+  // this condition is triggered.
+
+    if (question_value === "address_1" && 
+        (address_1_element_value === "Address Line #1" || 
+         address_1_element_value === "Please enter your address" || 
+         address_1_element_value === "Please enter your address again"))  {
+    // If the first address field contains a preset value, 
+    // this condition is triggered.
+
+      $jQ(address_1_element).css(base_border_css);
+      // The border surrounding the question is reset to its default color.
+      $jQ(address_1_element).css(base_text_css);
+      // The color of the text is reset to its default color.
+      $jQ(address_1_element).val("");
+    // The first address field is initalized.
+    } else if (question_value === "address_2" && 
+               (address_2_element_value === "If needed, enter Address Line #2" || 
+               address_2_element_value === "Please enter your address again"))  {
+      $jQ(address_2_element).css(base_border_css);
+      // The border surrounding the question is reset to its default color.
+      $jQ(address_2_element).css(base_text_css);
+      // The color of the text is reset to its default color.
+      $jQ(address_2_element).val("");
+      // The second address field is initalized.
+    }
+  }
 }
 
 function validateQuestionField(validation_type, question_value)  {
@@ -398,14 +529,18 @@ function validateQuestionField(validation_type, question_value)  {
       validateFullname(validation_type, question_value, appearance_css_Array);
       // The text field which contains the full name is checked for validity.
     break;  
-    // END of condition for the form question which contains the full name 
-    // of the visitor.
+    
 
     case "address_1":
       validateAddress(validation_type, question_value, appearance_css_Array);
       // The text field which contains the street name and street number is checked for 
       // validity.
-    break;  // END of condition for the "third" question of 'FORM TYPE #1'
+    break;
+
+    case "address_2":
+      validateAddress(validation_type, question_value, appearance_css_Array);
+      // The text field which contains the apartment number is checked for validity.
+    break;
 
     case "sctn_1-no_4":
       var option_selector = new String();
