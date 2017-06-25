@@ -436,18 +436,7 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
             $jQ(address_2_element).val("Please enter your address again");
           }
         }
-      } /*else if (question_value === "address_2" && 
-                 address_2_element_value === "")  {
-      // If value of the second address field is blank, this condition 
-      // is triggered.
-
-        $jQ(address_2_element).css(base_border_css);
-        // The border surrounding the question is reset to its default color.
-        $jQ(address_2_element).css(base_text_css);
-        // The color of the text is reset to its default color.
-        $jQ(address_2_element).val("");
-        // The second address field is initalized.
-      }*/
+      }
     }
   } else if (validation_type === "start") {
   // Otherwise, if the mouse has moved over either of the two address 
@@ -542,21 +531,65 @@ function validateQuestionField(validation_type, question_value)  {
       // The text field which contains the apartment number is checked for validity.
     break;
 
-    case "sctn_1-no_4":
-      var option_selector = new String();
-      var option_element = new Object();
+    case "city":
+      var field_selector = new String();
+      var field_element = new Object();
 
-      option_selector = fieldset_selector + " > div > select > option:selected";
-      option_element = $jQ(option_selector);
+      var field_val = new String();
+
+      field_selector = "#input-" + question_value;
+      field_element = $jQ(field_selector);
+
+      field_val = $jQ(field_element).val();
             
-      if (validation_type === "reset" && 
-          $jQ(option_element).val() === "default") {
-        $jQ(fieldset_element).css(error_border_css);
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
-        $jQ(fieldset_element).css(base_border_css);
-      }
-    break;  // END of condition for the "fourth" question of 'FORM TYPE #1'
+      if (validation_type === "start") {
+      // If the mouse is now over the field or the cursor is now 
+      // in the field, this condition is triggered.
+
+        /*if (field_val === "") {
+        // If the field is blank, this condition is triggered.
+        
+          $jQ(field_element).css(error_border_css);
+          // The border surrounding the question is made to appear red.
+          $jQ(field_element).css(error_text_css);
+          // The color of the text is made to appear red.
+          $jQ(field_element).val("Please enter a city");
+          // The error message is passed on to the field.
+        } else */if (field_val === "City") {
+        // If the mouse is now over the field or the cursor is in the 
+        // field, this condition is triggered.
+
+          $jQ(field_element).val("");
+        } else if (field_val === "Please enter a city")  {
+        // If the field contains an error message, this condition 
+        // is triggered.
+
+          $jQ(field_element).css(base_border_css);
+          // The border surrounding the question is made to appear red.
+          $jQ(field_element).css(base_text_css);
+          // The color of the text is made to appear red.
+          $jQ(field_element).val("");
+          // The error message is removed from the field.
+        }
+      } else {
+        var field_val_length = new Number();
+        // Holds the number of characters contained in, "field_val".
+        
+        field_val_length = field_val.length;
+        
+        if (field_val_length < 5) {
+        // If the length of the city, is less than 5 characters, 
+        // this condition is triggered.
+
+          $jQ(field_element).css(error_border_css);
+          // The border surrounding the question is made to appear red.
+          $jQ(field_element).css(error_text_css);
+          // The color of the text is made to appear red.
+          $jQ(field_element).val("Please enter a city");
+          // The error message is passed on to the field.
+        }
+      }      
+    break;  
 
     case "sctn_5-no_1":
     // If the form question being validated is the "first" question 

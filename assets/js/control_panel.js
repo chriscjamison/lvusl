@@ -179,8 +179,6 @@ $jQ(document).ready(
         // The data of the form question is checked for validity.
       }
     ).focus(
-    // Activates when the cursor enters the form field in which the visitor enters 
-    // their full name.
       function () {
         var input_element = this;
 
@@ -203,9 +201,7 @@ $jQ(document).ready(
         formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
       }
     ).blur(
-    // Activates when the cursor leaves the form question in which the visitor 
-    // enters their full name.
-        function () {
+      function () {
           var input_element = this;
 
           var question_value = new String();
@@ -236,55 +232,37 @@ $jQ(document).ready(
         // The data of the form question is in the process of validation.
       }
     ).mouseleave(
-    // Activates when the visitor moves the cursor away from the form questions which 
-    // this visitor enters in their street number and street.
       function () {
         validateQuestionField("reset", "address_1");
-        // The data of the form question is in the process of validation.
       }
     ).focus(
-    // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their street number and street.
       function () {
         validateQuestionField("start", "address_1");
-        // The data of the form question is in the process of validation.
       }
     ).blur(
-    // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their street number and street.
       function () {
         validateQuestionField("reset", "address_1");
-        // The data of the form question is in the process of validation.
       }
     );
     
      $jQ("#input-address_2").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their street number and street.
+    // this visitor enters an apartment number.
       function () {
         validateQuestionField("start", "address_2");
         // The data of the form question is in the process of validation.
       }
     ).mouseleave(
-    // Activates when the visitor moves the cursor away from the form questions which 
-    // this visitor enters in their street number and street.
       function () {
         validateQuestionField("reset", "address_2");
-        // The data of the form question is in the process of validation.
       }
     ).focus(
-    // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their street number and street.
       function () {
         validateQuestionField("start", "address_2");
-        // The data of the form question is in the process of validation.
       }
     ).blur(
-    // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their street number and street.
       function () {
         validateQuestionField("reset", "address_2");
-        // The data of the form question is in the process of validation.
       }
     );
 
@@ -295,16 +273,17 @@ $jQ(document).ready(
         validateQuestionField("start", "city");
         // The data of the form question is in the process of validation.
       }
-    );
-
-    $jQ("#input-city").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter their city name.
-      function () {
+    ).mouseleave(function () {
         validateQuestionField("reset", "city");
-        // The data of the form question is in the process of validation.
+      }
+    ).focus(function () {
+        validateQuestionField("start", "city");
+      }
+    ).blur(function () {
+        validateQuestionField("reset", "city");
       }
     );
+;
 
     $jQ("#input-state").mouseenter(
     // Activates when the visitor moves the cursor over the form question which 
