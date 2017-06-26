@@ -29,17 +29,19 @@ url_hash = window.location.hash;
 $jQ(document).ready(
   function () {
     
-    $jQ("#nav-link").on("mouseover", 
+    $jQ("#nav-link").mouseover( 
     // Once the visitor moves the cursor over the "menu icon", the 
     // click-state of the "menu icon" is changed to the "hover" state.
+
       function () {
         navLinkHoverState("hover", time_value);
       }
     );
 
-    $jQ("#nav-link").on("mouseout", 
+    $jQ("#nav-link").mouseout( 
     // Once the visitor moves the cursor away from the "menu icon", the 
     // click-state of the "menu icon" is changed to the "base" state.
+
       function () {
         var nav_selector = new String();
         var nav_element = new Object();
@@ -60,11 +62,12 @@ $jQ(document).ready(
       }
     );
     
-    $jQ("#nav-link").on("click", 
+    $jQ("#nav-link").click( 
     // Once the visitor clicks the "menu icon", the inter-section 
     // navigation that appears on the left side of the browser window 
     // is made visible and the click-state of the "menu icon" is changed 
     // to the "first" "click" state.
+
       function () {
         var nav_selector = new String();
         var nav_element = new Object();
@@ -81,6 +84,7 @@ $jQ(document).ready(
         if (nav_left_value === "0px") {
         // If the main menu of the 
         // browser window, this condition is triggered.
+
           setTimeout(
             function () {
               navLinkHoverState("base", time_value);
@@ -91,6 +95,7 @@ $jQ(document).ready(
         } else {
         // Otherwise, if the navigation is not viewable, this condition is 
         // triggered.
+
           navLinkHoverState("click", time_value);
           // The click-state of the "menu icon" is changed to the "first" 
           // "click" state.
@@ -106,10 +111,11 @@ $jQ(document).ready(
       }
     );
     
-   $jQ("#options > a").on("mouseenter",
+   $jQ("#options > a").mouseenter(
    // If the visitor moves the cursor over one of the menu options of the 
    // main menu of the browser window, 
    // the click-state of the menu option is changed.
+   
       function () {
         var option_element = new Object();
 
@@ -120,7 +126,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#options > a").on("mouseleave", 
+    $jQ("#options > a").mouseleave(
     // If the visitor moves the cursor over one of the menu options of the 
     // main menu of the browser window, 
     // the click-state of the menu option is changed.
@@ -134,7 +140,7 @@ $jQ(document).ready(
       }
     );
     
-    $jQ("#options > a").on("click",
+    $jQ("#options > a").click(
     // If the visitor clicks on one of the menu options, the visible Positions 
     // within the Sections are found and passed on to the URL hash, 
     // the main menu side of the 
@@ -165,20 +171,33 @@ $jQ(document).ready(
     );
 
     $jQ("#info > div > a:nth-child(2)").click(
+    // Navigates the browser window to view 'SECTION #1' when a visitor 
+    // clicks on the <a> element which contains the text, 
+    // "Request Season Tickets".
+
       function () {
         var wndow_height = new Number();
+        // Holds the height of the HTML elements using the selector, ".wndow".
 
-        var page_dimensions_Array = new Array;
-
+        var page_dimensions_Array = new Array();
+        // The calculated values for the "width" and "height" of various HTML elements 
+        // of the webpage within the browser window are passed on to "page_dimensions_Array".
+        
         page_dimensions_Array = parseWindowDimensions();
+        // The calculated values for the "width" and "height" of various HTML elements 
+        // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
         wndow_height = page_dimensions_Array[1];
         
         $jQ(window).scrollTop(wndow_height);
+        // The browser window scrolls to the vertical location of 'SECTION #1'.
       }
     );
 
     $jQ("#email a").click(
+    // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
+    // appears to the right of the email alert content.
+
       function () {
         animateEmailAlert(url_hash, time_value);
       }
@@ -187,6 +206,7 @@ $jQ(document).ready(
     $jQ("#input-email").mouseenter(
     // Activates when the visitor interacts with the question field that 
     // a visitor enters their email address.
+
       function () {
         validateQuestionField("start", "email");
         // The data of the form question is in the process of validation.
@@ -206,18 +226,16 @@ $jQ(document).ready(
     );
 
     $jQ("#input-full_name").mouseenter(
-    // Activates when the visitor moves the cursor over the form questions which 
-    // this visitor enters their full name.
+    // Activates when the visitor interacts with the form question which 
+    // the visitor enters their full name.
+
       function () {
         validateQuestionField("start", "full_name");
         // The form question is initialized.
       }
     ).mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // this visitor enters their full name.
       function () {
         validateQuestionField("reset", "full_name");
-        // The data of the form question is checked for validity.
       }
     ).focus(
       function () {
@@ -243,31 +261,32 @@ $jQ(document).ready(
       }
     ).blur(
       function () {
-          var input_element = this;
+        var input_element = this;
 
-          var question_value = new String();
-          // Holds a String which identifies the form question in which the visitor 
-          // enters their full name.
+        var question_value = new String();
+        // Holds a String which identifies the form question in which the visitor 
+        // enters their full name.
 
-          var full_name_default_value = new String();
-          // Holds a String which matches the default value for the form question 
-          // which contains the full name.
-          var full_name_error_value = new String();
-          // Holds a String which matches the error message which appears if 
-          // the visitor enters invalid data.
+        var full_name_default_value = new String();
+        // Holds a String which matches the default value for the form question 
+        // which contains the full name.
+        var full_name_error_value = new String();
+        // Holds a String which matches the error message which appears if 
+        // the visitor enters invalid data.
 
-          full_name_default_value = "Please enter your full name";
-          full_name_error_value = "Please include a space in your full name";
+        full_name_default_value = "Please enter your full name";
+        full_name_error_value = "Please include a space in your full name";
 
-          question_value = $jQ(input_element).attr("id").slice(6);
-          
-          formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
-        }
-      );
+        question_value = $jQ(input_element).attr("id").slice(6);
+        
+        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
+      }
+    );
 
     $jQ("#input-address_1").mouseenter(
-    // Activates when the visitor moves the cursor over the form questions which 
+    // Activates when the visitor moves interacts with the form question which 
     // this visitor enters their street number and street.
+
       function () {
         validateQuestionField("start", "address_1");
         // The data of the form question is in the process of validation.
@@ -287,8 +306,9 @@ $jQ(document).ready(
     );
     
      $jQ("#input-address_2").mouseenter(
-    // Activates when the visitor moves the cursor over the form questions which 
+    // Activates when the visitor interacts with the form question which 
     // this visitor enters an apartment number.
+
       function () {
         validateQuestionField("start", "address_2");
         // The data of the form question is in the process of validation.
@@ -308,8 +328,9 @@ $jQ(document).ready(
     );
 
     $jQ("#input-city").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter their city name.
+
       function () {
         validateQuestionField("start", "city");
         // The data of the form question is in the process of validation.
@@ -329,8 +350,9 @@ $jQ(document).ready(
     );
 
     $jQ("#input-state").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter the state name.
+
       function () {
         validateQuestionField("start", "city");
         // The data of the form question is in the process of validation.
@@ -350,8 +372,9 @@ $jQ(document).ready(
     );
 
     $jQ("#input-state").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter the state name.
+
       function () {
         validateQuestionField("start", "state");
         // The data of the form question is in the process of validation.
@@ -371,8 +394,9 @@ $jQ(document).ready(
     );
 
     $jQ("#input-zip_code").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter their zip code.
+
       function () {
         validateQuestionField("start", "zip_code");
         // The data of the form question is in the process of validation.
@@ -392,8 +416,9 @@ $jQ(document).ready(
     );
 
     $jQ("#input-card_num").mouseenter(
-    // Activates when the visitor moves the cursor away from the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter their credit card number.
+
       function () {
         validateQuestionField("start", "card_num");
         // The data of the form question is in the process of validation.
@@ -413,8 +438,9 @@ $jQ(document).ready(
     );
    
     $jQ("#input-security_code").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor interacts with the form question which 
     // the visitor would enter the 3 digit security code of their credit card number.
+
       function () {
         validateQuestionField("start", "security_code");
         // The data of the form question is in the process of validation.
@@ -434,7 +460,8 @@ $jQ(document).ready(
     );
 
     $jQ("#input-next_step, #input-previous_step").click(
-    // Fades in the individual pages of 'FORM TYPE #3' in 'SECTION #6'.
+    // Fades in the individual pages of the 'Request Season Tickets' form.
+
       function () {
         animateForm(time_value);
         // "animateForm" fades in the "second" page of 'FORM TYPE #1'.
@@ -442,8 +469,9 @@ $jQ(document).ready(
     );
 
     $jQ("#sctn_main-email, #sctn_1-request_tickets").submit(
-    // Validates the data contained with either 'FORM TYPE #1', 
-    // 'FORM TYPE #2', or 'FORM TYPE #3'.
+    // Validates the data contained within either the 'Email Alert' or 
+    // 'Request Season Tickets' forms.
+    
       function (event) {
         var form_element = new Object();
 
@@ -474,6 +502,7 @@ $jQ(document).ready(
           // input withing the form needs to change.
 
           var form_element_id = new String();
+          // Holds the selector which identifies the form under processing.
 
           var email_search_string = new String();
           var email_search_string_index_num = new Number();
@@ -607,9 +636,8 @@ $jQ(document).ready(
           // "formatHeader" formats the text of the header for the Section 
           // which contains the season ticket reservation form based upon 
           // the URL hash. 
-        }
-        
-      } // END of ".on("load")" Method
+        }        
+      }
     );
     
 

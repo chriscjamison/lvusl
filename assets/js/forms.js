@@ -1,7 +1,6 @@
 /* Filename: forms.js
  *  Contains all JavaScript functions and behavior that controls the 
- *  visitor interaction with and submission of HTML forms contained within 
- *  the 'One Page' template.
+ *  visitor interaction with and submission of HTML forms.
  * 
  *  --- NOTE! ---
  *  + JavaScript statements and functions which are triggered by interacting 
@@ -16,22 +15,43 @@
  *      if not an error message is passed to the visitor.
  *      
  *      Called by: 
+ * 
+ *        + $jQ("#input-email").mouseenter() (control_panel.js)
+ *        + $jQ("#input-email").mouseleave() (control_panel.js)
+ *        + $jQ("#input-email").focus() (control_panel.js)
+ *        + $jQ("#input-email").blur() (control_panel.js)
  *        + $jQ("#input-full_name").mouseenter() (control_panel.js)
  *        + $jQ("#input-full_name").mouseleave() (control_panel.js)
+ *        + $jQ("#input-full_name").focus() (control_panel.js)
+ *        + $jQ("#input-full_name").blur() (control_panel.js)
  *        + $jQ("#input-address_1").mouseenter() (control_panel.js)
  *        + $jQ("#input-address_1").mouseleave() (control_panel.js)
+ *        + $jQ("#input-address_1").focus() (control_panel.js)
+ *        + $jQ("#input-address_1").blur() (control_panel.js)
  *        + $jQ("#input-address_2").mouseenter() (control_panel.js)
  *        + $jQ("#input-address_2").mouseleave() (control_panel.js)
+ *        + $jQ("#input-address_2").focus() (control_panel.js)
+ *        + $jQ("#input-address_2").blur() (control_panel.js)
  *        + $jQ("#input-city").mouseenter() (control_panel.js)
  *        + $jQ("#input-city").mouseleave() (control_panel.js)
+ *        + $jQ("#input-city").focus() (control_panel.js)
+ *        + $jQ("#input-city").blur() (control_panel.js)
  *        + $jQ("#input-state").mouseenter() (control_panel.js)
  *        + $jQ("#input-state").mouseleave() (control_panel.js)
+ *        + $jQ("#input-state").focus() (control_panel.js)
+ *        + $jQ("#input-state").blur() (control_panel.js)
  *        + $jQ("#input-zip_code").mouseenter() (control_panel.js)
  *        + $jQ("#input-zip_code").mouseleave() (control_panel.js)
+ *        + $jQ("#input-zip_code").focus() (control_panel.js)
+ *        + $jQ("#input-zip_code").blur() (control_panel.js)
  *        + $jQ("#input-card_num").mouseenter() (control_panel.js)
  *        + $jQ("#input-card_num").mouseleave() (control_panel.js)
+ *        + $jQ("#input-card_num").focus() (control_panel.js)
+ *        + $jQ("#input-card_num").blur() (control_panel.js)
  *        + $jQ("#input-security_code").mouseenter() (control_panel.js)
  *        + $jQ("#input-security_code").mouseleave() (control_panel.js)
+ *        + $jQ("#input-security_code").focus() (control_panel.js)
+ *        + $jQ("#input-security_code").blur() (control_panel.js)
  * 
  *    
  *    validateForm
@@ -39,15 +59,44 @@
  *      is proper. If the values are not proper, the form will not submit.
  * 
  *      Called by:
- *        + assembleURLString
- *        + setURL (animations.js)
+ * 
+ *        + $jQ("#sctn_main-email").submit() (control_panel.js)
+ *        + $jQ("#sctn_1-request_tickets").submit() (control_panel.js)
+ * 
+ *    validateFullname
+ *      Determines if a visitor has given a proper response to the question field which 
+ *      asks for a full name.
  * 
  *      Called by:
- *        + $jQ("#sctn_1-request_tickets").submit( (control_panel.js)
+ * 
+ *        + validateQuestionField
+ * 
+ *    formQuestionFocusCheck
+ *      Determines if a call to, "validateQuestionField", ought to initialize the 
+ *      question field for a visitor to enter their full name or reset that field.
+ * 
+ *      Called by:
+ * 
+ *        + $jQ("#input-full_name").focus() (control_panel.js)
+ *        + $jQ("#input-full_name").blur() (control_panel.js)
+ *
+ *    validateAddress
+ *      Determines if the value contained in a question field which a visitor enters 
+ *      their street address is valid.
+ * 
+ *      Called by:
+ * 
+ *        validateQuestionField
+ *        + $jQ("#input-full_name").blur() (control_panel.js)
  * 
  * ******************************************************************************************** */
 
 function validateFullname(validation_type, question_value, appearance_css_Array) {
+  /* **************** **************** **************** **************** **************** 
+   *  Determines if a visitor has given a proper response to the question field which 
+   *  asks for a full name.
+   * **************** **************** **************** **************** **************** */
+
   var field_selector = new String();
   var field_element = new Object();
 
@@ -88,6 +137,9 @@ function validateFullname(validation_type, question_value, appearance_css_Array)
   base_text_css = appearance_css_Array[3];
 
   if (field_text_Array_length > 1)  {
+  // If the value of the question field is not one continuous string, 
+  // this condition is triggered.
+
     has_space = true;
   }
 
@@ -112,12 +164,8 @@ function validateFullname(validation_type, question_value, appearance_css_Array)
         $jQ(field_element).val("");
         // The text, "Please enter your first name", is removed from the text 
         // field.
-      
-      } // END of "if" STATEMENT
-
-    } // END of "if" STATEMENT which is triggered if the value contained within 
-      // the text field includes a space.
-
+      }
+    }
   } else {
   // Otherwise, if the mouse moves away from the text field for a visitor to enter 
   // their full name or the cursor moves away from the same text field, this condition 
@@ -147,19 +195,19 @@ function validateFullname(validation_type, question_value, appearance_css_Array)
         $jQ(field_element).val("Please include a space in your full name");
         // The text, "Please include a space in your name", is placed within the 
         // text field.
-      } // END of "if" STATEMENT
-    
-    } // END of "if" STATEMENT which is triggered if the visitor has moved the 
-      // mouse away from the form question and the name contained in the text field 
-      // does not include a space.
-  
-  } // END of "if" STATEMENT which is triggered if the mouse moves away from the text 
-    // field for a visitor to enter their full name or the cursor moves away 
-    // from the same text field.
+      }
+    }  
+  }
 
 } /* **************** END OF FUNCTION "validateFullname" **************** */
 
+/*
 function validateCheckbox(validation_type, question_value, appearance_css_Array) {
+  /* **************** **************** **************** **************** **************** 
+   *  Determines if a visitor has given a proper response to the question field which 
+   *  asks for a full name.
+   * **************** **************** **************** **************** **************** 
+  
   var checked_selector = new String();
   var field_selector = new String();
 
@@ -174,6 +222,7 @@ function validateCheckbox(validation_type, question_value, appearance_css_Array)
 
   if (validation_type === "reset" && 
       $jQ(checked_element).attr("name") === undefined) {
+
   // If the visitor moves the cursor from the form question 
   // and the visitor has not entered a response, this condition is triggered.
     $jQ(field_element).css(error_border_css);
@@ -186,7 +235,7 @@ function validateCheckbox(validation_type, question_value, appearance_css_Array)
     // The border surrounding the question is returned to the default color.
   } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
     // from the form question and has not entered a response.
-} /* **************** END OF FUNCTION "validateCheckbox" **************** */
+} /* **************** END OF FUNCTION "validateCheckbox" **************** 
 
 function validateRadioInput(validation_type, question_value, appearance_css_Array) {
   // If the form question undergoing validation is the "third" question 
@@ -213,6 +262,11 @@ function validateRadioInput(validation_type, question_value, appearance_css_Arra
 } /* **************** END OF FUNCTION "validateRadioInput" **************** */
 
 function formQuestionFocusCheck(question_value, default_text, error_text) {
+  /* **************** **************** **************** **************** **************** 
+   *  Determines if a call to, "validateQuestionField", ought to initialize the 
+   *  question field for a visitor to enter their full name or reset that field.
+   * **************** **************** **************** **************** **************** */
+
   var question_selector = new String();
   var question_element = new Object();
 
@@ -239,6 +293,11 @@ function formQuestionFocusCheck(question_value, default_text, error_text) {
 } /* **************** END OF FUNCTION "formQuestionFocusCheck" **************** */
 
 function validateAddress(validation_type, question_value, appearance_css_Array) {
+  /* **************** **************** **************** **************** **************** 
+   *  Determines if the value contained in a question field which a visitor enters 
+   *  their street address is valid.
+   * **************** **************** **************** **************** **************** */
+
   var address_1_selector = new String();
   var address_2_selector = new String();
 
@@ -301,8 +360,7 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
   
     address_1_selector = "#input-address_1";
     address_2_selector = "#input-address_2";
-  
-  } // END of "if" STATEMENT
+  }
 
   address_1_element = $jQ(address_1_selector);
   address_2_element = $jQ(address_2_selector);
@@ -352,8 +410,7 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
   
           is_valid = true;
           // The address is in a valid format.
-        } 
-      
+        }       
       } 
     } else {
     // If the address has more than a street number, street name, 
@@ -464,7 +521,7 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
       // The second address field is initalized.
     }
   }
-}
+}  /* **************** END OF FUNCTION "validateAddress" **************** */
 
 function validateQuestionField(validation_type, question_value)  {
   /* **************** **************** **************** **************** **************** 
@@ -784,11 +841,15 @@ function validateForm(form_element)  {
   inc = 0;
   complete_field_flag = true;
 
-
   while (inc < form_questions_elements_length)  {
+  // This loop runs while there are question fields to process.
+
     current_input_flag = complete_field_flag_Array[inc];
 
     if (current_input_flag === false) {
+    // If the current index contained by, "complete_field_flag_Array", 
+    // is "false", the this condition is triggered.
+
       complete_field_flag = false;
     }
 
@@ -800,71 +861,3 @@ function validateForm(form_element)  {
   // passed on. Otherwise, the form holds improper data and this value 
   // will be "false".
 } /* **************** END OF FUNCTION "validateForm" **************** */
-
-function setRateValue(rate_value_search_string) {
-  /* **************** **************** **************** **************** **************** 
-   *  Passes the value of the GET variable, "rateValue", which appears when 'FORM TYPE #3' 
-   *  is submitted to a HTML element using the selector, 
-   *  "#sctn_5-desc-6 > span > span:first-of-type" 
-   *  or "#sctn_5-desc-6 > span > span > sup + span"
-   * **************** **************** **************** **************** **************** */
-
-  var rate_value_index_num = new Number();
-  // Holds the location within the URL string that the value of the GET 
-  // variable, "rateValue", lies within, "rate_value_search_string".
-
-  var rate_value_val = new String();
-  // Holds the value of the GET variable, "rateValue".
-
-  var url_string = new String();
-
-  url_string = window.location.href;
-  
-  rate_value_index_num = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
-  // The location of the search string within the URL string is added 
-  // to the length, in characters, of the search string.
-  rate_value_val = url_string.slice(rate_value_index_num, url_string.length);
-  // The value of "rateValue", is extracted from the URL string.
-
-  if (rate_value_val === "0")  {
-  // If the value of "rateValue" is 0, then this condition is triggered.
-    var blok_selector = new String();
-    var blok_element = new Object();
-
-    var bold_white_css = new Object();
-    
-    blok_selector = "#sctn_5-desc-6 > span > span:first-of-type";
-
-    blok_element = $jQ(blok_selector);
-    
-    bold_white_css = {
-      color: "#fff",
-      fontSize: "6em", 
-      fontWeight: "600", 
-    }
-
-    $jQ(blok_element).text("No Cost");
-    // The value of the HTML element identified by the selector, 
-    // "#sctn_5-desc-6 > span > span:first-of-type", is removed and 
-    // "No Cost" is added in its place.
-
-    $jQ(blok_element).css(bold_white_css);
-    // The style of the text is now larger and in bold. The color 
-    // of the text is white.
-  } else  {
-  // Otherwise, if the value of "rateValue" is not 0, then this 
-  // condition is triggered.
-    var span_selector = new String();
-    var span_element = new Object();
-
-    span_selector = "#sctn_5-desc-6 > span > span > sup + span";
-  
-    span_element = $jQ(span_selector);
-    
-    $jQ(span_element).text(url_string.slice(rate_value_index_num, url_string.length));
-    // The value of the HTML element using the selector, 
-    // "#sctn_5-desc-6 > span > span > sup + span", is replaced with 
-    // the value of the variable, "rateValue".
-  } // END of "if" STATEMENT which is triggered if the value of "rateValue", 
-    // is 0.
-} /* **************** END OF FUNCTION "setRateValue" **************** */

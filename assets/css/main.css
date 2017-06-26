@@ -7,8 +7,8 @@
  * 
  *  + The responsive breaklines fall according to the following browser dimensions:
  *    - 1920x1020
+ *    - 1600x900
  *    - 1366x768
- *    - 1280x1024
  *    - 1280x800
  * ******************************************************************************************** */
 
@@ -140,13 +140,14 @@ body {
   text-decoration: none;
   text-align: center;
 }
-/* Formats the links which appear to the right of the logo within MAIN LANDING SECTION */
+/* Formats the links which appear as buttons. */
 
 #info > div > a:hover, 
 .sctn_4-article + a:hover, 
 .sctn_nav > div > a:hover {
   border: 2px solid #a0410d;
 }
+/* Adds :hover events to the links which appear as buttons. */
 
 #info > div > a:first-of-type, 
 .sctn_4-article + a {
@@ -162,11 +163,13 @@ body {
 #info > div > a {
   opacity: 0;
 }
+/* Formats the <a> elements which appear to the right of the logo on 'MAIN LANDING SECTION'. */
 
 #info > div > a:nth-child(2) {
   margin-right: 0;
 }
-/* Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
+/* 
+ * Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
  * within MAIN LANDING SECTION.
  */ 
 
@@ -174,29 +177,44 @@ body {
   position: relative;
   display: none;
 }
+/* Formats the <div> element which holds the email alert splash page. */
 
 #email-blok {
   float: left;
 }
+/* Formats the <div> element which holds HTML content and "Close" button. */
 
 #email-borders {
   height: 0.63em;
 }
+/* Formats the lines which appear at the bottom of the splash page cover image */
 
 #email-borders > div:nth-child(1) {
   height: 0.19em;
   background-color: #e6ad83;
 }
+/* 
+ * Formats the top line of the lines which appear at the bottom of the 
+ * splash page cover image.
+ */
 
 #email-borders > div:nth-child(2) {
   height: 0.25em;
   background-color: #964d48;
 }
+/* 
+ * Formats the middle line of the lines which appear at the bottom of the 
+ * splash page cover image.
+ */
 
 #email-borders > div:nth-child(3) {
   height: 0.19em;
   background-color: #451e20;
 }
+/* 
+ * Formats the bottom line of the lines which appear at the bottom of the 
+ * splash page cover image.
+ */
 
 #email-content {
   height: 7.19em;
@@ -204,50 +222,66 @@ body {
   background-color: #964d48;
   font-family: 'Istok Web', sans-serif;
 }
+/* 
+ * Formats the <div> element which holds the copy contained within the 
+ * splash page.
+ */
 
 #email-content > div:first-of-type, 
 #email-content > div:nth-child(2) {
   position: absolute;
 }
+/* 
+ * Formats <div> element which holds the description and the <div> element 
+ * which holds the question field.
+ */
 
 #email-content > div:first-of-type {
   padding: 1em;
 }
+/* Formats <div> element which holds the copy and question field content. */
 
 #email-content > div:nth-child(2) {
   padding: 2.25em 0 2em 16em;
   font-family: 'Istok Web', sans-serif;
 }
+/* Formats the <div> element which holds the question field. */
 
 #email-content > div > div > div:nth-child(1) {
   width: 33.25em;
   float: left;
 }
+/* Formats the <div> element which contains the description. */
 
 #email-content > div > div > div:nth-child(2) {
   margin-top: 0.25em;
   float: left;
 }
+/* Formats the <div> element which contains the question field. */
 
 #email-content > div > div > div > h4 {
   margin: 0;
   color: #e6ad83;
 }
+/* Formats the header for the description. */
 
 #email-content p {
   margin: 0.25em 0 0 0;
   color: #451e20;
 }
+/* Formats the <p> element which contains the description copy. */
 
 #email-content > div > div > div + div > h4 {
   margin: 0;
   color: #111;
 }
+/* Formats the header for the question field. */
 
 #email-content h1 {
   margin: 0;
   color: #e6ad83;
 }
+/* Formats the confirmation message. */
 
 #email a {
   width: 3.13em;
@@ -257,6 +291,7 @@ body {
   float: left;
   background-image: url('/lvusl/assets/img/splash/close.png');
 }
+/* Formats the gray 'X' that appears to the right of the splash page content. */
 
 #email-bkgrnd {
   position: absolute;
@@ -266,6 +301,7 @@ body {
   opacity: 0.7;
   z-index: -1;
 }
+/* Formats the dark gray background of the splash page. */
 
 /* ---- 'SECTION #1' ---- */
 
@@ -429,16 +465,19 @@ body {
   background-color: #d9af83;
   font-family: 'Istok Web', sans-serif;
 }
+/* Formats the <div> elements which hold news links. */
 
 .sctn_4-link > a {
   display: block;
   color: #51300e;
   padding-bottom: 0.75em;
 }
+/* Formats the news links. */
 
 .sctn_4-link > span {
   color: #6b4014;
 }
+/* Formats the dates within the <div> elements */
 
 .sctn_4-article {
   width: 50em;
@@ -448,32 +487,41 @@ body {
   background-color: #a2c1c9;
   font-family: 'Istok Web', sans-serif;
 }
+/* Formats the <div> "block" which holds the news copy. */
 
 .sctn_4-article > h3 {
   margin: 0;
   color: #fff;
   font-weight: 700;
 }
+/* Formats the title of the news article. */
 
 .sctn_4-article > span {
   margin-bottom: 0.5em;
   color: #fff;
 }
+/* Formats the date of the article. */
 
 .sctn_4-article > p:first-of-type {
   margin-top: 0.75em;
   padding-top: 1em;
   border-top: 2px solid #33606D;
 }
+/* Formats the first <p> element within a news article. */
 
 .sctn_4-article > p {
   color: #0E3743;
 }
+/* Formats the <p> elements within a news article. */
 
 .sctn_4-article + a {
   margin-left: 1.75em;
   float: left;
 }
+/* 
+ * Formats the link to return to the page of link which 
+ * appear to the right of the <div> element which holds the news article. 
+ */
 
 
 /* ---- 'SECTION #5' ---- */
@@ -500,6 +548,7 @@ body {
   width: 14em;
   background-color: #ffe0c1;
 }
+/* Formats the block which holds the job titles. */
 
 #sctn_5-catagories > span {
   margin-bottom: 0.75em;
@@ -508,15 +557,23 @@ body {
   font-size: 1em;
   font-weight: 700;
 }
+/* 
+ * Formats the <span> element which holds the header for the block containing 
+ * job titles. 
+ */
 
 #sctn_5-catagories > div {
   margin-top: 1em;
 }
+/* Formats the <div> elements which contain catagories of job titles. */
 
 #sctn_5-catagories > span, 
 #sctn_5-catagories > div > span {
   color: #ee9e4f;
 }
+/* 
+ * Formats the header for the block and also job catagory titles.
+ */
 
 #sctn_5-catagories > div > span + span {
   height: 1em;
@@ -526,6 +583,7 @@ body {
   color: #ffe0c1;
   text-align: center;
 }
+/* Formats the blocks which appear to the right of job catagory titles. */
 
 #sctn_5-catagories > div > span, 
 #sctn_5-catagories > div > span + span {
@@ -533,12 +591,14 @@ body {
   float: left;
   font-weight: 700;
 }
+/* Formats the header for the block and the title of individual job catagories. */
 
 #sctn_5-catagories > div > a {
   display: block;
   color: #75a6b2;
   clear: both;
 }
+/* Formats job titles within the block holding job catagories. */
 
 .sctn_5-listing {
   width: 50em;
@@ -547,33 +607,49 @@ body {
   background-color: #eef1fe;
   font-family: 'Istok Web', sans-serif;  
 }
+/* Formats the <div> element which holds job descriptions. */
 
 .sctn_5-summary > h4 {
   margin: 0;
   color: #75a6b2
 }
+/* Formats the job title within the <div> element which holds job descriptions. */
 
 .sctn_5-summary {
   border-bottom: 2px solid #ffbb77;
 }
+/* 
+ * Formats the summary which appears below the job title within the <div> 
+ * element which holds job descriptions. 
+ */
 
 .sctn_5-summary > ul {
   margin: 0.5em 0 0.6em 0;
 }
+/* 
+ * Formats the <ul> element which appears below the job title within the <div> 
+ * element which holds job descriptions. 
+ */
 
 .sctn_5-summary > ul > li {
   list-style: url('/lvusl/assets/img/misc/disc.png');
 }
+/* 
+ * Formats the individual list items which appear below the job title within 
+ * the <div> element which holds job descriptions.
+ */
 
 .sctn_5-summary > h4, 
 .sctn_5-summary > ul > li, 
 .sctn_5-job_desc > p {
   color: #7facbb;
 }
+/* Formats the job title, list itemts, and copy of the job desciptions. */
 
 .sctn_5-job_desc > p {
   padding-left: 2.5em;
 }
+/* Formats the <p> elements which appear as part of the job descriptions. */
 
 
 
@@ -588,6 +664,7 @@ body {
   width: 40.5em;
   padding: 0;
 }
+/* Formats a <div> element which hold social media images and links. */
 
 .sctn_6-social_media_link {
   width: 16em;
@@ -599,11 +676,13 @@ body {
   font-family: 'Istok Web', sans-serif;
   color: #f4c887;
 }
+/* Formats the individual blocks which hold social media content. */
 
 .sctn_6-social_media_link > a > img {
   margin: 0 auto 0.5em auto;
   display: block;
 }
+/* Formats the images which appear as part of individual blocks. */
 
 .sctn_6-social_media_link > a + a {
   width: 16em;
@@ -611,78 +690,24 @@ body {
   display: block;
   color: #3a5a98;
 }
+/* Formats the text links which appear as part of individual blocks. */
 
 #sctn_6-instagram > a + a {
   width: 16.25em;
 }
+/* Formats the text link for the block holding Instagram content. */
 
 #sctn_6-twitter > a + a {
   width: 14.75em;
 }
+/* Formats the text link for the block holding Twitter content. */
 
 #sctn_6-youtube > a + a {
   width: 15.5em;
 }
-
-@media screen and (width: 980px) {
-  /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
-  #info {
-    width: 61.25em;
-    height: 76em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-  }
-
-  #info > img {
-    width: 480px;
-    height: 455px;
-    position: absolute;
-    margin: 3em 14em;
-    display: block;
-    opacity: 1;
-  }
-
-  .copy {
-    width: 51em;
-    height: 100.7em;
-    margin-left: 10.25em;
-  }
-
-}
-
-@media screen and (width: 980px) and (max-height: 1310px) {
-  /* This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
-  * This breakpoint is optimized to fit the iPad. 
-  */
-
-  #info {
-    height: 72em;
-  }
-  
-  .copy {
-    width: 51em;
-    height: 73.7em;
-    margin-left: 10.25em;
-  }
-
-}
-
-@media screen and (width: 1024px) and (max-height: 1510px)  {
-  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
-  * This breakpoint is optimized to fit the iPad Pro. 
-  */
-
-  #info {
-    width: 45.6em;
-    height: 17em;
-    bottom: 17em;
-    left: 10.5em;
-  }
+/* Formats the text link for the block holding YouTube content. */
 
 
-}
 
 @media screen and (min-width: 1260px) and (max-width: 1320px) {
   /* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 

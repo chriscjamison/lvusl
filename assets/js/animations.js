@@ -1,6 +1,6 @@
 /* Filename: animations.js
  *  Contains all JavaScript functions and behavior that control the layout 
- *  and physical appearance of the webpage using the 'One Page' template.
+ *  and physical appearance of the webpage.
  * 
  *  --- NOTE! ---
  *  + JavaScript statements and functions which are triggered by interacting 
@@ -16,27 +16,19 @@
  *      within the webpage.
  *      
  *      Called by: 
- *        + cssAdjustment
  *        + setupPage
  *        + animateInfoElement
  *        + animatePageElements
  *        + animateSideNav
- *        + interSectionNav (nav.js)
  *    
- *    urlInfo
- *      Parses the URL for data which correlates with the Section being viewed and the content 
- *      visible within that given Section.
+ *    formatHeader
+ *      Formats the text contained with header of 'SECTION #1' if a visitor has submitted 
+ *      a request for a season ticket.
  *      
- *      Called by:
- *        +  animateFormPanes
- * 
- *    cssAdjustment
- *      Adjusts the CSS values of HTML elements based upon the width and height of the 
- *      browser window.
- * 
- *      Called by:
- *        + setupPage
- * 
+ *      Called by: 
+ *        + $jQ(window).on("load") (control_panel.js)
+ *        + $jQ(window).on("hashchange") (control_panel.js)
+ *      
  *    setupPage 
  *      Initializes the layout of various HTML elements once the page has loaded or resized.
  *      
@@ -60,6 +52,15 @@
  * 
  *      Called by:
  *        + fadeCopyElements
+ * 
+ *    animateEmailAlert
+ *      Displays and removes the splash page which appears when a visitor requests 
+ *      information about receiving email alerts.
+ * 
+ *      Called by: 
+ *        + $jQ("#email a").click() (control_panel.js)
+ *        + $jQ(window).on("hashchange") (control_panel.js)
+ *      
  *      
  *    animatePageElements
  *      Animates HTML elements of a given Section which has not been 
@@ -71,17 +72,6 @@
  *        + setupPage
  *        + $jQ(window).on("hashchange") (control_panel.js)
  * 
- *    displayVerticalNav
- *      Displays the inter-section which appears as two white arrows located 
- *      on the right hand side of the browser window, within a desktop browser 
- *      or along the top and bottom of the browser window within a mobile browser.
- *  
- *      Called by:
- *        + setupPage
- *        + setURL
- *        + interSectionNav (nav.js)
- *        + $jQ(window).on("hashchange") (control_panel.js) *        
- * 
  *    animateSctnNav
  *        Animates the click-states of the menu-icon for the intra-sectional navigation 
  *        which appears within, 'SECTION #3' and 'SECTION #4'.
@@ -91,15 +81,6 @@
  *          + $jQ(".sctn_nav > div > span").on("mouseout") (control_panel.js)
  *          + $jQ(".sctn_nav > div > span").on("click") (control_panel.js)
  *          + $jQ(".sctn_nav > div > div > a").on("click") (control_panel.js)
- * 
- * 
- *    animateSctnNavLinks
- *      Animates the click-states of the links contained within the intra-sectional navigation 
- *      which appears within, 'SECTION #3' and 'SECTION #4'.
- * 
- *      Called by:
- *        + $jQ(".sctn_nav > div > span").on("click") (control_panel.js)
- *        + $jQ(".sctn_nav > div > div > a").on("click") (control_panel.js)        
  * 
  *    animateSideNav
  *      Animates the movement of the main menu of the browser window.
@@ -232,255 +213,12 @@ function parseWindowDimensions() {
 
 } /* **************** END OF FUNCTION "parseWindowDimensions" **************** */
 
-function urlInfo() {
-  /* **************** **************** **************** **************** **************** 
-   *  urlInfo scans the hash, as referenced by, "window.location.hash",
-   *  for the values for Section Value and Position Value.
-   * 
-   *  The values for Section Value and Position Value are used 
-   *  by the functions, "setupPage" and "animatePageElements", to navigate 
-   *  to the location within the webpage and display the corresponding background image 
-   *  and content for the section of the page that the Section Value 
-   *  and Position value reference.
-   * **************** **************** **************** **************** **************** */
-  
-  var url_hash = new String();
-  
-  var section_string = new String();
-  // Holds the string, "sctn_", which is searched for within, "url_hash".
-  var position_string = new String();
-  // Holds the string, "pos=", which is searched for within, "url_hash".
-  
-  var section_index_num = new Number();
-  // Holds the value that the Method, "indexOf", returns 
-  // when the string, "sctn_" is searched for within, "url_hash". 
-  var position_index_num = new Number();
-  // Holds the value that the Method, "indexOf", returns 
-  // when the string, "pos=" is searched for within, "url_hash".
-  
-  var section_value = new String();
-  // Holds the character at the location within, "url_hash", that lies 
-  // at the value found by combining the value held by "section_index_num" and 
-  // the length of the string held by, "section_string".
-  // 
-  // The length of the string held by, "section_string", 
-  // is added to the value within, "section_index_num", to 
-  // capture the character stored at the end of the search string, "section_string". 
-  var position_value = new String();
-  // Holds the character at the location within, "url_hash", that lies 
-  // at the value found by combining the value held by "position_index_num" and 
-  // the length of the string held by, "position_string".
-  // 
-  // The length of the string held by, "section_string", 
-  // is added to the value within, "section_index_num", to 
-  // capture the character stored at the end of the search string, "section_string".
-  var url_info_Array = new Array();
-  
-  url_hash = window.location.hash; 
-  // The value of, "window.location.hash", is stored within, "url_hash".
-
-  section_string = "sctn_";
-  // The string, "sctn_", is stored within, "section_string". 
-  //
-  // NOTE: If the hash name is changed within the HTML of index.htm, 
-  // the value stored within, "section_string", must be changed.
-  position_string = "pos=";
-  // The string, "pos=", is stored within, "position_string". 
-  
-  section_index_num = url_hash.indexOf(section_string);
-  // The Method, "indexOf", searches, "url_hash", for the string held by, "section_string".
-  // 
-  // The value produced by, "indexOf", is stored within, "section_index_num".
-  position_index_num = url_hash.indexOf("pos=");
-  // The Method, "indexOf", searches, "url_hash", for the string held by, "position_string".
-  // 
-  // The value produced by, "indexOf", is stored within, "position_index_num".
-
-  section_value = url_hash.charAt(section_index_num + section_string.length);
-  // "section_value" collects the character stored within, "url_hash" that lies 
-  // at the end of the string stored within, "section_string".
-  //
-  // The value of "section_value" is also the Section Value contained within 
-  // the hash value contained in the URL.
-  
-  position_value = url_hash.charAt(position_index_num + position_string.length);
-  // "section_value" collects the character stored within, "url_hash" that lies 
-  // at the end of the string stored within, "section_string".
-  //
-  // The value of "section_value" is also the Section Value contained within 
-  // the hash value contained in the URL.
-
-  if (position_index_num === -1)  {
-  // If the search for, "pos_", equals 0, url_hash must either be blank 
-  // or contain, "#sctn_main". Either way it means that the viewable section 
-  // is the landing page, described by, "main".
-    url_info_Array[0] = "main";
-  } else  {
-  // The Section value is passed onto the first value within "url_info_Array", 
-  // and the Position value is passed onto the second value within the Array.
-    url_info_Array[0] = section_value;
-    url_info_Array[1] = position_value;
-  } // END OF if STATEMENT
-
-
-  return url_info_Array;
-  // "url_info_Array" is passed on to the point within the function, 
-  // either, "setupPage", or, "animatePageElements", that called "urlInfo".
-
-} /* **************** END OF FUNCTION "urlInfo" **************** */
-    
-function cssAdjustment()  {
-  /* **************** **************** **************** **************** **************** 
-   *  cssAdjustment adjusts the placement within the browser window of various 
-   *  HTML elements based upon the parameters of the browser a visitor is using.
-   * 
-   *  One set of values are used to modify HTML elements if the browser is a mobile one.
-   *  Another set of values are used to adjust other HTML elements depending 
-   *  on the width of a browser used by a visitor using a desktop or laptop.
-   * 
-   *  The HTML elements which "cssAdjustment" modifies are:
-   *    "#prev-sctn", "#next_sctn", "#prev-sctn > span", "#next-sctn > span", "#info", 
-   *    #info > img", and ".copy". 
-   * **************** **************** **************** **************** **************** */
-  
-  var page_dimensions_Array = new Array();
-  // Holds the width and height of the browser window.
-  // 
-  // The width and height values are calculated by "parseWindowDimensions" and passed on 
-  // to "page_dimensions_Array".
-
-  var window_width = new Number();
-  // Holds the numerical width of the browser which is passed on by the first index of 
-  // "page_dimensions_Array".
-  
-  page_dimensions_Array = parseWindowDimensions();
-  // The width and height of the browser window is passed to "page_dimensions_Array" by 
-  // the function, "parseWindowDimensions".
-
-  window_width = page_dimensions_Array[0];
-  // The width, held by, "page_dimensions_Array", is passed to "window_width".
-  
-  if ((window.navigator.userAgent.indexOf("Mobile") !== -1) && 
-      (window.navigator.userAgent.indexOf("Tablet") !== -1))  {
-  // The statement, "window.navigator.userAgent.indexOf("XXXX") returns a number greater 
-  // than 0 if the search string is found in "window.navigator.userAgent". 
-  // 
-  // If the statement returns, -1, then the search strings, "Mobile" and "Tablet" are not 
-  // listed in "window.navigator.userAgent" and the browser is a mobile browser.
-
-    var prev_sctn_selector = new String();
-    var next_sctn_selector = new String();
-    var prev_sctn_element = new Object();
-    var next_sctn_element = new Object();
-    
-    prev_sctn_selector = "#prev-sctn";
-    next_sctn_selector = "#next-sctn";
-   
-    prev_sctn_element = $jQ(prev_sctn_selector);
-    next_sctn_element = $jQ(next_sctn_selector);
-    
-    if (window_width >= 1260 && 
-        window_width < 1920)  {
-    // If the width of the browser is greater than 1260 yet less than 1920, 
-    // this condition is triggered.
-
-      var inter_nav_css = new Object();
-      
-      inter_nav_css = {
-        right: "33.6em"
-      };
-      
-      $jQ(next_sctn_element).css(inter_nav_css);
-      // The HTML element identified by the selector, "#next-sctn", is formatted by 
-      // using the value held by the Object, "inter_nav_css".
-      $jQ(prev_sctn_element).css(inter_nav_css);
-      // The HTML element identified by the selector, "#prev-sctn", is formatted by 
-      // using the value held by the Object, "inter_nav_css".
-    } // END OF if STATEMENT
-  
-    if (window_width === 1920)  {  
-      var info_selector = new String();
-      
-      var info_element = new Object();
-      
-      var info_css = new Object();
-      var inter_nav_2_css = new Object();
-     
-      info_selector = "#info";
-      
-      info_element = $jQ(info_selector);
-      
-      info_css = {
-        bottom: "8.25em",
-        right: "9em"
-      }
-
-      inter_nav_2_css = {
-        right: "54em", 
-        bottom: "6em"
-      };
-
-      $jQ(info_element).css(info_css);
-      // The HTML element using the selector, "#info", is placed in a position 
-      // within the browser window to make it more clearly visible.
-
-      $jQ(next_sctn_element).css(inter_nav_2_css);
-      $jQ(prev_sctn_element).css(inter_nav_2_css);
-      // The inter-section which consists of white arrows 
-      // appears in the middle top and middle bottom of the browser window.
-
-    } // END OF if STATEMENT which is triggered if the window_width is 1920.
-  } // END of if STATEMENT which is triggered if the browser is for a mobile device.
-
-  if (window_width === 980)  {
-    var info_img_selector = new String();
-    var prev_sctn_span_selector = new String();
-    var next_sctn_span_selector = new String();
-   
-    var info_img_element = new Object();
-    var prev_sctn_span_element = new Object();
-    var next_sctn_span_element = new Object();
-    
-    var info_img_css = new Object();
-    
-    info_img_selector = "#info > img";
-    prev_sctn_span_selector = "#prev-sctn > span";
-    next_sctn_span_selector = "#next-sctn > span";
-    
-    info_img_element = $jQ(info_img_selector);
-    next_sctn_span_element = $jQ(next_sctn_span_selector);
-    prev_sctn_span_element = $jQ(prev_sctn_span_selector);
-    
-    info_img_css = {
-      "src": "/amelia/assets/img/logo/logo_phone.png", 
-      width: "480", 
-      height: "455"
-    };
-
-    $jQ(info_img_element).attr(info_img_css);
-    // Sets the HTML attributes, "src", "width", and "height", of the HTML element 
-    // using the selector, "#info > img", using the values held by, "info_img_css".
-    // 
-    // The HTML element, "#info > img", is passed these attributes to display a smaller 
-    // image to fit a mobile browser.
-
-    $jQ(prev_sctn_span_element).html("");
-    // Removes the HTML from the HTML element using the selector, "#prev-sctn > span".
-    //
-    // The above HTML element has text to describe the navigation function of this element.
-    // The Method, ".html", strips that HTML.
-    $jQ(next_sctn_span_element).html("Press to view the next section");
-    // Sets the HTML from the HTML element using the selector, "#next-sctn > span"
-    // to "Press to view the next section".
-    //
-    // The above HTML element lacks text to describe the navigation function of this element.
-    // The Method, ".html", adds the descriptive text, "Press to view the next section", 
-    // to the HTML element. 
-  } // END OF if STATEMENT which is triggered if the browser width is 980px.
-
-} /* **************** END OF FUNCTION "cssAdjustment" **************** */
-
 function formatHeader(url_hash) {
+  /* **************** **************** **************** **************** **************** 
+   *  Formats the text contained with header of 'SECTION #1' if a visitor has submitted 
+   *  a request for a season ticket.
+   * **************** **************** **************** **************** **************** */
+
   var header_value_selector = new String();
   var header_value_element = new Object();
   var header_string_val = new String();
@@ -492,6 +230,9 @@ function formatHeader(url_hash) {
   header_value_element = $jQ(header_value_selector);
 
   if (url_hash === "#sctn_1?pos=1") {
+  // If the visitor has submitted a request for a season ticket, 
+  // this condition is triggered.
+
     header_string_val = "Thank You for Your Interest";
 
     headr_css = {
@@ -500,6 +241,10 @@ function formatHeader(url_hash) {
     };
     
   } else if (url_hash === "#sctn_1?pos=0")  {
+  // If the visitor has submitted a request for a season ticket, but 
+  // used the main menu to navigate to 'SECTION #1', this condition 
+  // is triggered.
+
     header_string_val = "Reserve Season Tickets";
 
     headr_css = {
@@ -594,10 +339,6 @@ function setupPage(time_value)  {
   var bkgrnd_img_value = new String();
   var bkgrnd_width = new String();
   var bkgrnd_height = new String();
-  
-  cssAdjustment();
-  // "cssAdjusment" is called to render various HTML elements of the webpage 
-  // within the browser window.
 
   page_dimensions_Array = parseWindowDimensions();
   // The calculated values for the "width" and "height" of various 
@@ -695,8 +436,9 @@ function setupPage(time_value)  {
   $jQ(bkgrnd_div_sub_elements).each(
     function () {
       if (inc_bkgrnd > 0) {
-      // If the individual <div> element, which is a part of the set of <div> elements that this 
-      // loop cycles through is not the first <div> element, then this condition is triggered.
+      // If the background being processed is not for 'MAIN LANDING SECTION', this condition
+      // is triggered.
+  
         wndow_sctn_selector = "#wndow-sctn_" + inc_bkgrnd;
         // "wndow_sctn_selector" now holds a selector which identifies the HTML element 
         // which the loop is processing.
@@ -711,12 +453,19 @@ function setupPage(time_value)  {
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
         
         if (inc_bkgrnd === 1) {
+        // If the background image under processing is the background for 'SECTION #1", this 
+        // condition is triggered.
+
           bkgrnd_width = wndow_width * 2;
+          // Since the confirmation message for a request for season tickets appears over 
+          // a different background image than that of the form, the value of, "bkgrnd_width", 
+          // changes.
         } else {
+        // Otherwise, for all other Sections, this condition is triggered.
+
           bkgrnd_width = wndow_width;
         }
 
-        // bkgrnd_width =  (wndow_width * num_of_wndow_elements).toString();
         bkgrnd_height = (wndow_height).toString();
         // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
         // multiplies it by the number of HTML elements using the selector, ".wndow" and making a string 
@@ -738,6 +487,9 @@ function setupPage(time_value)  {
         // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } else  {
+      // Otherwise, if the background image under processing is for 'MAIN LANDING SECTION',
+      // this condition is triggered.
+
         bkgrnd_width = wndow_width.toString();
         bkgrnd_height = wndow_height.toString();
         // "bkgrnd_width" holds a String which is made by converting the value of "wndow_width" 
@@ -760,11 +512,7 @@ function setupPage(time_value)  {
       // "inc_bkgrnd", or the number representing the <div> element that this Loop is processed 
       // is incremented.
     } 
-  ); // END OF .each METHOD
-
-  // setPageInitialLocation(url_hash);
-  // "setPageInitialLocation" is called to pass on the Section and Position values of the webpage 
-  // which is viewable to the URL.
+  );
   
   animatePageElements();
   // "animatePageElements" is called to animate the blocks that are contained within an individual 
@@ -783,165 +531,81 @@ function animateInfoElement(time_value) {
    * contents run within a desktop or laptop browser, or with a larger browser width.
    * **************** *************** **************** **************** **************** */
 
-  var page_dimensions_Array = new Array();
-  // The calculated values for the "width" and "height" of various HTML elements 
-  // of the webpage within the browser window are passed on to "page_dimensions_Array".
+  var wndow_selector = new String();
+  var info_selector = new String();
+  var info_img_selector = new String();
+  var info_a_selector = new String();
+
+  var wndow_element = new Object();
+  var info_element = new Object();
+  var info_img_element = new Object();
+  var info_a_element = new Object();
+
+  var display_block_css = new Object();
+  var opacity_css = new Object();
+  var display_inherit_css = new Object();
   
-  page_dimensions_Array = parseWindowDimensions();
-  // The calculated values for the "width" and "height" of various HTML elements 
-  // of the webpage within the browser window are passed on to "page_dimensions_Array".
+  wndow_selector = "#wndow-sctn_main";
+  info_selector = "#info";
+  info_img_selector = "#info > img";
+  info_a_selector = "#info > div > a";
+
+  wndow_element = $jQ(wndow_selector);
+  info_element = $jQ(info_selector);
+  info_img_element = $jQ(info_img_selector);
+  info_a_element = $jQ(info_a_selector);
+
+  display_block_css = {
+    display: "block"
+  };
   
-  if (page_dimensions_Array[0] === 980) {
-  // If the width of the browser is equal to "980px", animate the HTML elements 
-  // contained by, "#info", to conform to a mobile browser. 
-    var info_selector = new String();
-    var next_sctn_selector = new String();
-    var prev_sctn_selector = new String();
-    var nav_selector = new String();
-    var next_sctn_span_selector = new String();
-    var nav_link_selector = new String();
+  opacity_css = {
+    opacity: "1"
+  };
+  
+  display_inherit_css = {
+    display: "inherit"
+  };
+      
+  time_value_longer = time_value * 2;
+  time_value_long = time_value * 1.5;
 
-    var info_element = new Object();
-    var next_sctn_element = new Object();
-    var prev_sctn_element = new Object();
-    var nav_element = new Object();
-    var next_sctn_span_element = new Object();
-    var nav_link_element = new Object();
+  $jQ(wndow_element).show("drop", time_value_longer);
+  // This jQuery Method, "show", "drops" or animates the panel which serves 
+  // as the background of the logo and other items on the landing page 
+  // down from the top of the browser window.
+  // 
+  // This animation occurs over an interval which is twice the time of 
+  // a "menu" HTML element to animate.
+  $jQ(info_element).css(display_block_css).css(opacity_css);
+  // Allow the HTML element, which uses the selctor, "#info", to be visible 
+  // within a browser window. The "display" CSS property is set to "display" 
+  // and the "opacity" of "#info" is set to "1".
+  //
+  // The CSS values are applied using the jQuery Method, ".css".
+  //
+  // The jQuery Method, ".css", is used twice because using both variables 
+  // within one ".css" call would make the HTML element, "#info" visibly flash. 
+  $jQ(info_img_element).css(display_block_css);
+  // The HTML element using the selctor, "#info > img" is made visible by 
+  // setting the "display" CSS property to "block".
+  //
+  // The CSS values are applied using the jQuery Method, ".css".
 
-    var info_css = new Object();
-    var next_sctn_css = new Object();
-    var prev_sctn_css = new Object();
-    var nav_sctn_css = new Object();
-    var nav_css = new Object();
-    var nav_link_css = new Object();
-        
-    info_selector = "#info";
-    next_sctn_selector = "#next-sctn";
-    prev_sctn_selector = "#prev-sctn";
-    nav_selector = "nav";
-    next_sctn_span_selector = "#next-sctn > span";
-    nav_link_selector = "#nav-link";
-
-    info_element = $jQ(info_selector);
-    next_sctn_element = $jQ(next_sctn_selector);
-    prev_sctn_element = $jQ(prev_sctn_selector);
-    nav_element = $jQ(nav_selector);
-    next_sctn_span_element = $jQ(next_sctn_span_selector);
-    nav_link_element = $jQ(nav_link_selector);
-    
-    info_css = {
-      "top": -($jQ("#info").height())
-    };
-    
-    next_sctn_css = {
-      height: "3em", 
-      bottom: "3.56em", 
-      backgroundPosition: "0px -418px"
-    };
-    
-    prev_sctn_css = {
-      height: "1.56em"
-    };
-    
-    nav_sctn_css = {
-      display: "block"
-    };
-    
-    nav_css = {
-      display: "block"
-    };
-
-    $jQ(info_element).animate(info_css, time_value, 
-      function () {
-        $jQ(next_sctn_element).css(next_sctn_css);
-        $jQ(prev_sctn_element).css(prev_sctn_css);
-        $jQ(nav_element).css(nav_css);
-        $jQ(next_sctn_span_element).detach();
-        $jQ(nav_link_element).fadeTo(time_value, 1);
-      });
-    
-  } else {
-  // Otherwise, animate the HTML elements contained by, "#info", 
-  // to conform to a desktop or laptop browser.
-
-    var wndow_selector = new String();
-    var info_selector = new String();
-    var info_img_selector = new String();
-    var info_a_selector = new String();
-
-    var wndow_element = new Object();
-    var info_element = new Object();
-    var info_img_element = new Object();
-    var info_a_element = new Object();
-
-    var display_block_css = new Object();
-    var opacity_css = new Object();
-    var display_inherit_css = new Object();
-    var display_opacity_css = new Object();
-    
-    wndow_selector = "#wndow-sctn_main";
-    info_selector = "#info";
-    info_img_selector = "#info > img";
-    info_a_selector = "#info > div > a";
-
-    wndow_element = $jQ(wndow_selector);
-    info_element = $jQ(info_selector);
-    info_img_element = $jQ(info_img_selector);
-    info_a_element = $jQ(info_a_selector);
-
-    display_block_css = {
-			display: "block"
-		};
-		
-    opacity_css = {
-      opacity: "1"
-    };
-    
-		display_inherit_css = {
-			display: "inherit"
-		};
-		    
-    time_value_longer = time_value * 2;
-    time_value_long = time_value * 1.5;
-
-    $jQ(wndow_element).show("drop", time_value_longer);
-    // This jQuery Method, "show", "drops" or animates the panel which serves 
-    // as the background of the logo and other items on the landing page 
-    // down from the top of the browser window.
-    // 
-    // This animation occurs over an interval which is twice the time of 
-    // a "menu" HTML element to animate.
-		$jQ(info_element).css(display_block_css).css(opacity_css);
-    // Allow the HTML element, which uses the selctor, "#info", to be visible 
-    // within a browser window. The "display" CSS property is set to "display" 
-    // and the "opacity" of "#info" is set to "1".
-    //
-    // The CSS values are applied using the jQuery Method, ".css".
-    //
-    // The jQuery Method, ".css", is used twice because using both variables 
-    // within one ".css" call would make the HTML element, "#info" visibly flash. 
-    $jQ(info_img_element).css(display_block_css);
-    // The HTML element using the selctor, "#info > img" is made visible by 
-    // setting the "display" CSS property to "block".
-    //
-    // The CSS values are applied using the jQuery Method, ".css".
-
-    $jQ(info_img_element).delay(time_value).fadeTo(time_value_long, 1, 
-    // Fade the HTML element, using the selector, "#info > img" 
-    // from an opacity of "0" to "1".
-      function () {
-        $jQ(info_a_element).fadeTo(time_value, 1);
-        // Make the HTML elements using the selector, "#info > img + div > a" visible.
-			}
-		); // END OF METHOD .fadeTo
-  } // END OF if STATEMENT
-
+  $jQ(info_img_element).delay(time_value).fadeTo(time_value_long, 1, 
+  // Fade the HTML element, using the selector, "#info > img" 
+  // from an opacity of "0" to "1".
+    function () {
+      $jQ(info_a_element).fadeTo(time_value, 1);
+      // Make the HTML elements using the selector, "#info > img + div > a" visible.
+    }
+  );
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
 function animateForm(time_value) {
   /* **************** **************** **************** **************** **************** 
-   * animateFormPanes animates the content of the HTML elements which make up 
-   * the Screening, Rate, and Contact forms.
+   *  Animates the content of the 'pages' of form questions for the 
+   *  form which a visitor can request season tickets.
    * **************** *************** **************** **************** **************** */
 
   var page_1_selector = new String();
@@ -1040,6 +704,11 @@ function animateForm(time_value) {
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animateEmailAlert(url_hash, time_value)  {
+  /* **************** **************** **************** **************** **************** 
+   *  Displays and removes the splash page which appears when a visitor requests 
+   *  information about receiving email alerts.
+   * **************** *************** **************** **************** **************** */
+
   var email_selector = new String();
   var info_selector = new String();
 
@@ -1064,6 +733,8 @@ function animateEmailAlert(url_hash, time_value)  {
   email_display_value = $jQ(email_element).css("display");
 
   if (email_display_value === "none") {
+  // If the splash page is not visible, this condition is triggered.
+
     var email_section_search_string = new String();
     // Holds the String, "pos=email", which is searched for in, 
     // "url_hash".
@@ -1081,10 +752,15 @@ function animateEmailAlert(url_hash, time_value)  {
     $jQ(email_element).css(opacity_zero_css);
     $jQ(email_element).css(email_visibility_css);
 
-
     $jQ(info_element).fadeTo(time_value, 0, 
+    // The logo and <a> elements within 'MAIN LANDING SECTION' 
+    // are faded out.
+
       function () {
         if (email_section_index_num !== -1) {
+        // If the URL hash reflects the event of a visitor 
+        // submitting their email address, this condition is triggered.
+
           var div_1_selector = new String();
           var div_2_selector = new String();
 
@@ -1103,11 +779,13 @@ function animateEmailAlert(url_hash, time_value)  {
           $jQ(div_2_element).removeClass();
           $jQ(div_2_element).addClass("visible");
         }
-        
+
         $jQ(email_element).fadeTo(time_value, 1);        
       }
     );
   } else {
+  // Otherwise, if the splash page is visible, this condition is triggered.
+
     var time_value_short = new Number();
 
      email_visibility_css = {
@@ -1117,18 +795,19 @@ function animateEmailAlert(url_hash, time_value)  {
     time_value_short = Math.round(time_value / 2);
 
     $jQ(email_element).fadeTo(time_value, 0, 
+    // The splash page is faded out.
+
       function () {
         $jQ(info_element).fadeTo(time_value_short, 1);
         $jQ(email_element).css(email_visibility_css);
       })
   }
-
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */
 
 
 function animatePageElements(time_value)  {
   /* **************** **************** **************** **************** **************** 
-   * "animatePageElements" triggers a sequence of modifications of CSS values and 
+   * Triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
    * activates a menu option, intra-section, or intrasection option.
    *  
@@ -1282,11 +961,16 @@ function animatePageElements(time_value)  {
     // The width, held by, "page_dimensions_Array", is passed to "window_width".
 
     if (section_value === 1)  {
+    // If the Section which is under processing is 'SECTION #1', this condition is 
+    // triggered.
+
       bkgrnd_element_width_val = window_width * position_value;
       // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
       // It is also the horizontal position within a background for a Section that matches 
       // up with the viewable "window pane".
     } else {
+    // Otherwise, for any other Section, this condition is triggered.
+
       bkgrnd_element_width_val = 0;
     }
     
@@ -1296,33 +980,29 @@ function animatePageElements(time_value)  {
 
     $jQ(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
     // The background of the current Section that this function is processing 
-    //  is made to now match the viewable window pane.
+    // is made to now match the viewable window pane.
 
     $jQ(all_copy_element).css(element_off_css);
-    // In order to isolate the content of the viewable window pane, all webpage content
-    // is made invisible.
     $jQ(single_copy_element).css(element_on_css);
-    // Now, the content of the Section that this function is processing is made visible.
-
+    
     if ($jQ(sub_nav_element) !== undefined) {
     // If the Section this function is processing contains intra-sectional navigation 
     // this condition is triggered.
+      
       $jQ(sub_nav_element).css(element_on_css);
-      // The <div> HTML element which contains the intra-sectional navigation is now 
-      // made visible.
-    } // END OF if STATEMENT triggered if this Section contains intra-sectional navigation.
+    }
     
     $jQ(headr_element).fadeTo(time_value, 1, 
     // The contents of the window pane of the Section this function is processing are faded 
     // into view, starting with the HTML element serving as the header.  
+
       function () {
         fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
         // "fadeCopyElements" is triggered to fade in the various content of the Section this
         // function is processing.
       }
     );
-  } // END OF if STATEMENT that is trigged if the intersectional navigation on the left is not visible, 
-    // the URL does not contain a hash and Section value.
+  }
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function animateSideNav(time_value) {
@@ -1422,9 +1102,10 @@ function animateSideNav(time_value) {
     // of the webpage within the browser window are passed on to "page_dimensions_Array".
   wndow_width = page_dimensions_Array[0];
 
-if ($jQ(nav_element).css("left") !== "0px")  {
-// If the intersection navigation that appears on the left side of the webpage 
-// is visible, this condition is triggered.
+  if ($jQ(nav_element).css("left") !== "0px")  {
+  // If the intersection navigation that appears on the left side of the webpage 
+  // is visible, this condition is triggered.
+    
     element_width = window_width - nav_width;
     // The difference of the width of the browser window and the value held ]
     // by "nav_width" is passed onto the variable "element_width".
@@ -1585,14 +1266,9 @@ if ($jQ(nav_element).css("left") !== "0px")  {
             // and other content is made visible.
           }
         );
-        // The background and other forms of content is made visible.
       }
-    );
-    // Scrolling the individual menu options to the left, out of view, triggers 
-    // a set of animations and visibility changes that returns the webpage content 
-    // back into view.
-  } // END OF if STATEMENT that is triggered if the intersection navigation that appears 
-    // on the left side of the webpage is visible.
+    );    
+  }
 } /* **************** END OF FUNCTION "animateSideNav" **************** */
 
 function determineCurrentSection(current_position)  {
@@ -1726,9 +1402,8 @@ function setURL(current_position, url_hash)  {
       // this condition is triggered.
         
         position_value = "0";
-      } // END OF if STATEMENT that is triggered if the current location of the browser window 
-        // lies below the 'MAIN LANDING SECTION'.
-      
+      }
+
       if (position_value === "-1")  {
       // If the value passed to, "position_value", is an unknown value, '-1', this 
       // condition is triggered.
@@ -1737,7 +1412,7 @@ function setURL(current_position, url_hash)  {
         // If an unknown value, "-1", is passed on to, "position_value", the "first" 
         // window pane ought to be shown. The Position value for the "first" 
         // window pane is "0".
-      } // END OF if STATEMENT that is triggered if the Position value is invalid.
+      }
 
       url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
 
@@ -1747,18 +1422,15 @@ function setURL(current_position, url_hash)  {
 
         url_hash = "#sctn_main";
         // The value of, "url_hash", is now made to set the hash as, "#sctn_main".
-      } // END OF if STATEMENT which is triggered if there is an error with the 
-        // Section value.
-    } // END OF if STATEMENT which is triggered if the Section value is valid.
-  } // END OF if STATEMENT which is triggered if the current location of the 
-    // browser window lies within 'MAIN LANDING SECTION', the opacity of 
-    // the HTML content within 'MAIN LANDING SECTION' is "0", and the hash 
-    // of the URL is not, "#sctn_main".
+      }
+    }
+  }
 
   if (url_hash !== window.location.hash)  {
   // If the current hash of the URL has changed, this condition is triggered.
+
     window.location.hash = url_hash;
-  } // END OF if STATEMENT which is triggered if the URL has been changed.
+  } 
 }  /* **************** END OF FUNCTION "setURL" **************** */
 
 function animateMenuOptions(option_element) {
@@ -1789,15 +1461,16 @@ function animateMenuOptions(option_element) {
   if ($jQ(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
   // If the click state of the menu option is in its "base" state, 
   // this condition is triggered.
+
     $jQ(option_element).animate(hover_css, time_value_long);
     // The click state of the menu option is changed to its "hover" state.
   } else {
+    
   // Otherwise if the click state of the menu option is in its "hover" state 
   // this condition is triggered.
     $jQ(option_element).animate(base_css, time_value_short);
     // The click state of the menu option is changed to its "base" state.
-  } // END OF if STATEMENT which is triggered if the menu option is in 
-    // its "base" click state.
+  }
 } /* **************** END OF FUNCTION "animateMenuOptions" **************** */
 
 function setPageInitialLocation(url_hash)  {
@@ -1862,8 +1535,7 @@ function setPageInitialLocation(url_hash)  {
   // Otherwise, if the current visible Section is 'MAIN LANDING SECTION', 
   // this condition is triggered.
     $jQ(window).scrollTop(0);
-  } // END OF if STATMENT which is triggered if the visible Section is not 
-    // 'MAIN LANDING SECTION'.
+  }
 } /* **************** END OF FUNCTION "setInitialLocation" **************** */
 
 function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {
@@ -1887,8 +1559,7 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
         job_catagories_element = $jQ(job_catagories_selector);
 
         $jQ(job_catagories_element).fadeTo(time_value, 1);
-      } // END OF if STATEMENT which is triggered if the current Section 
-        // contains intrasection navigation.
-    } // END of FUNCTION which fades in the HTML content of a visible Section.
+      }
+    }
   );
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */
