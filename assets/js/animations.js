@@ -1039,7 +1039,11 @@ function animateForm(time_value) {
   
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
+<<<<<<< HEAD
 function animateEmailAlert(url_hash, time_value)  {
+=======
+function animateEmailAlert(url_hash)  {
+>>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
   var email_selector = new String();
   var info_selector = new String();
 
@@ -1048,12 +1052,15 @@ function animateEmailAlert(url_hash, time_value)  {
 
   var email_display_value = new String();
 
+<<<<<<< HEAD
   var opacity_zero_css = new Object();
   var email_display_css = new Object();
   
   var time_value_short = new Number();
   // Holds a shorter time interval for an animation to take place.
   
+=======
+>>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
   email_selector = "#email";
   info_selector = "#info";
 
@@ -1062,6 +1069,7 @@ function animateEmailAlert(url_hash, time_value)  {
 
   email_display_value = $jQ(email_element).css("display");
 
+<<<<<<< HEAD
   opacity_zero_css = {
     opacity: "0"
   };
@@ -1119,6 +1127,24 @@ function animateEmailAlert(url_hash, time_value)  {
   if (email_display_value === "block")  {
     
   }
+=======
+  if (email_display_value === "none") {
+    var email_visible_css = new Object();
+    var info_zindex_css = new Object();
+
+    email_visible_css = {
+      display: "block"
+    };
+
+    info_zindex_css = {
+      zIndex: "-1"
+    };
+
+    $jQ(email_element).css(email_visible_css);
+    $jQ(info_element).css(info_zindex_css);
+  }
+
+>>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */
 
 
