@@ -164,9 +164,44 @@ $jQ(document).ready(
       }
     );
 
+    $jQ("#info > div > a:nth-child(2)").click(
+      function () {
+        var wndow_height = new Number();
+
+        var page_dimensions_Array = new Array;
+
+        page_dimensions_Array = parseWindowDimensions();
+
+        wndow_height = page_dimensions_Array[1];
+        
+        $jQ(window).scrollTop(wndow_height);
+      }
+    );
+
     $jQ("#email a").click(
       function () {
-        animateEmailAlert(url_hash);
+        animateEmailAlert(url_hash, time_value);
+      }
+    );
+
+    $jQ("#input-email").mouseenter(
+    // Activates when the visitor interacts with the question field that 
+    // a visitor enters their email address.
+      function () {
+        validateQuestionField("start", "email");
+        // The data of the form question is in the process of validation.
+      }
+    ).mouseleave(
+      function () {
+        validateQuestionField("reset", "email");
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "email");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "email");
       }
     );
 
@@ -406,19 +441,12 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#info a:first-of-type").click(
-    // Displays content which allows the visitor to sign up for 
-    // an email alert.
-
-      function () {
-        animateEmailAlert(url_hash);
-      }
-    );
-
-    $jQ("#sctn_1-request_tickets").submit(
+    $jQ("#sctn_main-email, #sctn_1-request_tickets").submit(
     // Validates the data contained with either 'FORM TYPE #1', 
     // 'FORM TYPE #2', or 'FORM TYPE #3'.
       function (event) {
+        var form_element = new Object();
+
         var form_complete_flag = new Boolean;
         // A Boolean which is set to true if the all of the data 
         // of a form is proper.
@@ -426,7 +454,9 @@ $jQ(document).ready(
         var wndow_selector = new String();
         var wndow_element = new Object();
 
-        form_complete_flag = validateForm();
+        form_element = this;
+
+        form_complete_flag = validateForm(form_element);
         // If the data of the form is proper, the value 
         // of "form_complete_flag" will be "true". 
         // 
@@ -443,8 +473,14 @@ $jQ(document).ready(
           // within the browser window to inform the visitor that 
           // input withing the form needs to change.
 
+          var form_element_id = new String();
+
+          var email_search_string = new String();
+          var email_search_string_index_num = new Number();
+
           var alrt_selector = new String();
           var alrt_element = new Object();
+
 
           alert_div_element = 
             "<div id=\"alrt\">" + 
@@ -463,14 +499,27 @@ $jQ(document).ready(
             "    </div>" + 
             "  </div>" + 
             "</div>";
+          
+          form_element_id = $jQ(form_element).attr("id");
 
-          wndow_selector = "#wndow-sctn_1";
+          email_search_string = "email";
+          email_search_string_index_num = form_element_id.indexOf(email_search_string);
+
+          if (email_search_string === -1) {
+            wndow_selector = "#wndow-sctn_1";
+          } else {
+            wndow_selector = "#wndow-sctn_main";
+          }
+
           wndow_element = $jQ(wndow_selector);
 
           $jQ(wndow_element).prepend(alert_div_element);
           // The HTML of "alert_div_element" is inserted into the HTML of the webpage.
 
-          $jQ("#alrt").click(
+          alrt_selector = "#alrt";
+          alrt_element = $jQ(alrt_selector);
+
+          $jQ(alrt_element).click(
           // Activates when the visitor clicks on the alert message.
             function () {
               $jQ(this).fadeTo(time_value, 0, 
@@ -499,7 +548,8 @@ $jQ(document).ready(
         var window_width = new Number();
         // Holds the numerical value of the width of the browser window.
 
-        var sctn_main_string = new String();
+        var sctn_main_search_string = new String();
+        var sctn_main_index_num = new Number();
 
         var section_value = new String();
 
@@ -508,27 +558,50 @@ $jQ(document).ready(
         page_dimensions_Array = parseWindowDimensions();
         window_width = page_dimensions_Array[0];
         
-        sctn_main_string = "#sctn_main";
+        sctn_main_search_string = "sctn_main";
+        sctn_main_index_num = url_hash.indexOf(sctn_main_search_string);
 
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 
 
         if (url_hash === "" || 
-            url_hash === sctn_main_string)  {
+            sctn_main_index_num !== -1)  {
         // If the URL hash is blank or is "#sctn_main", this condition 
         // is triggered.
+
           if (window_width > 980) {
           // If the width of the browser window is greater than 980px, 
           // this condition is triggered.
+            
             animateInfoElement(time_value);
             // The HTML content contained within 'MAIN LANDING SECTION' is 
             // faded into view.
           } 
         } 
 
+        if (sctn_main_index_num !== -1) {
+        // If the viewable Section is 'MAIN LANDING SECTION', then this 
+        // condition is triggered.
+
+          var email_section_search_string = new String();
+          var email_section_search_index_num = new Number();
+
+          email_section_search_string = "email";
+          email_section_search_index_num = url_hash.indexOf(email_section_search_string);
+
+          if (email_section_search_index_num !== -1)  {
+          // If the visitor has submitted their email for an email alert, 
+          // then this condition is triggered.
+
+            animateEmailAlert(url_hash, time_value);
+          }
+        }
+
         section_value = url_hash.charAt(6);
 
         if (section_value === "1") {
+        // If the viewable Section is 'SECTION #1', the this condition is 
+        // triggered.
           
           formatHeader(url_hash);
           // "formatHeader" formats the text of the header for the Section 
@@ -571,10 +644,6 @@ $jQ(document).ready(
         // "setURL" matches the URL hash with the current viewable Section.
 
         // setPageInitialLocation(url_hash);
-
-        if (current_position === 1) {
-          animateEmailAlert(url_hash);
-        }
         
         if (current_position < 144) {
         // If the current location of the browser window is above the location of 

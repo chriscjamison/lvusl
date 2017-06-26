@@ -205,8 +205,18 @@ body {
   font-family: 'Istok Web', sans-serif;
 }
 
+#email-content > div:first-of-type, 
+#email-content > div:nth-child(2) {
+  position: absolute;
+}
+
 #email-content > div:first-of-type {
   padding: 1em;
+}
+
+#email-content > div:nth-child(2) {
+  padding: 2.25em 0 2em 16em;
+  font-family: 'Istok Web', sans-serif;
 }
 
 #email-content > div > div > div:nth-child(1) {
@@ -232,6 +242,11 @@ body {
 #email-content > div > div > div + div > h4 {
   margin: 0;
   color: #111;
+}
+
+#email-content h1 {
+  margin: 0;
+  color: #e6ad83;
 }
 
 #email a {

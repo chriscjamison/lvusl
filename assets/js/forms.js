@@ -685,30 +685,25 @@ function validateQuestionField(validation_type, question_value)  {
           }
 
           $jQ(field_element).val(card_number_data);
-        } else if (question_value === "email")  {
-console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".com"));
-console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".net"));
-console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".org"));
-console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".edu"));
-console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".mil"));
-          if (field_val_length < error_length ||  
-              field_val.indexOf(".") === -1 ||  
-              field_val.indexOf("@") === -1 || 
-              (field_val.indexOf(".com") === -1 && 
-               field_val.indexOf(".net") === -1 && 
-               field_val.indexOf(".org") === -1 && 
-               field_val.indexOf(".edu") === -1 && 
-               field_val.indexOf(".mil") === -1))  {
-            
-            $jQ(field_element).css(error_border_css);
-            // The border surrounding the question is made to appear red.
-            $jQ(field_element).css(error_text_css);
-            // The color of the text is made to appear red.
-            $jQ(field_element).val(error_message);
-            // The error message is passed on to the field.
-          }
+        } 
+      } else if (question_value === "email")  {
+        if (field_val_length < error_length ||  
+            field_val.indexOf(".") === -1 ||  
+            field_val.indexOf("@") === -1 || 
+            (field_val.indexOf(".com") === -1 && 
+              field_val.indexOf(".net") === -1 && 
+              field_val.indexOf(".org") === -1 && 
+              field_val.indexOf(".edu") === -1 && 
+              field_val.indexOf(".mil") === -1))  {
+          
+          $jQ(field_element).css(error_border_css);
+          // The border surrounding the question is made to appear red.
+          $jQ(field_element).css(error_text_css);
+          // The color of the text is made to appear red.
+          $jQ(field_element).val(error_message);
+          // The error message is passed on to the field.
         }
-      } 
+      }
     }
   }
 } /* **************** END OF FUNCTION "validateQuestionField" **************** */
@@ -738,7 +733,7 @@ function validateForm(form_element)  {
   // If one of the Booleans is false, the form will pass an 
   // error message to the visitor.
 
-  form_questions_selector = $jQ(form_element).attr("id") + " input[type=text]";
+  form_questions_selector = "#" + $jQ(form_element).attr("id") + " input[type=text]";
   form_questions_elements = $jQ(form_questions_selector);
   
   form_questions_elements_length = form_questions_elements.length;

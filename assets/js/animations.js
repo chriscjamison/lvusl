@@ -1039,12 +1039,15 @@ function animateForm(time_value) {
   
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
-function animateEmailAlert(url_hash)  {
+function animateEmailAlert(url_hash, time_value)  {
   var email_selector = new String();
   var info_selector = new String();
 
   var email_element = new Object();
   var info_element = new Object();
+
+  var email_visibility_css = new Object();
+  var opacity_zero_css = new Object();
 
   var email_display_value = new String();
 
@@ -1054,22 +1057,70 @@ function animateEmailAlert(url_hash)  {
   email_element = $jQ(email_selector);
   info_element = $jQ(info_selector);
 
+  opacity_zero_css = {
+    opacity: "0"
+  };
+
   email_display_value = $jQ(email_element).css("display");
 
   if (email_display_value === "none") {
-    var email_visible_css = new Object();
-    var info_zindex_css = new Object();
+    var email_section_search_string = new String();
+    // Holds the String, "pos=email", which is searched for in, 
+    // "url_hash".
+    var email_section_index_num = new Number();
+    // Holds the location within, "url_hash", that "pos=email" is 
+    // found.
 
-    email_visible_css = {
+    email_section_search_string = "pos=email";
+    email_section_index_num = url_hash.indexOf(email_section_search_string);
+    
+    email_visibility_css = {
       display: "block"
     };
 
-    info_zindex_css = {
-      zIndex: "-1"
+    $jQ(email_element).css(opacity_zero_css);
+    $jQ(email_element).css(email_visibility_css);
+
+
+    $jQ(info_element).fadeTo(time_value, 0, 
+      function () {
+        if (email_section_index_num !== -1) {
+          var div_1_selector = new String();
+          var div_2_selector = new String();
+
+          var div_1_element = new Object();
+          var div_2_element = new Object();
+
+          div_1_selector = "#email-content .visible";
+          div_2_selector = "#email-content .not_visible";
+
+          div_1_element = $jQ(div_1_selector);
+          div_2_element = $jQ(div_2_selector);
+
+          $jQ(div_1_element).removeClass();
+          $jQ(div_1_element).addClass("not_visible");
+
+          $jQ(div_2_element).removeClass();
+          $jQ(div_2_element).addClass("visible");
+        }
+        
+        $jQ(email_element).fadeTo(time_value, 1);        
+      }
+    );
+  } else {
+    var time_value_short = new Number();
+
+     email_visibility_css = {
+      display: "none"
     };
 
-    $jQ(email_element).css(email_visible_css);
-    $jQ(info_element).css(info_zindex_css);
+    time_value_short = Math.round(time_value / 2);
+
+    $jQ(email_element).fadeTo(time_value, 0, 
+      function () {
+        $jQ(info_element).fadeTo(time_value_short, 1);
+        $jQ(email_element).css(email_visibility_css);
+      })
   }
 
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */
