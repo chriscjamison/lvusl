@@ -1,5 +1,5 @@
 /* Filename: main.css 
- *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
+ *  + Contains the CSS styling for all of the static visual elements.
  *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
  * 
  *  + All measurements are given in terms of 'em' except for background position values which are 
@@ -10,9 +10,6 @@
  *    - 1366x768
  *    - 1280x1024
  *    - 1280x800
- *    - 1024x1500
- *    - 980x1740
- *    - 980x1308
  * ******************************************************************************************** */
 
 body {
@@ -173,6 +170,88 @@ body {
  * within MAIN LANDING SECTION.
  */ 
 
+#email {
+  position: relative;
+  display: none;
+}
+
+#email-blok {
+  float: left;
+}
+
+#email-borders {
+  height: 0.63em;
+}
+
+#email-borders > div:nth-child(1) {
+  height: 0.19em;
+  background-color: #e6ad83;
+}
+
+#email-borders > div:nth-child(2) {
+  height: 0.25em;
+  background-color: #964d48;
+}
+
+#email-borders > div:nth-child(3) {
+  height: 0.19em;
+  background-color: #451e20;
+}
+
+#email-content {
+  height: 7.19em;
+  position: absolute;
+  background-color: #964d48;
+  font-family: 'Istok Web', sans-serif;
+}
+
+#email-content > div:first-of-type {
+  padding: 1em;
+}
+
+#email-content > div > div > div:nth-child(1) {
+  width: 33.25em;
+  float: left;
+}
+
+#email-content > div > div > div:nth-child(2) {
+  margin-top: 0.25em;
+  float: left;
+}
+
+#email-content > div > div > div > h4 {
+  margin: 0;
+  color: #e6ad83;
+}
+
+#email-content p {
+  margin: 0.25em 0 0 0;
+  color: #451e20;
+}
+
+#email-content > div > div > div + div > h4 {
+  margin: 0;
+  color: #111;
+}
+
+#email a {
+  width: 3.13em;
+  height: 3.13em;
+  position: relative;
+  display: block;
+  float: left;
+  background-image: url('/lvusl/assets/img/splash/close.png');
+}
+
+#email-bkgrnd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  opacity: 0.7;
+  z-index: -1;
+}
+
 /* ---- 'SECTION #1' ---- */
 
 .headr.sctn_1 > span {
@@ -221,7 +300,8 @@ body {
 }
 
 #sctn_1-desc-1 > p {
-  font: 400 1em 'Istok Web', sans-serif ;
+  font-family: 'Istok Web', sans-serif;
+  font-size: 1em;
   color: #509590;
 }
 
@@ -757,13 +837,43 @@ body {
    */
 
   #info {
-    width: 120em;
+    width: 119em;
     height: 6.75em;
   }
 
   #info > div {
     width: 19em;
-    margin: 1.75em 0 0 54.25em;
+    margin: 1.75em 0 0 53.25em;
+  }
+
+  #email {
+    width: 65.75em;
+    height: 67.5em;
+  }
+
+  #email-blok {
+    width: 59.38em;
+    height: 37.88em;
+    position: relative;
+    transform: translate(50%, 30%);
+  }
+
+  #email-borders {
+    width: 59.38em;
+  }
+
+  #email-content {
+    width: 59.38em;
+  }
+
+  #email-bkgrnd {
+    width: 119em;
+    height: 67.5em;
+  }
+
+  #email a {
+    top: 11.25em;
+    left: 31.5em;
   }
 
   .headr {
@@ -784,7 +894,7 @@ body {
   }
 
   #sctn_1-desc-1 {
-    left: 84.5em;
+    left: 68em;
   }
 
   #sctn_2-video {

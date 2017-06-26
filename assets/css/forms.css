@@ -104,6 +104,11 @@ input[type=email] {
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
 
+#input-email {
+	width: 14.5em;
+	margin: 0.55em 0;
+}
+
 #input-full_name, 
 #input-address_1, 
 #input-address_2,

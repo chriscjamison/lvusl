@@ -195,7 +195,7 @@ function determineVisibleCopyElement(wndow_selector)  {
   
   if (wndow_selector !== "#wndow-sctn_main")  {
   // If the visible Section is not the 'MAIN LANDING SECTION', this condition is triggered.
-    while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
+    while (visible_copy_element_val < (wndow_element_copy_length + 2) && 
            copy_element_visible_flag === false) {
     // This loop runs while there are elements using the selector, ".copy", within a 
     // visible Section that remain to process and the visible ".copy" element has 
@@ -221,7 +221,7 @@ function determineVisibleCopyElement(wndow_selector)  {
     } // END OF while LOOP which continues to run if ".copy" elements remain to 
       // process and the visible ".copy" element has not been located.
 
-    if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
+    if (visible_copy_element_val === (wndow_element_copy_length + 2) && 
         copy_element_visible_flag === false)  {
     // If all of the ".copy" elements have been processed and a visible element 
     // has not been found, this condition is triggered.
@@ -231,7 +231,7 @@ function determineVisibleCopyElement(wndow_selector)  {
     } else {
     // Otherwise, if a visible ".copy" element has been found, this condition 
     // is triggered.
-      visible_copy_element_val = visible_copy_element_val - 3;
+      visible_copy_element_val = visible_copy_element_val - 2;
       // A value which matches the index of the child element in the DOM is 
       // passed to "visible_copy_element_val".
     } // END of "if" STATEMENT which is triggered if there not a visible 

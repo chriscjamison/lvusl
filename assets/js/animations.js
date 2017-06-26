@@ -480,6 +480,38 @@ function cssAdjustment()  {
 
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
+function formatHeader(url_hash) {
+  var header_value_selector = new String();
+  var header_value_element = new Object();
+  var header_string_val = new String();
+
+  var headr_css = new Object();
+  
+  header_value_selector = ".headr.sctn_1 > span";
+
+  header_value_element = $jQ(header_value_selector);
+
+  if (url_hash === "#sctn_1?pos=1") {
+    header_string_val = "Thank You for Your Interest";
+
+    headr_css = {
+      width: "17.75em", 
+      color: "#9fdd98"
+    };
+    
+  } else if (url_hash === "#sctn_1?pos=0")  {
+    header_string_val = "Reserve Season Tickets";
+
+    headr_css = {
+      width: "14.75em", 
+      color: "#ffe272"
+    };
+  }
+  
+  $jQ(header_value_element).css(headr_css);
+  $jQ(header_value_element).text(header_string_val);
+}
+
 function setupPage(time_value)  {
   /* **************** **************** **************** **************** **************** 
    * setupPage initializes the rendering of the HTML elements 
@@ -730,7 +762,7 @@ function setupPage(time_value)  {
     } 
   ); // END OF .each METHOD
 
-  setPageInitialLocation();
+  // setPageInitialLocation(url_hash);
   // "setPageInitialLocation" is called to pass on the Section and Position values of the webpage 
   // which is viewable to the URL.
   
@@ -1006,6 +1038,42 @@ function animateForm(time_value) {
     // visible.
   
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
+
+function animateEmailAlert(url_hash)  {
+  var email_selector = new String();
+  var info_selector = new String();
+
+  var email_element = new Object();
+  var info_element = new Object();
+
+  var email_display_value = new String();
+
+  email_selector = "#email";
+  info_selector = "#info";
+
+  email_element = $jQ(email_selector);
+  info_element = $jQ(info_selector);
+
+  email_display_value = $jQ(email_element).css("display");
+
+  if (email_display_value === "none") {
+    var email_visible_css = new Object();
+    var info_zindex_css = new Object();
+
+    email_visible_css = {
+      display: "block"
+    };
+
+    info_zindex_css = {
+      zIndex: "-1"
+    };
+
+    $jQ(email_element).css(email_visible_css);
+    $jQ(info_element).css(info_zindex_css);
+  }
+
+} /* **************** END OF FUNCTION "animateEmailAlert" **************** */
+
 
 function animatePageElements(time_value)  {
   /* **************** **************** **************** **************** **************** 
@@ -1681,14 +1749,12 @@ function animateMenuOptions(option_element) {
     // its "base" click state.
 } /* **************** END OF FUNCTION "animateMenuOptions" **************** */
 
-function setPageInitialLocation()  {
+function setPageInitialLocation(url_hash)  {
   /* **************** **************** **************** **************** **************** 
    * Navigates the browser window to the location that allows for the full window 
    * of the visible section to be displayed.
    * **************** **************** **************** **************** **************** */
 
-  var url_hash = new String();
-  
   var section_value = new String();
   // Holds the String value of the Section Value listed in the URL hash.
   var position_value = new String();
@@ -1708,8 +1774,6 @@ function setPageInitialLocation()  {
 
   scroll_to_value = new Number();
   // Holds a value which matches the vertical location, in pixels.
-
-  url_hash = window.location.hash;
 
   section_value = url_hash.charAt(6);
   position_value = url_hash.charAt(12);

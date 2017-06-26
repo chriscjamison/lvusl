@@ -164,6 +164,12 @@ $jQ(document).ready(
       }
     );
 
+    $jQ("#email a").click(
+      function () {
+        animateEmailAlert(url_hash);
+      }
+    );
+
     $jQ("#input-full_name").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
     // this visitor enters their full name.
@@ -377,7 +383,6 @@ $jQ(document).ready(
       function () {
         validateQuestionField("start", "security_code");
         // The data of the form question is in the process of validation.
-console.log("start");
       }
     ).mouseleave(
       function () {
@@ -398,6 +403,15 @@ console.log("start");
       function () {
         animateForm(time_value);
         // "animateForm" fades in the "second" page of 'FORM TYPE #1'.
+      }
+    );
+
+    $jQ("#info a:first-of-type").click(
+    // Displays content which allows the visitor to sign up for 
+    // an email alert.
+
+      function () {
+        animateEmailAlert(url_hash);
       }
     );
 
@@ -487,6 +501,8 @@ console.log("start");
 
         var sctn_main_string = new String();
 
+        var section_value = new String();
+
         url_hash = window.location.hash;
         
         page_dimensions_Array = parseWindowDimensions();
@@ -507,11 +523,18 @@ console.log("start");
             animateInfoElement(time_value);
             // The HTML content contained within 'MAIN LANDING SECTION' is 
             // faded into view.
-          } // END of "if" STATEMENT which is triggered if the browser 
-            // window is greater than 980px.
-        } // END of "if" STATEMENT which is triggered if the URL hash 
-          // is blank or is "#sctn_main".
+          } 
+        } 
 
+        section_value = url_hash.charAt(6);
+
+        if (section_value === "1") {
+          
+          formatHeader(url_hash);
+          // "formatHeader" formats the text of the header for the Section 
+          // which contains the season ticket reservation form based upon 
+          // the URL hash. 
+        }
         
       } // END of ".on("load")" Method
     );
@@ -547,9 +570,16 @@ console.log("start");
         setURL(current_position, url_hash);
         // "setURL" matches the URL hash with the current viewable Section.
 
+        // setPageInitialLocation(url_hash);
+
+        if (current_position === 1) {
+          animateEmailAlert(url_hash);
+        }
+        
         if (current_position < 144) {
         // If the current location of the browser window is above the location of 
         // the logo, this condition is triggered.
+
           if ($jQ(nav_element).css("opacity") === "1") {
           // If the main menu is visible, this condition is triggered.
             $jQ(nav_element).css("opacity", "0");
@@ -562,19 +592,17 @@ console.log("start");
           // If the current location of the browser window is 0 and the 
           // HTML content contained within 'MAIN LANDING SECTION' has an 
           // opacity of 0, then this condition is triggered.
+
             animateInfoElement(time_value);
             // The HTML content contained within 'MAIN LANDING SECTION' is 
             // faded into view.
-          } // END of "if" STATEMENT which is triggered if the current 
-            // location of the browser window is 0 and the HTML content 
-            // within 'MAIN LANDING SECTION' has an opacity of 0.
+          } 
         } else {
           if ($jQ(nav_element).css("opacity") === "0")  {
             $jQ(nav_element).css("opacity", "1");
           }
-        } // END of "if" STATEMENT which is triggered if the current location 
-          // of the browser window is above the location of the logo.
-      } // END of ".on("scroll") Method
+        } 
+      } 
     );
     
     $jQ(window).on("hashchange",
@@ -587,9 +615,9 @@ console.log("start");
         var sctn_blank_search_string = new String();
         // Holds a blank String, which is used to determine if the browser has 
         // just loaded the webpage from the top.
-
+        
         url_hash = window.location.hash;
-          
+
         nav_visible_search_string = "copyValues=";
         sctn_blank_search_string = "";
 
@@ -628,6 +656,13 @@ console.log("start");
           // Holds the location within, "url_hash", that the String, "sctn_", is 
           // located.
 
+          var email_section_search_string = new String();
+          // Holds the String, "email", which is searched for in the value of, 
+          // "url_hash".
+          var email_section_search_index_num = new Number();
+          // Holds the location within, "url_hash", that the String, "email", 
+          // is located.
+
           var section_value = new String();
           
           nav_selector = "nav";
@@ -665,6 +700,9 @@ console.log("start");
           section_value_search_index_num = section_value_search_index_num + section_value_search_string.length;
 
           section_value = url_hash.charAt(section_value_search_index_num);
+
+          email_section_search_string = "email";
+          email_section_search_index_num = url_hash.indexOf(email_section_search_string);
 
           if (nav_width_val === nav_left_val) {
           // If the main menu of the 
@@ -738,17 +776,30 @@ console.log("start");
                 $jQ(listing_element).css(visible_css);
                 $jQ(listing_element).fadeTo(time_value_short, 1);
 
-              }// END of "if" STATEMENT which is triggered if the visible Section 
-              // is now 'MAIN LANDING SECTION.
+              }
+            } else if (section_value === "1") {
+            // If the viewable Section is 'SECTION #1', this condition is triggered.
+
+              formatHeader(url_hash);
+              // "formatHeader" changes the content of the header when a visitor 
+              // completes a season ticket reservation.
+            } else if (email_section_search_index_num !== -1) {
+            // If the visitor has chosen to view the content relating to email 
+            // alerts or the location of the webpage within the browser window 
+            // is 1, this condition is triggered.
+
+              animateEmailAlert(url_hash);
+              // "animateEmailAlert" displays content which allows the visitor 
+              // to sign up for an email alert.
             }
             
+            // setPageInitialLocation(url_hash)
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".
           }
-        } // END of "if" STATEMENT which is triggered if the main menu is not 
-          // visible and the URL hash is not blank.
-      } // END of ".on("hashchange")" Method
+        }
+      }
     );
     
     $jQ(window).on("resize", 
