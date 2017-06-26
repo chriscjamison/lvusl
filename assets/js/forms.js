@@ -615,7 +615,7 @@ function validateQuestionField(validation_type, question_value)  {
       // Holds the number of characters contained in, "field_val".
       
       field_val_length = field_val.length;
-console.log("field_val_length = " + field_val_length);      
+      
       if (field_val_length < error_length || 
           (((question_value === "zip_code" || 
              question_value === "security_code") && 
@@ -686,7 +686,11 @@ console.log("field_val_length = " + field_val_length);
 
           $jQ(field_element).val(card_number_data);
         } else if (question_value === "email")  {
-          
+console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".com"));
+console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".net"));
+console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".org"));
+console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".edu"));
+console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".mil"));
           if (field_val_length < error_length ||  
               field_val.indexOf(".") === -1 ||  
               field_val.indexOf("@") === -1 || 
