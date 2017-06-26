@@ -585,14 +585,11 @@ function validateQuestionField(validation_type, question_value)  {
         error_length = 3;
       break;
 
-<<<<<<< HEAD
       case "email":
         base_value = "you@lvusl.com";
         error_message = "XXX@XXXXX.XXX";
         error_length = 10;
       break;
-=======
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
     }
 
     if (validation_type === "start") {
@@ -688,7 +685,6 @@ function validateQuestionField(validation_type, question_value)  {
           }
 
           $jQ(field_element).val(card_number_data);
-<<<<<<< HEAD
         } else if (question_value === "email")  {
 console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".com"));
 console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".net"));
@@ -711,19 +707,13 @@ console.log("field_val.indexOf(\".com\") = " + field_val.indexOf(".mil"));
             $jQ(field_element).val(error_message);
             // The error message is passed on to the field.
           }
-=======
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
         }
       } 
     }
   }
 } /* **************** END OF FUNCTION "validateQuestionField" **************** */
 
-<<<<<<< HEAD
 function validateForm(form_element)  {
-=======
-function validateForm()  {
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
   /* **************** **************** **************** **************** **************** 
    *  Determines if the values entered within the HTML forms within the webpage 
    *  is proper. If the values are not proper, the form will not submit.
@@ -748,11 +738,7 @@ function validateForm()  {
   // If one of the Booleans is false, the form will pass an 
   // error message to the visitor.
 
-<<<<<<< HEAD
   form_questions_selector = $jQ(form_element).attr("id") + " input[type=text]";
-=======
-  form_questions_selector = "#sctn_1-request_tickets input[type=text]";
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
   form_questions_elements = $jQ(form_questions_selector);
   
   form_questions_elements_length = form_questions_elements.length;

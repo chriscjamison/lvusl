@@ -166,53 +166,20 @@ $jQ(document).ready(
 
     $jQ("#email a").click(
       function () {
-<<<<<<< HEAD
-        animateEmailAlert(url_hash, time_value);
-      }
-    );
-
-    $jQ("#input-email").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
-    // the visitor enters their email address.
-      function () {
-        validateQuestionField("start", "email");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "email");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "email");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "email");
-=======
         animateEmailAlert(url_hash);
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
       }
     );
 
     $jQ("#input-full_name").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
-<<<<<<< HEAD
-    // the visitor enters their full name.
-=======
     // this visitor enters their full name.
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
       function () {
         validateQuestionField("start", "full_name");
         // The form question is initialized.
       }
     ).mouseleave(
     // Activates when the visitor moves the cursor away from the form question which 
-<<<<<<< HEAD
-    // the visitor enters their full name.
-=======
     // this visitor enters their full name.
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
       function () {
         validateQuestionField("reset", "full_name");
         // The data of the form question is checked for validity.
@@ -265,11 +232,7 @@ $jQ(document).ready(
 
     $jQ("#input-address_1").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
-<<<<<<< HEAD
-    // the visitor enters their street number and street.
-=======
     // this visitor enters their street number and street.
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
       function () {
         validateQuestionField("start", "address_1");
         // The data of the form question is in the process of validation.
@@ -290,11 +253,7 @@ $jQ(document).ready(
     
      $jQ("#input-address_2").mouseenter(
     // Activates when the visitor moves the cursor over the form questions which 
-<<<<<<< HEAD
-    // the visitor enters an apartment number.
-=======
     // this visitor enters an apartment number.
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
       function () {
         validateQuestionField("start", "address_2");
         // The data of the form question is in the process of validation.
@@ -447,14 +406,6 @@ $jQ(document).ready(
       }
     );
 
-<<<<<<< HEAD
-    $jQ("#sctn_main-email, #sctn_1-request_tickets").submit(
-    // Validates the data contained with either 'FORM TYPE #1', 
-    // 'FORM TYPE #2', or 'FORM TYPE #3'.
-      function (event) {
-        var form_element = new Object();
-        
-=======
     $jQ("#info a:first-of-type").click(
     // Displays content which allows the visitor to sign up for 
     // an email alert.
@@ -468,21 +419,14 @@ $jQ(document).ready(
     // Validates the data contained with either 'FORM TYPE #1', 
     // 'FORM TYPE #2', or 'FORM TYPE #3'.
       function (event) {
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
         var form_complete_flag = new Boolean;
         // A Boolean which is set to true if the all of the data 
         // of a form is proper.
         
-<<<<<<< HEAD
-        form_element = this;
-
-        form_complete_flag = validateForm(this);
-=======
         var wndow_selector = new String();
         var wndow_element = new Object();
 
         form_complete_flag = validateForm();
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
         // If the data of the form is proper, the value 
         // of "form_complete_flag" will be "true". 
         // 
@@ -499,14 +443,6 @@ $jQ(document).ready(
           // within the browser window to inform the visitor that 
           // input withing the form needs to change.
 
-<<<<<<< HEAD
-          var form_element_id = new String();
-
-          var wndow_selector = new String();
-          var wndow_element = new Object();
-
-=======
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
           var alrt_selector = new String();
           var alrt_element = new Object();
 
@@ -528,35 +464,14 @@ $jQ(document).ready(
             "  </div>" + 
             "</div>";
 
-<<<<<<< HEAD
-
-          form_element_id = $jQ(form_element).attr("id");
-
-          if (form_element_id === "#sctn_main-email") {
-            wndow_selector = "#wndow-sctn_main";
-          } else {
-            wndow_selector  = "#wndow-sctn_1";
-          }
-          
-=======
           wndow_selector = "#wndow-sctn_1";
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
           wndow_element = $jQ(wndow_selector);
 
           $jQ(wndow_element).prepend(alert_div_element);
           // The HTML of "alert_div_element" is inserted into the HTML of the webpage.
 
-<<<<<<< HEAD
-          alrt_selector = "#alrt";
-          alrt_element = $jQ(alrt_selector);
-
-          $jQ(alrt_element).click(
-          // Activates when the visitor clicks on the alert message.
-
-=======
           $jQ("#alrt").click(
           // Activates when the visitor clicks on the alert message.
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
             function () {
               $jQ(this).fadeTo(time_value, 0, 
               // The alert message fades out.
@@ -656,13 +571,10 @@ $jQ(document).ready(
         // "setURL" matches the URL hash with the current viewable Section.
 
         // setPageInitialLocation(url_hash);
-<<<<<<< HEAD
-=======
 
         if (current_position === 1) {
           animateEmailAlert(url_hash);
         }
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
         
         if (current_position < 144) {
         // If the current location of the browser window is above the location of 
@@ -750,11 +662,6 @@ $jQ(document).ready(
           var email_section_search_index_num = new Number();
           // Holds the location within, "url_hash", that the String, "email", 
           // is located.
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
           var section_value = new String();
           
           nav_selector = "nav";
@@ -879,13 +786,8 @@ $jQ(document).ready(
             // If the visitor has chosen to view the content relating to email 
             // alerts or the location of the webpage within the browser window 
             // is 1, this condition is triggered.
-<<<<<<< HEAD
-              
-              animateEmailAlert(url_hash, time_value);
-=======
 
               animateEmailAlert(url_hash);
->>>>>>> d0d8a6b0bcf43f48440017515e9d68dbab1aabe1
               // "animateEmailAlert" displays content which allows the visitor 
               // to sign up for an email alert.
             }
