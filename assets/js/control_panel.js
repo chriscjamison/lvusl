@@ -273,17 +273,40 @@ $jQ(document).ready(
         validateQuestionField("start", "city");
         // The data of the form question is in the process of validation.
       }
-    ).mouseleave(function () {
+    ).mouseleave(
+      function () {
         validateQuestionField("reset", "city");
       }
-    ).focus(function () {
+    ).focus(
+      function () {
         validateQuestionField("start", "city");
       }
-    ).blur(function () {
+    ).blur(
+      function () {
         validateQuestionField("reset", "city");
       }
     );
-;
+
+    $jQ("#input-state").mouseenter(
+    // Activates when the visitor moves the cursor over the form question which 
+    // the visitor would enter the state name.
+      function () {
+        validateQuestionField("start", "city");
+        // The data of the form question is in the process of validation.
+      }
+    ).mouseleave(
+      function () {
+        validateQuestionField("reset", "city");
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "city");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "city");
+      }
+    );
 
     $jQ("#input-state").mouseenter(
     // Activates when the visitor moves the cursor over the form question which 
@@ -292,14 +315,17 @@ $jQ(document).ready(
         validateQuestionField("start", "state");
         // The data of the form question is in the process of validation.
       }
-    );
-
-    $jQ("#input-state").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter the state name.
+    ).mouseleave(
       function () {
         validateQuestionField("reset", "state");
-        // The data of the form question is in the process of validation.
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "state");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "state");
       }
     );
 
@@ -310,50 +336,60 @@ $jQ(document).ready(
         validateQuestionField("start", "zip_code");
         // The data of the form question is in the process of validation.
       }
-    );
-
-    $jQ("#input-zip_code").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter their zip code.
+    ).mouseleave(
       function () {
         validateQuestionField("reset", "zip_code");
-        // The data of the form question is in the process of validation.
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "zip_code");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "zip_code");
       }
     );
 
     $jQ("#input-card_num").mouseenter(
-    // Activates when the visitor moves the cursor over the form question which 
+    // Activates when the visitor moves the cursor away from the form question which 
     // the visitor would enter their credit card number.
       function () {
         validateQuestionField("start", "card_num");
         // The data of the form question is in the process of validation.
       }
-    );
-
-    $jQ("#input-card_num").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter their credit card number.
+    ).mouseleave(
       function () {
         validateQuestionField("reset", "card_num");
-        // The data of the form question is in the process of validation.
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "card_num");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "card_num");
       }
     );
-
+   
     $jQ("#input-security_code").mouseenter(
     // Activates when the visitor moves the cursor over the form question which 
     // the visitor would enter the 3 digit security code of their credit card number.
       function () {
         validateQuestionField("start", "security_code");
         // The data of the form question is in the process of validation.
+console.log("start");
       }
-    );
-
-    $jQ("#input-security_code").mouseleave(
-    // Activates when the visitor moves the cursor away from the form question which 
-    // the visitor would enter the 3 digit security code of their credit card number.
+    ).mouseleave(
       function () {
         validateQuestionField("reset", "security_code");
-        // The data of the form question is in the process of validation.
+      }
+    ).focus(
+      function () {
+        validateQuestionField("start", "security_code");
+      }
+    ).blur(
+      function () {
+        validateQuestionField("reset", "security_code");
       }
     );
 
@@ -383,6 +419,7 @@ $jQ(document).ready(
         // If any of the data of the form is improper, 
         // the value of "form_complete_flag" will be 
         // false.
+        
         if (form_complete_flag === false) {
         // If the form that this function processes contains 
         // improper data, then this condition is triggered.
@@ -400,14 +437,20 @@ $jQ(document).ready(
             "  <div>" + 
             "    <div>" + 
             "      <span>Alert</span>" + 
-            "      <p>This form needs more information than you provided.</p>" +
-            "      <p>Please check the question fields that are surrounded by red borders.</p>" +  
-            "      <p>Click the screen to close this alert.</p></div>" + 
+            "      <p>" + 
+            "        This form needs more information than you provided." + 
+            "      </p>" +
+            "      <p>" + 
+            "        Please check the form for text boxes that are surrounded by red borders." + 
+            "      </p>" +  
+            "      <p>" + 
+            "        Click the screen to close this alert." + 
+            "      </p>" + 
             "    </div>" + 
             "  </div>" + 
             "</div>";
 
-          wndow_selector = "#wndow-sctn_2";
+          wndow_selector = "#wndow-sctn_1";
           wndow_element = $jQ(wndow_selector);
 
           $jQ(wndow_element).prepend(alert_div_element);

@@ -386,9 +386,6 @@ function validateAddress(validation_type, question_value, appearance_css_Array) 
     }
   }
 
-// console.log("address_2_element_value = " + address_2_element_value);
-  
-
   if (validation_type === "reset")  {
   // If the mouse has moved away from either of the two address fields or the cursor 
   // has moved out of the two address fields, this condition is triggered.
@@ -485,6 +482,9 @@ function validateQuestionField(validation_type, question_value)  {
 
   var appearance_css_Array = new Array();
   // An Array which holds variables containing CSS properties and values.
+
+  var base_value = new String();
+  // Holds the default value of an individual question field.
   
   field_selector = "#input-" + question_value;
   field_element = $jQ(field_selector);
@@ -512,347 +512,197 @@ function validateQuestionField(validation_type, question_value)  {
     base_text_css
   ];
 
-  switch (question_value) {
-  // This routes the input of the form to be correctly processed by this function.
-    case "full_name":
-      validateFullname(validation_type, question_value, appearance_css_Array);
-      // The text field which contains the full name is checked for validity.
-    break;  
+  if (question_value === "full_name") {
+  // If the data of the question field asking for a full name is under 
+  // processing for validity, this condition is triggered.
+
+    validateFullname(validation_type, question_value, appearance_css_Array);
+    // The text field which contains the full name is checked for validity.
+  } else if (question_value === "address_1" || 
+             question_value === "address_2")  {
+  // If the data of the question field asking for an street address or 
+  // apartment number is under processing for validity, this condition 
+  // is triggered.
+
+    validateAddress(validation_type, question_value, appearance_css_Array);
+  } else {
+  // If the data of the question field asking for a city, state, 
+  // or zip code, is under processing for validity, this condition 
+  // is triggered. 
     
+    var field_selector = new String();
+    var field_element = new Object();
 
-    case "address_1":
-      validateAddress(validation_type, question_value, appearance_css_Array);
-      // The text field which contains the street name and street number is checked for 
-      // validity.
-    break;
+    var field_val = new String();
 
-    case "address_2":
-      validateAddress(validation_type, question_value, appearance_css_Array);
-      // The text field which contains the apartment number is checked for validity.
-    break;
+    var error_message = new String();
+    // Holds a String which contains an error message for an 
+    // individual question field.
+    var error_length = new Number();
+    // Holds a Number which contains the length of an 
+    // invalid piece of data.
 
-    case "city":
-      var field_selector = new String();
-      var field_element = new Object();
+    field_selector = "#input-" + question_value;
+    field_element = $jQ(field_selector);
 
-      var field_val = new String();
+    field_val = $jQ(field_element).val();
 
-      field_selector = "#input-" + question_value;
-      field_element = $jQ(field_selector);
+    switch (question_value) {
+    // The error message for an individual question field 
+    // is assigned to the variable, "error_message", based 
+    // upon the value of, "question_value".
+    // 
+    // Also, the length of an invalid piece of data is 
+    // is passed to, "error_length".
 
-      field_val = $jQ(field_element).val();
-            
-      if (validation_type === "start") {
-      // If the mouse is now over the field or the cursor is now 
-      // in the field, this condition is triggered.
+      case "city":
+        base_value = "City";
+        error_message = "Please enter a city";
+        error_length = 5;
+      break;  
 
-        /*if (field_val === "") {
-        // If the field is blank, this condition is triggered.
-        
-          $jQ(field_element).css(error_border_css);
-          // The border surrounding the question is made to appear red.
-          $jQ(field_element).css(error_text_css);
-          // The color of the text is made to appear red.
-          $jQ(field_element).val("Please enter a city");
-          // The error message is passed on to the field.
-        } else */if (field_val === "City") {
-        // If the mouse is now over the field or the cursor is in the 
-        // field, this condition is triggered.
+      case "state":
+        base_value = "ST";
+        error_message = "XX";
+        error_length = 2;
+      break;
 
-          $jQ(field_element).val("");
-        } else if (field_val === "Please enter a city")  {
-        // If the field contains an error message, this condition 
-        // is triggered.
+      case "zip_code":
+        base_value = "Zip Code";
+        error_message = "XXXXX";
+        error_length = 5;
+      break;
 
-          $jQ(field_element).css(base_border_css);
-          // The border surrounding the question is made to appear red.
-          $jQ(field_element).css(base_text_css);
-          // The color of the text is made to appear red.
-          $jQ(field_element).val("");
-          // The error message is removed from the field.
-        }
-      } else {
-        var field_val_length = new Number();
-        // Holds the number of characters contained in, "field_val".
-        
-        field_val_length = field_val.length;
-        
-        if (field_val_length < 5) {
-        // If the length of the city, is less than 5 characters, 
-        // this condition is triggered.
+      case "card_num":
+        base_value = "XXXX XXXX XXXX XXXX";
+        error_message = "Please reenter your card number"
+        error_length = 16;
+      break;
 
-          $jQ(field_element).css(error_border_css);
-          // The border surrounding the question is made to appear red.
-          $jQ(field_element).css(error_text_css);
-          // The color of the text is made to appear red.
-          $jQ(field_element).val("Please enter a city");
-          // The error message is passed on to the field.
-        }
-      }      
-    break;  
+      case "security_code": 
+        base_value = "XXX";
+        error_message = "XXX";
+        error_length = 3;
+      break;
 
-    case "sctn_5-no_1":
-    // If the form question being validated is the "first" question 
-    // of 'FORM TYPE #2', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object(); 
+    }
 
-      var border_color_rgb = new String();
+    if (validation_type === "start") {
+    // If the mouse is now over the field or the cursor is now 
+    // in the field, this condition is triggered.
 
-      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-      checked_element = $jQ(checked_selector);
+      if ((field_val === error_message || 
+           field_val === base_value) || 
+          (question_value === "card_num" && 
+           field_val === base_value))  {
+      // If the field contains an error message, this condition 
+      // is triggered.
 
-      border_color_rgb = "rgb(151, 27, 30)";
-        
-      if (validation_type === "reset" && 
-          ($jQ(checked_element).attr("name") === undefined ||  
-           $jQ(checked_element).attr("name") === "monthly_income")) {
-      // If the mouse moves from the form question and the visitor has not entered a 
-      // response, this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
+        $jQ(field_element).css(base_border_css);
         // The border surrounding the question is made to appear red.
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === border_color_rgb) {
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to the default color.
-      }
-    break;  // END of condition for the "first" question of 'FORM TYPE #1'
-
-    case "sctn_5-no_2":
-    // If the form question being validated is the "second" question 
-    // of 'FORM TYPE #2', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object(); 
- 
-      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-      checked_element = $jQ(checked_selector);
-      
-      if (validation_type === "reset" && 
-          $jQ(checked_element).attr("name") === undefined) {
-      // If the mouse moves from the form question and the visitor has not entered a 
-      // response, this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
-        // The border surrounding the question is made to appear red.
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
-        // The border surrounding the question is made to appear red.
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to the default color.
-      }
-    break;  // END of condition for the "second" question of 'FORM TYPE #2'
-    
-    case "sctn_6-no_1":
-    // If the form question undergoing validation is the "first" question 
-    // of 'FORM TYPE #3', this condition is triggered.
-      var field_selector = new String();
-      var field_element = new Object();
-
-      field_selector = fieldset_selector + " > input";
-      field_element = $jQ(field_selector);
-      
-      if ($jQ(field_element).val() === "Please enter your first name")  {
-      // If the visitor has moved the mouse over the form question after not entering 
-      // proper form data into the text field, this condition is triggered.
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to its default color.
         $jQ(field_element).css(base_text_css);
-        // The color of the text is returned to its default.
+        // The color of the text is made to appear red.
         $jQ(field_element).val("");
-        // The text, "Please enter your first name", is removed from the text 
-        // field.
-      } else if (validation_type === "reset" && 
-                 $jQ(field_element).val().length <= 2)  {
-      // If the visitor has moved the mouse away from the form question and the visitor 
-      // has entered an improper response, a response of two or less characters, 
+        // The error message is removed from the field.
+      }
+    } else {
+      var field_val_length = new Number();
+      // Holds the number of characters contained in, "field_val".
+      
+      field_val_length = field_val.length;
+      
+      if (field_val_length < error_length || 
+          (((question_value === "zip_code" || 
+             question_value === "security_code") && 
+            field_val_length !== error_length))) {
+      // If the length of the value contained in the question field, 
+      // is less than the length of, "error_length", or if the 
+      // question field under processing is the zip code field 
+      // or security code field and the length of that piece of data 
+      // is not equal to the length of, "error_length", 
       // this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
+      
+        $jQ(field_element).css(error_border_css);
         // The border surrounding the question is made to appear red.
         $jQ(field_element).css(error_text_css);
         // The color of the text is made to appear red.
-        $jQ(field_element).val("Please enter your first name");
-        // The text, "Please enter your first name", is placed within the 
-        // text field.
-      } // END of "if" STATEMENT which is triggered if the visitor has moved the 
-        // mouse over the form question after not entering proper form data 
-        // into the text field.
-    break;  // END of condition for the "first" question of 'FORM TYPE #3'
+        $jQ(field_element).val(error_message);
+        // The error message is passed on to the field.
+      } else if (question_value === "card_num") {
+        // If the data entered into the question field is invalid, 
+        // this condition is triggered.
+          
+        if (question_value === "card_num" && 
+            (field_val_length !== error_length &&  
+             field_val_length !== error_length + 4))  {
 
-    case "sctn_6-no_2":
-    // If the form question undergoing validation is the "second" question 
-    // of 'FORM TYPE #3', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object();
-
-      field_selector = "#sctn_6-field-email";
-      field_element = $jQ(field_selector);
-
-      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-      checked_element = $jQ(checked_selector);
-      
-      if ($jQ(checked_element).attr("id") === "sctn_6-email") {
-      // If the radio button offering the option to a visitor to enter their email 
-      // is selected, this condition is triggered.
-        if (validation_type === "start" && 
-            $jQ(field_element).val() === "Please enter a valid email address") {
-        // If the visitor moves the cursor over the form question after not 
-        // entering proper form data into the text field, this condition 
-        // is triggered. 
-          $jQ(fieldset_element).css(base_border_css);
-          // The border is returned to its default color.
-          $jQ(field_element).css(base_text_css);
-          // The color of the text is returned to its default color.
-          $jQ(field_element).val("");
-          // The text, "Please enter a valid email address", is removed from 
-          // the text field.
-        } else {
-        // Otherwise, if the form data in the text field does not include the text 
-        // "Please enter a valid email address", this condition is triggered.
-          if (validation_type === "reset" && 
-              ($jQ(field_element).val().length === 0) ||  
-              ($jQ(field_element).val().indexOf("@") === -1 || 
-              ($jQ(field_element).val().indexOf(".com") === -1 && 
-               $jQ(field_element).val().indexOf(".net") === -1 && 
-               $jQ(field_element).val().indexOf(".org") === -1 && 
-               $jQ(field_element).val().indexOf(".edu") === -1 && 
-               $jQ(field_element).val().indexOf(".mil") === -1)))  {
-          // If the visitor has moved the cursor away from the form question 
-          // and there is not a value within the text field or the value 
-          // within the text field does not include an "@" symbol or a valid 
-          // domain, this condition is triggered.
-            $jQ(fieldset_element).css(error_border_css);
-            // The border surrounding the question is made to appear red.
-            $jQ(field_element).css(error_text_css);
-            // The color of the text is made to appear red.
-            $jQ(field_element).val("Please enter a valid email address");
-            // The text, "Please enter a valid email address", is placed within 
-            // the text field.
-          } // END of "if" STATEMENT which is triggered if the data contained within 
-            // the text field is improper.
-        } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
-          // over the form question after not entering proper form data.
-      } else if ($jQ(checked_element).attr("id") === "sctn_6-phone") {
-      // If the radio button offering the option to a visitor to enter a phone number 
-      // is selected, this condition is triggered.
-        var phone_number_val = new String();
-        // Holds the value of the data contained within the text field.
-        var search_char_index_num = new Number();
-        // Holds the location within the given phone number that improper 
-        // form data appears.
-        var phone_number_search_vals_Array = new Array();
-        // Holds a set of characters that appear in properly formatted 
-        // phone numbers.
-        
-        var inc = new Number();
-        // An incrementer that counts the number of proper characters 
-        // that are contained within the phone number.
-
-        phone_number_val = $jQ(field_element).val();
-        
-        phone_number_search_vals_Array = [
-          "(", 
-          ")", 
-          "-", 
-          " "
-        ];
-
-        while (inc < phone_number_search_vals_Array.length)  {
-        // This loop searches throughout the phone number for characters 
-        // that appear in properly formatted phone numbers.
-          search_char_index_num = phone_number_val.indexOf(phone_number_search_vals_Array[inc], search_char_index_num);
-          // The phone number is searched for a character contained 
-          // within, "phone_number_search_vals_Array". The location of the 
-          // value is passed to, "search_char_index_num".
-          phone_number_val = phone_number_val.replace(phone_number_search_vals_Array[inc], "");
-          // The found character is removed from the phone number.
-
-          if (search_char_index_num === -1) {
-          // If the character that this loop searches for is not found, 
-          // this condition is triggered.
-            inc++;
-            // The loop will move on to the next character.
-          } // END of "if" STATEMENT which is triggered if the character 
-            // this loop searches for is not found.
-        } // END of "while" LOOP which searches throughout the phone number for 
-          // characters that appear in properly formatted phone numbers.
-        
-        if ($jQ(field_element).val() === "Please enter your phone number") {
-        // If the value of the text field is, "Please enter your phone number", 
-        // then this condition is triggered.
-          $jQ(fieldset_element).css(base_border_css);
-          // The border is returned to its default color.
-          $jQ(field_element).css(base_text_css);
-          // The color of the text is returned to its default color.
-          $jQ(field_element).val("");
-          // The text, "Please enter a valid email address", is removed from 
-          // the text field.
-        } else if (validation_type === "reset" && 
-                   (phone_number_val.length === 0 ||  
-                   (phone_number_val.length < 10 || 
-                    phone_number_val.length > 10))) {
-        // If the visitor has moved the cursor away from the form question and 
-        // the phone number does not have a proper number of digits, 
-        // then this condition is triggered.
-          $jQ(fieldset_element).css(error_border_css);
+          $jQ(field_element).css(error_border_css);
           // The border surrounding the question is made to appear red.
           $jQ(field_element).css(error_text_css);
           // The color of the text is made to appear red.
-          $jQ(field_element).val("Please enter your phone number");
-          // The text, "Please enter a valid email address", is placed within 
-          // the text field.
-        } // END of "if" STATEMENT which is triggered if the value of the text 
-          // field is "Please enter your phone number".
-      } // END of "if" STATEMENT which is triggered if the radio button offering 
-        // the option to a visitor to enter their email is selected.
-    break;  // END of condition for the "second" question of 'FORM TYPE #2'
+          $jQ(field_element).val(error_message);
+          // The error message is passed on to the field.
+        } else if (question_value === "card_num" && 
+                   field_val_length === error_length) {
 
-    case "sctn_6-no_3":
-    // If the form question undergoing validation is the "third" question 
-    // of 'FORM TYPE #3', this condition is triggered.
-      var checked_selector = new String();
-      var checked_element = new Object(); 
+          var card_number_data_Array = new Array;
+          // Holds four sets of four numbers making up the card number.
+          
+          var card_number_data = new String();
+          // Holds a String which will contain the data from the 
+          // question field, seperated into four sets of four 
+          // numbers. 
+          
+          var inc = new Number();
+          // Loop incrementer.
 
-      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-      checked_element = $jQ(checked_selector);
-      
-      if (validation_type === "reset" && 
-          $jQ(checked_element).attr("name") === undefined) {
-      // If the mouse moves from the form question and the visitor has not entered a 
-      // response, this condition is triggered.
-        $jQ(fieldset_element).css(error_border_css);
-        // The border surrounding the question is made to appear red.
-      } else if (validation_type === "start" && 
-                 $jQ(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
-      // The border surrounding the question is made to appear red.
-        $jQ(fieldset_element).css(base_border_css);
-        // The border surrounding the question is returned to the default color.
-      } // END of "if" STATEMENT which is triggered if the visitor moves the cursor 
-        // from the form question and has not entered a response.
-    break;  // END of condition for the "third" question of 'FORM TYPE #3'
-  } // END of "switch" STATEMENT which routes the input of the form to 
-    // be correctly process by this function.
+          card_number_data_Array = field_val.split("");
+          
+          var inc = 0;
+
+          while (inc <= 15)  {
+          // This loop runs until three spaces have been placed 
+          // between four sets of four numbers.
+
+            card_number_data = card_number_data + card_number_data_Array[inc];
+            
+            if ((inc + 1) % 4 === 0) {
+            // If, "inc", is greater than 0, and the value of, "inc", 
+            // is a multiple of 4, this condition is triggered.
+
+              card_number_data = card_number_data + " ";
+              // If a set of four number have been added to the 
+              // value of, "card_number_data", a space is added 
+              // to the end of, "card_number_data".
+            }
+
+            inc++;
+          }
+
+          $jQ(field_element).val(card_number_data);
+        }
+      } 
+    }
+  }
 } /* **************** END OF FUNCTION "validateQuestionField" **************** */
 
-function validateForm(section_value)  {
+function validateForm()  {
   /* **************** **************** **************** **************** **************** 
    *  Determines if the values entered within the HTML forms within the webpage 
    *  is proper. If the values are not proper, the form will not submit.
    * **************** **************** **************** **************** **************** */
-
+  
   var form_questions_selector = new String();
   var form_questions_elements = new Object();
 
-  var fieldset_element = new Object();
-  var input_elements = new Object();
-  var textarea_element = new Object();
-  var range_element = new Object();
-  var select_element = new Object();
+  var form_questions_elements_length = new Number();
+  // Holds the number of <input> elements contained in the form.
 
   var inc = new Number();
 
   var complete_field_flag = new Boolean;
   // A Boolean which marks a text field which contains proper data.
-  var input_element_checked_flag = new Boolean;
-  // A Boolean which marks an input which contains proper data.
+  var current_input_flag = new Boolean;
 
   var complete_field_flag_Array = new Array();
   // Holds a set of Booleans which correspond with each input 
@@ -861,9 +711,11 @@ function validateForm(section_value)  {
   // If one of the Booleans is false, the form will pass an 
   // error message to the visitor.
 
-  form_questions_selector = "#form-" + section_value + " .form_cntnt";
+  form_questions_selector = "#sctn_1-request_tickets input[type=text]";
   form_questions_elements = $jQ(form_questions_selector);
   
+  form_questions_elements_length = form_questions_elements.length;
+
   inc = 0;
   // An incrementer that counts the number of form fields with proper 
   // data.
@@ -872,134 +724,54 @@ function validateForm(section_value)  {
   // This loop runs through every input type contained within an 
   // individual form type.
     function () {
-      complete_field_flag = false;
-      input_element_checked_flag = false;
-      // The value of each variable defaults to improper form data 
-      // that the "if" statements try to prove are proper.
-      
-      input_elements = $jQ(this).find("fieldset").find("input");
-      textarea_element = $jQ(this).find("textarea");
-      select_element = $jQ(this).find("select");
-      
-      $jQ(input_elements).each(
-      // This loop runs for each input field type.
-        function () {
-          var input_element = new Object();
+      var form_question = new Object();
 
-          var input_element_val = new String();
-          // Holds the value of a given text field.
-          var input_element_type = new String();   
-          // Holds the datatype of a given text field.               
-          
-          input_element = this;
-          // Holds the current input this loop processes.
-          
-          input_element_val = $jQ(input_element).val();
-          input_element_type = $jQ(input_element).attr("type");
+      var form_question_element_val = new String();
+      var form_question_element_val_length = new Number();
+      // Holds the number of characters contained in the value held 
+      // by, "input_element_val".
 
-          if ((input_element_type === "text" || 
-              input_element_type === "email" ||
-              input_element_type === "tel") && 
-              (input_element_val.length > 0) && 
-              (input_element_val !== "Please enter your first name" && 
-               input_element_val !== "Please enter a valid email address" &&
-               input_element_val !== "Please enter your phone number")) {
-          // If the text field is of "text", "email", or a "tel" datatype, the 
-          // number of characters contained in the text field is greater than 0, 
-          // and the value of the text field does not contain an error message, 
-          // this condition is triggered.
-            complete_field_flag = true;
-            // The text field has proper data.
-          } else if (input_element_type === "radio")  {
-          // Otherwise, if the input element has a datatype of "radio", 
-          // this condition is triggered.
-            var radio_element_property = new String();
+      var form_question_element_border_color = new String();
+      // Holds the value of the CSS property, "borderColor", 
+      // for each individual question field.
 
-            radio_element_property = $jQ(input_element).prop("checked");
+      form_question = this;
             
-            if (radio_element_property === true) {
-            // If the input element has been checked by the visitor, 
-            // this condition is triggered.
-              input_element_checked_flag = true;
-              // The input element contains proper data.
-            } // END of "if" STATEMENT which is triggered if the input element 
-              // has been checked.
-          } else if (input_element_type === "checkbox") {
-          // Otherwise, if the input element has a datatype of "checkbox", 
-          // this condition is triggered.
-            var checkbox_element_property = new String();
-
-            checkbox_element_property = $jQ(input_element).prop("checked");
-
-            if (checkbox_element_property === true)  {
-            // If the input element has been checked by the visitor, 
-            // this condition is triggered.
-              input_element_checked_flag = true;
-              // The input element contains proper data.
-            } // END of "if" STATEMENT that is triggered if the input element 
-              // has been checked.
-          } else if (input_element_type === "range") {
-          // Otherwise, if the input element has a datatype of "range", 
-          // this condition is triggered.
-            complete_field_flag = true; 
-            // Input elements of datatype, "range", can only have proper data.
-          } // END of "if" STATEMENT which is triggered if the text field is of 
-            // "text", "email", or a "tel" datatype, the 
-            // number of characters contained in the text field is greater than 0, 
-            // and the value of the text field does not contain an error message, 
-            // this condition is triggered.
-        } // END of ".each()" Method.
-      );
+      form_question_element_val = $jQ(form_question).val();
+      form_question_element_val_length = form_question_element_val.length;
+      form_question_element_border_color = $jQ(form_question).css("borderColor");
       
-      if ($jQ(textarea_element).val() !== undefined) {
-      // If the input element is a "textarea" and has data, 
-      // this condition is triggered.
-        complete_field_flag = true;
-        // The textarea contains proper data.
-      } else if ($jQ(select_element).val() !== undefined)  {
-      // Otherwise, if the input element is a "select" element, 
-      // this condition is triggered.
-        if ($jQ(select_element).val() !== "default")  {
-        // If the "select" element has been clicked and an option 
-        // selected, this condition is triggered.
-          complete_field_flag = true;
-          // The "select" element contains proper data.
-        } // END of "if" STATEMENT which is triggered if a "select" 
-          // element is clicked and an option is selected.
-      } // END of "if" STATEMENT which is triggered if the input 
-        // element is a "textarea" and has data.
-
-      if (input_element_checked_flag === true)  {
-      // If only the input element has been shown to have proper 
-      // data, than this condition is triggered.
-        complete_field_flag = true;
-        // The form question has proper data.
-      } // END of "if" STATEMENT which is triggered if only the 
-        // input element has been shown to have proper data.
-
-      complete_field_flag_Array[inc] = complete_field_flag;
-      // The type of data of the text field or input element, 
-      // proper or improper, is passed onto the Array.
-
+      if ((form_question_element_val.length > 0 || 
+           (form_question_element_val === "" && 
+            inc === 2)) && 
+          form_question_element_border_color !== "rgb(151, 27, 30)")  {
+      // If the question field has data and the border of the question 
+      // field is not red, this condition is triggered.   
+     
+        complete_field_flag_Array[inc] = true;
+        // An Array which contains a flag for each question field 
+        // has a value of, "true", passed to it.
+      } else {
+        complete_field_flag_Array[inc] = false;
+      }
+    
       inc++;
-      // The "index" corresponding with the input element or 
-      // text field that this loop processes is incremented.
-    } // END of ".each()" Method
+    } 
   );
 
-  for (inc = 0; inc < complete_field_flag_Array.length; inc++)  {
-  // Loop which cycles through the Array which holds Boolean values 
-  // for each input type which correspond with an input type 
-  // holding proper or improper data.
-    if (complete_field_flag_Array[inc] === false) {
-    // If the Boolean this loop is processing is false, the input 
-    // element or text field holds improper data, and this condition 
-    // is triggered.
+  inc = 0;
+  complete_field_flag = true;
+
+
+  while (inc < form_questions_elements_length)  {
+    current_input_flag = complete_field_flag_Array[inc];
+
+    if (current_input_flag === false) {
       complete_field_flag = false;
-      // The form holds improper data.
-    } // END of "if" STATEMENT that is triggered if the Boolean 
-      // this loop is processing holds improper data.
-  } // END of "for" LOOP
+    }
+
+    inc++;
+  }
 
   return complete_field_flag;
   // If the form contains proper data, the value of, "true", will be 
