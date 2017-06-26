@@ -223,10 +223,17 @@ nav {
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
   
+  nav, 
+  #nav-bkgrnd, 
+  #nav-brdr {
+    width: 32em;
+    left: -32em;
+  }
+  
   .sctn_nav {
-    width: 79em !important;
-    height: 6.1em !important;
-    top: 35.75em !important;
+    width: 79em;
+    height: 6.1em;
+    top: 39em;
   }
 }
 

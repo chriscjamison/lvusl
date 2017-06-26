@@ -180,11 +180,15 @@ body {
 /* Formats the <div> element which holds the email alert splash page. */
 
 #email-blok {
+  width: 59.38em;
+  height: 37.88em;
+  position: relative;
   float: left;
 }
 /* Formats the <div> element which holds HTML content and "Close" button. */
 
 #email-borders {
+  width: 59.38em;
   height: 0.63em;
 }
 /* Formats the lines which appear at the bottom of the splash page cover image */
@@ -217,6 +221,7 @@ body {
  */
 
 #email-content {
+  width: 59.38em;
   height: 7.19em;
   position: absolute;
   background-color: #964d48;
@@ -718,16 +723,6 @@ body {
     width: 80em;
   }
 
-  .headr {
-    width: 73.6em;
-    left: 6.25em;
-  }
-
-  .copy {
-    height: 56em;
-    margin-left: 27.9em;
-  }
-
   #info {
     width: 79em;
     height: 6.7em;
@@ -738,9 +733,31 @@ body {
     margin: 1.55em 0 0 13em;
   }
 
+  #email {
+    width: 79em;
+    height: 48em;
+  }
+
+  #email-blok {
+    transform: translate(16%, 19%);
+  }
+
+  #email-bkgrnd {
+    width: 79em;
+    height: 48em;
+  }
+
+  #email a {
+    top: 7em;
+    left: 11em;
+  }
+  .headr {
+    width: 66.25em;
+  }
+
   .copy {
     width: 72.75em;
-    margin: 8.15em 0 0 6.25em;
+    margin: 11.15em 0 0 6.25em;
   }
 
   #sctn_1-desc-1 {
@@ -756,6 +773,10 @@ body {
   #sctn_2-document {
     width: 32.5em;
     margin-left: 15.5em;
+  }
+
+  .sctn_5-listing {
+    width: 44em;
   }
 
   #sctn_5-job_titles {
@@ -777,7 +798,7 @@ body {
   }
 
   #info {
-    width: 99em;
+    width: 84.25em;
     height: 9em;
   }
 
@@ -785,8 +806,27 @@ body {
     margin: 1.75em 1.75em 0 18.5em;
   }
 
+  #email {
+    width: 85.75em;
+    height: 48em;
+  }
+
+  #email-blok {
+    transform: translate(20%, 8%);
+  }
+
+  #email-bkgrnd {
+    width: 85.75em;
+    height: 48em;
+  }
+
+  #email a {
+    top: 3em;
+    left: 13.5em;
+  }
+
   .headr {
-    width: 84.25em;
+    width: 78em;
   }
 
   .copy {
@@ -820,55 +860,74 @@ body {
    * This breakpoint is optimized to fit resolutions of 1600x900px.
    */
 
-   #info {
-     width: 99em;
-     height: 9em;
-   }
+  #info {
+    width: 99em;
+    height: 9em;
+  }
 
-   #info > div {
-    width: 19em;
-    height: 4.75em;
-    margin: 1.75em 0 0 32.75em;
-    float: left;
-   }
+  #info > div {
+  width: 19em;
+  height: 4.75em;
+  margin: 1.75em 0 0 32.75em;
+  float: left;
+  }
 
-   .copy {
-     width: 92.5em;
-     height: 43.75em;
-     margin: 12em 0 0 6.5em;
-   }
+  #email {
+    width: 99em;
+    height: 56.5em;
+  }
 
-   .headr {
-     width: 92.5em;
-     margin: 3.25em 0 0 6.5em;
-   }
+  #email-blok {
+    transform: translate(20%, 8%);
+  }
 
-   .sctn_1-blok, 
-   .sctn_3-blok, 
-   .sctn_4-link, 
-   #sctn_5-job_titles {
-     width: 20em;
-   }
+  #email-bkgrnd {
+    width: 99em;
+    height: 56.5em;
+  }
 
-   #sctn_2-video {
-     width: 50em;
-     height: 28.1em;
-     margin-left: 17em;
-   }
+  #email a {
+    top: 2em;
+    left: 13.5em;
+  }
 
-   #sctn_2-document {
-     width: 38em;
-     height: 28.55em;
-     margin-left: 22.5em;
-   }
+  .copy {
+    width: 92.5em;
+    height: 43.75em;
+    margin: 12em 0 0 6.5em;
+  }
 
-   .sctn_4-link {
-     height: 5em;
-   }
+  .headr {
+    width: 92.5em;
+    margin: 3.25em 0 0 6.5em;
+  }
 
-   #sctn_5-job_titles {
-     left: 56em;
-   }
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-link, 
+  #sctn_5-job_titles {
+    width: 20em;
+  }
+
+  #sctn_2-video {
+    width: 50em;
+    height: 28.1em;
+    margin-left: 17em;
+  }
+
+  #sctn_2-document {
+    width: 38em;
+    height: 28.55em;
+    margin-left: 22.5em;
+  }
+
+  .sctn_4-link {
+    height: 5em;
+  }
+
+  #sctn_5-job_titles {
+    left: 56em;
+  }
 }
 
 @media screen and (min-width: 1910px) {
@@ -887,23 +946,12 @@ body {
   }
 
   #email {
-    width: 65.75em;
+    width: 119em;
     height: 67.5em;
   }
 
   #email-blok {
-    width: 59.38em;
-    height: 37.88em;
-    position: relative;
     transform: translate(50%, 30%);
-  }
-
-  #email-borders {
-    width: 59.38em;
-  }
-
-  #email-content {
-    width: 59.38em;
   }
 
   #email-bkgrnd {
