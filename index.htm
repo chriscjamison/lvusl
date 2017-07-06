@@ -2,9 +2,10 @@
 <!-- FILENAME: index.htm // The "One Page" version of this template -->
 	<head>
 		<!-- TITLE -->
-		<title>USL - Las Vegas | Downtown Stadium - 2018</title>
+		<title>Las Vegas Pro Soccer 2018</title>
 		<!-- WEB FONT REFERENCE LINKS -->
-		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Istok+Web:400,700" rel="stylesheet">
+		<script src="https://use.typekit.net/oib3pua.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		<!-- STYLESHEET REFERENCE LINKS -->
 		<link rel="stylesheet" type="text/css" href="/lvusl/assets/css/main.css">
     <link rel="stylesheet" type="text/css" media="all" href="/lvusl/assets/css/nav.css">
@@ -24,12 +25,15 @@
 			<a class="nav-base" id="nav-link"></a>
 			<div id="options">
 				<a id="sctn_main">Welcome</a>
-				<a id="sctn_1">Reserve Season Tickets</a>
-				<a id="sctn_2">About USL</a>
-				<a id="sctn_3">About the Club</a>
-				<a id="sctn_4">News &amp; Notes</a>
-				<a id="sctn_5">Employment Page</a>
-				<a id="sctn_6">Social Media</a>
+				<a id="sctn_1">About United Soccer League</a>
+				<a id="sctn_2">About Las Vegas Pro Soccer</a>
+				<a id="sctn_3">FAQ&quot;s</a>
+				<a id="sctn_4">Reserve Season Tickets</a>
+				<a id="sctn_5">News &amp; Notes</a>
+				<a id="sctn_6">Name The Club</a>
+				<a id="sctn_7">Employment</a>
+				<a id="sctn_8">Social Media</a>
+				<a id="sctn_9">Social Media</a>
 			</div>
 			<div id="nav-bkgrnd">
 				<div id="nav-brdr"></div>
@@ -40,45 +44,46 @@
 			<!-- *** MAIN LANDING SECTION *** -->
 			<div class="wndow" id="wndow-sctn_main">
 				<div id="info">
-					<img src="/lvusl/assets/img/logo/logo_lg.png" width="665" height="80" alt="USL - Las Vegas Soccer Club | Downtown Stadium - 2018" />
+					<img src="/lvusl/assets/img/logo/logo_landing.png" width="225" height="175" alt="Las Vegas Pro Soccer 2018" />
 					<div>
+						<a href="#scnt_1?pos=0" title="Ver esta página en Español">Ver esta p&aacute;gina en Espa&ntilde;ol</a>
 						<a href="#email" title="Email Alerts">Email Alerts</a>
-						<a href="#sctn_1?pos=0" title="Reserve Season Tickets">Reserve Season Tickets</a>
+						<a href="#sctn_3?pos=0" title="Reserve Season Tickets">Reserve Season Tickets</a>
 					</div>
+					<p>
+						Our goal is to bring professional soccer to Las Vegas.
+						<br />
+						We are currently in negotiations with the City of Las Vegas to 
+						finalize an agreement to play in downtown Las Vegas at 10,000+ 
+						seat Cashman Field beginning in Spring 2018. 
+					</p>
 				</div>
 				<div id="email">
 					<div id="email-blok">
-						<img src="/lvusl/assets/img/splash/splash.jpg" width="950" height="460" alt="Enter your email address for email alerts!" />
-						<div id="email-borders">
-							<div></div>
-							<div></div>
-							<div></div>
+						<div class="visible" id="email-copy">
+							<img src="/lvusl/assets/img/email/logo_email.png" width="357" height="35" alt="Las Vegas Pro Soccer 2018" />
+							<p>
+							</p>
+							<div>
+								<a href="#email?pos=1">Yes, I'll Sign Up</a>
+								<a href="#sctn_main">No Thanks</a>
+							</div>
 						</div>
-						<div id="email-content">
+						<div class="not_visble" id="email-form">
 							<div>
 								<div class="visible">
-									<div>
-										<h4>Learn About USL-Las Vegas</h4>
-										<p>
-											Aliquam tempor est a eros pretium maximus nec at leo. Pellentesque convallis faucibus odio vel laoreet. 
-											Sed vestibulum nec lectus id semper.
-										</p>
-									</div>
-									<div>
-										<h4>Enter your email address below</h4>
-										<form method="post" action="#sctn_main?pos=email" name="sctn_main-email" id="sctn_main-email">
-											<input type="text" maxlength="60" value="you@lvusl.com" name="email" id="input-email" />
-											<input type="submit" name="email-submit_sign_up" value="Sign Up" id="input-submit_sign_up" />
-										</form>
-									</div>
+									<form method="post" action="#sctn_main?pos=email" name="sctn_main-email" id="sctn_main-email">
+									<fieldset>
+										<label>Please enter your full name</label>
+										<input type="text" size="35" maxlength="50" name="email_name" id="email_name" value="First and Last Name" />
+										<label>Please enter your email address</label>
+										<input type="text" size="35" maxlength="50" name="email_address" id="email_address" value="___@______.___" />
+									</fieldset>
+									</form>
 								</div>
-							</div>
-							<div class="not_visible">
-								<h1>Thank You for Your Interest!</h1>	
 							</div>
 						</div>						
 					</div>
-					<a href="#sctn_main" title="Close"></a>
 					<div id="email-bkgrnd"></div>
 				</div>
 			<!-- END of MAIN LANDING SECTION -->
