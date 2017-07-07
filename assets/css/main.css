@@ -88,6 +88,68 @@ body {
    sub-sections.
 */
 
+#info > div > a:hover, 
+.sctn_4-article + a:hover, 
+.sctn_nav > div > a:hover {
+  border: 1px solid #fff113;
+}
+/* Adds :hover events to the links which appear as buttons. */
+
+#info > div > a:first-of-type,
+#info > div > p,
+#wndow_footer-main > span, 
+#email-content p {
+  font-family: 'cholla-wide', sans-serif;
+  letter-spacing: 0.7px;
+}
+/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
+
+#info > div > a,
+#email a, 
+.sctn_4-article + a,  
+.sctn_nav > div > a {
+  font-family: 'korolev-military-stencil', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+/* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
+
+#info > div > a,
+.sctn_4-article + a {
+  color: #fff113; 
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+#email a {
+  color: #00a1e1;
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+#email a {
+  text-decoration: none;
+}
+/* Deactivates the underline attribute of the above elements. */
+
+#info > div > a:first-of-type,
+#info > div > p, 
+#wndow_footer-main > span {
+  text-shadow: 1px 1px #333;
+}
+/* Sets the text within the above elements to display with a shadow. */
+
+#email-content p {
+  line-height: 1.4em;
+}
+/* Sets the line height of the above elements. */
+
+#email-content, 
+#email a {
+  box-shadow: 1px 1px 2px 1px #333;
+}
+/* Adds a shadow to the above elements using the 'box-shadow' property. */
+
 
 
 /* ---- 'MAIN LANDING PAGE' ---- 
@@ -97,7 +159,6 @@ body {
 
 #info {
 	position: relative;
-  opacity: 0;
 }
 /* Formats a <div> which contains the logo and <ul> list which is displayed 
  * in the landing portion.
@@ -108,7 +169,6 @@ body {
 	display: none;
   position: relative;
   float: left;
-	opacity: 0;
 }
 /* Formats the logo which is contained within the <div> using the selctor, "#info". */
 
@@ -134,34 +194,10 @@ body {
   background-color: #00a1e1;
   border: 1px solid #00a1e1;
   font-size: 1.2em;
-  font-family: 'korolev-military-stencil', sans-serif;
-  color: #fff113;
-  font-weight: 400;
   text-decoration: none;
   text-align: center;
-  letter-spacing: 0.4px;
 }
 /* Formats the links which appear as buttons. */
-
-#info > div > a:hover, 
-.sctn_4-article + a:hover, 
-.sctn_nav > div > a:hover {
-  border: 1px solid #fff113;
-}
-/* Adds :hover events to the links which appear as buttons. */
-
-#info > div > a:first-of-type,
-#info > div > p, 
-#wndow_footer-main > span {
-  font-family: 'cholla-wide', sans-serif;
-}
-/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
-
-#info > div > a:first-of-type,
-#info > div > p, 
-#wndow_footer-main > span {
-  text-shadow: 1px 1px #333;
-}
 
 #info > div > a:first-of-type, 
 .sctn_4-article + a {
@@ -173,7 +209,6 @@ body {
   color: #fff113;
   font-weight: 700;
   text-decoration: underline;
-  letter-spacing: 0.7px;
 }
 /* 
  * Formats the link, 'Email Alerts', which appears to the right of the logo within 
@@ -181,7 +216,12 @@ body {
  * formatting is smaller than the link, 'Reserve Season Tickets'.
  */
 
-#info > div > a {
+#info, 
+#info > div > a, 
+#info > img, 
+#info > div > p, 
+#info > div > div, 
+#wndow_footer-main > span {
   opacity: 0;
 }
 /* Formats the <a> elements which appear to the right of the logo on 'MAIN LANDING SECTION'. */
@@ -195,7 +235,7 @@ body {
  */
 
  #info > div > p {
-  width: 23.6em;
+  width: 24.5em;
   margin-top: 0.5em;
   position: relative;
   float: right;
@@ -205,8 +245,6 @@ body {
   font-weight: 700;
   text-align: justify;
   line-height: 1.35em;
-  letter-spacing: 0.4px;
-  text-shadow: 1px 1px #333;
 }
 /* 
  * Formats the paragraph that appears below the link near the upper left 
@@ -260,129 +298,58 @@ body {
 }
 /* Formats the <div> element which holds the email alert splash page. */
 
-#email-blok {
-  width: 59.38em;
-  height: 36em;
-  position: relative;
-  float: left;
-  background-image: url('/lvusl/assets/img/splash/on_load.jpg');
-}
-/* Formats the <div> element which holds HTML content and "Close" button. */
-
-#email-blok {
-  box-shadow: 1px 1px 2px 1px #333;
-}
-
-#email-borders {
-  width: 59.38em;
-  height: 0.63em;
-}
-/* Formats the lines which appear at the bottom of the splash page cover image */
-
-#email-borders > div:nth-child(1) {
-  height: 0.19em;
-  background-color: #e6ad83;
-}
-/* 
- * Formats the top line of the lines which appear at the bottom of the 
- * splash page cover image.
- */
-
-#email-borders > div:nth-child(2) {
-  height: 0.25em;
-  background-color: #964d48;
-}
-/* 
- * Formats the middle line of the lines which appear at the bottom of the 
- * splash page cover image.
- */
-
-#email-borders > div:nth-child(3) {
-  height: 0.19em;
-  background-color: #451e20;
-}
-/* 
- * Formats the bottom line of the lines which appear at the bottom of the 
- * splash page cover image.
- */
-
 #email-content {
-  width: 59.38em;
-  height: 7.19em;
-  position: absolute;
-  background-color: #964d48;
-  font-family: 'Istok Web', sans-serif;
+  width: 23.13em;
+  height: 21em;
+  padding: 2.5em;
+  display: block;
+  background-image: url('/lvusl/assets/img/misc/bkgrnd_copy.png');
+  border: 2px solid #f51b74;
 }
 /* 
  * Formats the <div> element which holds the copy contained within the 
  * splash page.
  */
 
-#email-content > div:first-of-type, 
-#email-content > div:nth-child(2) {
-  position: absolute;
+#email-content img {
+  margin: 0 auto 1.25em auto;
+  display: block;
 }
 /* 
- * Formats <div> element which holds the description and the <div> element 
- * which holds the question field.
+ * Formats the logo image which displays on the 'splash' of the loading 
+ * of the webpage.
  */
-
-#email-content > div:first-of-type {
-  padding: 1em;
-}
-/* Formats <div> element which holds the copy and question field content. */
-
-#email-content > div:nth-child(2) {
-  padding: 2.25em 0 2em 16em;
-  font-family: 'Istok Web', sans-serif;
-}
-/* Formats the <div> element which holds the question field. */
-
-#email-content > div > div > div:nth-child(1) {
-  width: 33.25em;
-  float: left;
-}
-/* Formats the <div> element which contains the description. */
-
-#email-content > div > div > div:nth-child(2) {
-  margin-top: 0.25em;
-  float: left;
-}
-/* Formats the <div> element which contains the question field. */
-
-#email-content > div > div > div > h4 {
-  margin: 0;
-  color: #e6ad83;
-}
-/* Formats the header for the description. */
 
 #email-content p {
   margin: 0.25em 0 0 0;
-  color: #451e20;
+  padding: 1em 0;
+  font-size: 1.1em;
+  color: #00a1e1;
+  text-align: justify;
 }
 /* Formats the <p> element which contains the description copy. */
 
-#email-content > div > div > div + div > h4 {
-  margin: 0;
-  color: #111;
+#email-content > div > div {
+  width: 23em;
+  height: 6.25em;
+  margin: 1.5em auto 0 auto;
 }
-/* Formats the header for the question field. */
-
-#email-content h1 {
-  margin: 0;
-  color: #e6ad83;
-}
-/* Formats the confirmation message. */
+/* Formats the <div> elements holding the Calls to Action used on the splash screen. */
 
 #email a {
-  width: 3.13em;
-  height: 3.13em;
-  position: relative;
+  width: 8.87em;
+  height: 1.25em;
+  padding: 2em 0;
   display: block;
   float: left;
-  background-image: url('/lvusl/assets/img/splash/close.png');
+  background-color: #fff113;
+  color: #00a1e1;
 }
-/* Formats the gray 'X' that appears to the right of the splash page content. */
+/* Formats the Calls to Action used within the Splash screen. */
+
+#email a:nth-child(2) {
+  margin-left: 1.4em;
+}
 
 #email-bkgrnd {
   position: absolute;
@@ -1037,8 +1004,8 @@ body {
     height: 67.5em;
   }
 
-  #email-blok {
-    transform: translate(50%, 30%);
+  #email-content {
+    transform: translate(157%, 47%);
   }
 
   #email-bkgrnd {

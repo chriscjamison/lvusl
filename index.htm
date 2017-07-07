@@ -68,7 +68,7 @@
 					<span>Proposed Cashman Field Renovation</span>
 				</div>
 				<div id="email">
-					<div id="email-blok">
+					<div id="email-content">
 						<div class="visible" id="email-copy">
 							<img src="/lvusl/assets/img/logo/logo_email.png" width="357" height="35" alt="Las Vegas Pro Soccer 2018" />
 							<p>
@@ -78,22 +78,20 @@
 							</p>
 							<div>
 								<a href="#email?pos=1">Yes, I'll Sign Up</a>
-								<a href="#sctn_main">No Thanks</a>
+								<a href="#sctn_main?pos=email">No Thanks</a>
 							</div>
 						</div>
-						<div class="not_visble" id="email-form">
-							<div>
-								<div class="visible">
-									<form method="post" action="#sctn_main?pos=email" name="sctn_main-email" id="sctn_main-email">
-									<fieldset>
-										<label>Please enter your full name</label>
-										<input type="text" size="35" maxlength="50" name="email_name" id="email_name" value="First and Last Name" />
-										<label>Please enter your email address</label>
-										<input type="text" size="35" maxlength="50" name="email_address" id="email_address" value="___@______.___" />
-									</fieldset>
-									</form>
-								</div>
-							</div>
+						<div class="not_visible" id="email-form">
+							<img src="/lvusl/assets/img/logo/logo_email.png" width="357" height="35" alt="Las Vegas Pro Soccer 2018" />
+							<form method="post" action="#sctn_main" name="sctn_main-email" id="sctn_main-email">
+								<fieldset>
+									<label>Please enter your full name</label>
+									<input type="text" size="35" maxlength="50" name="email_name" id="email_name" value="First and Last Name" />
+									<label>Please enter your email address</label>
+									<input type="text" size="35" maxlength="50" name="email_address" id="email_address" value="___@______.___" />
+								</fieldset>
+								<input type="submit" value="Sign Up!" name="email_submit" id="email_submit" />
+							</form>
 						</div>						
 					</div>
 					<div id="email-bkgrnd"></div>

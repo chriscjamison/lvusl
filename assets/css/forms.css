@@ -70,17 +70,17 @@
 
 input[type=button],
 input[type=submit] {
-	width: 7.5em;
-  height: 3em;
-	margin: 0 0 0 1.2em;
-	padding: 0.75em 0.75em 0.75em 0.6em;
+	width: 9.05em;
+  height: 5.21em;
 	float: right;
-	background-color: #f7941d;
-	border: 2px solid #a0410d;
-  font-size: 1em;
-  font-family: 'Istok Web', sans-serif;
-  color: #000;
-  text-decoration: none;
+	padding: 0;
+	background-color: #fff113;
+	border: none;
+	box-shadow: 1px 1px 2px 1px #333;
+	font-size: 1.2em;
+  font-family: 'korolev-military-stencil', sans-serif;
+	color: #00a1e1;
+	letter-spacing: 0.4px;
 	cursor: pointer;
 }
 /* Formats which appear as buttons throughout the webpage. */
@@ -89,22 +89,47 @@ input[type=submit] {
 	letter-spacing: -1.2px;
 }
 
+#email-form fieldset {
+	margin: 1.75em 0 0 0.4em;
+	padding: 0;
+	border: none;
+}
+
+#email-form label {
+	font-family: 'cholla-wide', sans-serif;
+	font-weight: 700;
+	color: #fff;
+  letter-spacing: 0.7px;
+}
+
+#email_submit {
+	margin-right: 0.25em;
+}
+
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
 
 input[type=text],
 input[type=email] {
-	padding: 0.35em 0 0.2em 0.6em;
+	padding: 0.35em 0 0.5em 0.6em;
 	border: 2px solid #ccc;
-	font: 400 1em "Istok Web", sans-serif;
+	font-family: 'cholla-wide', sans-serif;
+	font-size: 1.1em;
 	color: #aaa;
-	letter-spacing: 1px;
+	letter-spacing: 0.7px;
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
 
-#input-email {
-	width: 14.5em;
-	margin: 0.55em 0;
+#email-form input[type='text'] {
+	width: 20.4em;
+	margin: 0.5em 0 1.5em 0;
+	display: block;
 }
+/* Formats the <input> elements within the Email Alerts form. */
+
+#email-form input[type='text']:nth-child(2) {
+	margin-bottom: 1.25em;
+}
+
 /* 
  * Formats the layout of the <input> element which appears within the email alert
  * splash screen.

@@ -535,11 +535,17 @@ function animateInfoElement(time_value) {
   var info_selector = new String();
   var info_img_selector = new String();
   var info_a_selector = new String();
+  var info_div_selector = new String();
+  var info_p_selector = new String();
+  var wndow_footer_span_selector = new String();
 
   var wndow_element = new Object();
   var info_element = new Object();
   var info_img_element = new Object();
   var info_a_element = new Object();
+  var info_div_element = new Object();
+  var info_p_element = new Object();
+  var wndow_footer_span_element = new Object();
 
   var display_block_css = new Object();
   var opacity_css = new Object();
@@ -549,11 +555,17 @@ function animateInfoElement(time_value) {
   info_selector = "#info";
   info_img_selector = "#info > img";
   info_a_selector = "#info > div > a";
+  info_div_selector = "#info > div > div";
+  info_p_selector = "#info > div > p";
+  wndow_footer_span_selector = "#wndow_footer-main > span";
 
   wndow_element = $jQ(wndow_selector);
   info_element = $jQ(info_selector);
   info_img_element = $jQ(info_img_selector);
   info_a_element = $jQ(info_a_selector);
+  info_div_element = $jQ(info_div_selector);
+  info_p_element = $jQ(info_p_selector);
+  wndow_footer_span_element = $jQ(wndow_footer_span_selector);
 
   display_block_css = {
     display: "block"
@@ -577,7 +589,7 @@ function animateInfoElement(time_value) {
   // 
   // This animation occurs over an interval which is twice the time of 
   // a "menu" HTML element to animate.
-  $jQ(info_element).css(display_block_css).css(opacity_css);
+  $jQ(info_element).css(opacity_css);
   // Allow the HTML element, which uses the selctor, "#info", to be visible 
   // within a browser window. The "display" CSS property is set to "display" 
   // and the "opacity" of "#info" is set to "1".
@@ -586,7 +598,7 @@ function animateInfoElement(time_value) {
   //
   // The jQuery Method, ".css", is used twice because using both variables 
   // within one ".css" call would make the HTML element, "#info" visibly flash. 
-  $jQ(info_img_element).css(display_block_css);
+  // $jQ(info_img_element).css(display_block_css);
   // The HTML element using the selctor, "#info > img" is made visible by 
   // setting the "display" CSS property to "block".
   //
@@ -596,8 +608,19 @@ function animateInfoElement(time_value) {
   // Fade the HTML element, using the selector, "#info > img" 
   // from an opacity of "0" to "1".
     function () {
-      $jQ(info_a_element).fadeTo(time_value, 1);
-      // Make the HTML elements using the selector, "#info > img + div > a" visible.
+      $jQ(info_a_element).fadeTo(time_value, 1, 
+      // Fade in the links which appear to the right of the logo.
+        function () {
+          $jQ(info_div_element).fadeTo(time_value, 1);
+          // Fade in the line which appears below the links near the top of the browser window.
+          $jQ(info_p_element).fadeTo(time_value, 1, 
+          // Fade in the text which appears below the link near the top of the browser window.
+            function () {
+              $jQ(wndow_footer_span_element).fadeTo(time_value, 1);
+            }
+          );
+        }
+      );
     }
   );
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
@@ -708,7 +731,8 @@ function animateEmailAlert(url_hash, time_value)  {
    *  Displays and removes the splash page which appears when a visitor requests 
    *  information about receiving email alerts.
    * **************** *************** **************** **************** **************** */
-
+  var time_value_short = new Number();
+  
   var email_selector = new String();
   var info_selector = new String();
 
@@ -720,8 +744,10 @@ function animateEmailAlert(url_hash, time_value)  {
 
   var email_display_value = new String();
 
+  time_value_short = Math.round(time_value / 2);
+
   email_selector = "#email";
-  info_selector = "#info";
+  info_selector = "#info, #wndow_footer-main";
 
   email_element = $jQ(email_selector);
   info_element = $jQ(info_selector);
@@ -735,6 +761,19 @@ function animateEmailAlert(url_hash, time_value)  {
   if (email_display_value === "none") {
   // If the splash page is not visible, this condition is triggered.
 
+    $jQ(email_element).css(opacity_zero_css);
+    // Set the opacity of the <div> element holding the Email Alert content to 0.
+    $jQ(email_element).css(email_visibility_css);
+    // Make the <div> element holding the Email Alert content able to be visible.
+
+    $jQ(info_element).fadeTo(time_value_short, 0);
+    // Fade out the content in 'MAIN LANDING SECTION'.
+    $jQ(email_element).fadeTo(time_value, 1);
+    // Fade in the Email Alert content.
+
+  } else {
+  // Otherwise, if the splash page is visible, this condition is triggered.
+
     var email_section_search_string = new String();
     // Holds the String, "pos=email", which is searched for in, 
     // "url_hash".
@@ -742,66 +781,72 @@ function animateEmailAlert(url_hash, time_value)  {
     // Holds the location within, "url_hash", that "pos=email" is 
     // found.
 
-    email_section_search_string = "pos=email";
+    email_section_search_string = "#email?pos=1";
     email_section_index_num = url_hash.indexOf(email_section_search_string);
     
-    email_visibility_css = {
-      display: "block"
-    };
+    if (email_section_index_num !== -1) {
+    // If the URL hash reflects the event of a visitor wishing 
+    // to enter their information into the form, this condition is triggered.
+      
+      var div_selector = new String();
+      var div_2_selector = new String();
 
-    $jQ(email_element).css(opacity_zero_css);
-    $jQ(email_element).css(email_visibility_css);
+      var div_1_element = new Object();
+      var div_2_element = new Object();
 
-    $jQ(info_element).fadeTo(time_value, 0, 
-    // The logo and <a> elements within 'MAIN LANDING SECTION' 
-    // are faded out.
+      var div_block_css = new Object();
+      var div_none_css = new Object();
 
-      function () {
-        if (email_section_index_num !== -1) {
-        // If the URL hash reflects the event of a visitor 
-        // submitting their email address, this condition is triggered.
+      div_1_selector = "#email-copy";
+      div_2_selector = "#email-form";
 
-          var div_1_selector = new String();
-          var div_2_selector = new String();
+      div_1_element = $jQ(div_1_selector);
+      div_2_element = $jQ(div_2_selector);
 
-          var div_1_element = new Object();
-          var div_2_element = new Object();
+      div_block_css = {
+        display: "block"
+      };
+      
+      div_none_css = {
+        display: "none"
+      };
 
-          div_1_selector = "#email-content .visible";
-          div_2_selector = "#email-content .not_visible";
+      $jQ(div_1_element).fadeTo(time_value_short, 0);
+      
+      $jQ(div_1_element).css(div_none_css);
+      $jQ(div_2_element).css(div_block_css);
 
-          div_1_element = $jQ(div_1_selector);
-          div_2_element = $jQ(div_2_selector);
+      $jQ(div_1_element).removeClass();
+      $jQ(div_1_element).addClass("not_visible");
 
-          $jQ(div_1_element).removeClass();
-          $jQ(div_1_element).addClass("not_visible");
+      $jQ(div_2_element).removeClass();
+      $jQ(div_2_element).addClass("visible");
 
-          $jQ(div_2_element).removeClass();
-          $jQ(div_2_element).addClass("visible");
+      $jQ(div_2_element).fadeTo(time_value, 1);
+    } else {
+    // Otherwise, if the visitor has either submitted their information 
+    // or declined to enter their email address, this condition is triggered.
+      var time_value_short = new Number();
+
+      email_visibility_css = {
+        display: "none"
+      };
+
+      time_value_short = Math.round(time_value / 2);
+
+      $jQ(email_element).fadeTo(time_value, 0, 
+      // The splash page is faded out.
+
+        function () {
+          $jQ(info_element).fadeTo(time_value_short, 1);
+          $jQ(email_element).css(email_visibility_css);
         }
+      );
+    } // END of "if" STATEMENT which is triggered if the visitor wishes to enter 
+      // the email address into the form.
+  } // END of "if" STATEMENT which is triggered if the Email Alert content is 
+    // not visible.
 
-        $jQ(email_element).fadeTo(time_value, 1);        
-      }
-    );
-  } else {
-  // Otherwise, if the splash page is visible, this condition is triggered.
-
-    var time_value_short = new Number();
-
-     email_visibility_css = {
-      display: "none"
-    };
-
-    time_value_short = Math.round(time_value / 2);
-
-    $jQ(email_element).fadeTo(time_value, 0, 
-    // The splash page is faded out.
-
-      function () {
-        $jQ(info_element).fadeTo(time_value_short, 1);
-        $jQ(email_element).css(email_visibility_css);
-      })
-  }
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */
 
 

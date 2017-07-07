@@ -194,7 +194,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#email a").click(
+    $jQ("#email-content > div > a:nth-child(2)").click(
     // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
     // appears to the right of the email alert content.
 
@@ -625,7 +625,7 @@ $jQ(document).ready(
             animateEmailAlert(url_hash, time_value);
           }
         }
-
+        
         section_value = url_hash.charAt(6);
 
         if (section_value === "1") {
@@ -636,7 +636,9 @@ $jQ(document).ready(
           // "formatHeader" formats the text of the header for the Section 
           // which contains the season ticket reservation form based upon 
           // the URL hash. 
-        }        
+        }
+
+        window.location.hash = "#email";        
       }
     );
     
@@ -884,7 +886,7 @@ $jQ(document).ready(
             // alerts or the location of the webpage within the browser window 
             // is 1, this condition is triggered.
 
-              animateEmailAlert(url_hash);
+              animateEmailAlert(url_hash, time_value);
               // "animateEmailAlert" displays content which allows the visitor 
               // to sign up for an email alert.
             }
