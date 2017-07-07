@@ -96,7 +96,7 @@ body {
  */
 
 #info {
-	position: absolute;
+	position: relative;
   opacity: 0;
 }
 /* Formats a <div> which contains the logo and <ul> list which is displayed 
@@ -113,7 +113,7 @@ body {
 /* Formats the logo which is contained within the <div> using the selctor, "#info". */
 
 #info > div {
-  height: 4.75em;
+  height: 9.75em;
   float: left;
 }
 /* 
@@ -125,34 +125,55 @@ body {
 #info > div > a,
 .sctn_4-article + a,  
 .sctn_nav > div > a {
-  width: 7.5em;
-  height: 3em;
+  width: 12.5em;
+  height: 1.5em;
   margin-right: 0.5em;
-  padding: 0.75em;
+  padding: 0.15em;
   display: block;
   float: left;
-  background-color: #ffff66;
-  border: 2px solid #ffff66;
-  font-size: 1em;
-  font-family: 'Istok Web', sans-serif;
-  color: #000;
+  background-color: #00a1e1;
+  border: 1px solid #00a1e1;
+  font-size: 1.2em;
+  font-family: 'korolev-military-stencil', sans-serif;
+  color: #fff113;
   font-weight: 400;
   text-decoration: none;
   text-align: center;
+  letter-spacing: 0.4px;
 }
 /* Formats the links which appear as buttons. */
 
 #info > div > a:hover, 
 .sctn_4-article + a:hover, 
 .sctn_nav > div > a:hover {
-  border: 2px solid #a0410d;
+  border: 1px solid #fff113;
 }
 /* Adds :hover events to the links which appear as buttons. */
 
+#info > div > a:first-of-type,
+#info > div > p, 
+#wndow_footer-main > span {
+  font-family: 'cholla-wide', sans-serif;
+}
+/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
+
+#info > div > a:first-of-type,
+#info > div > p, 
+#wndow_footer-main > span {
+  text-shadow: 1px 1px #333;
+}
+
 #info > div > a:first-of-type, 
 .sctn_4-article + a {
+  width: 12.5em;
   height: 1.5em;
-  padding: 1.5em 0.75em;
+  padding-top: 0.3em;
+  background: none;
+  border: none;
+  color: #fff113;
+  font-weight: 700;
+  text-decoration: underline;
+  letter-spacing: 0.7px;
 }
 /* 
  * Formats the link, 'Email Alerts', which appears to the right of the logo within 
@@ -165,27 +186,92 @@ body {
 }
 /* Formats the <a> elements which appear to the right of the logo on 'MAIN LANDING SECTION'. */
 
-#info > div > a:nth-child(2) {
+#info > div > a:nth-child(4) {
   margin-right: 0;
 }
 /* 
  * Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
  * within MAIN LANDING SECTION.
- */ 
+ */
+
+ #info > div > p {
+  width: 23.6em;
+  margin-top: 0.5em;
+  position: relative;
+  float: right;
+  right: 9.5em;
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: 700;
+  text-align: justify;
+  line-height: 1.35em;
+  letter-spacing: 0.4px;
+  text-shadow: 1px 1px #333;
+}
+/* 
+ * Formats the paragraph that appears below the link near the upper left 
+ * of the browser window.
+ */
+
+#info > div > div {
+  width: 23em;
+  height: 2em;
+  margin: 1em 10em;
+  position: relative;
+  left: 17.75em;
+  clear: both;
+}
+
+#info > div > div > span {
+  width: 7.3em;
+  height: 2em;
+  display: inline-block;
+}
+
+#info > div > div > span:nth-child(1), 
+#info > div > div > span:nth-child(3) {
+  border-bottom: 1px dotted #f51b74;
+}
+
+#info > div > div > span:nth-child(2) {
+  border-bottom: 1px solid #f51b74;
+}
+
+#wndow_footer-main {
+  position: relative;
+  height: 52.5em;
+}
+
+#wndow_footer-main > span {
+  display: block;
+  position: absolute;
+  left: 1.7em;
+  bottom: 9.5em;
+  font-size: 1.1em;
+  color: #fff;
+  letter-spacing: 0.7px;
+}
 
 #email {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: none;
 }
 /* Formats the <div> element which holds the email alert splash page. */
 
 #email-blok {
   width: 59.38em;
-  height: 37.88em;
+  height: 36em;
   position: relative;
   float: left;
+  background-image: url('/lvusl/assets/img/splash/on_load.jpg');
 }
 /* Formats the <div> element which holds HTML content and "Close" button. */
+
+#email-blok {
+  box-shadow: 1px 1px 2px 1px #333;
+}
 
 #email-borders {
   width: 59.38em;
@@ -803,7 +889,8 @@ body {
   }
 
   #info > div {
-    margin: 1.75em 1.75em 0 18.5em;
+    width: 63.7em;
+    margin: 2.75em 0 0 1.25em;
   }
 
   #email {
@@ -937,12 +1024,12 @@ body {
 
   #info {
     width: 119em;
-    height: 6.75em;
+    height: 15em;
   }
 
   #info > div {
-    width: 19em;
-    margin: 1.75em 0 0 53.25em;
+    width: 63.75em;
+    margin: 1.5em 0 0 36.25em;
   }
 
   #email {
