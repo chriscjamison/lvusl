@@ -638,7 +638,9 @@ $jQ(document).ready(
           // the URL hash. 
         }
 
-        window.location.hash = "#email";        
+        if (url_hash !== "#sctn_main" ) {
+          animateEmailAlert(url_hash, time_value);
+        }        
       }
     );
     

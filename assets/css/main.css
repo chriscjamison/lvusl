@@ -57,23 +57,32 @@ body {
  /* Formats the <div> elements which hold the background images for the individual sections. */
 
 .headr {
-	height: 2.7em;
-  margin: 3.25em 0 0 6.5em;
-	position: absolute;
-	top: 3.13em;
+	height: 4.4em;
+	position: relative;
 	opacity: 0;
 }
 /* Formats the <div> which holds the 'SECTION' title for a given section. */
 
-.headr > span {
-  width: 14.75em;
+.headr > div > span {
+  width: 16.25em;
   display: block;
-  font: 400 2.5em 'Alfa Slab One', 'Cambria', serif;
-	letter-spacing: 4px;
+  font: 400 italic 2.75em 'amboy', sans-serif;
+  color: #fff;
+	letter-spacing: 1px;
 }
 /* Formats the <span> element which holds the text of the 'SECTION' title of a 
  *  particular section. 
  */
+
+ .headr > div {
+   float: left;
+ }
+
+ .headr > div:nth-child(2) {
+   margin-top: 2.1em;
+ }
+
+ .headr >
 
 .copy {
   display: none;
@@ -98,7 +107,8 @@ body {
 #info > div > a:first-of-type,
 #info > div > p,
 #wndow_footer-main > span, 
-#email-content p {
+#email-content p,
+.headr > div > a {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -107,7 +117,8 @@ body {
 #info > div > a,
 #email a, 
 .sctn_4-article + a,  
-.sctn_nav > div > a {
+.sctn_nav > div > a, 
+.headr > div + div > a {
   font-family: 'korolev-military-stencil', sans-serif;
   font-size: 1.2em;
   font-weight: 400;
@@ -117,7 +128,8 @@ body {
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
 
 #info > div > a,
-.sctn_4-article + a {
+.sctn_4-article + a, 
+.headr > div + div > a {
   color: #fff113; 
 }
 /* Sets the color of the above elements to a shade of blue. */
@@ -127,14 +139,17 @@ body {
 }
 /* Sets the color of the above elements to a shade of blue. */
 
-#email a {
+#email a, 
+.headr > div + div > a {
   text-decoration: none;
 }
 /* Deactivates the underline attribute of the above elements. */
 
 #info > div > a:first-of-type,
 #info > div > p, 
-#wndow_footer-main > span {
+#wndow_footer-main > span,
+.headr > div > span, 
+.headr > div > a {
   text-shadow: 1px 1px #333;
 }
 /* Sets the text within the above elements to display with a shadow. */
@@ -145,7 +160,7 @@ body {
 /* Sets the line height of the above elements. */
 
 #email-content, 
-#email a {
+#email a{
   box-shadow: 1px 1px 2px 1px #333;
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
@@ -183,6 +198,8 @@ body {
  */
 
 #info > div > a,
+.headr > div > a, 
+.headr > div + div > a, 
 .sctn_4-article + a,  
 .sctn_nav > div > a {
   width: 12.5em;
@@ -200,6 +217,7 @@ body {
 /* Formats the links which appear as buttons. */
 
 #info > div > a:first-of-type, 
+.headr > div > a,
 .sctn_4-article + a {
   width: 12.5em;
   height: 1.5em;
@@ -215,6 +233,12 @@ body {
  * MAIN LANDING SECTION. This link is formatted because the size of the button without 
  * formatting is smaller than the link, 'Reserve Season Tickets'.
  */
+
+ .headr > div > a {
+   padding: 0 0 0 0.75em;
+   float: none;
+ }
+ /* Formats the link which appears over the text of the header */
 
 #info, 
 #info > div > a, 
@@ -277,14 +301,13 @@ body {
 
 #wndow_footer-main {
   position: relative;
-  height: 52.5em;
 }
 
 #wndow_footer-main > span {
   display: block;
   position: absolute;
   left: 1.7em;
-  bottom: 9.5em;
+  bottom: 5em;
   font-size: 1.1em;
   color: #fff;
   letter-spacing: 0.7px;
@@ -362,11 +385,6 @@ body {
 /* Formats the dark gray background of the splash page. */
 
 /* ---- 'SECTION #1' ---- */
-
-.headr.sctn_1 > span {
-	color: #ffe272;
-}
-/* Formats the color of the <div> which holds the title of 'SECTION #1'. */
 
 .visible {
   display: block;
@@ -453,11 +471,6 @@ body {
 
 /* ---- 'SECTION #2' ---- */
 
-.headr.sctn_2 > span {
-	color: #b9def0;
-}
-/* Formats the color of the <span> which holds the title of 'SECTION #2'. */
-
 #sctn_2-video, 
 #sctn_2-document {
   padding: 1em;
@@ -471,11 +484,6 @@ body {
 
 
 /* ---- 'SECTION #3' ---- */
-
-.headr.sctn_3 > span {
-	color: #ffedac;
-}
-/* Formats the color of the <div> which holds the title of 'SECTION #3'. */
 
 #sctn_3-desc-1 {
   background-color: #e4e1fd;
@@ -510,11 +518,6 @@ body {
 
 
 /* ---- 'SECTION #4' ---- */
-
-.headr.sctn_4 > span {
-	color: #b05b4e;
-}
-/* Formats the color of the <div> which holds the title of 'SECTION #4'. */
 
 .sctn_4-link {
   margin: 0 1.5em 1.5em 0;
@@ -583,11 +586,6 @@ body {
 
 
 /* ---- 'SECTION #5' ---- */
-
-.headr.sctn_5 > span {
-	color: #ffe6ce;
-}
-/* Formats the color of the <div> which holds the title of 'SECTION #5'. */
 
 .sctn_5-blok {
   font-family: 'Istok Web', sans-serif;
@@ -712,11 +710,6 @@ body {
 
 
 /* ---- 'SECTION #6' ---- */
-
-.headr.sctn_6 > span {
-	color: #f4c887;
-}
-/* Formats the color of the <div> which holds the title of 'SECTION #6'. */
 
 .sctn_6-blok {
   width: 40.5em;
@@ -846,13 +839,17 @@ body {
     width: 85.38em;
   }
 
+  .headr {
+    margin: 2.75em 0 0 6.5em;
+  }
+
   #bkgrnd {
     width: 85.38em;
   }
 
   #info {
     width: 84.25em;
-    height: 9em;
+    height: 12.75em;
   }
 
   #info > div {
@@ -860,13 +857,18 @@ body {
     margin: 2.75em 0 0 1.25em;
   }
 
+  #wndow_footer-main {
+    height: 32.25em;
+  }
+  
+
   #email {
     width: 85.75em;
     height: 48em;
   }
 
-  #email-blok {
-    transform: translate(20%, 8%);
+  #email-content {
+    transform: translate(97%, 26%);
   }
 
   #email-bkgrnd {
@@ -880,7 +882,7 @@ body {
   }
 
   .headr {
-    width: 78em;
+    width: 77.8em;
   }
 
   .copy {
@@ -997,6 +999,10 @@ body {
   #info > div {
     width: 63.75em;
     margin: 1.5em 0 0 36.25em;
+  }
+
+  #wndow_footer-main {
+    height: 52.5em;
   }
 
   #email {

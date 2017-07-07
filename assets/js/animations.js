@@ -452,7 +452,7 @@ function setupPage(time_value)  {
         num_of_wndow_elements = $jQ(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
         
-        if (inc_bkgrnd === 1) {
+        if (inc_bkgrnd === 3) {
         // If the background image under processing is the background for 'SECTION #1", this 
         // condition is triggered.
 
