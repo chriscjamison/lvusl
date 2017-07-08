@@ -58,7 +58,7 @@ body {
 
 .headr {
 	height: 4.4em;
-	position: relative;
+	position: absolute;
 	opacity: 0;
 }
 /* Formats the <div> which holds the 'SECTION' title for a given section. */
@@ -95,6 +95,13 @@ body {
    sub-sections.
 */
 
+.blok-1 {
+  padding: 2.5em;
+  display: block;
+  background-image: url('/lvusl/assets/img/misc/bkgrnd_copy.png');
+  border: 2px solid #f51b74;
+}
+
 #info > div > a:hover, 
 .sctn_4-article + a:hover {
   border: 1px solid #fff113;
@@ -107,11 +114,12 @@ body {
 
 #info > div > a:first-of-type,
 #info > div > p,
-#wndow_footer-main > span, 
+#wndow_footer-main > span,
+#email-content a:first-of-type, 
 #email-content p,
 .headr > div > a, 
 .wndow_footer > a:nth-child(2), 
-#sctn_1-copy p {
+.blok-1 p {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -130,6 +138,7 @@ body {
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
 
 #info > div > a, 
+#email-content a:first-of-type,
 .headr > div + div > a, 
 .wndow_footer > a:nth-child(2) {
   color: #fff113; 
@@ -152,14 +161,14 @@ body {
 #info > div > p, 
 .wndow_footer > span,
 .wndow_footer > a:nth-child(2), 
-.headr > div > span, 
+.headr > div:first-of-type > span, 
 .headr > div > a {
   text-shadow: 1px 1px #333;
 }
 /* Sets the text within the above elements to display with a shadow. */
 
 #email-content p,
-#sctn_1-copy p {
+.blok-1 p {
   line-height: 1.4em;
 }
 /* Sets the line height of the above elements. */
@@ -172,7 +181,7 @@ body {
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
 
-#sctn_1-copy p {
+.blok-1 p {
   font-size: 1.1em;
   color: #fff;
 }
@@ -347,19 +356,15 @@ body {
 }
 /* Formats the <div> element which holds the email alert splash page. */
 
-#email-content, 
-#sctn_1-copy {
+#email-content {
   width: 23.13em;
   height: 21em;
-  padding: 2.5em;
-  display: block;
-  background-image: url('/lvusl/assets/img/misc/bkgrnd_copy.png');
-  border: 2px solid #f51b74;
 }
 /* 
  * Formats the <div> element which holds the copy contained within the 
  * splash page.
  */
+
 
 #email-content img {
   margin: 0 auto 1.25em auto;
@@ -844,6 +849,7 @@ body {
     top: 7em;
     left: 11em;
   }
+
   .headr {
     width: 66.25em;
   }
@@ -886,10 +892,6 @@ body {
     width: 85.38em;
   }
 
-  .headr {
-    margin: 2.75em 0 0 6.5em;
-  }
-
   #bkgrnd {
     width: 85.38em;
   }
@@ -930,6 +932,7 @@ body {
 
   .headr {
     width: 77.8em;
+    margin: 2.75em 0 0 6.5em;
   }
 
   .copy {
@@ -1051,7 +1054,7 @@ body {
   .wndow_footer {
     width: 117.25em;
     height: 7.25em;
-    bottom: 8.25em;
+    bottom: 4.25em;
   }
 
   #email {
@@ -1075,17 +1078,17 @@ body {
 
   .headr {
     width: 112.5em;
-    margin: 4em 0 0 6.25em;
+    margin: 1.25em 0 0 6.5em;
   }
 
   .headr > div:nth-child(2) {
-    margin-left: 34.25;
+    margin-left: 34.25em;
   }
 
   .copy {
     width: 113.5em;
-    height: 50.5em;  
-    margin: 13em 0 0 6.5em;
+    height: 53.5em;  
+    margin: 14em 0 0 6.5em;
   }
 
   .sctn_1-blok, 

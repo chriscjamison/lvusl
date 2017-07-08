@@ -197,7 +197,7 @@ nav {
  
 .sctn_nav > div {
   width: 52em;
-	height: 6.25em;
+	height: 6em;
 }
 /* Formats the <div> element which serves as a container for the <div> and <span> 
  * elements which make up the inter-sectional navigation for 'SECTION #3' 
@@ -382,7 +382,7 @@ nav {
 
   #nav-sctn_1 {
     width: 119em;
-    top: 6em;
+    top:7em;
     left: 6.5em;
   }
 }
