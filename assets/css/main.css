@@ -182,8 +182,7 @@ h2,
 }
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
 
-#info > div > a, 
-#email-content a:first-of-type,
+#info > div > a,
 .headr > div + div > a, 
 .wndow_footer > a:nth-child(2), 
 .faq_listing > ul > li > a, 
@@ -397,7 +396,7 @@ h2 {
 /* Formats the <div> element which holds the email alert splash page. */
 
 #email-content {
-  width: 23.13em;
+  width: 25.5em;
   height: 21em;
 }
 /* 
@@ -503,7 +502,7 @@ h2 {
 
 #sctn_1-copy {
   width: 25.5em;
-  height: 22.75em;
+  height: 32.75em;
 }
 
 #sctn_1-map img, 
@@ -677,71 +676,14 @@ h2 {
 
 /* ---- 'SECTION #4' ---- */
 
-.sctn_4-link {
-  margin: 0 1.5em 1.5em 0;
-  padding: 0.75em;
-  position: relative;
-  background-color: #d9af83;
-  font-family: 'Istok Web', sans-serif;
+#wndow-sctn_4 > .copy > .blok-1 {
+  width: 25.5em;
 }
-/* Formats the <div> elements which hold news links. */
 
-.sctn_4-link > a {
-  display: block;
-  color: #51300e;
-  padding-bottom: 0.75em;
+#sctn_4-confirmation {
+  position: absolute;
+  left: 16em;
 }
-/* Formats the news links. */
-
-.sctn_4-link > span {
-  color: #6b4014;
-}
-/* Formats the dates within the <div> elements */
-
-.sctn_4-article {
-  width: 50em;
-  height: initial;
-  padding: 1em 2em;
-  float: left;
-  background-color: #a2c1c9;
-  font-family: 'Istok Web', sans-serif;
-}
-/* Formats the <div> "block" which holds the news copy. */
-
-.sctn_4-article > h3 {
-  margin: 0;
-  color: #fff;
-  font-weight: 700;
-}
-/* Formats the title of the news article. */
-
-.sctn_4-article > span {
-  margin-bottom: 0.5em;
-  color: #fff;
-}
-/* Formats the date of the article. */
-
-.sctn_4-article > p:first-of-type {
-  margin-top: 0.75em;
-  padding-top: 1em;
-  border-top: 2px solid #33606D;
-}
-/* Formats the first <p> element within a news article. */
-
-.sctn_4-article > p {
-  color: #0E3743;
-}
-/* Formats the <p> elements within a news article. */
-
-.sctn_4-article + a {
-  margin-left: 1.75em;
-  float: left;
-}
-/* 
- * Formats the link to return to the page of link which 
- * appear to the right of the <div> element which holds the news article. 
- */
-
 
 /* ---- 'SECTION #5' ---- */
 
@@ -969,13 +911,13 @@ h2 {
     left: 44.5em;
   }
 
-  #sctn_2-video {
+  #sctn_1-video {
     width: 42.5em;
     height: 24em;
     margin-left: 11.25em;
   }
 
-  #sctn_2-document {
+  #sctn_1-document {
     width: 32.5em;
     margin-left: 15.5em;
   }
@@ -1197,7 +1139,8 @@ h2 {
     margin: 14em 0 0 6.5em;
   }
 
-  #wndow-sctn_2 .copy {
+  #wndow-sctn_2 .copy, 
+  #wndow-sctn_4 .copy {
     width: 102em;
     height: 60.5em;
     margin: 7em 0 0 17em;

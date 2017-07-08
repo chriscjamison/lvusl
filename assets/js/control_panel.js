@@ -468,7 +468,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#sctn_main-email, #sctn_1-request_tickets").submit(
+    $jQ("#sctn_main-email, #sctn_4-request_tickets").submit(
     // Validates the data contained within either the 'Email Alert' or 
     // 'Request Season Tickets' forms.
     
@@ -628,7 +628,7 @@ $jQ(document).ready(
         
         section_value = url_hash.charAt(6);
 
-        if (section_value === "1") {
+        if (section_value === "4") {
         // If the viewable Section is 'SECTION #1', the this condition is 
         // triggered.
           

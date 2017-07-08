@@ -220,26 +220,42 @@ function formatHeader(url_hash) {
    * **************** **************** **************** **************** **************** */
 
   var header_value_selector = new String();
+  var sub_nav_selector = new String();
+
   var header_value_element = new Object();
+  var sub_nav_element = new Object();
+  
   var header_string_val = new String();
 
-  var headr_css = new Object();
+  var sub_nav_not_visible = new Object();
+  var sub_nav_visible = new Object();
   
-  header_value_selector = ".headr.sctn_3 > span";
+  header_value_selector = ".headr.sctn_4 > div:first-of-type > span";
+  sub_nav_selector = "#nav-sctn_4";
 
   header_value_element = $jQ(header_value_selector);
+  sub_nav_element = $jQ(sub_nav_selector);
 
-  if (url_hash === "#sctn_3?pos=1") {
+  if (url_hash === "#sctn_4?pos=3") {
   // If the visitor has submitted a request for a season ticket, 
   // this condition is triggered.
 
     header_string_val = "Thank You for Your Interest";
-  } else if (url_hash === "#sctn_3?pos=0")  {
+
+    $jQ(sub_nav_element).removeClass();
+    $jQ(sub_nav_element).addClass("sub_nav not_visible");
+
+
+  } else if (url_hash === "#sctn_4?pos=0")  {
   // If the visitor has submitted a request for a season ticket, but 
   // used the main menu to navigate to 'SECTION #1', this condition 
   // is triggered.
 
     header_string_val = "Reserve Season Tickets";
+
+    $jQ(sub_nav_element).removeClass();
+    $jQ(sub_nav_element).addClass("sub_nav visible");
+
   }
   
   $jQ(header_value_element).text(header_string_val);
@@ -471,6 +487,7 @@ function setupPage(time_value)  {
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
+        width_height_css.width = bkgrnd_width;
         width_height_css.backgroundImage = bkgrnd_img_value;
         // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
@@ -486,10 +503,13 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
+        width_height_css.width = bkgrnd_width;
         width_height_css.backgroundImage = "url('/lvusl/assets/img/bkgrnd/main/" + bkgrnd_width +
                                            "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
+
+
       } // END OF if STATEMENT
       
       $jQ(this).css(width_height_css);
@@ -628,8 +648,8 @@ function animateForm(time_value) {
   var page_on_css = new Object();
   var opacity_zero_css = new Object();
  
-  page_1_selector = "#sctn_1-form > form > span + div";
-  page_2_selector = "#sctn_1-form > form > span + div + div";
+  page_1_selector = "#sctn_4-form > form > div";
+  page_2_selector = "#sctn_4-form > form > div + div";
   // "page_1_selector" now holds the selector used by the HTML element which contains 
   // the "first page" of the form this function is processing.
   //
@@ -1002,10 +1022,17 @@ function animatePageElements(time_value)  {
     // If the Section which is under processing is 'SECTION #1', this condition is 
     // triggered.
 
-      bkgrnd_element_width_val = window_width * position_value;
-      // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
-      // It is also the horizontal position within a background for a Section that matches 
-      // up with the viewable "window pane".
+      if (position_value === 3) {
+      // If the visitor has reserved a season ticket, 
+      // this condition is triggered.
+
+        bkgrnd_element_width_val = window_width;
+        // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
+        // It is also the horizontal position within a background for a Section that matches 
+        // up with the viewable "window pane".
+      } else {
+        bkgrnd_element_width_val = 0;
+      }
     } else {
     // Otherwise, for any other Section, this condition is triggered.
 
@@ -1015,7 +1042,6 @@ function animatePageElements(time_value)  {
     bkgrnd_element_x_position =  "-" + bkgrnd_element_width_val.toString() + "px 0px";
     // "bkgrnd_element_x_position" holds the value for the CSS property, "backgroundPosition" 
     // for the Section that this function is processing.
-
     $jQ(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
     // The background of the current Section that this function is processing 
     // is made to now match the viewable window pane.
@@ -1585,7 +1611,8 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
       if (section_value === 1 || 
-          section_value === 2)  {
+          section_value === 2 ||
+          section_value === 4)  {
       // If the current visible Section contains intrasection navigation, 
       // this condition is triggered.
  

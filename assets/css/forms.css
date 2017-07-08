@@ -72,7 +72,6 @@ input[type=button],
 input[type=submit] {
 	width: 9.05em;
   height: 5.21em;
-	float: right;
 	padding: 0;
 	background-color: #fff113;
 	border: none;
@@ -95,8 +94,11 @@ input[type=submit] {
 	border: none;
 }
 
-#email-form label {
+#email-form label, 
+#sctn_4-form label {
+	display: block;
 	font-family: 'cholla-wide', sans-serif;
+	font-size: 1.2em;
 	font-weight: 700;
 	color: #fff;
   letter-spacing: 0.7px;
@@ -104,6 +106,10 @@ input[type=submit] {
 
 #email_submit {
 	margin-right: 0.25em;
+}
+
+#sctn_4-form {
+	margin: 0;
 }
 
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
@@ -129,11 +135,14 @@ input[type=email] {
 #email-form input[type='text']:nth-child(2) {
 	margin-bottom: 1.25em;
 }
-
 /* 
  * Formats the layout of the <input> element which appears within the email alert
  * splash screen.
  */
+
+#sctn_4-request_tickets > div > div > input:first-of-type {
+	margin-top: 0.75em;
+}
 
 #input-full_name, 
 #input-address_1, 
@@ -181,6 +190,9 @@ input[type=email] {
  * season ticket requests.
  */
 
+#ticket_question_1 {
+	margin-bottom: 1.5em;
+}
 
 #ticket-question_2 > input {
 	margin-bottom: 0.5em;

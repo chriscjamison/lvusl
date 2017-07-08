@@ -213,7 +213,8 @@ nav {
 }
 
 #nav-sctn_1, 
-#nav-sctn_2 {
+#nav-sctn_2, 
+#nav-sctn_4 {
   top: 7em;
   left: 6.5em;
 }
@@ -255,20 +256,24 @@ nav {
   margin-right: 0;
 }
 
-#nav-sctn_2 {
+#nav-sctn_2, 
+#nav-sctn_4 {
   width: 9.75em;
 }
 
-#nav-sctn_2 > div {
+#nav-sctn_2 > div, 
+#nav-sctn_4 > div {
   width: 9.75em;
   height: 13em;
 }
 
-#nav-sctn_2 > div > a {
+#nav-sctn_2 > div > a, 
+#nav-sctn_4 > div > a {
   padding-top: 1.75em;
 }
 
-#nav-sctn_2 > div > a:nth-child(1) {
+#nav-sctn_2 > div > a:nth-child(1), 
+#nav-sctn_4 > div > a:nth-child(1) {
   margin-bottom: 0.75em;
 }
 
