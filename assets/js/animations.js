@@ -225,35 +225,23 @@ function formatHeader(url_hash) {
 
   var headr_css = new Object();
   
-  header_value_selector = ".headr.sctn_1 > span";
+  header_value_selector = ".headr.sctn_3 > span";
 
   header_value_element = $jQ(header_value_selector);
 
-  if (url_hash === "#sctn_1?pos=1") {
+  if (url_hash === "#sctn_3?pos=1") {
   // If the visitor has submitted a request for a season ticket, 
   // this condition is triggered.
 
     header_string_val = "Thank You for Your Interest";
-
-    headr_css = {
-      width: "17.75em", 
-      color: "#9fdd98"
-    };
-    
-  } else if (url_hash === "#sctn_1?pos=0")  {
+  } else if (url_hash === "#sctn_3?pos=0")  {
   // If the visitor has submitted a request for a season ticket, but 
   // used the main menu to navigate to 'SECTION #1', this condition 
   // is triggered.
 
     header_string_val = "Reserve Season Tickets";
-
-    headr_css = {
-      width: "14.75em", 
-      color: "#ffe272"
-    };
   }
   
-  $jQ(header_value_element).css(headr_css);
   $jQ(header_value_element).text(header_string_val);
 }
 
@@ -537,7 +525,7 @@ function animateInfoElement(time_value) {
   var info_a_selector = new String();
   var info_div_selector = new String();
   var info_p_selector = new String();
-  var wndow_footer_span_selector = new String();
+  var wndow_footer_selector = new String();
 
   var wndow_element = new Object();
   var info_element = new Object();
@@ -545,7 +533,7 @@ function animateInfoElement(time_value) {
   var info_a_element = new Object();
   var info_div_element = new Object();
   var info_p_element = new Object();
-  var wndow_footer_span_element = new Object();
+  var wndow_footer_element = new Object();
 
   var display_block_css = new Object();
   var opacity_css = new Object();
@@ -565,7 +553,7 @@ function animateInfoElement(time_value) {
   info_a_element = $jQ(info_a_selector);
   info_div_element = $jQ(info_div_selector);
   info_p_element = $jQ(info_p_selector);
-  wndow_footer_span_element = $jQ(wndow_span_selector);
+  wndow_footer_element = $jQ(wndow_footer_selector);
 
   display_block_css = {
     display: "block"

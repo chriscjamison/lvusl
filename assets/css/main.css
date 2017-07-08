@@ -166,7 +166,8 @@ body {
 
 #email-content, 
 #email a, 
-.sctn_nav > div > a {
+.sctn_nav > div > a, 
+.wndow_footer > a:nth-child(1) {
   box-shadow: 1px 1px 2px 1px #333;
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
@@ -311,7 +312,6 @@ body {
 .wndow_footer {
   position: absolute;
   left: 1.7em;
-  bottom: 5em;
   opacity: 0;
 }
 
@@ -324,9 +324,19 @@ body {
 }
 
 .wndow_footer > a:nth-child(1) {
-  width: 3.44em;
-  height: 3.5em;
+  width: 3.3em;
+  height: 3.3em;
+  margin-right: 0.75em;
+  display: block;
+  float: left;
   background-image: url('/lvusl/assets/img/misc/footer_link_logo.png');
+}
+
+.wndow_footer > a:nth-child(2) {
+  width: 70em;
+  height: 2.5em;
+  margin-top: 0.6em;
+  display: block;
 }
 
 #email {
@@ -435,7 +445,6 @@ body {
 /* ---- 'SECTION #1' ---- */
 
 #wndow-sctn_1 .copy > div {
-  top: 7em;
   position: absolute;
 }
 
@@ -448,6 +457,12 @@ body {
   margin-top: 0;
 }
 
+#sctn_1-map img, 
+#sctn_1-video, 
+#sctn_1-document {
+  border: 2px solid #f51b74;
+}
+ 
 #sctn_1-form {
   height: 21.6em;
   background-color: #ffd283;
@@ -1032,10 +1047,12 @@ body {
     width: 63.75em;
     margin: 1.5em 0 0 36.25em;
   }
-/*
-  #wndow_footer-main {
-    height: 52.5em;
-  }*/
+
+  .wndow_footer {
+    width: 117.25em;
+    height: 7.25em;
+    bottom: 8.25em;
+  }
 
   #email {
     width: 119em;
@@ -1057,13 +1074,18 @@ body {
   }
 
   .headr {
-    width: 113.75em;
+    width: 112.5em;
+    margin: 4em 0 0 6.25em;
+  }
+
+  .headr > div:nth-child(2) {
+    margin-left: 34.25;
   }
 
   .copy {
     width: 113.5em;
-    height: 55.5em;  
-    margin: 12em 0 0 6.5em;
+    height: 50.5em;  
+    margin: 13em 0 0 6.5em;
   }
 
   .sctn_1-blok, 

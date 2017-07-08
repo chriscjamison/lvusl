@@ -196,7 +196,7 @@ nav {
  */
  
 .sctn_nav > div {
-  width: 61em;
+  width: 52em;
 	height: 6.25em;
 }
 /* Formats the <div> element which serves as a container for the <div> and <span> 
@@ -319,7 +319,7 @@ nav {
     float: left;
   }
   
-  .sctn_nav {
+  #nav-sctn_1 {
     width: 84.3em;
     top: 6.5em;
     left: 7em;
@@ -380,8 +380,9 @@ nav {
     margin: 0.75em;
   }
 
-  .sctn_nav {
-    width: 120em; 
-    top: 44em;
+  #nav-sctn_1 {
+    width: 119em;
+    top: 6em;
+    left: 6.5em;
   }
 }

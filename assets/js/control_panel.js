@@ -638,7 +638,7 @@ $jQ(document).ready(
           // the URL hash. 
         }
 
-        if (url_hash !== "#sctn_main" ) {
+        if (url_hash !== "#sctn_main") {
           animateEmailAlert(url_hash, time_value);
         }        
       }
