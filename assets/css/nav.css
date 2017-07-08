@@ -195,7 +195,30 @@ nav {
  * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
  */
  
-.sctn_nav > div {
+
+.sctn_nav > div > a {
+  width: 7.05em;
+  height: 3.21em;
+  margin-right: 0.75em;
+	padding: 0 0.5em;
+  display: block;
+  float: left;
+	background-color: #fff113;
+	border: none;
+	cursor: pointer;
+}
+
+.sctn_nav > div > a:hover {
+  color: #f51b74;
+}
+
+#nav-sctn_1, 
+#nav-sctn_2 {
+  top: 7em;
+  left: 6.5em;
+}
+
+#nav-sctn_1 > div {
   width: 52em;
 	height: 6em;
 }
@@ -203,17 +226,6 @@ nav {
  * elements which make up the inter-sectional navigation for 'SECTION #3' 
  * and 'SECTION #4'.
  */
-
-.sctn_nav > div > a {
-  width: 7.05em;
-  height: 3.21em;
-  margin-right: 0.75em;
-	padding: 0 0.5em;
-  float: left;
-	background-color: #fff113;
-	border: none;
-	cursor: pointer;
-}
 
 #nav-sctn_1 > div > a:nth-child(1), 
 #nav-sctn_1 > div > a:nth-child(4), 
@@ -238,20 +250,39 @@ nav {
  * text using 3 individual lines.
  */
 
-#nav-sctn_1 > div > a:nth-child(5) {
+#nav-sctn_1 > div > a:nth-child(5), 
+#nav-sctn_2 > div > a:nth-child(1) {
   margin-right: 0;
 }
 
-#nav-sctn_2 > div > a:nth-child(1), 
-#nav-sctn_2 > div > a:nth-child(2) {
-  padding: 1.5em 0 0 0;
+#nav-sctn_2 {
+  width: 9.75em;
 }
+
+#nav-sctn_2 > div {
+  width: 9.75em;
+  height: 13em;
+}
+
+#nav-sctn_2 > div > a {
+  padding-top: 1.75em;
+}
+
+#nav-sctn_2 > div > a:nth-child(1) {
+  margin-bottom: 0.75em;
+}
+
+/*
+#nav-sctn_1 > div > a:nth-child(1), 
+#nav-sctn_ > div > a:nth-child(2) {
+  padding: 1.5em 0 0 0;
+}*/
 /*  Formats the left and middle links which serve as intra-section navigation. */
 
-#nav-sctn_2 > div > a:nth-child(3) {
+/*#nav-sctn_2 > div > a:nth-child(3) {
   margin-right: 0;
 }
-/* Formats the right link which serve as intra-section navigation. */
+*//* Formats the right link which serve as intra-section navigation. */
 
 
 
@@ -382,7 +413,5 @@ nav {
 
   #nav-sctn_1 {
     width: 119em;
-    top:7em;
-    left: 6.5em;
   }
 }

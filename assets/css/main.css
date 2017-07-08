@@ -102,120 +102,6 @@ body {
   border: 2px solid #f51b74;
 }
 
-#info > div > a:hover, 
-.sctn_4-article + a:hover {
-  border: 1px solid #fff113;
-}
-/* Adds :hover events to the links which appear as buttons. */
-
-.sctn_nav > div > a:hover {
-  color: #f51b74;
-}
-
-#info > div > a:first-of-type,
-#info > div > p,
-#wndow_footer-main > span,
-#email-content a:first-of-type, 
-#email-content p,
-.headr > div > a, 
-.wndow_footer > a:nth-child(2), 
-.blok-1 p {
-  font-family: 'cholla-wide', sans-serif;
-  letter-spacing: 0.7px;
-}
-/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
-
-#info > div > a,
-#email a,  
-.sctn_nav > div > a, 
-.headr > div + div > a {
-  font-family: 'korolev-military-stencil', sans-serif;
-  font-size: 1.2em;
-  font-weight: 400;
-  letter-spacing: 0.4px;
-  text-align: center;
-}
-/* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
-
-#info > div > a, 
-#email-content a:first-of-type,
-.headr > div + div > a, 
-.wndow_footer > a:nth-child(2) {
-  color: #fff113; 
-}
-/* Sets the color of the above elements to a shade of blue. */
-
-#email a,
-.sctn_nav > div > a {
-  color: #00a1e1;
-}
-/* Sets the color of the above elements to a shade of blue. */
-
-#email a, 
-.headr > div + div > a {
-  text-decoration: none;
-}
-/* Deactivates the underline attribute of the above elements. */
-
-#info > div > a:first-of-type,
-#info > div > p, 
-.wndow_footer > span,
-.wndow_footer > a:nth-child(2), 
-.headr > div:first-of-type > span, 
-.headr > div > a {
-  text-shadow: 1px 1px #333;
-}
-/* Sets the text within the above elements to display with a shadow. */
-
-#email-content p,
-.blok-1 p {
-  line-height: 1.4em;
-}
-/* Sets the line height of the above elements. */
-
-#email-content, 
-#email a, 
-.sctn_nav > div > a, 
-.wndow_footer > a:nth-child(1) {
-  box-shadow: 1px 1px 2px 1px #333;
-}
-/* Adds a shadow to the above elements using the 'box-shadow' property. */
-
-.blok-1 p {
-  font-size: 1.1em;
-  color: #fff;
-}
-
-/* ---- 'MAIN LANDING PAGE' ---- 
- * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
- * portion of this template.
- */
-
-#info {
-	position: relative;
-}
-/* Formats a <div> which contains the logo and <ul> list which is displayed 
- * in the landing portion.
- */
-
-#info > img {
-  padding: 1.7em;
-	display: none;
-  position: relative;
-  float: left;
-}
-/* Formats the logo which is contained within the <div> using the selctor, "#info". */
-
-#info > div {
-  height: 9.75em;
-  float: left;
-}
-/* 
- * Formats the <div> element which appears to the right of the logo within a 
- * desktop browser and contains <a> elements which allow a user to sign up for 
- * a newsletter or reserve season tickets.
- */
-
 #info > div > a,
 .headr > div > a, 
 .headr > div + div > a, 
@@ -259,15 +145,157 @@ body {
 }
  /* Formats the link which appears over the text of the header */
 
-#info, 
-#info > div > a, 
-#info > img, 
-#info > div > p, 
-#info > div > div, 
-.wndow_footer {
-  opacity: 0;
+
+#info > div > a:hover, 
+.sctn_4-article + a:hover {
+  border: 1px solid #fff113;
 }
-/* Formats the <a> elements which appear to the right of the logo on 'MAIN LANDING SECTION'. */
+/* Adds :hover events to the links which appear as buttons. */
+
+#info > div > a:first-of-type,
+#info > div > p,
+#wndow_footer-main > span,
+#email-content a:first-of-type, 
+#email-content p,
+.headr > div > a, 
+.wndow_footer > a:nth-child(2), 
+.blok-1 p, 
+h2, 
+.faq_listing > ul > li > a, 
+#wndow-sctn_3 > .copy > .blok-1 > div + p + a {
+  font-family: 'cholla-wide', sans-serif;
+  letter-spacing: 0.7px;
+}
+/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
+
+#info > div > a,
+#email a,  
+.sctn_nav > div > a, 
+.headr > div + div > a, 
+#sctn_3-faq_links > a, 
+.faq_back > a {
+  font-family: 'korolev-military-stencil', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+/* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
+
+#info > div > a, 
+#email-content a:first-of-type,
+.headr > div + div > a, 
+.wndow_footer > a:nth-child(2), 
+.faq_listing > ul > li > a, 
+#wndow-sctn_3 > .copy > .blok-1 > div + p + a {
+  color: #fff113; 
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+#email a,
+.sctn_nav > div > a {
+  color: #00a1e1;
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+#email a, 
+.headr > div + div > a {
+  text-decoration: none;
+}
+/* Deactivates the underline attribute of the above elements. */
+
+#info > div > a:first-of-type,
+#info > div > p, 
+.wndow_footer > span,
+.wndow_footer > a:nth-child(2), 
+.headr > div:first-of-type > span, 
+.headr > div > a {
+  text-shadow: 1px 1px #333;
+}
+/* Sets the text within the above elements to display with a shadow. */
+
+#email-content p,
+.blok-1 p {
+  line-height: 1.8em;
+}
+/* Sets the line height of the above elements. */
+
+#email-content, 
+#email-copy > div > a, 
+.sctn_nav > div > a, 
+.wndow_footer > a:nth-child(1) {
+  box-shadow: 1px 1px 2px 1px #333;
+}
+/* Adds a shadow to the above elements using the 'box-shadow' property. */
+
+.blok-1 > div:first-of-type {
+  width: 25.5em;
+  height: 2em;
+  position: relative;
+}
+
+.blok-1 > div:first-of-type > span {
+  height: 2px;
+  display: block;
+  float: left;
+}
+
+.blok-1 > div:first-of-type > span:nth-child(1) {
+  width: 5em;
+}
+
+.blok-1 > div:first-of-type > span:nth-child(2) {
+  width: 20em;
+}
+
+.blok-1 p {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.blok-1 p:first-of-type {
+  margin-top: 0;
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.75em;
+  margin-top: 0;
+}
+
+.faq_listing > ul > li > a {
+  font-size: 1.2em;
+}
+
+/* ---- 'MAIN LANDING PAGE' ---- 
+ * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
+ * portion of this template.
+ */
+
+#info {
+	position: relative;
+}
+/* Formats a <div> which contains the logo and <ul> list which is displayed 
+ * in the landing portion.
+ */
+
+#info > img {
+  padding: 1.7em;
+	display: none;
+  position: relative;
+  float: left;
+}
+/* Formats the logo which is contained within the <div> using the selctor, "#info". */
+
+#info > div {
+  height: 9.75em;
+  float: left;
+}
+/* 
+ * Formats the <div> element which appears to the right of the logo within a 
+ * desktop browser and contains <a> elements which allow a user to sign up for 
+ * a newsletter or reserve season tickets.
+ */
 
 #info > div > a:nth-child(4) {
   margin-right: 0;
@@ -276,6 +304,16 @@ body {
  * Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
  * within MAIN LANDING SECTION.
  */
+
+#info, 
+#info > div > a, 
+#info > img, 
+#info > div > p, 
+#info > div > div, 
+.wndow_footer {
+  opacity: 0;
+}
+/* Sets the 'opacity' of various elements contained within 'MAIN LANDING SECTION'. */
 
  #info > div > p {
   width: 24.5em;
@@ -310,11 +348,13 @@ body {
 }
 
 #info > div > div > span:nth-child(1), 
-#info > div > div > span:nth-child(3) {
+#info > div > div > span:nth-child(3), 
+.blok-1 > div:first-of-type > span:nth-child(1) {
   border-bottom: 1px dotted #f51b74;
 }
 
-#info > div > div > span:nth-child(2) {
+#info > div > div > span:nth-child(2), 
+.blok-1 > div:first-of-type > span:nth-child(2) {
   border-bottom: 1px solid #f51b74;
 }
 
@@ -391,7 +431,9 @@ body {
 }
 /* Formats the <div> elements holding the Calls to Action used on the splash screen. */
 
-#email a {
+#email-copy > div > a, 
+#sctn_3-faq_links > a,
+.faq_back > a {
   width: 8.87em;
   height: 1.25em;
   padding: 2em 0;
@@ -404,6 +446,12 @@ body {
 
 #email a:nth-child(2) {
   margin-left: 1.4em;
+}
+
+#email-copy > div > a:hover, 
+#sctn_3-faq_links > a:hover, 
+.faq_back > a:hover {
+  color: #f51b74;
 }
 
 #email-bkgrnd {
@@ -456,10 +504,6 @@ body {
 #sctn_1-copy {
   width: 25.5em;
   height: 22.75em;
-}
-
-#sctn_1-copy p:first-of-type {
-  margin-top: 0;
 }
 
 #sctn_1-map img, 
@@ -523,19 +567,81 @@ body {
 
 /* ---- 'SECTION #2' ---- */
 
-#sctn_2-video, 
-#sctn_2-document {
-  padding: 1em;
-  background-color: #ccc;
+#sctn_2-club_vision {
+  width: 25.5em;
+  height: 9.75em;
 }
-/* 
- * Formats the <div> element which serves as a border for the embedded video 
- * and the splash image. 
- * 
- */
+
+#sctn_2-ownership {
+  width: 30em;
+}
 
 
 /* ---- 'SECTION #3' ---- */
+
+#sctn_3-listing-bkgrnd {
+  width: 25.5em;
+  height: 34em;
+}
+
+#sctn_3-listing-bkgrnd > .faq_listing {
+  width: 25.5em;
+  height: 28em;
+}
+
+.faq_listing > ul {
+  margin: 0;
+  padding: 0.5em 0 0.5em 1em;
+}
+
+.faq_listing > ul > li {
+  margin-bottom: 1em;
+  list-style-image: url('/lvusl/assets/img/misc/disc.png');
+}
+
+.faq_listing > ul > li > a {
+  line-height: 1.5em;
+}
+
+#wndow-sctn_3 > .copy > .blok-1 > div + p + a {
+  font-size: 1.2em;
+}
+
+#sctn_3-faq_links > a:nth-child(1) {
+  margin-right: 3.5em;
+}
+
+#sctn_3-faq_links > a {
+  height: 1.75em;
+  padding-top: 1.2em;
+}
+/* 
+ * Formats links within a <div> using the selector ".sctn_nav".
+ * The selectors attached to this CSS pairing are used for links with 
+ * text using 2 individual lines.
+ */
+
+#sctn_3-faq_links > a:nth-child(1) {
+  display: none;
+}
+
+#wndow-sctn_3 > .copy .blok-1 {
+  width: 25.5em;
+}
+
+#wndow-sctn_3 > .copy h2 {
+  width: 14.5em;
+}
+
+.faq_back {
+  height: 6em;
+  margin-top: 2.5em;
+  position: relative;
+}
+
+#sctn_3-answer-4 p {
+  line-height: 1.6em;
+}
 
 #sctn_3-desc-1 {
   background-color: #e4e1fd;
@@ -1054,7 +1160,7 @@ body {
   .wndow_footer {
     width: 117.25em;
     height: 7.25em;
-    bottom: 4.25em;
+    bottom: 6em;
   }
 
   #email {
@@ -1089,6 +1195,18 @@ body {
     width: 113.5em;
     height: 53.5em;  
     margin: 14em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 .copy {
+    width: 102em;
+    height: 60.5em;
+    margin: 7em 0 0 17em;
+  }
+
+  #wndow-sctn_3 .copy {
+    width: 32.5em;
+    height: 53.5em;
+    margin: 8em 0 0 86.5em;
   }
 
   .sctn_1-blok, 

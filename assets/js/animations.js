@@ -440,7 +440,7 @@ function setupPage(time_value)  {
         num_of_wndow_elements = $jQ(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
         
-        if (inc_bkgrnd === 3) {
+        if (inc_bkgrnd === 4) {
         // If the background image under processing is the background for 'SECTION #1", this 
         // condition is triggered.
 
@@ -960,7 +960,7 @@ function animatePageElements(time_value)  {
       // has just been loaded and therefore the next section which will be viewed 
       // will default to the "first window pane".
     } else {
-      position_value = url_hash.charAt(position_value_index_num + position_search_string.length);
+      position_value = url_hash.slice(position_value_index_num + position_search_string.length);
       // If the value of "url_hash" contains a Position value, it is passed 
       // on to "position_value".
     }
@@ -998,7 +998,7 @@ function animatePageElements(time_value)  {
     window_width = page_dimensions_Array[0];
     // The width, held by, "page_dimensions_Array", is passed to "window_width".
 
-    if (section_value === 3)  {
+    if (section_value === 4)  {
     // If the Section which is under processing is 'SECTION #1', this condition is 
     // triggered.
 
@@ -1584,7 +1584,8 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   
   $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
-      if (section_value === 1)  {
+      if (section_value === 1 || 
+          section_value === 2)  {
       // If the current visible Section contains intrasection navigation, 
       // this condition is triggered.
  
@@ -1596,4 +1597,124 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
       }
     }
   );
+} /* **************** END OF FUNCTION "fadeCopyElements" **************** */
+
+function loadFAQs(direction)  {
+  /* **************** **************** **************** **************** **************** 
+   * Displays the appropriate list of questions based upon a visitors choice to view 
+   * the previous set of questions or the next set of questions.
+   * **************** **************** **************** **************** **************** */
+  
+  var faq_listing_selector = new String();
+  var current_faq_listing_selector = new String();
+  var updated_faq_listing_selector = new String();
+  var previous_link_selector = new String();
+  var next_link_selector = new String();
+  
+  var faq_listing_elements = new Object();
+  var current_faq_listing_element = new Object();
+  var updated_faq_listing_element = new Object();
+  var previous_link_element = new Object();
+  var next_link_element = new Object();
+
+  var num_of_faq_listing_elements = new Number();
+  // Holds the total number of HTML elements using the selector, "#wndow-sctn_3 .faq_listing".
+  var visible_faq_listing_val = new Number();
+  // Holds a number which identifies the listing of questions that is visible.
+  var visible_faq_listing_flag = new Boolean;
+  // If a list among the set of questions is found to contain the class, "visible", 
+  // the value of this variable is set to "true".
+
+  var inc = new Number();
+  
+  var visible_link_css = new Object();
+  var not_visible_link_css = new Object();
+
+  faq_listing_selector = "#wndow-sctn_3 .faq_listing"
+  previous_link_selector = "#sctn_3-faq_links > a:nth-child(1)";
+  next_link_selector = "#sctn_3-faq_links > a:nth-child(2)";
+  
+  faq_listing_elements = $jQ(faq_listing_selector);
+  previous_link_element = $jQ(previous_link_selector);
+  next_link_element = $jQ(next_link_selector);
+  
+  num_of_faq_listing_elements = faq_listing_elements.length;
+  visible_faq_listing_val = 0;
+
+  visible_faq_listing_flag = false;
+  inc = 0;
+
+  visible_link_css = {
+    display: "block"
+  };
+
+  not_visible_link_css = {
+    display: "none"
+  };
+
+  while (inc <= num_of_faq_listing_elements && 
+         visible_faq_listing_flag === false)  {
+  // This loops runs through the total number of elements identified 
+  // by the selector, "#wndow-sctn_3 .faq_listing". 
+  // If an element contains the class, "visible", this loop ends.
+
+    inc++;
+    
+    current_faq_listing_selector = faq_listing_selector + ":nth-child(" + inc.toString() + ")";
+    current_faq_listing_element = $jQ(current_faq_listing_selector);
+
+    if ($jQ(current_faq_listing_element).hasClass("visible")) {
+    // If the current element under processing is visible, 
+    // this condition is triggered.
+
+      visible_faq_listing_flag = true;
+    }
+  }
+  
+  visible_faq_listing_val = inc;
+
+  if (direction === "previous") {
+  // If the visitor wishes to view the previous set of questions, 
+  // this condition is triggered.
+
+    updated_faq_listing_selector = faq_listing_selector + ":nth-child(" + (visible_faq_listing_val - 1) + ")";
+
+    if (visible_faq_listing_val === 2)  {
+    // If the visitor is currently cycling the list of questions 
+    // back to the first list, this condition is triggered.
+      
+      $jQ(previous_link_element).css(not_visible_link_css);
+      // The <a> element which cycles back through the list of questions is 
+      // made invisible.
+    }
+  } else if (direction === "next") {
+  // Otherwise, if the visitor wishes to view the next set of questions, 
+  // this condition is triggered.
+    
+    updated_faq_listing_selector = faq_listing_selector + ":nth-child(" + (visible_faq_listing_val + 1) + ")";
+    
+    if (visible_faq_listing_val === 1)  {
+    // If the visitor is currently cycling the list of questions 
+    // through to the last list, this condition is triggered.
+
+      $jQ(previous_link_element).css(visible_link_css);
+      // The <a> element which cycles back through the list of questions is 
+      // made invisible.
+    } else if (visible_faq_listing_val === num_of_faq_listing_elements) {
+    // If the visitor has reached the last list of questions, 
+    // then this condition is triggered.
+      
+      $jQ(next_link_element).css(not_visible_link_css);
+      // The <a> element which cycles forward through the list of questions is 
+      // made invisible.
+    }
+  }
+  
+  updated_faq_listing_element = $jQ(updated_faq_listing_selector);
+
+  $jQ(faq_listing_elements).removeClass();
+  $jQ(faq_listing_elements).addClass("faq_listing not_visible");
+
+  $jQ(updated_faq_listing_element).removeClass();
+  $jQ(updated_faq_listing_element).addClass("faq_listing visible");
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */
