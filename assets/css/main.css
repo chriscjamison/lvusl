@@ -104,8 +104,7 @@ body {
 
 #info > div > a,
 .headr > div > a, 
-.headr > div + div > a, 
-.sctn_4-article + a {
+.headr > div + div > a {
   width: 12.5em;
   height: 1.5em;
   margin-right: 0.5em;
@@ -122,8 +121,7 @@ body {
 
 #info > div > a:first-of-type, 
 .headr > div > a,
-.wndow_footer > a:nth-child(2),
-.sctn_4-article + a {
+.wndow_footer > a:nth-child(2) {
   width: 12.5em;
   height: 1.5em;
   padding-top: 0.3em;
@@ -162,7 +160,9 @@ body {
 .blok-1 p, 
 h2, 
 .faq_listing > ul > li > a, 
-#wndow-sctn_3 > .copy > .blok-1 > div + p + a {
+#wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
+.article_listing > ul > li > a, 
+.article_listing > ul > li > a + span  {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -173,7 +173,8 @@ h2,
 .sctn_nav > div > a, 
 .headr > div + div > a, 
 #sctn_3-faq_links > a, 
-.faq_back > a {
+.faq_back > a, 
+#sctn_5-news_links > a {
   font-family: 'korolev-military-stencil', sans-serif;
   font-size: 1.2em;
   font-weight: 400;
@@ -186,7 +187,8 @@ h2,
 .headr > div + div > a, 
 .wndow_footer > a:nth-child(2), 
 .faq_listing > ul > li > a, 
-#wndow-sctn_3 > .copy > .blok-1 > div + p + a {
+#wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
+.article_listing > ul > li > a {
   color: #fff113; 
 }
 /* Sets the color of the above elements to a shade of blue. */
@@ -262,9 +264,11 @@ h2 {
   margin-top: 0;
 }
 
-.faq_listing > ul > li > a {
+.faq_listing > ul > li > a, 
+.article_listing > ul > li > a {
   font-size: 1.2em;
 }
+
 
 /* ---- 'MAIN LANDING PAGE' ---- 
  * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
@@ -432,7 +436,8 @@ h2 {
 
 #email-copy > div > a, 
 #sctn_3-faq_links > a,
-.faq_back > a {
+.faq_back > a,
+#sctn_5-news_links > a {
   width: 8.87em;
   height: 1.25em;
   padding: 2em 0;
@@ -578,27 +583,32 @@ h2 {
 
 /* ---- 'SECTION #3' ---- */
 
-#sctn_3-listing-bkgrnd {
+#sctn_3-listing-bkgrnd, 
+#sctn_5-listing-bkgrnd {
   width: 25.5em;
   height: 34em;
 }
 
-#sctn_3-listing-bkgrnd > .faq_listing {
+#sctn_3-listing-bkgrnd > .faq_listing, 
+#sctn_5-listing-bkgrnd > .article_listing {
   width: 25.5em;
   height: 28em;
 }
 
-.faq_listing > ul {
+.faq_listing > ul, 
+.article_listing > ul {
   margin: 0;
   padding: 0.5em 0 0.5em 1em;
 }
 
-.faq_listing > ul > li {
+.faq_listing > ul > li, 
+.article_listing > ul > li {
   margin-bottom: 1em;
   list-style-image: url('/lvusl/assets/img/misc/disc.png');
 }
 
-.faq_listing > ul > li > a {
+.faq_listing > ul > li > a, 
+.article_listing > ul > li > a {
   line-height: 1.5em;
 }
 
@@ -606,11 +616,13 @@ h2 {
   font-size: 1.2em;
 }
 
-#sctn_3-faq_links > a:nth-child(1) {
+#sctn_3-faq_links > a:nth-child(1), 
+#sctn_5-news_links > a:nth-child(1) {
   margin-right: 3.5em;
 }
 
-#sctn_3-faq_links > a {
+#sctn_3-faq_links > a, 
+#sctn_5-news_links > a {
   height: 1.75em;
   padding-top: 1.2em;
 }
@@ -620,7 +632,9 @@ h2 {
  * text using 2 individual lines.
  */
 
-#sctn_3-faq_links > a:nth-child(1) {
+#sctn_3-faq_links > a:nth-child(1), 
+#sctn_5-news_links > a:nth-child(1)
+ {
   display: none;
 }
 
@@ -686,6 +700,12 @@ h2 {
 }
 
 /* ---- 'SECTION #5' ---- */
+
+.article_listing > ul > li > a + span {
+  display: block;
+  font-size: 1em;
+  color: #fff;
+}
 
 .sctn_5-blok {
   font-family: 'Istok Web', sans-serif;
@@ -1140,7 +1160,7 @@ h2 {
   }
 
   #wndow-sctn_2 .copy, 
-  #wndow-sctn_4 .copy {
+  #wndow-sctn_4 .copy  {
     width: 102em;
     height: 60.5em;
     margin: 7em 0 0 17em;
@@ -1150,6 +1170,12 @@ h2 {
     width: 32.5em;
     height: 53.5em;
     margin: 8em 0 0 86.5em;
+  }
+
+  #wndow-sctn_5 .copy {
+    width: 113.5em;
+    height: 60.5em;
+    margin: 7em 0 0 6.5em;
   }
 
   .sctn_1-blok, 
