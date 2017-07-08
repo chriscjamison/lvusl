@@ -557,7 +557,7 @@ function animateInfoElement(time_value) {
   info_a_selector = "#info > div > a";
   info_div_selector = "#info > div > div";
   info_p_selector = "#info > div > p";
-  wndow_footer_span_selector = "#wndow_footer-main > span";
+  wndow_footer_selector = "#wndow_footer-main";
 
   wndow_element = $jQ(wndow_selector);
   info_element = $jQ(info_selector);
@@ -565,7 +565,7 @@ function animateInfoElement(time_value) {
   info_a_element = $jQ(info_a_selector);
   info_div_element = $jQ(info_div_selector);
   info_p_element = $jQ(info_p_selector);
-  wndow_footer_span_element = $jQ(wndow_footer_span_selector);
+  wndow_footer_span_element = $jQ(wndow_span_selector);
 
   display_block_css = {
     display: "block"
@@ -616,7 +616,7 @@ function animateInfoElement(time_value) {
           $jQ(info_p_element).fadeTo(time_value, 1, 
           // Fade in the text which appears below the link near the top of the browser window.
             function () {
-              $jQ(wndow_footer_span_element).fadeTo(time_value, 1);
+              $jQ(wndow_footer_element).fadeTo(time_value, 1);
             }
           );
         }
@@ -869,6 +869,7 @@ function animatePageElements(time_value)  {
   var all_copy_selector = new String();
   var single_copy_selector = new String();
   var headr_selector = new String();
+  var wndow_footer_selector = new String();
   var sub_nav_selector = new String();
   var div_selector = new String();
   var bkgrnd_selector = new Object();
@@ -884,6 +885,8 @@ function animatePageElements(time_value)  {
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
   var headr_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
+  var wndow_footer_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X .wndow_footer".
   var bkgrnd_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
   var sub_nav_element = new Object();
@@ -980,6 +983,7 @@ function animatePageElements(time_value)  {
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
     headr_selector = ".headr.sctn_" + section_value.toString();
+    wndow_footer_selector = "#wndow-sctn_" + section_value.toString() + " .wndow_footer";
     div_selector = "div";
     sub_nav_selector = "#nav-sctn_" + section_value.toString();
     bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
@@ -987,6 +991,7 @@ function animatePageElements(time_value)  {
     all_copy_element = $jQ(all_copy_selector);
     single_copy_element = $jQ(single_copy_selector);
     headr_element = $jQ(headr_selector);
+    wndow_footer_element = $jQ(wndow_footer_selector);
     sub_nav_element = $jQ(sub_nav_selector);
     bkgrnd_element = $jQ(bkgrnd_selector);
 
@@ -1005,7 +1010,7 @@ function animatePageElements(time_value)  {
     window_width = page_dimensions_Array[0];
     // The width, held by, "page_dimensions_Array", is passed to "window_width".
 
-    if (section_value === 1)  {
+    if (section_value === 3)  {
     // If the Section which is under processing is 'SECTION #1', this condition is 
     // triggered.
 
@@ -1029,7 +1034,7 @@ function animatePageElements(time_value)  {
 
     $jQ(all_copy_element).css(element_off_css);
     $jQ(single_copy_element).css(element_on_css);
-    
+
     if ($jQ(sub_nav_element) !== undefined) {
     // If the Section this function is processing contains intra-sectional navigation 
     // this condition is triggered.
@@ -1042,7 +1047,7 @@ function animatePageElements(time_value)  {
     // into view, starting with the HTML element serving as the header.  
 
       function () {
-        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
+        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, wndow_footer_element, time_value);
         // "fadeCopyElements" is triggered to fade in the various content of the Section this
         // function is processing.
       }
@@ -1583,7 +1588,7 @@ function setPageInitialLocation(url_hash)  {
   }
 } /* **************** END OF FUNCTION "setInitialLocation" **************** */
 
-function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {
+function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, wndow_footer_element, time_value)  {
   /* **************** **************** **************** **************** **************** 
    * The content of the visible Section are made visible by fading their opacity 
    * from 0 to 1.
@@ -1591,19 +1596,15 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   
   $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
-      if (section_value === 2)  {
+      if (section_value === 1)  {
       // If the current visible Section contains intrasection navigation, 
       // this condition is triggered.
-
+ 
         $jQ(sub_nav_element).fadeTo(time_value, 1);
-      } else if (section_value === 5) {
-        var job_catagories_selector = new String();
-        var job_catagories_element = new Object();
-        
-        job_catagories_selector = "#sctn_5-catagories";
-        job_catagories_element = $jQ(job_catagories_selector);
+      }
 
-        $jQ(job_catagories_element).fadeTo(time_value, 1);
+      if (section_value !== "sctn_main")  {
+        $jQ(wndow_footer_element).fadeTo(time_value, 1);
       }
     }
   );

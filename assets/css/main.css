@@ -82,8 +82,6 @@ body {
    margin-top: 2.1em;
  }
 
- .headr >
-
 .copy {
   display: none;
 	position: absolute;
@@ -98,25 +96,29 @@ body {
 */
 
 #info > div > a:hover, 
-.sctn_4-article + a:hover, 
-.sctn_nav > div > a:hover {
+.sctn_4-article + a:hover {
   border: 1px solid #fff113;
 }
 /* Adds :hover events to the links which appear as buttons. */
+
+.sctn_nav > div > a:hover {
+  color: #f51b74;
+}
 
 #info > div > a:first-of-type,
 #info > div > p,
 #wndow_footer-main > span, 
 #email-content p,
-.headr > div > a {
+.headr > div > a, 
+.wndow_footer > a:nth-child(2), 
+#sctn_1-copy p {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
 /* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
 
 #info > div > a,
-#email a, 
-.sctn_4-article + a,  
+#email a,  
 .sctn_nav > div > a, 
 .headr > div + div > a {
   font-family: 'korolev-military-stencil', sans-serif;
@@ -127,14 +129,15 @@ body {
 }
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
 
-#info > div > a,
-.sctn_4-article + a, 
-.headr > div + div > a {
+#info > div > a, 
+.headr > div + div > a, 
+.wndow_footer > a:nth-child(2) {
   color: #fff113; 
 }
 /* Sets the color of the above elements to a shade of blue. */
 
-#email a {
+#email a,
+.sctn_nav > div > a {
   color: #00a1e1;
 }
 /* Sets the color of the above elements to a shade of blue. */
@@ -147,25 +150,31 @@ body {
 
 #info > div > a:first-of-type,
 #info > div > p, 
-#wndow_footer-main > span,
+.wndow_footer > span,
+.wndow_footer > a:nth-child(2), 
 .headr > div > span, 
 .headr > div > a {
   text-shadow: 1px 1px #333;
 }
 /* Sets the text within the above elements to display with a shadow. */
 
-#email-content p {
+#email-content p,
+#sctn_1-copy p {
   line-height: 1.4em;
 }
 /* Sets the line height of the above elements. */
 
 #email-content, 
-#email a{
+#email a, 
+.sctn_nav > div > a {
   box-shadow: 1px 1px 2px 1px #333;
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
 
-
+#sctn_1-copy p {
+  font-size: 1.1em;
+  color: #fff;
+}
 
 /* ---- 'MAIN LANDING PAGE' ---- 
  * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
@@ -200,8 +209,7 @@ body {
 #info > div > a,
 .headr > div > a, 
 .headr > div + div > a, 
-.sctn_4-article + a,  
-.sctn_nav > div > a {
+.sctn_4-article + a {
   width: 12.5em;
   height: 1.5em;
   margin-right: 0.5em;
@@ -218,6 +226,7 @@ body {
 
 #info > div > a:first-of-type, 
 .headr > div > a,
+.wndow_footer > a:nth-child(2),
 .sctn_4-article + a {
   width: 12.5em;
   height: 1.5em;
@@ -234,10 +243,10 @@ body {
  * formatting is smaller than the link, 'Reserve Season Tickets'.
  */
 
- .headr > div > a {
-   padding: 0 0 0 0.75em;
-   float: none;
- }
+.headr > div > a {
+  padding: 0 0 0 0.75em;
+  float: none;
+}
  /* Formats the link which appears over the text of the header */
 
 #info, 
@@ -245,7 +254,7 @@ body {
 #info > img, 
 #info > div > p, 
 #info > div > div, 
-#wndow_footer-main > span {
+.wndow_footer {
   opacity: 0;
 }
 /* Formats the <a> elements which appear to the right of the logo on 'MAIN LANDING SECTION'. */
@@ -299,18 +308,25 @@ body {
   border-bottom: 1px solid #f51b74;
 }
 
-#wndow_footer-main {
-  position: relative;
-}
-
-#wndow_footer-main > span {
-  display: block;
+.wndow_footer {
   position: absolute;
   left: 1.7em;
   bottom: 5em;
+  opacity: 0;
+}
+
+.wndow_footer > span {
+  display: block;
+  position: absolute;
   font-size: 1.1em;
   color: #fff;
   letter-spacing: 0.7px;
+}
+
+.wndow_footer > a:nth-child(1) {
+  width: 3.44em;
+  height: 3.5em;
+  background-image: url('/lvusl/assets/img/misc/footer_link_logo.png');
 }
 
 #email {
@@ -321,7 +337,8 @@ body {
 }
 /* Formats the <div> element which holds the email alert splash page. */
 
-#email-content {
+#email-content, 
+#sctn_1-copy {
   width: 23.13em;
   height: 21em;
   padding: 2.5em;
@@ -384,8 +401,6 @@ body {
 }
 /* Formats the dark gray background of the splash page. */
 
-/* ---- 'SECTION #1' ---- */
-
 .visible {
   display: block;
 }
@@ -415,6 +430,23 @@ body {
 	opacity: 0;
 }
 /* Formats the 'block' which hold <input> elements which contain form questions. */
+
+
+/* ---- 'SECTION #1' ---- */
+
+#wndow-sctn_1 .copy > div {
+  top: 7em;
+  position: absolute;
+}
+
+#sctn_1-copy {
+  width: 25.5em;
+  height: 22.75em;
+}
+
+#sctn_1-copy p:first-of-type {
+  margin-top: 0;
+}
 
 #sctn_1-form {
   height: 21.6em;
@@ -857,10 +889,10 @@ body {
     margin: 2.75em 0 0 1.25em;
   }
 
-  #wndow_footer-main {
-    height: 32.25em;
+  .wndow_footer {
+    width: 84.5em;
+    height: 7.25em;
   }
-  
 
   #email {
     width: 85.75em;
@@ -888,7 +920,7 @@ body {
   .copy {
     width: 81.75em;
     height: 38.75em;
-    margin: 11.75em 0 0 7em;
+    margin: 6.5em 0 0 7em;
   }
   
   #sctn_1-desc-1 {
@@ -1000,10 +1032,10 @@ body {
     width: 63.75em;
     margin: 1.5em 0 0 36.25em;
   }
-
+/*
   #wndow_footer-main {
     height: 52.5em;
-  }
+  }*/
 
   #email {
     width: 119em;

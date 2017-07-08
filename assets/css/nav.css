@@ -196,14 +196,51 @@ nav {
  */
  
 .sctn_nav > div {
-  width: 25.75em;
-	height: 4.75em;
-	margin: 0 auto;
+  width: 61em;
+	height: 6.25em;
 }
 /* Formats the <div> element which serves as a container for the <div> and <span> 
  * elements which make up the inter-sectional navigation for 'SECTION #3' 
  * and 'SECTION #4'.
  */
+
+.sctn_nav > div > a {
+  width: 7.05em;
+  height: 3.21em;
+  margin-right: 0.75em;
+	padding: 0 0.5em;
+  float: left;
+	background-color: #fff113;
+	border: none;
+	cursor: pointer;
+}
+
+#nav-sctn_1 > div > a:nth-child(1), 
+#nav-sctn_1 > div > a:nth-child(4), 
+#nav-sctn_1 > div > a:nth-child(5) {
+  height: 3.75em;
+  padding-top: 1.2em;
+}
+/* 
+ * Formats links within a <div> using the selector ".sctn_nav".
+ * The selectors attached to this CSS pairing are used for links with 
+ * text using 2 individual lines.
+ */
+
+#nav-sctn_1 > div > a:nth-child(2), 
+#nav-sctn_1 > div > a:nth-child(3) {
+  height: 4.5em;
+  padding-top: 0.5em;
+}
+/* 
+ * Formats links within a <div> using the selector ".sctn_nav".
+ * The selectors attached to this CSS pairing are used for links with 
+ * text using 3 individual lines.
+ */
+
+#nav-sctn_1 > div > a:nth-child(5) {
+  margin-right: 0;
+}
 
 #nav-sctn_2 > div > a:nth-child(1), 
 #nav-sctn_2 > div > a:nth-child(2) {
@@ -283,8 +320,10 @@ nav {
   }
   
   .sctn_nav {
-    width: 85.25em;
-    top: 40em;
+    width: 84.3em;
+    top: 6.5em;
+    left: 7em;
+
   }
 }
 
