@@ -163,7 +163,8 @@ h2,
 #wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
 .article_listing > ul > li > a, 
 .article_listing > ul > li > a + span, 
-h3  {
+h3, 
+.blok-social_media > a:nth-child(2)   {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -190,7 +191,8 @@ h3  {
 .wndow_footer > a:nth-child(2), 
 .faq_listing > ul > li > a, 
 #wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
-.article_listing > ul > li > a {
+.article_listing > ul > li > a, 
+.blok-social_media > a:nth-child(2)  {
   color: #fff113; 
 }
 /* Sets the color of the above elements to a shade of blue. */
@@ -233,7 +235,9 @@ h3  {
 
 .blok-1 > div:first-of-type, 
 .article_listing > div:first-of-type, 
-#sctn_7-desc > h2 + div + p + div {
+#sctn_7-desc > h2 + div + p + div, 
+#sctn_8-links > div:nth-child(2), 
+#sctn_8-links > div:nth-child(4) {
   width: 25.5em;
   height: 2em;
   position: relative;
@@ -241,7 +245,9 @@ h3  {
 
 .blok-1 > div:first-of-type > span, 
 .article_listing > div:first-of-type > span,
-#sctn_7-desc > h2 + div + p + div > span {
+#sctn_7-desc > h2 + div + p + div > span, 
+#sctn_8-links > div:nth-child(2) > span, 
+#sctn_8-links > div:nth-child(4) > span {
   height: 2px;
   display: block;
   float: left;
@@ -249,13 +255,17 @@ h3  {
 
 .blok-1 > div:first-of-type > span:nth-child(1), 
 .article_listing > div:first-of-type > span:nth-child(1), 
-#sctn_7-desc > h2 + div + p + div > span:nth-child(2) {
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2),
+#sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(2) {
   width: 5em;
 }
 
 .blok-1 > div:first-of-type > span:nth-child(2), 
 .article_listing > div:first-of-type > span:nth-child(2), 
-#sctn_7-desc > h2 + div + p + div > span:nth-child(1) {
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(1) {
   width: 20em;
 }
 
@@ -275,7 +285,8 @@ h2 {
 }
 
 .faq_listing > ul > li > a, 
-.article_listing > ul > li > a {
+.article_listing > ul > li > a, 
+.blok-social_media > a:nth-child(2) {
   font-size: 1.2em;
 }
 
@@ -370,14 +381,18 @@ h3 {
 .blok-1 > div:first-of-type > span:nth-child(1), 
 .article_listing > div:first-of-type > span:nth-child(1), 
 #sctn_7-desc > div:first-of-type > span:nth-child(1), 
-#sctn_7-desc > h2 + div + p + div > span:nth-child(2) {
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(2) {
   border-bottom: 1px dotted #f51b74;
 }
 
 #info > div > div > span:nth-child(2), 
 .blok-1 > div:first-of-type > span:nth-child(2), 
 .article_listing > div:first-of-type > span:nth-child(2),
-#sctn_7-desc > h2 + div + p + div > span:nth-child(1) {
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(1) {
   border-bottom: 1px solid #f51b74;
 }
 
@@ -750,7 +765,40 @@ h3 {
 }
 
 
+/* ---- 'SECTION #8' ---- */
 
+.blok-social_media {
+  height: 8.75em !important;
+  margin-bottom: 2em;
+  display: block;
+}
+
+.blok-social_media > a:first-of-type {
+  width: 6.25em;
+  margin: 0 auto;
+  display: block;
+}
+
+.blok-social_media > a:nth-child(2) {
+  margin: 1em auto 0 auto;
+  display: block;
+}
+
+#sctn_6-facebook > a:nth-child(2) {
+  width: 16.5em;
+}
+
+#sctn_6-instagram > a:nth-child(2) {
+  width: 15.75em;
+}
+
+#sctn_6-twitter {
+  margin-bottom: 0;
+}
+
+#sctn_6-twitter > a:nth-child(2) {
+  width: 12.1em;
+}
 
 @media screen and (min-width: 1260px) and (max-width: 1320px) {
   /* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
