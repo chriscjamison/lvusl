@@ -146,8 +146,7 @@ body {
 
 #info > div > a:first-of-type,
 #info > div > p,
-#wndow_footer-main > span,
-#email-content a:first-of-type, 
+#wndow_footer-main > span, 
 #email-content p,
 .headr > div > a, 
 .wndow_footer > a:nth-child(2), 
@@ -166,7 +165,7 @@ h3,
 /* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
 
 #info > div > a,
-#email a,  
+#form-email > a,  
 .sctn_nav > div > a, 
 .headr > div + div > a, 
 #sctn_3-faq_links > a, 
@@ -180,6 +179,30 @@ h3,
   text-align: center;
 }
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
+
+#form-email > a, 
+#sctn_3-faq_links > a,
+.faq_back > a,
+#sctn_5-news_links > a, 
+#wndow-sctn_6 > .copy > .blok-1 > a {
+  width: 8.87em;
+  height: 1.25em;
+  padding: 2em 0;
+  display: block;
+  float: left;
+  background-color: #fff113;
+  color: #00a1e1;
+}
+/* Formats the Calls to Action used within the Splash screen. */
+
+#form-email > a:hover, 
+#info > div > a:hover,  
+#sctn_3-faq_links > a:hover, 
+.faq_back > a:hover, 
+#sctn_5-article_links > a:hover, 
+#wndow-sctn_6 > .copy > .blok-1 > a:hover {
+  color: #f51b74;
+}
 
 #info > div > a,
 .headr > div + div > a, 
@@ -209,8 +232,7 @@ h3,
 #info > div > p, 
 .wndow_footer > span,
 .wndow_footer > a:nth-child(2), 
-.headr > div:first-of-type > span, 
-.headr > div > a {
+.headr > div:first-of-type > span {
   text-shadow: 1px 1px #333;
 }
 /* Sets the text within the above elements to display with a shadow. */
@@ -228,6 +250,7 @@ h3,
   box-shadow: 1px 1px 2px 1px #333;
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
+
 
 .blok-1 > div:first-of-type, 
 .article_listing > div:first-of-type, 
@@ -263,6 +286,26 @@ h3,
 #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
 #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
   width: 20em;
+}
+
+#info > div > div > span:nth-child(1), 
+#info > div > div > span:nth-child(3), 
+.blok-1 > div:first-of-type > span:nth-child(1), 
+.article_listing > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+  border-bottom: 1px dotted #f51b74;
+}
+
+#info > div > div > span:nth-child(2), 
+.blok-1 > div:first-of-type > span:nth-child(2), 
+.article_listing > div:first-of-type > span:nth-child(2),
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+  border-bottom: 1px solid #f51b74;
 }
 
 .blok-1 p {
@@ -372,26 +415,6 @@ h3 {
   display: inline-block;
 }
 
-#info > div > div > span:nth-child(1), 
-#info > div > div > span:nth-child(3), 
-.blok-1 > div:first-of-type > span:nth-child(1), 
-.article_listing > div:first-of-type > span:nth-child(1), 
-#sctn_7-desc > div:first-of-type > span:nth-child(1), 
-#sctn_7-desc > h2 + div + p + div > span:nth-child(2), 
-#sctn_8-links > div:nth-child(2) > span:nth-child(1), 
-#sctn_8-links > div:nth-child(4) > span:nth-child(2) {
-  border-bottom: 1px dotted #f51b74;
-}
-
-#info > div > div > span:nth-child(2), 
-.blok-1 > div:first-of-type > span:nth-child(2), 
-.article_listing > div:first-of-type > span:nth-child(2),
-#sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
-#sctn_8-links > div:nth-child(2) > span:nth-child(2), 
-#sctn_8-links > div:nth-child(4) > span:nth-child(1) {
-  border-bottom: 1px solid #f51b74;
-}
-
 .wndow_footer {
   position: absolute;
   left: 1.7em;
@@ -431,8 +454,8 @@ h3 {
 /* Formats the <div> element which holds the email alert splash page. */
 
 #email-content {
-  width: 25.5em;
-  height: 21em;
+  width: 22.5em;
+  height: 19.8em;
 }
 /* 
  * Formats the <div> element which holds the copy contained within the 
@@ -451,10 +474,10 @@ h3 {
 
 #email-content p {
   margin: 0.25em 0 0 0;
-  padding: 1em 0;
-  font-size: 1.1em;
+  padding-bottom: 1em;
+  font-size: 1.2em;
   color: #00a1e1;
-  text-align: justify;
+  text-align: center;
 }
 /* Formats the <p> element which contains the description copy. */
 
@@ -465,32 +488,8 @@ h3 {
 }
 /* Formats the <div> elements holding the Calls to Action used on the splash screen. */
 
-#email-copy > div > a, 
-#sctn_3-faq_links > a,
-.faq_back > a,
-#sctn_5-news_links > a, 
-#wndow-sctn_6 > .copy > .blok-1 > a {
-  width: 8.87em;
-  height: 1.25em;
-  padding: 2em 0;
-  display: block;
-  float: left;
-  background-color: #fff113;
-  color: #00a1e1;
-}
-/* Formats the Calls to Action used within the Splash screen. */
-
-#email a:nth-child(2) {
-  margin-left: 1.4em;
-}
-
-#email-copy > div > a:hover, 
-#info > div > a:hover,  
-#sctn_3-faq_links > a:hover, 
-.faq_back > a:hover, 
-#sctn_5-article_links > a:hover, 
-#wndow-sctn_6 > .copy > .blok-1 > a:hover {
-  color: #f51b74;
+#form-email > a {
+  margin-right: 0.82em;
 }
 
 #email-bkgrnd {
@@ -608,7 +607,7 @@ h3 {
 
 #sctn_2-club_vision {
   width: 25.5em;
-  height: 9.75em;
+  height: 11.25em;
 }
 
 #sctn_2-ownership {

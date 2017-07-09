@@ -194,7 +194,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#email-content > div > a:nth-child(2)").click(
+    $jQ("#form-email > a").click(
     // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
     // appears to the right of the email alert content.
 
@@ -459,7 +459,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#input-next_step, #input-previous_step").click(
+    $jQ("#input-ntt-next_step, #input-ntt-previous_step").click(
     // Fades in the individual pages of the 'Request Season Tickets' form.
 
       function () {

@@ -75,7 +75,7 @@ form {
 input[type=button],
 input[type=submit] {
 	width: 9.05em;
-  height: 5.21em;
+  height: 5.25em;
 	padding: 0;
 	background-color: #fff113;
 	border: none;
@@ -88,14 +88,10 @@ input[type=submit] {
 }
 /* Formats which appear as buttons throughout the webpage. */
 
-#email-form fieldset {
-	margin: 1.75em 0 0 0.4em;
-	padding: 0;
-	border: none;
-}
 
-#email-form label, 
-#sctn_4-form label {
+#form-email label, 
+#form-request_tickets label, 
+#form-ntt label {
 	display: block;
 	font-family: 'cholla-wide', sans-serif;
 	font-size: 1.2em;
@@ -108,14 +104,22 @@ input[type=submit] {
 	margin-right: 0.25em;
 }
 
-#sctn_4-form {
-	margin: 0;
+#input-ticket-submit_request, 
+#input-ntt-next_step {
+	margin-left: 12em;
 }
+
+#input-ntt-submit_team_name {
+	margin-left: 2.9em;
+}
+
 
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
 
 input[type=text],
-input[type=email] {
+input[type=email], 
+input[type=tel], 
+textarea {
 	padding: 0.35em 0 0.5em 0.6em;
 	border: 2px solid #ccc;
 	font-family: 'cholla-wide', sans-serif;
@@ -126,6 +130,7 @@ input[type=email] {
 /* Formats the layout of <input> elements which appear within individual form questions. */
 
 select {
+	margin-top: 0.75em;
 	padding: 0.34em;
 	font-family: 'cholla-wide', sans-serif;
 	font-size: 1.1em;
@@ -147,25 +152,31 @@ select {
  * splash screen.
  */
 
+#input-email-email_address {
+	width: 20.4em;
+	margin: 0.75em 0 2em 0;
+}
+
 #form-request_tickets > div > div > input:first-of-type {
 	margin-top: 0.75em;
 }
 
 #input-ticket-first_name, 
-#input-ticket-last_name {
+#input-ticket-last_name, 
+#input-ntt-first_name, 
+#input-ntt-last_name {
 	width: 11.2em;
 }
 
-#input-ticket-first_name {
+#input-ticket-first_name, 
+#input-ntt-first_name {
 	margin-right: 0.5em;
 }
 
 #input-ticket-address_1, 
 #input-ticket-address_2,
-#input-card_num-ticket, 
-#input-full_name-ntt, 
-#input-address_1-ntt, 
-#input-address_2-ntt {
+#input-ntt-email, 
+#input-ntt-name_idea {
 	width: 23em;
 }
 /* 
@@ -183,8 +194,7 @@ select {
  * their city name within the form which collects season ticket requests.
  */
 
-#input-ticket-state, 
-#input-state-ntt {
+#input-ticket-state {
 	width: 2.7em;
 	margin: 0 0.08em;
 } 
@@ -194,8 +204,8 @@ select {
  */
 
 #input-ticket-zip_code, 
-#input-zip_code-ntt {
-	width: 5.8em;
+#input-ntt-zip_code {
+	width: 4.9em;
 }
 /* 
  * Formats the <input> element for the question field which a visitor can enter 
@@ -211,11 +221,23 @@ select {
  * season ticket requests.
  */
 
-#ticket_question_1 {
+#ticket-question_1, 
+#ticket-question_2, 
+#ntt-question_1, 
+#ntt-question_2, 
+#ntt-question_3, 
+#ntt-question_5, 
+#ntt-question_6 {
 	margin-bottom: 1.5em;
 }
 
-#ticket-question_2 > input, 
+#ticket-question_3, 
+#ntt-question_4, 
+#ntt-question_7 {
+	margin-bottom: 2.75em;
+}
+
+#ticket-question_3 > input, 
 #ntt-question_2 > input {
 	margin-bottom: 0.5em;
 }
@@ -229,6 +251,14 @@ select {
  * enter their credit card security code.
  */
 
+ #input-ntt-phone_1, 
+ #input-ntt-phone_2 {
+	width: 3.4em;
+ }
+
+#input-ntt-phone_3 {
+	width: 4.1em;
+}
 
 @media screen and (width: 980px) {
 	/* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */

@@ -73,12 +73,11 @@
 						<p>
 							Sign-Up Now to Receive More Information
 						</p>
-						<form method="post" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data"  action="https://mattmicrobrewmedia.wufoo.com/forms/s10l7nat0t4u9ec/" name="form54" id="sctn_main-email" novalidate>
-							<fieldset>
-								<label>Please enter your email address</label>
-								<input type="text" size="35" maxlength="50" placeholder="Please enter your email address" tabindex="1" name="email" id="input-email_address-email" />
-							</fieldset>
+						<form method="post" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data"  action="https://mattmicrobrewmedia.wufoo.com/forms/s10l7nat0t4u9ec/" name="form54" id="form-email" novalidate>
+							<label>Please enter your email address</label>
+							<input type="email" maxlength="50" placeholder="me@example.com" spellcheck="false" tabindex="1" name="email" id="input-email-email_address" />
 							<input type="submit" value="Sign Up!" name="saveForm" id="input-email-submit" />
+							<a href="#sctn_main" title="No, Thanks">No, Thanks</a>
 						</form>
 					</div>
 					<div id="email-bkgrnd"></div>
@@ -722,7 +721,7 @@
 						<div class="visible">
 							<div id="ticket-question_1">
 								<label>Please select the number of tickets you wish to reserve</label>
-								<select name="Field2" id="ticket-reserve" tabindex="1">
+								<select name="Field2" id="select-ticket-reserve" tabindex="1">
 									<option	value="Select up to ten tickets" selected="selected">
 										<span class="notranslate">Select up to ten tickets</span>
 									</option>
@@ -763,7 +762,7 @@
 								<input type="text" value="" placeholder="First Name" name="Field3" tabindex="2" id="input-ticket-first_name" required />
 								<input type="text" value="" placeholder="Last Name" name="Field4" tabindex="3" id="input-ticket-last_name" required />
 							</div>
-							<div id="ticket-question_2">
+							<div id="ticket-question_3">
 								<label>Please enter your billing address</label>
 								<input type="text" value="" placeholder="Please enter your street number and name" name="Field5" size="16" tabindex="4" id="input-ticket-address_1" required />
 								<input type="text" value="" placeholder="If needed, enter Address Line #2" name="Field6" size="16" tabindex="5" id="input-ticket-address_1" required />
@@ -775,19 +774,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="not_visible">
-							<div id="ticket-question_3">
-								<label>Please enter your credit card number.</label>
-								<input type="text" size="34" maxlength="19" value="XXXX XXXX XXXX XXXX" name="card_num" id="input-card_num" />
-							</div>
-							<div id="ticket-question_4">
-								<label>Please enter your three digit security code.</label>
-								<input type="text" size="3" maxlength="3" value="XXX" name="security_code" id="input-security_code" />
-							</div>
-							<input type="submit" name="ticket-submit_request" value="Submit Request" id="input-submit_request" />
-							<input type="button" name="ticket-previous" value="Previous Step" id="input-previous_step" />
-						</div>
-						<input type="submit" name="ntt-submit_request" value="Submit Request" id="input-submit_request" />
+						<input type="submit" name="saveForm" value="Submit Request" id="input-ticket-submit_request" />
 						</form>
 					</div>
 				<!-- END of WINDOW PANE #2 -->
@@ -970,10 +957,16 @@
 							<span></span>
 						</div>
 						<p>
-							We want to hear from you – the fans!  Everyone is encouraged to participate in the club name 
-							selection process by submitting ideas below. The Club will evaluate all submissions and 
-							narrow the list to three names. Fans will vote to select the final name in mid-August. 
-							The winning submission will receive two season tickets for the 2018 season.
+							We want to hear from you – the fans! Everyone is encouraged to submit their best idea for the 
+							USL Las Vegas Club’s official name. Let&rsquo;s come up with something unique together. We want your ideas! 
+							Be creative!
+						</p>
+						<p>
+							The Club will evaluate all submissions and review with our attorneys. 
+							<br />
+							(Yeah, we know, but we have to…)
+							<br />
+							Official Rules can be found here
 						</p>
 						<a href="#sctn_6?pos=1">Suggest Your Name!</a>
 					</div>
@@ -982,39 +975,44 @@
 				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div class="blok-1" id="sctn_6-form">
-						<form method="post" action="index.htm#sctn_4?pos=3" name="sctn_6-name_the_team" id="sctn_6-name_the_team">
+						<form method="post" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" action="https://mattmicrobrewmedia.wufoo.com/forms/s13auulu0k71a64/" name="form55" id="form-ntt" novalidate>
 						<div class="visible">
 							<div id="ntt-question_1">
-								<label>Please enter your name as it appears on the credit card.</label>
-								<input type="text" maxlength="60" value="Please enter your full name" name="full_name" id="input-full_name-ntt" />
+								<label>Please enter your first and last name</label>
+								<input type="text" value="" placeholder="First Name" name="Field1" tabindex="1" id="input-ntt-first_name" />
+								<input type="text" value="" placeholder="Last Name" name="Field2" tabindex="2" id="input-ntt-last_name" />
 							</div>
 							<div id="ntt-question_2">
-								<label>Please enter your billing address.</label>
-								<input type="text" maxlength="60" value="Address Line #1" name="address_1" id="input-address_1-ntt" />
-								<input type="text" maxlength="60" value="If needed, enter Address Line #2" name="address_2" id="input-address_2-ntt" />
-								<div id="ntt-line_3">
-									<input type="text" maxlength="30" value="City" name="city" id="input-city-ntt" />
-									<input type="text" maxlength="2" value="ST" name="state" id="input-state-ntt" />
-									<input type="text" maxlength="10" value="Zip Code" name="zip_code" id="input-zip_code-ntt" />
-								</div>
+								<label>Please enter your email address</label>
+								<input type="email" spellcheck="false" value="" placeholder="you@example.com" tabindex="3" name="Field3" id="input-ntt-email" />
 							</div>
-							<input type="button" name="ntt-next" value="Next Step" id="input-next_step-ntt" />
-						</div>
-						<div class="not_visible">
 							<div id="ntt-question_3">
-								<label>Name Idea</label>
-								<input type="text" size="34" maxlength="34" value="Enter your team name" name="card_num" id="input-team_name-ntt" />
+								<label>Please enter your phone number</label>
+								<input type="tel" maxlength="3" value="" placeholder="###" tabindex="4" name="Field4" id="input-ntt-phone_1" />
+								<input type="tel" maxlength="3" value="" placeholder="###" tabindex="5" name="Field4-1" id="input-ntt-phone_2" />
+								<input type="tel" maxlength="4" value="" placeholder="####" tabindex="6" name="Field4-2" id="input-ntt-phone_3" />
 							</div>
 							<div id="ntt-question_4">
-								<label>Why this name?</label>
-								<textarea cols="10" rows="8" name="reason-ntt" id="input-reason-ntt"></textarea>
+								<label>Please enter your zip code</label>
+								<input type="text" value="" placeholder="#####" tabindex="7" name="Field13" id="input-ntt-zip_code" />
 							</div>
+							<input type="button" name="ntt-next" value="Next Step" id="input-ntt-next_step" />
+						</div>
+						<div class="not_visible">
 							<div id="ntt-question_5">
-								<label>Other ideas</label>
-								<textarea cols="10" rows="8" name="other-ntt" id="input-other-ntt"></textarea>
+								<label>Name Idea</label>
+								<input type="text" value="" placeholder="Enter your name idea" tabindex="8" name="Field14" id="input-ntt-name_idea" />
 							</div>
-							<input type="submit" name="ntt-submit_request" value="Submit Request" id="input-submit_request" />
-							<input type="button" name="ntt-previous" value="Previous Step" id="input-previous_step" />
+							<div id="ntt-question_6">
+								<label>Why this name?</label>
+								<textarea cols="47" rows="5" placeholder="Why did you choose this idea?" name="Field16" id="input-ntt-why"></textarea>
+							</div>
+							<div id="ntt-question_7">
+								<label>Other Comments</label>
+								<textarea cols="47" rows="5" placeholder="If you have comments, please list them here" name="Field17" id="input-other-ntt"></textarea>
+							</div>
+							<input type="button" value="Previous Step" id="input-ntt-previous_step" />
+							<input type="submit" name="saveForm" value="Submit Team Name" id="input-ntt-submit_team_name" />
 						</div>
 						</form>
 					</div>
@@ -1057,47 +1055,6 @@
 						</div>
 					</div>
 				<!-- END of WINDOW PANE #1 -->
-				</div>
-				<!-- WINDOW PANE #2 -->
-				<div class="copy">
-					<div class="blok-1" id="sctn_7-form">
-						<form method="post" action="index.htm#sctn_4?pos=3" name="sctn_6-name_the_team" id="sctn_6-name_the_team">
-						<div class="visible">
-							<div id="ntt-question_1">
-								<label>Please enter your name as it appears on the credit card.</label>
-								<input type="text" maxlength="60" value="Please enter your full name" name="full_name" id="input-full_name-ntt" />
-							</div>
-							<div id="ntt-question_2">
-								<label>Please enter your billing address.</label>
-								<input type="text" maxlength="60" value="Address Line #1" name="address_1" id="input-address_1-ntt" />
-								<input type="text" maxlength="60" value="If needed, enter Address Line #2" name="address_2" id="input-address_2-ntt" />
-								<div id="ntt-line_3">
-									<input type="text" maxlength="30" value="City" name="city" id="input-city-ntt" />
-									<input type="text" maxlength="2" value="ST" name="state" id="input-state-ntt" />
-									<input type="text" maxlength="10" value="Zip Code" name="zip_code" id="input-zip_code-ntt" />
-								</div>
-							</div>
-							<input type="button" name="ntt-next" value="Next Step" id="input-next_step-ntt" />
-						</div>
-						<div class="not_visible">
-							<div id="ntt-question_3">
-								<label>Name Idea</label>
-								<input type="text" size="34" maxlength="34" value="Enter your team name" name="card_num" id="input-team_name-ntt" />
-							</div>
-							<div id="ntt-question_4">
-								<label>Why this name?</label>
-								<textarea cols="10" rows="8" name="reason-ntt" id="input-reason-ntt"></textarea>
-							</div>
-							<div id="ntt-question_5">
-								<label>Other ideas</label>
-								<textarea cols="10" rows="8" name="other-ntt" id="input-other-ntt"></textarea>
-							</div>
-							<input type="submit" name="ntt-submit_request" value="Submit Request" id="input-submit_request" />
-							<input type="button" name="ntt-previous" value="Previous Step" id="input-previous_step" />
-						</div>
-						</form>
-					</div>
-				<!-- END of WINDOW PANE #2 -->
 				</div>
 				<!-- INFO FOOTER -->
 				<div class="wndow_footer" id="wndow_footer-6">
