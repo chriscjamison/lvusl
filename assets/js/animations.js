@@ -649,7 +649,7 @@ function animateForm(time_value) {
   var page_on_css = new Object();
   var opacity_zero_css = new Object();
  
-  page_1_selector = "#form-ntt > div";
+  page_1_selector = "#form-ntt > div:first-of-type";
   page_2_selector = "#form-ntt > div + div";
   // "page_1_selector" now holds the selector used by the HTML element which contains 
   // the "first page" of the form this function is processing.
