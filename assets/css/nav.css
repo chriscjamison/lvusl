@@ -383,8 +383,13 @@ nav {
   
   
   .sctn_nav {
-    width: 99em;
-    top: 43em;
+    width: 92.5em;
+  }
+
+  #nav-sctn_1, 
+  #nav-sctn_2, 
+  #nav-sctn_4 {
+    top: 8.75em;
   }
 }
 
