@@ -1722,6 +1722,10 @@ function loadLinks(direction, section_value)  {
       $jQ(previous_link_element).css(not_visible_link_css);
       // The <a> element which cycles back through the list of questions is 
       // made invisible.
+    } else if (visible_link_listing_val === num_of_link_listing_elements) {
+      $jQ(next_link_element).css(visible_link_css);
+      // The <a> element which cycles forward through the list of questions is 
+      // made visible.
     }
   } else if (direction === "next") {
   // Otherwise, if the visitor wishes to view the next set of questions, 
@@ -1736,7 +1740,7 @@ function loadLinks(direction, section_value)  {
       $jQ(previous_link_element).css(visible_link_css);
       // The <a> element which cycles back through the list of questions is 
       // made invisible.
-    } else if (visible_link_listing_val === num_of_link_listing_elements) {
+    } else if (visible_link_listing_val === (num_of_link_listing_elements - 1)) {
     // If the visitor has reached the last list of questions, 
     // then this condition is triggered.
       

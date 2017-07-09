@@ -162,7 +162,8 @@ h2,
 .faq_listing > ul > li > a, 
 #wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
 .article_listing > ul > li > a, 
-.article_listing > ul > li > a + span  {
+.article_listing > ul > li > a + span, 
+h3  {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -229,23 +230,27 @@ h2,
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
 
-.blok-1 > div:first-of-type {
+.blok-1 > div:first-of-type, 
+.article_listing > div:first-of-type {
   width: 25.5em;
   height: 2em;
   position: relative;
 }
 
-.blok-1 > div:first-of-type > span {
+.blok-1 > div:first-of-type > span, 
+.article_listing > div:first-of-type > span {
   height: 2px;
   display: block;
   float: left;
 }
 
-.blok-1 > div:first-of-type > span:nth-child(1) {
+.blok-1 > div:first-of-type > span:nth-child(1), 
+.article_listing > div:first-of-type > span:nth-child(1) {
   width: 5em;
 }
 
-.blok-1 > div:first-of-type > span:nth-child(2) {
+.blok-1 > div:first-of-type > span:nth-child(2), 
+.article_listing > div:first-of-type > span:nth-child(2) {
   width: 20em;
 }
 
@@ -269,6 +274,11 @@ h2 {
   font-size: 1.2em;
 }
 
+h3 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
 /* ---- 'MAIN LANDING PAGE' ---- 
  * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
@@ -352,12 +362,14 @@ h2 {
 
 #info > div > div > span:nth-child(1), 
 #info > div > div > span:nth-child(3), 
-.blok-1 > div:first-of-type > span:nth-child(1) {
+.blok-1 > div:first-of-type > span:nth-child(1), 
+.article_listing > div:first-of-type > span:nth-child(1) {
   border-bottom: 1px dotted #f51b74;
 }
 
 #info > div > div > span:nth-child(2), 
-.blok-1 > div:first-of-type > span:nth-child(2) {
+.blok-1 > div:first-of-type > span:nth-child(2), 
+.article_listing > div:first-of-type > span:nth-child(2) {
   border-bottom: 1px solid #f51b74;
 }
 
