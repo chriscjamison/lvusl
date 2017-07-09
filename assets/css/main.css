@@ -175,7 +175,8 @@ h3  {
 .headr > div + div > a, 
 #sctn_3-faq_links > a, 
 .faq_back > a, 
-#sctn_5-news_links > a {
+#sctn_5-news_links > a, 
+#wndow-sctn_6 > .copy > .blok-1 > a {
   font-family: 'korolev-military-stencil', sans-serif;
   font-size: 1.2em;
   font-weight: 400;
@@ -231,26 +232,30 @@ h3  {
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
 
 .blok-1 > div:first-of-type, 
-.article_listing > div:first-of-type {
+.article_listing > div:first-of-type, 
+#sctn_7-desc > h2 + div + p + div {
   width: 25.5em;
   height: 2em;
   position: relative;
 }
 
 .blok-1 > div:first-of-type > span, 
-.article_listing > div:first-of-type > span {
+.article_listing > div:first-of-type > span,
+#sctn_7-desc > h2 + div + p + div > span {
   height: 2px;
   display: block;
   float: left;
 }
 
 .blok-1 > div:first-of-type > span:nth-child(1), 
-.article_listing > div:first-of-type > span:nth-child(1) {
+.article_listing > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2) {
   width: 5em;
 }
 
 .blok-1 > div:first-of-type > span:nth-child(2), 
-.article_listing > div:first-of-type > span:nth-child(2) {
+.article_listing > div:first-of-type > span:nth-child(2), 
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1) {
   width: 20em;
 }
 
@@ -363,13 +368,16 @@ h3 {
 #info > div > div > span:nth-child(1), 
 #info > div > div > span:nth-child(3), 
 .blok-1 > div:first-of-type > span:nth-child(1), 
-.article_listing > div:first-of-type > span:nth-child(1) {
+.article_listing > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2) {
   border-bottom: 1px dotted #f51b74;
 }
 
 #info > div > div > span:nth-child(2), 
 .blok-1 > div:first-of-type > span:nth-child(2), 
-.article_listing > div:first-of-type > span:nth-child(2) {
+.article_listing > div:first-of-type > span:nth-child(2),
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1) {
   border-bottom: 1px solid #f51b74;
 }
 
@@ -449,7 +457,8 @@ h3 {
 #email-copy > div > a, 
 #sctn_3-faq_links > a,
 .faq_back > a,
-#sctn_5-news_links > a {
+#sctn_5-news_links > a, 
+#wndow-sctn_6 > .copy > .blok-1 > a {
   width: 8.87em;
   height: 1.25em;
   padding: 2em 0;
@@ -466,7 +475,9 @@ h3 {
 
 #email-copy > div > a:hover, 
 #sctn_3-faq_links > a:hover, 
-.faq_back > a:hover {
+.faq_back > a:hover, 
+#sctn_5-article_links > a:hover, 
+#wndow-sctn_6 > .copy > .blok-1 > a:hover {
   color: #f51b74;
 }
 
@@ -650,7 +661,8 @@ h3 {
   display: none;
 }
 
-#wndow-sctn_3 > .copy .blok-1 {
+#wndow-sctn_3 > .copy .blok-1, 
+#sctn_8-links {
   width: 25.5em;
 }
 
@@ -702,7 +714,9 @@ h3 {
 
 /* ---- 'SECTION #4' ---- */
 
-#wndow-sctn_4 > .copy > .blok-1 {
+#wndow-sctn_4 > .copy > .blok-1, 
+#wndow-sctn_6 > .copy > .blok-1, 
+#wndow-sctn_7 > .copy > .blok-1 {
   width: 25.5em;
 }
 
@@ -710,6 +724,7 @@ h3 {
   position: absolute;
   left: 16em;
 }
+
 
 /* ---- 'SECTION #5' ---- */
 
@@ -719,176 +734,21 @@ h3 {
   color: #fff;
 }
 
-.sctn_5-blok {
-  font-family: 'Istok Web', sans-serif;
-}
-/* Formats the blocks which are contained with 'SECTION #5'. */
-
-#sctn_5-job_titles, 
-#sctn_5-job_listings {
-  position: absolute;
-}
-/* Formats the block which contains text content but does not include a <button> element 
- * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
- */
-
-#sctn_5-catagories {
-  width: 14em;
-  background-color: #ffe0c1;
-}
-/* Formats the block which holds the job titles. */
-
-#sctn_5-catagories > span {
-  margin-bottom: 0.75em;
-  display: block;
-  border-bottom: 2px solid #fff6ed;
-  font-size: 1em;
-  font-weight: 700;
-}
-/* 
- * Formats the <span> element which holds the header for the block containing 
- * job titles. 
- */
-
-#sctn_5-catagories > div {
-  margin-top: 1em;
-}
-/* Formats the <div> elements which contain catagories of job titles. */
-
-#sctn_5-catagories > span, 
-#sctn_5-catagories > div > span {
-  color: #ee9e4f;
-}
-/* 
- * Formats the header for the block and also job catagory titles.
- */
-
-#sctn_5-catagories > div > span + span {
-  height: 1em;
-  margin-left: 0.5em;
-  padding: 0 0.35em 0.3em 0.3em;
-  background-color: #ee9e4f;
-  color: #ffe0c1;
-  text-align: center;
-}
-/* Formats the blocks which appear to the right of job catagory titles. */
-
-#sctn_5-catagories > div > span, 
-#sctn_5-catagories > div > span + span {
-  display: block;
-  float: left;
-  font-weight: 700;
-}
-/* Formats the header for the block and the title of individual job catagories. */
-
-#sctn_5-catagories > div > a {
-  display: block;
-  color: #75a6b2;
-  clear: both;
-}
-/* Formats job titles within the block holding job catagories. */
-
-.sctn_5-listing {
-  width: 50em;
-  padding: 1em 2em;
-  float: left;
-  background-color: #eef1fe;
-  font-family: 'Istok Web', sans-serif;  
-}
-/* Formats the <div> element which holds job descriptions. */
-
-.sctn_5-summary > h4 {
-  margin: 0;
-  color: #75a6b2
-}
-/* Formats the job title within the <div> element which holds job descriptions. */
-
-.sctn_5-summary {
-  border-bottom: 2px solid #ffbb77;
-}
-/* 
- * Formats the summary which appears below the job title within the <div> 
- * element which holds job descriptions. 
- */
-
-.sctn_5-summary > ul {
-  margin: 0.5em 0 0.6em 0;
-}
-/* 
- * Formats the <ul> element which appears below the job title within the <div> 
- * element which holds job descriptions. 
- */
-
-.sctn_5-summary > ul > li {
-  list-style: url('/lvusl/assets/img/misc/disc.png');
-}
-/* 
- * Formats the individual list items which appear below the job title within 
- * the <div> element which holds job descriptions.
- */
-
-.sctn_5-summary > h4, 
-.sctn_5-summary > ul > li, 
-.sctn_5-job_desc > p {
-  color: #7facbb;
-}
-/* Formats the job title, list itemts, and copy of the job desciptions. */
-
-.sctn_5-job_desc > p {
-  padding-left: 2.5em;
-}
-/* Formats the <p> elements which appear as part of the job descriptions. */
-
-
 
 /* ---- 'SECTION #6' ---- */
 
-.sctn_6-blok {
-  width: 40.5em;
-  padding: 0;
+#wndow-sctn_6 > .copy > .blok-1 > a {
+  float: none;
+  letter-spacing: -1px;
 }
-/* Formats a <div> element which hold social media images and links. */
 
-.sctn_6-social_media_link {
-  width: 16em;
-  height: 8em;
-  margin: 0 2em 2em 0;
-  padding: 1em;
-  float: left;
-  background-color: #C7C5E4;
-  font-family: 'Istok Web', sans-serif;
-  color: #f4c887;
-}
-/* Formats the individual blocks which hold social media content. */
 
-.sctn_6-social_media_link > a > img {
-  margin: 0 auto 0.5em auto;
-  display: block;
-}
-/* Formats the images which appear as part of individual blocks. */
+/* ---- 'SECTION #7' ---- */
 
-.sctn_6-social_media_link > a + a {
-  width: 16em;
-  margin: 0 auto;
-  display: block;
-  color: #3a5a98;
+#sctn_7-desc > div:first-of-type {
+  height: 1.5em;
 }
-/* Formats the text links which appear as part of individual blocks. */
 
-#sctn_6-instagram > a + a {
-  width: 16.25em;
-}
-/* Formats the text link for the block holding Instagram content. */
-
-#sctn_6-twitter > a + a {
-  width: 14.75em;
-}
-/* Formats the text link for the block holding Twitter content. */
-
-#sctn_6-youtube > a + a {
-  width: 15.5em;
-}
-/* Formats the text link for the block holding YouTube content. */
 
 
 
@@ -1178,7 +1038,10 @@ h3 {
     margin: 7em 0 0 17em;
   }
 
-  #wndow-sctn_3 .copy {
+  #wndow-sctn_3 .copy, 
+  #wndow-sctn_6 .copy, 
+  #wndow-sctn_7 .copy, 
+  #wndow-sctn_8 .copy {
     width: 32.5em;
     height: 53.5em;
     margin: 8em 0 0 86.5em;
