@@ -246,7 +246,7 @@ function formatHeader(url_hash) {
     $jQ(sub_nav_element).addClass("sub_nav not_visible");
 
 
-  } else if (url_hash === "#sctn_4?pos=0")  {
+  } else {
   // If the visitor has submitted a request for a season ticket, but 
   // used the main menu to navigate to 'SECTION #1', this condition 
   // is triggered.
@@ -521,6 +521,7 @@ function setupPage(time_value)  {
       // is incremented.
     } 
   );
+  
   
   animatePageElements();
   // "animatePageElements" is called to animate the blocks that are contained within an individual 

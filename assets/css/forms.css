@@ -12,6 +12,10 @@
  *    - 1280x800
  * ******************************************************************************************** */
 
+form {
+	margin: 0;
+}
+
 #alrt {
 	width: inherit;
 	height: inherit;
@@ -84,7 +88,6 @@ input[type=submit] {
 }
 /* Formats which appear as buttons throughout the webpage. */
 
-
 #email-form fieldset {
 	margin: 1.75em 0 0 0.4em;
 	padding: 0;
@@ -122,6 +125,13 @@ input[type=email] {
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
 
+select {
+	padding: 0.34em;
+	font-family: 'cholla-wide', sans-serif;
+	font-size: 1.1em;
+	letter-spacing: 0.7px;
+}
+
 #email-form input[type='text'] {
 	width: 20.4em;
 	margin: 0.5em 0 1.5em 0;
@@ -137,18 +147,26 @@ input[type=email] {
  * splash screen.
  */
 
-#sctn_4-request_tickets > div > div > input:first-of-type {
+#form-request_tickets > div > div > input:first-of-type {
 	margin-top: 0.75em;
 }
 
-#input-full_name-ticket, 
-#input-address_1-ticket, 
-#input-address_2-ticket,
+#input-ticket-first_name, 
+#input-ticket-last_name {
+	width: 11.2em;
+}
+
+#input-ticket-first_name {
+	margin-right: 0.5em;
+}
+
+#input-ticket-address_1, 
+#input-ticket-address_2,
 #input-card_num-ticket, 
 #input-full_name-ntt, 
 #input-address_1-ntt, 
 #input-address_2-ntt {
-	width: 20em;
+	width: 23em;
 }
 /* 
  * Formats the <input> elements for the question fields for a visitor to enter their 
@@ -156,16 +174,16 @@ input[type=email] {
  * which appear within the form which collects season ticket requests.
  */
 
-#input-city-ticket, 
+#input-ticket-city, 
 #input-city-ntt {
-	width: 10.82em;
+	width: 13.9em;
 }
 /* 
  * Formats the <input> element for the question field which a visitor can enter 
  * their city name within the form which collects season ticket requests.
  */
 
-#input-state-ticket, 
+#input-ticket-state, 
 #input-state-ntt {
 	width: 2.7em;
 	margin: 0 0.08em;
@@ -175,7 +193,7 @@ input[type=email] {
  * their state name within the form which collects season ticket requests.
  */
 
-#input-zip_code-ticket, 
+#input-ticket-zip_code, 
 #input-zip_code-ntt {
 	width: 5.8em;
 }

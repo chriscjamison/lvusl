@@ -144,12 +144,6 @@ body {
  /* Formats the link which appears over the text of the header */
 
 
-#info > div > a:hover, 
-.sctn_4-article + a:hover {
-  border: 1px solid #fff113;
-}
-/* Adds :hover events to the links which appear as buttons. */
-
 #info > div > a:first-of-type,
 #info > div > p,
 #wndow_footer-main > span,
@@ -164,7 +158,8 @@ h2,
 .article_listing > ul > li > a, 
 .article_listing > ul > li > a + span, 
 h3, 
-.blok-social_media > a:nth-child(2)   {
+.blok-social_media > a:nth-child(2), 
+#sctn_9-form p > a  {
   font-family: 'cholla-wide', sans-serif;
   letter-spacing: 0.7px;
 }
@@ -192,7 +187,8 @@ h3,
 .faq_listing > ul > li > a, 
 #wndow-sctn_3 > .copy > .blok-1 > div + p + a, 
 .article_listing > ul > li > a, 
-.blok-social_media > a:nth-child(2)  {
+.blok-social_media > a:nth-child(2), 
+#sctn_9-form p > a  {
   color: #fff113; 
 }
 /* Sets the color of the above elements to a shade of blue. */
@@ -489,6 +485,7 @@ h3 {
 }
 
 #email-copy > div > a:hover, 
+#info > div > a:hover,  
 #sctn_3-faq_links > a:hover, 
 .faq_back > a:hover, 
 #sctn_5-article_links > a:hover, 
@@ -731,7 +728,8 @@ h3 {
 
 #wndow-sctn_4 > .copy > .blok-1, 
 #wndow-sctn_6 > .copy > .blok-1, 
-#wndow-sctn_7 > .copy > .blok-1 {
+#wndow-sctn_7 > .copy > .blok-1, 
+#wndow-sctn_9 > .copy > .blok-1 {
   width: 25.5em;
 }
 
@@ -1089,7 +1087,8 @@ h3 {
   #wndow-sctn_3 .copy, 
   #wndow-sctn_6 .copy, 
   #wndow-sctn_7 .copy, 
-  #wndow-sctn_8 .copy {
+  #wndow-sctn_8 .copy, 
+  #wndow-sctn_9 .copy {
     width: 32.5em;
     height: 53.5em;
     margin: 8em 0 0 86.5em;

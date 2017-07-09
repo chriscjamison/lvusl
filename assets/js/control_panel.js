@@ -468,7 +468,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#sctn_main-email, #sctn_4-request_tickets").submit(
+    $jQ("#form-email, #form-request_tickets").submit(
     // Validates the data contained within either the 'Email Alert' or 
     // 'Request Season Tickets' forms.
     
