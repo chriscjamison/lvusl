@@ -146,6 +146,7 @@ body {
 
 #info > div > a:first-of-type,
 #info > div > p,
+#info p > a, 
 #wndow_footer-main > span, 
 #email-content p,
 .headr > div > a, 
@@ -205,6 +206,7 @@ h3,
 }
 
 #info > div > a,
+#info p > a, 
 .headr > div + div > a, 
 .wndow_footer > a:nth-child(2), 
 .faq_listing > ul > li > a, 
@@ -222,7 +224,6 @@ h3,
 }
 /* Sets the color of the above elements to a shade of blue. */
 
-#email a, 
 .headr > div + div > a {
   text-decoration: none;
 }
@@ -387,8 +388,7 @@ h3 {
   width: 24.5em;
   margin-top: 0.5em;
   position: relative;
-  float: right;
-  right: 9.5em;
+  left: 21.5em;
   color: #fff;
   font-size: 1.15em;
   font-weight: 700;

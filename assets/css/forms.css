@@ -91,7 +91,8 @@ input[type=submit] {
 
 #form-email label, 
 #form-request_tickets label, 
-#form-ntt label {
+#form-ntt label, 
+#form-contact_us label {
 	display: block;
 	font-family: 'cholla-wide', sans-serif;
 	font-size: 1.2em;
@@ -105,7 +106,8 @@ input[type=submit] {
 }
 
 #input-ticket-submit_request, 
-#input-ntt-next_step {
+#input-ntt-next_step, 
+#input-contact_us-send_message {
 	margin-left: 12em;
 }
 
@@ -164,19 +166,23 @@ select {
 #input-ticket-first_name, 
 #input-ticket-last_name, 
 #input-ntt-first_name, 
-#input-ntt-last_name {
+#input-ntt-last_name, 
+#input-contact_us-first_name, 
+#input-contact_us-last_name {
 	width: 11.2em;
 }
 
 #input-ticket-first_name, 
-#input-ntt-first_name {
+#input-ntt-first_name, 
+#input-contact_us-first_name {
 	margin-right: 0.5em;
 }
 
 #input-ticket-address_1, 
 #input-ticket-address_2,
 #input-ntt-email, 
-#input-ntt-name_idea {
+#input-ntt-name_idea, 
+#input-contact_us-email {
 	width: 23em;
 }
 /* 
@@ -204,21 +210,13 @@ select {
  */
 
 #input-ticket-zip_code, 
-#input-ntt-zip_code {
+#input-ntt-zip_code, 
+#input-contact_us-zip_code {
 	width: 4.9em;
 }
 /* 
  * Formats the <input> element for the question field which a visitor can enter 
  * their zip code within the form which collects season ticket requests.
- */
-
-#input-security_code {
-	width: 3.5em;
-}
-/* 
- * Formats the <input> element for the question field which a visitor can enter 
- * their credit card security code within the form which collects 
- * season ticket requests.
  */
 
 #ticket-question_1, 
@@ -227,13 +225,17 @@ select {
 #ntt-question_2, 
 #ntt-question_3, 
 #ntt-question_5, 
-#ntt-question_6 {
+#ntt-question_6, 
+#contact_us-question_1, 
+#contact_us-question_2, 
+#contact_us-question_3 {
 	margin-bottom: 1.5em;
 }
 
 #ticket-question_3, 
 #ntt-question_4, 
-#ntt-question_7 {
+#ntt-question_7, 
+#contact_us-question_4 {
 	margin-bottom: 2.75em;
 }
 
