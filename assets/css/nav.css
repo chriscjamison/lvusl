@@ -176,8 +176,9 @@ nav {
 	height: 2.35em;
 	margin: 0.5em;
 	padding: 1em;
-	display: inline-block;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	display: block;
+  float: left;
+	font-family: 'korolev-military-stencil', Arial, sans-serif;
   font-size: 1.25em;
 	background-color: #000;
 	color: #fff;
@@ -296,17 +297,28 @@ nav {
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
   
-  nav, 
+   nav, 
   #nav-bkgrnd, 
   #nav-brdr {
-    width: 32em;
-    left: -32em;
+    width: 40em;
+    left: -40em;
   }
   
+  #options {
+    width: 38.5em;
+  }
+    
   .sctn_nav {
     width: 79em;
     height: 6.1em;
     top: 39em;
+  }
+
+  #nav-sctn_1, 
+  #nav-sctn_2, 
+  #nav-sctn_4 {
+    top: 8em;
+    left: 6.5em;
   }
 }
 
@@ -318,12 +330,12 @@ nav {
   nav, 
   #nav-bkgrnd, 
   #nav-brdr {
-    width: 32em;
-    left: -32em;
+    width: 40em;
+    left: -40em;
   }
   
   #options {
-    width: 32em;
+    width: 38.5em;
   }
   
   #options > a {
@@ -331,6 +343,7 @@ nav {
     display: inline-table;
     font-size: 1.25em;
   };
+
 }
 
 @media screen and (min-width: 1340px) and (max-width: 1580px) {
@@ -341,13 +354,13 @@ nav {
   nav, 
   #nav-bkgrnd, 
   #nav-brdr {
-    width: 39.1em;
-    left: -39.1em;
+    width: 36.5em;
+    left: -36.5em;
   }
   
   #options {
-    width: 39.1em;
-    left: -39.1em;
+    width: 36.5em;
+    left: -36.5em;
   }
 
   #options > a {
@@ -355,11 +368,11 @@ nav {
     float: left;
   }
   
-  #nav-sctn_1 {
-    width: 84.3em;
-    top: 6.5em;
-    left: 7em;
-
+  #nav-sctn_1, 
+  #nav-sctn_2, 
+  #nav-sctn_4 {
+    top: 8em;
+    left: 6.5em;
   }
 }
 
@@ -370,15 +383,15 @@ nav {
 
    nav, 
    #nav-bkgrnd {
-     height: 48.1em;
+     height: 49.5em;
    }
 
    nav, 
    #options, 
    #nav-bkgrnd, 
    #nav-brdr {
-     width: 41.25em;
-     left: -41.25em;
+     width: 38.5em;
+     left: -38.5em;
    }
   
   
@@ -402,8 +415,8 @@ nav {
   #nav-brdr,
   #nav-bkgrnd, 
   #options {
-    width: 20.5em;
-    left: -20.5em;
+    width: 40em;
+    left: -40em;
   }
 
   nav, 

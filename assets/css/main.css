@@ -147,7 +147,8 @@ body {
 #info > div > a:first-of-type,
 #info > div > p,
 #info p > a, 
-#wndow_footer-main > span, 
+#wndow_footer-sctn_main > span, 
+.wndow_footer > p, 
 #email-content p,
 .headr > div > a, 
 .wndow_footer > a:nth-child(2), 
@@ -245,7 +246,8 @@ h3,
 #email-content, 
 #email-copy > div > a, 
 .sctn_nav > div > a, 
-.wndow_footer > a:nth-child(1) {
+.wndow_footer > a:nth-child(1), 
+.wndow_footer > p {
   box-shadow: 1px 1px 2px 1px #333;
 }
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
@@ -417,6 +419,7 @@ h3 {
   display: block;
   float: left;
   background-image: url('/lvusl/assets/img/misc/footer_link_logo.png');
+  background-position: 0px 0px;
 }
 
 .wndow_footer > a:nth-child(2) {
@@ -424,6 +427,21 @@ h3 {
   height: 2.5em;
   margin-top: 0.6em;
   display: block;
+}
+
+.wndow_footer > p {
+  width: 15em;
+  height: 11.5em;
+  padding: 2.5em;
+  display: none;
+  position: absolute;
+  top: -14.75em;
+  left: 4em;
+  background-color: #00a1e1;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #fff113;
+  opacity: 0;
 }
 
 #email {
@@ -557,16 +575,6 @@ h3 {
   font-size: 1.2em;
 }
 
-#sctn_3-faq_links > a:nth-child(1), 
-#sctn_5-news_links > a:nth-child(1) {
-  margin-right: 3.5em;
-}
-
-#sctn_3-faq_links > a, 
-#sctn_5-news_links > a {
-  height: 1.75em;
-  padding-top: 1.2em;
-}
 /* 
  * Formats links within a <div> using the selector ".sctn_nav".
  * The selectors attached to this CSS pairing are used for links with 
@@ -595,13 +603,6 @@ h3 {
 
 
 /* ---- 'SECTION #4' ---- */
-
-#wndow-sctn_4 > .copy > .blok-1, 
-#wndow-sctn_6 > .copy > .blok-1, 
-#wndow-sctn_7 > .copy > .blok-1, 
-#wndow-sctn_9 > .copy > .blok-1 {
-  width: 25.5em;
-}
 
 #sctn_4-confirmation {
   position: absolute;
@@ -652,19 +653,19 @@ h3 {
   display: block;
 }
 
-#sctn_6-facebook > a:nth-child(2) {
+#sctn_8-facebook > a:nth-child(2) {
   width: 16.5em;
 }
 
-#sctn_6-instagram > a:nth-child(2) {
+#sctn_8-instagram > a:nth-child(2) {
   width: 15.75em;
 }
 
-#sctn_6-twitter {
+#sctn_8-twitter {
   margin-bottom: 0;
 }
 
-#sctn_6-twitter > a:nth-child(2) {
+#sctn_8-twitter > a:nth-child(2) {
   width: 12.1em;
 }
 
@@ -672,6 +673,94 @@ h3 {
   /* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
+
+  #form-email > a, 
+  #sctn_3-faq_links > a,
+  .faq_back > a,
+  #sctn_5-news_links > a, 
+  #wndow-sctn_6 > .copy > .blok-1 > a {
+    width: 8.87em;
+    height: 1.25em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 25.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_8-facebook, 
+  #sctn_9-form {
+    width: 23.5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 20em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type {
+    width: 30em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type >  span:nth-child(1) {
+    width: 9em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type > span:nth-child(2) {
+    width: 21em;
+  }
+  
+  #sctn_4-desc > div:first-of-type > span:nth-child(1) {
+    width: 5.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2) {
+    width: 18em;
+  }
+
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 {
+    width: 30em;
+  }
+  
+  
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1 {
+    width: 23.5em;
+  }
+
+ .blok-1 p {
+    font-size: 1em;
+    color: #fff;
+  }
+
+  #email-content p,
+  .blok-1 p {
+    line-height: 1.5em;
+  }
 
   #cntainr {
     width: 80em;
@@ -683,8 +772,8 @@ h3 {
   }
 
   #info > div {
-    height: 4.5em;
-    margin: 1.55em 0 0 13em;
+    height: 23.5em;
+    margin: 1.55em 0 0 0;
   }
 
   #email {
@@ -706,36 +795,128 @@ h3 {
     left: 11em;
   }
 
+  #info > div > a:first-of-type {
+    font-size: 1em;
+  }
+
+  .wndow_footer {
+    width: 78.5em;
+    height: 7.25em;
+    bottom: 0;
+  }
+  
   .headr {
-    width: 66.25em;
+    width: 77.8em;
+    margin: 2.75em 0 0 6.5em;
   }
 
-  .copy {
-    width: 72.75em;
-    margin: 11.15em 0 0 6.25em;
+  .headr > div > span {
+    font-size: 2.5em;
   }
 
-  #sctn_1-desc-1 {
-    left: 44.5em;
+  #wndow-sctn_1 > .copy {
+    width: 73.25em;
+    height: 35em;
+    margin: 15em 0 0 6.5em;
   }
 
-  #sctn_1-video {
-    width: 42.5em;
-    height: 24em;
-    margin-left: 11.25em;
+  #wndow-sctn_2 > .copy, 
+  #wndow-sctn_4 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 17em;
   }
 
-  #sctn_1-document {
-    width: 32.5em;
-    margin-left: 15.5em;
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy {
+    width: 32.25em;
+    height: 41.25em;
+    margin: 8.75em 0 0 48em;
   }
 
-  .sctn_5-listing {
-    width: 44em;
+  #wndow-sctn_6 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 18.75em;
   }
 
-  #sctn_5-job_titles {
-    left: 50.25em;
+  #wndow-sctn_9 > .copy {
+    width: 32.25em;
+    height: 41.25em;
+    margin: 8.75em 0 0 50em;
+  }
+
+  #sctn_1-copy {
+    width: 46.5em;
+    height: 13.5em;
+  }
+
+  #sctn_3-listing-bkgrnd, 
+  #sctn_5-listing-bkgrnd {
+    height: 30em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing {
+    width: 25.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links {
+    width: 36.25em;
+    height: 5.5em;
+  }
+
+  #sctn_3-faq_links > a, 
+  #sctn_5-news_links > a {
+    height: 1.75em;
+    padding-top: 1.2em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  .faq_listing > ul > li > a, 
+  .article_listing > ul > li > a, 
+  .blok-social_media > a:nth-child(2) {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  }
+
+  #sctn_6-desc {
+    height: 27.7em;
+    margin-right: 2.5em;
+  }
+
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    height: 1em;
+  }
+  
+  #sctn_8-facebook > a:nth-child(2) {
+    width: 16.75em;
+  }
+
+  #sctn_8-instagram > a:nth-child(2) {
+    width: 16em;
+  }
+
+  #sctn_8-twitter > a:nth-child(2) {
+    width: 12.25em;
   }
 }
 
@@ -744,6 +925,91 @@ h3 {
   * This breakpoint is optimized to fit resolutions of 1366x768px.
   */
   
+  #form-email > a, 
+  #sctn_3-faq_links > a,
+  .faq_back > a,
+  #sctn_5-news_links > a, 
+  #wndow-sctn_6 > .copy > .blok-1 > a {
+    width: 8.87em;
+    height: 1.25em;
+  }
+
+  .blok-1 > div:first-of-type {
+    width: 30em;
+  }
+
+  
+  .blok-1 > div:first-of-type > span:nth-child(1) {
+    width: 9em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(2) {
+    width: 21em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 25.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type,
+  #sctn_9-form {
+    width: 23.5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 20em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(1) {
+    width: 5.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2) {
+    width: 18em;
+  }
+  
+  #wndow-sctn_2 > .copy > .blok-1,
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1 {
+    width: 23.5em;
+  }
+
+ .blok-1 p {
+    font-size: 1.05em;
+    color: #fff;
+  }
+
+  #email-content p,
+  .blok-1 p {
+    line-height: 1.5em;
+  }
+
   #cntnr {
     width: 85.38em;
   }
@@ -763,8 +1029,9 @@ h3 {
   }
 
   .wndow_footer {
-    width: 84.5em;
+    width: 82.5em;
     height: 7.25em;
+    bottom: 0;
   }
 
   #email {
@@ -791,29 +1058,116 @@ h3 {
     margin: 2.75em 0 0 6.5em;
   }
 
-  .copy {
-    width: 81.75em;
+  #wndow-sctn_1 > .copy {
+    width: 77.25em;
     height: 38.75em;
-    margin: 6.5em 0 0 7em;
+    margin: 15em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 > .copy, 
+  #wndow-sctn_4 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 17em;
+  }
+
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy{
+    width: 32.25em;
+    height: 39.25em;
+    margin: 8.75em 0 0 52em;
+  }
+
+  #wndow-sctn_6 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 22.75em;
+  }
+
+  #wndow-sctn_9 > .copy {
+    width: 32.25em;
+    height: 39.25em;
+    margin: 8.75em 0 0 54em;
+  }
+
+  h2 {
+    margin: 0 0 1em 0;
+    font-size: 1.5em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 {
+    width: 30em;
+  }
+
+  #scnt_2-ownership {
+    height: 27em;
+  }
+
+  #sctn_3-listing-bkgrnd, 
+  #sctn_5-listing-bkgrnd {
+    height: 30em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing {
+    width: 25.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links {
+    width: 36.25em;
+    height: 5.5em;
+  }
+
+  #sctn_3-faq_links > a, 
+  #sctn_5-news_links > a {
+    height: 1.75em;
+    padding-top: 1.2em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  .faq_listing > ul > li > a, 
+  .article_listing > ul > li > a, 
+  .blok-social_media > a:nth-child(2) {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  }
+
+  #sctn_6-desc {
+    margin-right: 2.5em;
+  }
+
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    height: 1em;
   }
   
-  #sctn_1-desc-1 {
-    left: 17em;
+  #sctn_8-facebook > a:nth-child(2) {
+    width: 16.75em;
   }
 
-  #sctn_2-video {
-    width: 42.5em;
-    height: 24em;
-    margin-left: 13em;
+  #sctn_8-instagram > a:nth-child(2) {
+    width: 16em;
   }
 
-  #sctn_2-document {
-    width: 32.5em;
-    margin-left: 18.25em;
-  }
-
-  #sctn_5-job_titles {
-    left: 56.5em;
+  #sctn_8-twitter > a:nth-child(2) {
+    width: 12.25em;
   }
 }
 
@@ -821,6 +1175,63 @@ h3 {
   /* This CSS breakpoint affects browsers which have a width more than 1590px and a width less than 1900px. 
    * This breakpoint is optimized to fit resolutions of 1600x900px.
    */
+
+  #form-email > a, 
+  #sctn_3-faq_links > a,
+  .faq_back > a,
+  #sctn_5-news_links > a, 
+  #wndow-sctn_6 > .copy > .blok-1 > a {
+    width: 8.87em;
+    height: 1.25em;
+  }
+
+  .blok-1 > div:first-of-type, 
+  .article_listing > div:first-of-type {
+    width: 36.25em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(1), 
+  .article_listing > div:first-of-type > span:nth-child(1) {
+    width: 12.25em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(2), 
+  .article_listing > div:first-of-type > span:nth-child(2) {
+    width: 24em;
+  }
+
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 25.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2),
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 20em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
 
   #info {
     width: 99em;
@@ -839,8 +1250,8 @@ h3 {
     height: 56.5em;
   }
 
-  #email-blok {
-    transform: translate(20%, 8%);
+  #email-content {
+   transform: translate(125%, 66%);
   }
 
   #email-bkgrnd {
@@ -865,16 +1276,32 @@ h3 {
     margin: 16.5em 0 0 6.5em;
   }
 
-  #wndow-sctn_2 > .copy {
+  #wndow-sctn_2 > .copy, 
+  #wndow-sctn_4 > .copy {
     width: 82em;
     height: 47.5em;
     margin: 8.75em 0 0 17em;
   }
 
-  #wndow-sctn_3 > .copy {
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_5 > .copy {
     width: 43em;
     height: 47.5em;
     margin: 8.75em 0 0 56em;
+  }
+
+  #wndow-sctn_6 > .copy {
+    width: 92.5em;
+    height: 39.75em;
+    margin: 8.75em 0 0 6.5em;
+  }
+
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy, 
+  #wndow-sctn_9 > .copy {
+    width: 32em;
+    height: 48.25em;
+    margin: 8.75em 0 0 67em;
   }
 
   .headr {
@@ -889,7 +1316,8 @@ h3 {
   #sctn_1-copy, 
   #sctn_2-club_vision, 
   #sctn_2-ownership, 
-  #wndow-sctn_3 > .copy > .blok-1 {
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1 {
     width: 36.25em;
   }
 
@@ -905,15 +1333,38 @@ h3 {
   #sctn_3-listing-bkgrnd > .faq_listing, 
   #sctn_5-listing-bkgrnd > .article_listing {
     width: 36.5em;
-    height: 24em;
+    height: 24.5em;
   }
 
-  .sctn_4-link {
-    height: 5em;
+  #sctn_3-faq_links, 
+  #sctn_5-news_links {
+    width: 36.25em;
+    height: 5.5em;
   }
 
-  #sctn_5-job_titles {
-    left: 56em;
+  #sctn_3-faq_links > a, 
+  #sctn_5-news_links > a {
+    height: 1.75em;
+    padding-top: 1.2em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  #sctn_6-desc > div:first-of-type,
+  #sctn_7-desc > div:first-of-type {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  } 
+
+  #sctn_6-desc {
+    margin-right: 2.5em;
+    height: 29.4em;
   }
 }
 
@@ -1030,6 +1481,24 @@ h3 {
 
   #wndow-sctn_3 > .copy .blok-1, 
   #sctn_8-links {
+    width: 25.5em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1) {
+    margin-right: 3.5em;
+  }
+
+  #sctn_3-faq_links > a, 
+  #sctn_5-news_links > a {
+    height: 1.75em;
+    padding-top: 1.2em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1 {
     width: 25.5em;
   }
 

@@ -262,6 +262,55 @@ select {
 	width: 4.1em;
 }
 
+@media screen and (min-width: 1260px) and (max-width: 1320px) {
+	/* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
+  * This breakpoint is optimized to fit resolutions of 1280x800. 
+  */
+
+	select, 
+	input[type=text],
+	input[type=email], 
+	input[type=tel], 
+	textarea, 
+	#form-email label, 
+	#form-request_tickets label, 
+	#form-ntt label, 
+	#form-contact_us label {
+		font-size: 1em;
+	}
+
+	#input-ticket-submit_request, 
+	#input-ntt-next_step, 
+	#input-contact_us-send_message {
+		margin-left: 10.25em;
+	}
+
+}
+
+@media screen and (min-width: 1340px) and (max-width: 1580px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px.
+  */
+
+	select, 
+	input[type=text],
+	input[type=email], 
+	input[type=tel], 
+	textarea, 
+	#form-email label, 
+	#form-request_tickets label, 
+	#form-ntt label, 
+	#form-contact_us label {
+		font-size: 1em;
+	}
+
+	#input-ticket-submit_request, 
+	#input-ntt-next_step, 
+	#input-contact_us-send_message {
+		margin-left: 10.25em;
+	}
+}
+
 @media screen and (width: 980px) {
 	/* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
 

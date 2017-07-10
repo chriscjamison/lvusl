@@ -303,7 +303,7 @@ function setupPage(time_value)  {
   var wndow_selector = new String();
   var bkgrnd_selector = new String();
   var nav_selector = new String();
-  var video_selector = new String();
+  var map_selector = new String();
   var pdf_selector = new String();
   var bkgrnd_div_sub_selector = new String();
   var wndow_sctn_selector = new String();
@@ -319,7 +319,7 @@ function setupPage(time_value)  {
   var copy_elements = new Object();
   var bkgrnd_element = new Object();
   var nav_elements = new Object();
-  var video_element = new Object();
+  var map_element = new Object();
   var pdf_element = new Object();
   var bkgrnd_div_sub_elements = new Object();
   var wndow_sctn_element = new Object();
@@ -335,7 +335,7 @@ function setupPage(time_value)  {
   var width_height_css = new Object();
   var nav_css = new Object();
   
-  var video_attr = new Object();
+  var map_attr = new Object();
   var pdf_attr = new Object();
 
   var inc_bkgrnd = new Number();
@@ -360,15 +360,15 @@ function setupPage(time_value)  {
   wndow_selector = ".wndow";
   bkgrnd_selector = "#bkgrnd";
   nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
-  video_selector = "#sctn_2-video > video";
-  pdf_selector = "#sctn_2-document > a > img"
+  map_selector = "#sctn_1-map > a > img";
+  pdf_selector = "#sctn_1-document > a > img"
   bkgrnd_div_sub_selector = "#bkgrnd > div";
   
   cntainr_element = $jQ(cntainr_selector);
   wndow_elements = $jQ(wndow_selector);
   bkgrnd_element = $jQ(bkgrnd_selector);
   nav_elements = $jQ(nav_selector);
-  video_element = $jQ(video_selector);
+  map_element = $jQ(map_selector);
   pdf_element = $jQ(pdf_selector);
   bkgrnd_div_sub_elements = $jQ(bkgrnd_div_sub_selector);
 
@@ -388,28 +388,28 @@ function setupPage(time_value)  {
   
   nav_css = {
     left: nav_left_val
-  }
+  };
 
   if (wndow_width === 1280 || 
       wndow_width === 1366)  {
   // If the width of the browser window is 1280px, this condition 
   // is triggered.
 
-    video_attr = {
-      width: "680", 
-      height: "382"
+    map_attr = {
+      width: "360", 
+      height: "360"
     };
     // The width and height attributes of the <video> element in SECTION #2 are 
     // stored in, "video_attr".
 
     pdf_attr = {
-      width: "519", 
-      height: "388"
+      width: "481", 
+      height: "360"
     };
     // The width and height attributes of the <img> element in SECTION #2 are 
     // stored in, "pdf_attr".
 
-    $jQ(video_element).attr(video_attr);
+    $jQ(map_element).attr(map_attr);
     // The width and height of the <video> element within SECTION #2 are changed to 
     // better fit the browser window
     $jQ(pdf_element).attr(pdf_attr);
@@ -1609,22 +1609,21 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
    * from 0 to 1.
    * **************** **************** **************** **************** **************** */
   
-  $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
-    function () {
-      if (section_value === 1 || 
-          section_value === 2 ||
-          section_value === 4)  {
-      // If the current visible Section contains intrasection navigation, 
-      // this condition is triggered.
- 
-        $jQ(sub_nav_element).fadeTo(time_value, 1);
+  if (section_value === 1 || 
+      section_value === 2 ||
+      section_value === 4)  {
+    $jQ(sub_nav_element).fadeTo(time_value, 1, 
+      function () {
+        $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1);
       }
+    );
+  } else {
+    $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1);
+  }
 
-      if (section_value !== "sctn_main")  {
-        $jQ(wndow_footer_element).fadeTo(time_value, 1);
-      }
-    }
-  );
+  if (section_value !== "sctn_main")  {
+    $jQ(wndow_footer_element).fadeTo(time_value, 1);
+  }
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */
 
 function loadLinks(direction, section_value)  {
@@ -1766,4 +1765,99 @@ function loadLinks(direction, section_value)  {
 
   $jQ(updated_link_listing_element).removeClass();
   $jQ(updated_link_listing_element).addClass(visible_class_val);
+} /* **************** END OF FUNCTION "fadeCopyElements" **************** */
+
+function animateClubInfo(section_value)  {
+  /* **************** **************** **************** **************** **************** 
+   * The blurbs featuring information about each club that appears near the bottom of 
+   * each section is made visible.
+   * **************** **************** **************** **************** **************** */
+  
+  var headr_selector = new String();
+  var wndow_selector = new String();
+  var copy_selector = new String();
+  var link_selector = new String();
+  var icon_selector = new String();
+  var p_selector = new String();
+  
+
+  var headr_element = new Object();
+  var wndow_element = new Object();
+  var copy_elements = new Object();
+  var link_element = new Object();
+  var icon_element = new Object();
+  var p_element = new Object();
+
+  var opacity_zero_css = new Object();
+  var opacity_one_css = new Object();
+  
+  headr_selector = ".headr.sctn_" + section_value;
+  wndow_selector = "#wndow-sctn_" + section_value;
+  copy_selector = wndow_selector + " > .copy";
+  icon_selector = "#wndow_footer-sctn_" + section_value + " > a:first-of-type";
+  link_selector = "#wndow_footer-sctn_" + section_value + " > a:nth-child(2)";
+  p_element = "#wndow_footer-sctn_" + section_value + " > p";
+  
+  headr_element = $jQ(headr_selector);
+  wndow_element = $jQ(wndow_selector);
+  copy_elements = $jQ(copy_selector);
+  icon_element = $jQ(icon_selector);
+  link_element = $jQ(link_selector);
+
+  opacity_zero_css = {
+    opacity: "0"
+  };
+
+  opacity_one_css = {
+    opacity: "1"
+  };
+
+  if ($jQ(p_element).css("display") === "none") {
+    $jQ(headr_element).fadeTo(400, 0, 
+      function () {
+        if (section_value === "1" || 
+            section_value === "2" ||
+            section_value === "4")  {
+          var sctn_nav_selector = new String();
+          var sctn_nav_element = new Object();
+          
+          sctn_nav_selector = "#nav-sctn_" + section_value;
+          sctn_nav_element = $jQ(sctn_nav_selector);
+
+          $jQ(sctn_nav_element).fadeTo(400, 0, 
+            function () {
+              $jQ(copy_elements).fadeTo(400, 0);
+
+              $jQ(link_element).fadeTo(400, 0, 
+                function () {
+                  $jQ(icon_element).css("backgroundPosition", "0px -56px");
+
+                  $jQ(p_element).css("display", "block");
+
+                  $jQ(p_element).fadeTo(400, 1);
+                }
+              );
+            }
+          );
+        } else {
+          $jQ(copy_elements).fadeTo(400, 0, 
+            function () {
+              $jQ(link_element).fadeTo(400, 0, 
+                function () {
+                  $jQ(icon_element).css("backgroundPosition", "0px -56px");
+
+                  $jQ(p_element).css("display", "block");
+
+                  $jQ(p_element).fadeTo(400, 1);
+                }
+              );
+            }
+          );
+        }
+      }
+    );
+  }
+
+  
+  
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */
