@@ -637,7 +637,7 @@ $jQ(document).ready(
           animateEmailAlert(url_hash, time_value);
         }
 
-        setPageInitialLocation();
+        setPageInitialLocation(url_hash);
       }
     );
     
@@ -812,70 +812,7 @@ $jQ(document).ready(
             
             current_position = $jQ(window).scrollTop();
 
-            if (section_value === "5")  {
-            // If the viewable section is SECTION #5, then this condition 
-            // is triggered.
-
-              var listing_search_string = new String();
-              // Holds the String, "listing=" which will be searched for in the value of,  
-              // "url_hash".
-
-              listing_search_string = "listing=";
-
-              if (url_hash.indexOf(listing_search_string) !== -1) {
-              // If the visitor has made a request to view a job listing, this condition 
-              // is triggered.
-
-                var listing_val = new String();
-                // Holds a Character representing the listing the link within the <a> element 
-                // refers to.
-                var url_hash_length = new Number();
-                // Holds the total number of characters contained in the "src" attribute of the 
-                // <a> element.
-
-                var listing_selector = new String();
-                var listings_selector = new String();
-
-                var listing_element = new Object();
-                var listings_elements = new Object();
-
-                var not_visible_css = new Object();
-                var visible_css = new Object();
-
-                var time_value_short = new Number();
-                              
-                url_hash_length = url_hash.length;
-
-                listing_val = url_hash.charAt(url_hash_length - 1);
-
-                listing_selector = "#sctn_5-job_listing-" + listing_val;
-                listings_selector = ".sctn_5-listing";
-
-                listing_element = $jQ(listing_selector);
-                listings_elements = $jQ(listings_selector);
-
-                not_visible_css = {
-                  display: "none"
-                };
-
-                visible_css = {
-                  display: "block", 
-                  opacity: "0"
-                };
-
-                time_value_short = time_value / 1.25;
-
-                $jQ(listings_elements).css(not_visible_css);
-                $jQ(listings_elements).removeClass();
-                $jQ(listings_elements).addClass("sctn_5-listing not_visible");
-
-                $jQ(listing_element).removeClass();
-                $jQ(listing_element).addClass("sctn_5-listing visible");
-                $jQ(listing_element).css(visible_css);
-                $jQ(listing_element).fadeTo(time_value_short, 1);
-
-              }
-            } else if (section_value === "1") {
+            if (section_value === "4") {
             // If the viewable Section is 'SECTION #1', this condition is triggered.
 
               formatHeader(url_hash);
@@ -891,7 +828,7 @@ $jQ(document).ready(
               // to sign up for an email alert.
             }
             
-            setPageInitialLocation(url_hash)
+            // setPageInitialLocation(url_hash); 
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".

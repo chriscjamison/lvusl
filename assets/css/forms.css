@@ -154,6 +154,10 @@ select {
  * splash screen.
  */
 
+#comment {
+	display: none;
+}
+
 #input-email-email_address {
 	width: 20.4em;
 	margin: 0.75em 0 2em 0;

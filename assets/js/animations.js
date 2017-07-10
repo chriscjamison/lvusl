@@ -1372,7 +1372,7 @@ function determineCurrentSection(current_position)  {
   cntainr_height = $jQ(cntainr_element).height();
   wndow_height = $jQ(wndows_elements).height();
 
-  window_margin = 0.05;
+  window_margin = 0.1;
 
   section_value_num = Math.floor(current_position / wndow_height + window_margin); 
   // To get the Section value for the current section which is viewable, the number 

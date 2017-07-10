@@ -1493,8 +1493,7 @@ h3 {
     margin: 14em 0 0 6.5em;
   }
 
-  #wndow-sctn_2 .copy, 
-  #wndow-sctn_4 .copy  {
+  #wndow-sctn_2 .copy  {
     width: 102em;
     height: 60.5em;
     margin: 7em 0 0 17em;
@@ -1508,9 +1507,15 @@ h3 {
     height: 53.5em;
     margin: 8em 0 0 86.5em;
   }
+ 
+  #wndow-sctn_4 .copy  {
+    width: 102em;
+    height: 60.5em;
+    margin: 7em 0 0 6.5em;
+  }
 
   #wndow-sctn_5 .copy {
-    width: 113.5em;
+    width: 112.5em;
     height: 60.5em;
     margin: 7em 0 0 6.5em;
   }
@@ -1567,16 +1572,21 @@ h3 {
   }
 
   #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  }
+
+  #sctn_4-desc {
+    margin-right: 2.5em;
+  }
+  
+  #wndow-sctn_4 > .copy > .blok-1, 
   #sctn_5-listing-bkgrnd, 
   .article_listing, 
   #wndow-sctn_6 > .copy > .blok-1, 
   #wndow-sctn_7 > .copy > .blok-1, 
   #wndow-sctn_9 > .copy > .blok-1 {
     width: 25.5em;
-  }
-
-  #wndow-sctn_6 > .copy > .blok-1 {
-    float: left;
   }
 
   #sctn_6-desc {
