@@ -994,14 +994,14 @@ function animatePageElements(time_value)  {
     headr_selector = ".headr.sctn_" + section_value.toString();
     wndow_footer_selector = "#wndow-sctn_" + section_value.toString() + " .wndow_footer";
     div_selector = "div";
-    sub_nav_selector = "#nav-sctn_" + section_value.toString();
+    sctn_nav_selector = "#nav-sctn_" + section_value.toString();
     bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
 
     all_copy_element = $jQ(all_copy_selector);
     single_copy_element = $jQ(single_copy_selector);
     headr_element = $jQ(headr_selector);
     wndow_footer_element = $jQ(wndow_footer_selector);
-    sub_nav_element = $jQ(sub_nav_selector);
+    sctn_nav_element = $jQ(sctn_nav_selector);
     bkgrnd_element = $jQ(bkgrnd_selector);
 
     element_off_css = {
@@ -1050,11 +1050,11 @@ function animatePageElements(time_value)  {
     $jQ(all_copy_element).css(element_off_css);
     $jQ(single_copy_element).css(element_on_css);
 
-    if ($jQ(sub_nav_element) !== undefined) {
+    if ($jQ(sctn_nav_element) !== undefined) {
     // If the Section this function is processing contains intra-sectional navigation 
     // this condition is triggered.
       
-      $jQ(sub_nav_element).css(element_on_css);
+      $jQ(sctn_nav_element).css(element_on_css);
     }
     
     $jQ(headr_element).fadeTo(time_value, 1, 
@@ -1062,7 +1062,7 @@ function animatePageElements(time_value)  {
     // into view, starting with the HTML element serving as the header.  
 
       function () {
-        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, wndow_footer_element, time_value);
+        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sctn_nav_element, wndow_footer_element, time_value);
         // "fadeCopyElements" is triggered to fade in the various content of the Section this
         // function is processing.
       }
@@ -1603,7 +1603,7 @@ function setPageInitialLocation(url_hash)  {
   }
 } /* **************** END OF FUNCTION "setInitialLocation" **************** */
 
-function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, wndow_footer_element, time_value)  {
+function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sctn_nav_element, wndow_footer_element, time_value)  {
   /* **************** **************** **************** **************** **************** 
    * The content of the visible Section are made visible by fading their opacity 
    * from 0 to 1.
@@ -1612,7 +1612,7 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   if (section_value === 1 || 
       section_value === 2 ||
       section_value === 4)  {
-    $jQ(sub_nav_element).fadeTo(time_value, 1, 
+    $jQ(sctn_nav_element).fadeTo(time_value, 1, 
       function () {
         $jQ(single_copy_element).children(div_selector).fadeTo(time_value, 1);
       }
@@ -1790,6 +1790,8 @@ function animateClubInfo(section_value)  {
 
   var opacity_zero_css = new Object();
   var opacity_one_css = new Object();
+
+  var time_value = new Number();
   
   headr_selector = ".headr.sctn_" + section_value;
   wndow_selector = "#wndow-sctn_" + section_value;
@@ -1812,43 +1814,46 @@ function animateClubInfo(section_value)  {
     opacity: "1"
   };
 
+  time_value = 180;
+
   if ($jQ(p_element).css("display") === "none") {
-    $jQ(headr_element).fadeTo(400, 0, 
+    $jQ(headr_element).fadeTo(time_value, 0, 
       function () {
         if (section_value === "1" || 
             section_value === "2" ||
             section_value === "4")  {
+
           var sctn_nav_selector = new String();
           var sctn_nav_element = new Object();
           
           sctn_nav_selector = "#nav-sctn_" + section_value;
           sctn_nav_element = $jQ(sctn_nav_selector);
 
-          $jQ(sctn_nav_element).fadeTo(400, 0, 
+          $jQ(sctn_nav_element).fadeTo(time_value, 0, 
             function () {
-              $jQ(copy_elements).fadeTo(400, 0);
+              $jQ(copy_elements).fadeTo(time_value, 0);
 
-              $jQ(link_element).fadeTo(400, 0, 
+              $jQ(link_element).fadeTo(time_value, 0, 
                 function () {
                   $jQ(icon_element).css("backgroundPosition", "0px -56px");
 
                   $jQ(p_element).css("display", "block");
 
-                  $jQ(p_element).fadeTo(400, 1);
+                  $jQ(p_element).fadeTo(time_value, 1);
                 }
               );
             }
           );
         } else {
-          $jQ(copy_elements).fadeTo(400, 0, 
+          $jQ(copy_elements).fadeTo(time_value, 0, 
             function () {
-              $jQ(link_element).fadeTo(400, 0, 
+              $jQ(link_element).fadeTo(time_value, 0, 
                 function () {
                   $jQ(icon_element).css("backgroundPosition", "0px -56px");
 
                   $jQ(p_element).css("display", "block");
 
-                  $jQ(p_element).fadeTo(400, 1);
+                  $jQ(p_element).fadeTo(time_value, 1);
                 }
               );
             }
@@ -1856,8 +1861,60 @@ function animateClubInfo(section_value)  {
         }
       }
     );
-  }
+  } else if ($jQ(p_element).css("display") === "block") {
+    var url_hash = new String();
 
-  
-  
+    var position_value_search_string = new String();
+    var position_value_index_num = new Number();
+    var position_value = new String();
+
+    var visible_copy_selector = new String();
+    var visible_copy_element = new Object();
+    
+    url_hash = window.location.hash;
+
+    position_value_search_string = "pos=";
+    position_value_index_num = url_hash.indexOf(position_value_search_string);
+    position_value = url_hash.slice((position_value_index_num + position_value_search_string.length));
+
+    position_value = parseInt(position_value);
+    position_value = position_value + 1;
+
+    visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 1).toString(); + ")";
+    visible_copy_element = $jQ(visible_copy_selector);
+
+    if (section_value === "1" || 
+        section_value === "2" ||
+        section_value === "4")  {
+
+      var sctn_nav_selector = new String();
+      var sctn_nav_element = new Object();
+      
+      sctn_nav_selector = "#nav-sctn_" + section_value;
+      sctn_nav_element = $jQ(sctn_nav_selector);
+
+      $jQ(p_element).fadeTo(time_value, 0, 
+        function () {
+          $jQ(p_element).css("display", "none");
+
+          $jQ(icon_element).css("backgroundPosition", "0px 0px");
+
+          $jQ(link_element).fadeTo(time_value, 1);
+          $jQ(visible_copy_element).fadeTo(time_value, 1);
+          $jQ(sctn_nav_element).fadeTo(time_value, 1);
+        }
+      );
+    } else {
+      $jQ(p_element).fadeTo(time_value, 0, 
+        function () {
+          $jQ(p_element).css("display", "none");
+
+          $jQ(icon_element).css("backgroundPosition", "0px 0px");
+
+          $jQ(link_element).fadeTo(time_value, 1);
+          $jQ(visible_copy_element).fadeTo(time_value, 1);
+        }
+      );
+    }
+  }  
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */
