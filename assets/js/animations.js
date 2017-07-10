@@ -1565,7 +1565,7 @@ function setPageInitialLocation(url_hash)  {
   // Holds a value which matches the vertical location, in pixels.
 
   section_value = url_hash.charAt(6);
-  position_value = url_hash.charAt(12);
+  position_value = url_hash.slice(12);
 
   copy_visible_css = {
     display: "block"

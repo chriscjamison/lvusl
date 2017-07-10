@@ -635,7 +635,9 @@ $jQ(document).ready(
 
         if (url_hash !== "#sctn_main") {
           animateEmailAlert(url_hash, time_value);
-        }        
+        }
+
+        setPageInitialLocation();
       }
     );
     
@@ -684,7 +686,8 @@ $jQ(document).ready(
             // is visible.
 
           if (current_position === 0 && 
-              info_css_opacity_val === "0") {
+              info_css_opacity_val === "0" && 
+              url_hash !== "sctn_main") {
           // If the current location of the browser window is 0 and the 
           // HTML content contained within 'MAIN LANDING SECTION' has an 
           // opacity of 0, then this condition is triggered.
