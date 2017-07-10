@@ -478,12 +478,12 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/lvusl/assets/img/bkgrnd/" + 
+        bkgrnd_img_value = "url('/assets/img/bkgrnd/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/lvusl/assets/img/bkgrnd/1/1920x1020.jpg')" 
+        // The value of "bkgrnd_img_value" would be "url('/assets/img/bkgrnd/1/1920x1020.jpg')" 
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
@@ -504,7 +504,7 @@ function setupPage(time_value)  {
         // to a String.
 
         width_height_css.width = bkgrnd_width;
-        width_height_css.backgroundImage = "url('/lvusl/assets/img/bkgrnd/main/" + bkgrnd_width +
+        width_height_css.backgroundImage = "url('/assets/img/bkgrnd/main/" + bkgrnd_width +
                                            "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.

@@ -98,7 +98,7 @@ body {
 .blok-1 {
   padding: 2.5em;
   display: block;
-  background-image: url('/lvusl/assets/img/misc/bkgrnd_copy.png');
+  background-image: url('/assets/img/misc/bkgrnd_copy.png');
   border: 2px solid #f51b74;
 }
 
@@ -427,7 +427,7 @@ h3 {
   margin-right: 0.75em;
   display: block;
   float: left;
-  background-image: url('/lvusl/assets/img/misc/footer_link_logo.png');
+  background-image: url('/assets/img/misc/footer_link_logo.png');
   background-position: 0px 0px;
 }
 
@@ -600,7 +600,7 @@ h3 {
 .faq_listing > ul > li, 
 .article_listing > ul > li {
   margin-bottom: 1em;
-  list-style-image: url('/lvusl/assets/img/misc/disc.png');
+  list-style-image: url('/assets/img/misc/disc.png');
 }
 
 .faq_listing > ul > li > a, 

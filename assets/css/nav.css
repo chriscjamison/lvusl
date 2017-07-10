@@ -45,7 +45,7 @@ nav {
 	top: 25px;
 	left: 25px;
 	z-index: 5;
-	background-image: url('/lvusl/assets/img/nav/nav.png');
+	background-image: url('/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
 /* Formats a <div> element which serves as the menu 'button'. */
