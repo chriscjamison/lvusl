@@ -593,19 +593,14 @@ $jQ(document).ready(
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 
 
-        if (url_hash === "" || 
-            sctn_main_index_num !== -1)  {
+        if ((url_hash === "" || 
+            sctn_main_index_num !== -1) && 
+            url_hash !== "email")  {
         // If the URL hash is blank or is "#sctn_main", this condition 
         // is triggered.
 
-          if (window_width > 980) {
-          // If the width of the browser window is greater than 980px, 
-          // this condition is triggered.
+          animateInfoElement(time_value);
             
-            animateInfoElement(time_value);
-            // The HTML content contained within 'MAIN LANDING SECTION' is 
-            // faded into view.
-          } 
         } 
 
         if (sctn_main_index_num !== -1) {
@@ -893,7 +888,7 @@ $jQ(document).ready(
               // to sign up for an email alert.
             }
             
-            // setPageInitialLocation(url_hash)
+            setPageInitialLocation(url_hash)
             animatePageElements(time_value);
             // "animatePageElements" is called to animate the blocks 
             // that are contained within an individual "window".

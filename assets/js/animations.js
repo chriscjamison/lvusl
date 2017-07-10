@@ -565,8 +565,8 @@ function animateInfoElement(time_value) {
   info_img_selector = "#info > img";
   info_a_selector = "#info > div > a";
   info_div_selector = "#info > div > div";
-  info_p_selector = "#info > div > p";
-  wndow_footer_selector = "#wndow_footer-main";
+  info_p_selector = ".info_copy > div > p";
+  wndow_footer_selector = "#wndow_footer-sctn_main";
 
   wndow_element = $jQ(wndow_selector);
   info_element = $jQ(info_selector);
@@ -756,7 +756,7 @@ function animateEmailAlert(url_hash, time_value)  {
   time_value_short = Math.round(time_value / 2);
 
   email_selector = "#email";
-  info_selector = "#info, #wndow_footer-main";
+  info_selector = "#info, #wndow_footer-sctn_main";
 
   email_element = $jQ(email_selector);
   info_element = $jQ(info_selector);
@@ -1609,6 +1609,12 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
    * from 0 to 1.
    * **************** **************** **************** **************** **************** */
   
+  var info_selector = new String();
+  var info_element = new Object();
+
+  info_selector = "#info";
+  info_element = $jQ(info_selector);
+
   if (section_value === 1 || 
       section_value === 2 ||
       section_value === 4)  {
@@ -1663,7 +1669,7 @@ function loadLinks(direction, section_value)  {
   if (section_value === '3')  {
     link_listing_selector = "#wndow-sctn_3 .faq_listing"
     previous_link_selector = "#sctn_3-faq_links > a:nth-child(1)";
-    next_link_selector = "#sctn_2-faq_links > a:nth-child(2)";
+    next_link_selector = "#sctn_3-faq_links > a:nth-child(2)";
   } else if (section_value === '5') {
     link_listing_selector = "#wndow-sctn_5 .article_listing"
     previous_link_selector = "#sctn_5-news_links > a:nth-child(1)";
@@ -1723,6 +1729,7 @@ function loadLinks(direction, section_value)  {
       // The <a> element which cycles back through the list of questions is 
       // made invisible.
     } else if (visible_link_listing_val === num_of_link_listing_elements) {
+
       $jQ(next_link_element).css(visible_link_css);
       // The <a> element which cycles forward through the list of questions is 
       // made visible.
@@ -1732,7 +1739,7 @@ function loadLinks(direction, section_value)  {
   // this condition is triggered.
     
     updated_link_listing_selector = link_listing_selector + ":nth-child(" + (visible_link_listing_val + 1) + ")";
-    
+
     if (visible_link_listing_val === 1)  {
     // If the visitor is currently cycling the list of questions 
     // through to the last list, this condition is triggered.
@@ -1743,7 +1750,7 @@ function loadLinks(direction, section_value)  {
     } else if (visible_link_listing_val === (num_of_link_listing_elements - 1)) {
     // If the visitor has reached the last list of questions, 
     // then this condition is triggered.
-      
+
       $jQ(next_link_element).css(not_visible_link_css);
       // The <a> element which cycles forward through the list of questions is 
       // made invisible.
