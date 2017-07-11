@@ -203,261 +203,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#input-email").mouseenter(
-    // Activates when the visitor interacts with the question field that 
-    // a visitor enters their email address.
-
-      function () {
-        validateQuestionField("start", "email");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "email");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "email");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "email");
-      }
-    );
-
-    $jQ("#input-full_name").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor enters their full name.
-
-      function () {
-        validateQuestionField("start", "full_name");
-        // The form question is initialized.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "full_name");
-      }
-    ).focus(
-      function () {
-        var input_element = this;
-
-        var question_value = new String();
-        // Holds a String which identifies the form question in which the visitor 
-        // enters their full name.
-
-        var full_name_default_value = new String();
-        // Holds a String which matches the default value for the form question 
-        // which contains the full name.
-        var full_name_error_value = new String();
-        // Holds a String which matches the error message which appears if 
-        // the visitor enters invalid data.
-
-        full_name_default_value = "Please enter your full name";
-        full_name_error_value = "Please include a space in your full name";
-
-        question_value = $jQ(input_element).attr("id").slice(6);
-        
-        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
-      }
-    ).blur(
-      function () {
-        var input_element = this;
-
-        var question_value = new String();
-        // Holds a String which identifies the form question in which the visitor 
-        // enters their full name.
-
-        var full_name_default_value = new String();
-        // Holds a String which matches the default value for the form question 
-        // which contains the full name.
-        var full_name_error_value = new String();
-        // Holds a String which matches the error message which appears if 
-        // the visitor enters invalid data.
-
-        full_name_default_value = "Please enter your full name";
-        full_name_error_value = "Please include a space in your full name";
-
-        question_value = $jQ(input_element).attr("id").slice(6);
-        
-        formQuestionFocusCheck(question_value, full_name_default_value, full_name_error_value);
-      }
-    );
-
-    $jQ("#input-address_1").mouseenter(
-    // Activates when the visitor moves interacts with the form question which 
-    // this visitor enters their street number and street.
-
-      function () {
-        validateQuestionField("start", "address_1");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "address_1");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "address_1");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "address_1");
-      }
-    );
-    
-     $jQ("#input-address_2").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // this visitor enters an apartment number.
-
-      function () {
-        validateQuestionField("start", "address_2");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "address_2");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "address_2");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "address_2");
-      }
-    );
-
-    $jQ("#input-city").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter their city name.
-
-      function () {
-        validateQuestionField("start", "city");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "city");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "city");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "city");
-      }
-    );
-
-    $jQ("#input-state").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter the state name.
-
-      function () {
-        validateQuestionField("start", "city");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "city");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "city");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "city");
-      }
-    );
-
-    $jQ("#input-state").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter the state name.
-
-      function () {
-        validateQuestionField("start", "state");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "state");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "state");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "state");
-      }
-    );
-
-    $jQ("#input-zip_code").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter their zip code.
-
-      function () {
-        validateQuestionField("start", "zip_code");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "zip_code");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "zip_code");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "zip_code");
-      }
-    );
-
-    $jQ("#input-card_num").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter their credit card number.
-
-      function () {
-        validateQuestionField("start", "card_num");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "card_num");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "card_num");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "card_num");
-      }
-    );
    
-    $jQ("#input-security_code").mouseenter(
-    // Activates when the visitor interacts with the form question which 
-    // the visitor would enter the 3 digit security code of their credit card number.
-
-      function () {
-        validateQuestionField("start", "security_code");
-        // The data of the form question is in the process of validation.
-      }
-    ).mouseleave(
-      function () {
-        validateQuestionField("reset", "security_code");
-      }
-    ).focus(
-      function () {
-        validateQuestionField("start", "security_code");
-      }
-    ).blur(
-      function () {
-        validateQuestionField("reset", "security_code");
-      }
-    );
 
     /*$jQ("#ntt-next_step, #ntt-previous_step").click(
     // Fades in the individual pages of the 'Request Season Tickets' form.
@@ -650,9 +396,11 @@ $jQ(document).ready(
 
         var info_selector = new String();
         var nav_selector = new String();
+        var email_selector = new String();
 
         var info_element = new Object();
         var nav_element = new Object();
+        var email_element = new Object();
 
         var info_css_opacity_val = new String();
         // Holds the value of the CSS property, "opacity" for the HTML element 
@@ -663,13 +411,16 @@ $jQ(document).ready(
 
         info_selector = "#info";
         nav_selector = "nav";
+        email_selector = "#email";
 
         info_element = $jQ(info_selector);
         nav_element = $jQ(nav_selector);
+        email_element = $jQ(email_selector);
+
 
         info_css_opacity_val = $jQ(info_element).css("opacity");
         
-        setURL(current_position, url_hash);
+        // setURL(current_position, url_hash);
         // "setURL" matches the URL hash with the current viewable Section.
 
         // setPageInitialLocation(url_hash);
@@ -687,7 +438,8 @@ $jQ(document).ready(
 
           if (current_position === 0 && 
               info_css_opacity_val === "0" && 
-              url_hash !== "sctn_main") {
+              url_hash !== "sctn_main" && 
+              $jQ(email_element).css("display") === "none") {
           // If the current location of the browser window is 0 and the 
           // HTML content contained within 'MAIN LANDING SECTION' has an 
           // opacity of 0, then this condition is triggered.
@@ -809,8 +561,28 @@ $jQ(document).ready(
             var current_position = new Number();
             // Holds a number which matches the vertical position 
             // within the webpage that is viewable.
-            
+
+            var scroll_value = new Number();
+
+            var position_value_search_string = new String();
+            var position_value_index_num = new Number();
+            var position_value = new String();
+
+            var wndow_selector = new String();
+            var wndow_elements = new Object();
+
+            var wndow_height = new Number();
+
+            var copy_selector = new String();
+            var email_selector = new String();
+
+            var copy_element = new Object();
+            var email_element = new Object();
+
             current_position = $jQ(window).scrollTop();
+
+            email_selector = "#email";
+            email_element = $jQ(email_selector);
 
             if (section_value === "4") {
             // If the viewable Section is 'SECTION #1', this condition is triggered.
@@ -827,8 +599,31 @@ $jQ(document).ready(
               animateEmailAlert(url_hash, time_value);
               // "animateEmailAlert" displays content which allows the visitor 
               // to sign up for an email alert.
-            }
-            
+            } 
+
+            position_value_search_string = "pos=";
+            position_value_index_num = url_hash.indexOf(position_value_search_string);
+            position_value = url_hash.slice(position_value_index_num + position_value_search_string.length);
+            position_value = parseInt(position_value);
+
+            section_value = parseInt(section_value);
+
+            wndow_selector = ".wndow";
+            wndow_elements = $jQ(wndow_selector);
+
+            wndow_height = $jQ(wndow_elements).height();
+
+            scroll_value = section_value * wndow_height;
+
+            $(window).scrollTop(scroll_value);
+/*
+            copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
+            copy_element = $jQ(copy_selector);
+
+            if ($jQ(copy_element).css("display") === "none")  {
+              animatePageElements(time_value);
+            }*/
+
             animatePageElements(time_value);
           }
         }

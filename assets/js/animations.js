@@ -155,57 +155,28 @@ function parseWindowDimensions() {
   window_height = $jQ(window).height();
   // Equal to the height of the visible area of the browser.
   
-  if (window_width <= 980) {
-  // The width of the browser of a iPhone or iPad.
-    page_dimensions_Array[0] = 980;
-    
-    if (window_height <= 1308)  {
-    // If the height of the browser is less than or equal to 1308, the browser 
-    // has the dimensions of 980x1740px. These dimensions are the same as an iPad.
-      page_dimensions_Array[1] = 1740;  
-    } else  {
-    // Otherwise the browser has the dimensions of 980x1308px.
-    // These dimensions are the same as an iPhone.
-      page_dimensions_Array[1] = 1308;
-    } // END OF if STATEMENT -- height > 1308
-  } else {
-    if (window_width <= 1024) {
-    // The browser has the dimensions of 1024x1500. These dimensions are 
-    // the same as an iPad Pro.
-      page_dimensions_Array[0] = 1024;
-      page_dimensions_Array[1] = 1500;
+  
+  if (window_width <= 1280) {
+  // The width of a browser with a width of 1280px.
+    page_dimensions_Array[0] = 1280;
+    page_dimensions_Array[1] = 800;
+  } else  {
+    if (window_width <= 1366) {
+    // The browser has the dimensions of 1366x768px.
+      page_dimensions_Array[0] = 1366;
+      page_dimensions_Array[1] = 768;
     } else {
-      if (window_width <= 1280) {
-      // The width of a browser with a width of 1280px.
-        page_dimensions_Array[0] = 1280;
-        
-        if (window_height <= 800) {
-        // If the height of the browser is less than or equal to 800px, the browser has  
-        // the dimensions of 1280x800px.
-          page_dimensions_Array[1] = 800;
-        } else {
-        // Otherwise the browser has the dimensions of 1280x1024px.
-          page_dimensions_Array[1] = 1024;
-        } // END OF if STATEMENT -- height <= 800
-      } else  {
-        if (window_width <= 1366) {
-        // The browser has the dimensions of 1366x768px.
-          page_dimensions_Array[0] = 1366;
-          page_dimensions_Array[1] = 768;
-        } else {
-        // The browser has the dimensions of 1600x900px.
-          if (window_width <= 1600) {
-            page_dimensions_Array[0] = 1600;
-            page_dimensions_Array[1] = 900;
-          } else {
-          // The browser has the dimensions of 1920x1080px.
-            page_dimensions_Array[0] = 1920;
-            page_dimensions_Array[1] = 1080;
-          } // END OF if STATEMENT -- <= 1600
-        } // END OF if STATEMENT -- <= 1366
-      } // END OF if STATEMENT -- <= 1280
-    } // END OF if STATEMENT -- <= 1024 
-  } // END OF if STATEMENT -- <= 980
+    // The browser has the dimensions of 1600x900px.
+      if (window_width <= 1600) {
+        page_dimensions_Array[0] = 1600;
+        page_dimensions_Array[1] = 900;
+      } else {
+      // The browser has the dimensions of 1920x1080px.
+        page_dimensions_Array[0] = 1920;
+        page_dimensions_Array[1] = 1080;
+      } // END OF if STATEMENT -- <= 1600
+    } // END OF if STATEMENT -- <= 1366
+  } // END OF if STATEMENT -- <= 1280
 
   return page_dimensions_Array;
   // Once the width and height values have been calculated, 
@@ -302,6 +273,7 @@ function setupPage(time_value)  {
   var cntainr_selector = new String();
   var wndow_selector = new String();
   var bkgrnd_selector = new String();
+  var copy_selector = new String();
   var nav_selector = new String();
   var map_selector = new String();
   var pdf_selector = new String();
@@ -316,7 +288,7 @@ function setupPage(time_value)  {
 
   var cntainr_element = new Object();
   var wndow_elements = new Object();
-  var copy_elements = new Object();
+  var copy_element = new Object();
   var bkgrnd_element = new Object();
   var nav_elements = new Object();
   var map_element = new Object();
@@ -334,6 +306,7 @@ function setupPage(time_value)  {
   var cntainr_css = new Object();
   var width_height_css = new Object();
   var nav_css = new Object();
+  var copy_css = new Object();
   
   var map_attr = new Object();
   var pdf_attr = new Object();
@@ -522,8 +495,32 @@ function setupPage(time_value)  {
     } 
   );
   
+  $jQ(wndow_elements).each(
+    function () {
+      var wndow_element = new Object();
+      var wndow_id_string = new String();
+      
+      var copy_selector = new String();
+      var copy_element = new Object();
+
+      var copy_css = new Object();
+
+      wndow_element = this;
+      wndow_id_string = $jQ(wndow_element).attr("id");
+
+      copy_selector = "#" + wndow_id_string + " > .copy:nth-child(2)";
+      copy_element = $jQ(copy_selector);
+
+      copy_css = {
+        display: "block"
+      };
+
+      $jQ(copy_element).css(copy_css);
+    }
+  )
+
   
-  animatePageElements();
+  // animatePageElements();
   // "animatePageElements" is called to animate the blocks that are contained within an individual 
   // "window".
 
@@ -849,8 +846,11 @@ function animateEmailAlert(url_hash, time_value)  {
         function () {
           $jQ(info_element).fadeTo(time_value_short, 1);
           $jQ(email_element).css(email_visibility_css);
+          animateInfoElement(time_value);
         }
       );
+
+      
     } // END of "if" STATEMENT which is triggered if the visitor wishes to enter 
       // the email address into the form.
   } // END of "if" STATEMENT which is triggered if the Email Alert content is 
@@ -859,7 +859,7 @@ function animateEmailAlert(url_hash, time_value)  {
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */
 
 
-function animatePageElements(time_value)  {
+function animatePageElements()  {
   /* **************** **************** **************** **************** **************** 
    * Triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
@@ -1760,7 +1760,7 @@ function loadLinks(direction, section_value)  {
   } else if (section_value === "5") {
     visible_class_val = "article_listing visible";
     not_visible_class_val = "article_listing not_visible";
-  } else if (section_value === "5") {
+  } else if (section_value === "5-usl") {
     visible_class_val = "article_usl_listing visible";
     not_visible_class_val = "article_usl_listing not_visible";
   }
@@ -1885,7 +1885,7 @@ function animateClubInfo(section_value)  {
     position_value = parseInt(position_value);
     position_value = position_value + 1;
 
-    visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 1).toString(); + ")";
+    visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 2).toString(); + ")";
     visible_copy_element = $jQ(visible_copy_selector);
 
     if (section_value === "1" || 

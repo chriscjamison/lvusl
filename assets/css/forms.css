@@ -123,7 +123,7 @@ textarea {
 	border: 2px solid #ccc;
 	font-family: 'cholla-wide', sans-serif;
 	font-size: 1.1em;
-	color: #aaa;
+	color: #000;
 	letter-spacing: 0.7px;
 }
 /* Formats the layout of <input> elements which appear within individual form questions. */
