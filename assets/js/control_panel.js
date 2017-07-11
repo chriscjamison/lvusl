@@ -194,7 +194,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#form54 > a").click(
+    $jQ(".clear a").click(
     // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
     // appears to the right of the email alert content.
 

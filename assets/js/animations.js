@@ -1885,7 +1885,7 @@ function animateClubInfo(section_value)  {
     position_value = parseInt(position_value);
     position_value = position_value + 1;
 
-    visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 2).toString(); + ")";
+    visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(2)";
     visible_copy_element = $jQ(visible_copy_selector);
 
     if (section_value === "1" || 

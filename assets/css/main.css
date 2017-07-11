@@ -173,7 +173,7 @@ h3,
 /* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
 
 #info > div > a,
-#form54 > a,  
+.clear > a,  
 .sctn_nav > div > a, 
 .headr > div + div > a, 
 #sctn_3-faq_links > a, 
@@ -191,7 +191,7 @@ h3,
 }
 /* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
 
-#form54 > a, 
+.clear > a, 
 #sctn_3-faq_links > a,
 .faq_back > a,
 #sctn_5-news_links > a,
@@ -207,8 +207,7 @@ h3,
 }
 /* Formats the Calls to Action used within the Splash screen. */
 
-#form54 > a:hover, 
-#info > div > a:hover,  
+.clear > a:hover,  
 #sctn_3-faq_links > a:hover, 
 .faq_back > a:hover, 
 #sctn_5-article_links > a:hover, 
@@ -216,6 +215,15 @@ h3,
 #ntt-previous_step:hover, 
 #ntt-next_step:hover {
   color: #f51b74;
+}
+
+#info > div > a:hover, 
+.headr > div + div > a:hover {
+  border-color: #fff113
+}
+
+#info > div > a:first-of-type:hover {
+  border-color: none;
 }
 
 #info > div > a,
@@ -233,14 +241,14 @@ h3,
 }
 /* Sets the color of the above elements to a shade of blue. */
 
-#form54 a,
+.clear a,
 .sctn_nav > div > a {
   color: #00a1e1;
 }
 /* Sets the color of the above elements to a shade of blue. */
 
 .headr > div + div > a, 
-#form54 a, 
+.clear a, 
 #ntt-next_step, 
 #ntt-previous_step {
   text-decoration: none;
@@ -257,7 +265,7 @@ h3,
 }
 /* Sets the text within the above elements to display with a shadow. */
 
-#form54 p,
+.clear p,
 .blok-1 p {
   line-height: 1.8em;
 }
@@ -272,7 +280,7 @@ h3,
 /* Adds a shadow to the above elements using the 'box-shadow' property. */
 
 
-#form54 > a,
+.clear > a,
 #sctn_3-faq_links > a,
 .faq_back > a,
 #sctn_5-news_links > a, 
@@ -565,7 +573,7 @@ h3 {
 }
 /* Formats the <div> elements holding the Calls to Action used on the splash screen. */
 
-#form54 > a {
+.clear a {
   margin-right: 0.82em;
 }
 
@@ -704,7 +712,7 @@ h3 {
 }
 
 #sctn_4-desc, 
-#sctn_5-listing, 
+#sctn_5-listing-bkgrnd, 
 #sctn_6-desc {
   margin-right: 2.5em;
 }
@@ -784,6 +792,9 @@ h3 {
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
 
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_8-facebook, 
+  #sctn_9-form, 
   #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type,
   #sctn_5-usl_listing-bkgrnd > .article_listing > div:first-of-type, 
   #sctn_6-desc > div:first-of-type, 
@@ -791,12 +802,6 @@ h3 {
   #sctn_8-links > div:nth-child(2), 
   #sctn_8-links > div:nth-child(4) {
     width: 25.5em;
-  }
-
-  #sctn_4-desc > div:first-of-type, 
-  #sctn_8-facebook, 
-  #sctn_9-form {
-    width: 23.5em;
   }
 
   #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(1), 
@@ -891,57 +896,40 @@ h3 {
     height: 48em;
   }
 
-  #email-blok {
-    transform: translate(16%, 19%);
+  #email-content {
+    transform: translate(95%, 49%);
   }
 
   #email-bkgrnd {
-    width: 79em;
-    height: 48em;
+    width: 80em;
+    height: 50em;
   }
 
-  #form54 a {
+  .clear a {
     top: 7em;
     left: 11em;
   }
 
-  #info > div > a:first-of-type {
-    font-size: 1em;
-  }
-
   #info > div {
-    width: 44.25em;
-    margin: 1.5em 0 0 13em;
+    width: 57.25em;
+    margin: 1.5em 0 0 0;
   }
 
   #info > div > a {
     width: 11.5em;
   }
-/*
-  #info > div > a:first-of-type {
-    width: 10.5em;
-  }*/
-
-  #info > div > div {
-    width: 44.25em;
-    left: 11.25em;
-  }
-
-  .info_copy > div {
-    width: 20.75em;
-    margin-right: 2.5em;
-  }
-
-  .info_copy > div:nth-child(2) {
-    margin-right: 0;
-  }
-
-  .info_copy > div > p {
-    width: 18em;
-  }
 
   #info > div > a:first-of-type {
-    font-size: 1em;
+    width: 10em;
+  }
+
+  #info > div + div {
+    top: 5.5em;
+    left: 22.5em;
+  }
+
+  #info > div + div > p {
+    font-size: 2em;
   }
 
   .wndow_footer {
@@ -999,14 +987,17 @@ h3 {
     height: 13.5em;
   }
 
-  #sctn_3-listing-bkgrnd, 
-  #sctn_5-listing-bkgrnd {
+  #sctn_3-listing-bkgrnd {
     height: 30em;
+  }
+
+  #wndow-sctn_3 > .copy > .blok-1 > div + p a {
+    font-size: 1em;
   }
 
   #sctn_3-listing-bkgrnd > .faq_listing, 
   #sctn_5-listing-bkgrnd > .article_listing, 
-  #sctn_5-listing-bkgrnd > .article_usl_listing {
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing {
     width: 25.5em;
     height: 24.5em;
   }
@@ -1034,6 +1025,12 @@ h3 {
   h3 {
     color: #fff;
     font-size: 1.5em;
+    margin-top: 0;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 1.3em;
     margin-top: 0;
   }
 
@@ -1270,12 +1267,6 @@ h3 {
     font-size: 1.1em;
   }
 
-  #sctn_4-desc, 
-  #sctn_5-listing-bkgrnd, 
-  #sctn_6-desc {
-    margin-right: 2.5em;
-  }
-
   h3 {
     color: #fff;
     font-size: 1.5em;
@@ -1379,7 +1370,7 @@ h3 {
   }
 
   #email-content {
-   transform: translate(125%, 66%);
+    transform: translate(100%, 50%);
   }
 
   #email-bkgrnd {
@@ -1395,7 +1386,7 @@ h3 {
   .wndow_footer {
     width: 84.5em;
     height: 7.25em;
-    bottom: 0;
+    bottom: 6.5em;
   }
 
   #wndow-sctn_1 > .copy {

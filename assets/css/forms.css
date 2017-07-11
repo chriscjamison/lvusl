@@ -112,6 +112,9 @@ label {
 	margin-left: 2.9em;
 }
 
+html.safari {
+	background: none;
+}
 
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
 
@@ -136,7 +139,7 @@ select {
 	letter-spacing: 0.7px;
 }
 
-#email-form input[type='text'] {
+#Form54 #Field3 {
 	width: 20.4em;
 	margin: 0.5em 0 1.5em 0;
 	display: block;
@@ -157,7 +160,7 @@ select {
 	display: none;
 }
 
-#form54 input[type=email] {
+#mce-EMAIL {
 	width: 20.4em;
 	margin: 0.75em 0 2em 0;
 }
@@ -277,6 +280,9 @@ select {
 		font-size: 1em;
 	}
 
+	#Form54 #Field3 {
+		font-size: 1.1em;
+	}
 /*	#form54 input[type=submit], 
 	#form55 input[type=submit], 
 	#input-contact_us-send_message {
