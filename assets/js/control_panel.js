@@ -194,7 +194,7 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#form-email > a").click(
+    $jQ("#form54 > a").click(
     // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
     // appears to the right of the email alert content.
 
@@ -459,15 +459,15 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#input-ntt-next_step, #input-ntt-previous_step").click(
+    /*$jQ("#ntt-next_step, #ntt-previous_step").click(
     // Fades in the individual pages of the 'Request Season Tickets' form.
 
       function () {
         animateForm(time_value);
         // "animateForm" fades in the "second" page of 'FORM TYPE #1'.
       }
-    );
-
+    );*/
+/*
     $jQ("#form-email, #form-request_tickets").submit(
     // Validates the data contained within either the 'Email Alert' or 
     // 'Request Season Tickets' forms.
@@ -566,7 +566,7 @@ $jQ(document).ready(
         }
       }
     );
-
+*/
     $jQ(window).on("load", 
       function () {
         var url_hash = new String();
@@ -818,7 +818,8 @@ $jQ(document).ready(
               formatHeader(url_hash);
               // "formatHeader" changes the content of the header when a visitor 
               // completes a season ticket reservation.
-            } else if (email_section_search_index_num !== -1) {
+            } else if (email_section_search_index_num !== -1 && 
+                       section_value !== "m") {
             // If the visitor has chosen to view the content relating to email 
             // alerts or the location of the webpage within the browser window 
             // is 1, this condition is triggered.
@@ -828,10 +829,7 @@ $jQ(document).ready(
               // to sign up for an email alert.
             }
             
-            // setPageInitialLocation(url_hash); 
             animatePageElements(time_value);
-            // "animatePageElements" is called to animate the blocks 
-            // that are contained within an individual "window".
           }
         }
       }

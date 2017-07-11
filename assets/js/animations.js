@@ -545,7 +545,7 @@ function animateInfoElement(time_value) {
   var info_img_selector = new String();
   var info_a_selector = new String();
   var info_div_selector = new String();
-  var info_p_selector = new String();
+  var info_copy_selector = new String();
   var wndow_footer_selector = new String();
 
   var wndow_element = new Object();
@@ -553,7 +553,7 @@ function animateInfoElement(time_value) {
   var info_img_element = new Object();
   var info_a_element = new Object();
   var info_div_element = new Object();
-  var info_p_element = new Object();
+  var info_copy_element = new Object();
   var wndow_footer_element = new Object();
 
   var display_block_css = new Object();
@@ -564,8 +564,8 @@ function animateInfoElement(time_value) {
   info_selector = "#info";
   info_img_selector = "#info > img";
   info_a_selector = "#info > div > a";
-  info_div_selector = "#info > div > div";
-  info_p_selector = ".info_copy > div > p";
+  info_div_selector = "#info > div + div";
+  info_copy_selector = "#info > div + div > p";
   wndow_footer_selector = "#wndow_footer-sctn_main";
 
   wndow_element = $jQ(wndow_selector);
@@ -573,7 +573,7 @@ function animateInfoElement(time_value) {
   info_img_element = $jQ(info_img_selector);
   info_a_element = $jQ(info_a_selector);
   info_div_element = $jQ(info_div_selector);
-  info_p_element = $jQ(info_p_selector);
+  info_copy_element = $jQ(info_copy_selector);
   wndow_footer_element = $jQ(wndow_footer_selector);
 
   display_block_css = {
@@ -622,7 +622,7 @@ function animateInfoElement(time_value) {
         function () {
           $jQ(info_div_element).fadeTo(time_value, 1);
           // Fade in the line which appears below the links near the top of the browser window.
-          $jQ(info_p_element).fadeTo(time_value, 1, 
+          $jQ(info_copy_element).fadeTo(time_value, 1, 
           // Fade in the text which appears below the link near the top of the browser window.
             function () {
               $jQ(wndow_footer_element).fadeTo(time_value, 1);
@@ -649,8 +649,8 @@ function animateForm(time_value) {
   var page_on_css = new Object();
   var opacity_zero_css = new Object();
  
-  page_1_selector = "#form-ntt > div:first-of-type";
-  page_2_selector = "#form-ntt > div + div";
+  page_1_selector = "#form55 > div:first-of-type";
+  page_2_selector = "#form55 > div + div";
   // "page_1_selector" now holds the selector used by the HTML element which contains 
   // the "first page" of the form this function is processing.
   //
@@ -1057,16 +1057,7 @@ function animatePageElements(time_value)  {
       $jQ(sctn_nav_element).css(element_on_css);
     }
     
-    $jQ(headr_element).fadeTo(time_value, 1, 
-    // The contents of the window pane of the Section this function is processing are faded 
-    // into view, starting with the HTML element serving as the header.  
-
-      function () {
-        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sctn_nav_element, wndow_footer_element, time_value);
-        // "fadeCopyElements" is triggered to fade in the various content of the Section this
-        // function is processing.
-      }
-    );
+    $jQ(single_copy_element).css(element_on_css);
   }
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
@@ -1666,15 +1657,19 @@ function loadLinks(direction, section_value)  {
   var visible_class_val = new String();
   var not_visible_class_val = new String();
 
-  if (section_value === '3')  {
+  if (section_value === "3")  {
     link_listing_selector = "#wndow-sctn_3 .faq_listing"
     previous_link_selector = "#sctn_3-faq_links > a:nth-child(1)";
     next_link_selector = "#sctn_3-faq_links > a:nth-child(2)";
-  } else if (section_value === '5') {
+  } else if (section_value === "5") {
     link_listing_selector = "#wndow-sctn_5 .article_listing"
     previous_link_selector = "#sctn_5-news_links > a:nth-child(1)";
     next_link_selector = "#sctn_5-news_links > a:nth-child(2)";
-  }  
+  } else if (section_value === "5-usl") {
+    link_listing_selector = "#wndow-sctn_5 .article_usl_listing"
+    previous_link_selector = "#sctn_5-usl_news_links > a:nth-child(1)";
+    next_link_selector = "#sctn_5-usl_news_links > a:nth-child(2)";
+  }
   
   link_listing_elements = $jQ(link_listing_selector);
   previous_link_element = $jQ(previous_link_selector);
@@ -1759,12 +1754,15 @@ function loadLinks(direction, section_value)  {
   
   updated_link_listing_element = $jQ(updated_link_listing_selector);
 
-  if (section_value === '3')  {
+  if (section_value === "3")  {
     visible_class_val = "faq_listing visible";
     not_visible_class_val = "faq_listing not_visible";
-  } else if (section_value === '5') {
+  } else if (section_value === "5") {
     visible_class_val = "article_listing visible";
     not_visible_class_val = "article_listing not_visible";
+  } else if (section_value === "5") {
+    visible_class_val = "article_usl_listing visible";
+    not_visible_class_val = "article_usl_listing not_visible";
   }
   
   $jQ(link_listing_elements).removeClass();

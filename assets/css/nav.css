@@ -16,7 +16,7 @@ nav {
 	top: 0;
   position: fixed;
   opacity: 0;
-	z-index: 2;
+	z-index: 6;
 }
 /* Formats the <nav> element which contains the inter-sectional navigation. */
 
@@ -44,7 +44,7 @@ nav {
 	position: fixed;
 	top: 25px;
 	left: 25px;
-	z-index: 5;
+	z-index: 10;
 	background-image: url('/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
@@ -92,7 +92,7 @@ nav {
 	height: 100%;
 	position: fixed;
   left: -20.45em;
-	z-index: 3;
+	z-index: 7;
 	background-color: #666;
 }
 /* Formats a <div> element which serves as a background to the inter-sectional 
@@ -104,7 +104,7 @@ nav {
 	height: 6.25em;
 	position: fixed;
   left: -20.45em;
-	z-index: 3;
+	z-index: 8;
 	background-color: #444;
 }
 /* Formats a <div> element which appears at the top of the inter-sectional navigation 
@@ -118,7 +118,7 @@ nav {
 	top: 6.56em;
   left: 25px;
   opacity: 0;
-	z-index: 4;
+	z-index: 9;
 }
 /* Formats a <div> element which holds of the individual menu options in the 
  * inter-sectional menu panel.
@@ -190,7 +190,6 @@ nav {
 
 .sctn_nav {
   position: absolute;
-	opacity: 0;
 }
 /* Formats a <div> element which contains the intra-sectional navigation 
  * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
