@@ -717,6 +717,15 @@ h3 {
   margin-right: 2.5em;
 }
 
+#sctn_4-desc, 
+#sctn_6-form {
+  height: 27.7em;
+} 
+
+#sctn_4-form {
+  height: 29.7em;
+}
+
 
 
 /* ---- 'SECTION #5' ---- */
@@ -1037,10 +1046,6 @@ h3 {
   #wndow-sctn_5 > .copy > .blok-1,   
   #wndow-sctn_6 > .copy > .blok-1 {
     float: left;
-  }
-
-  #sctn_6-desc {
-    height: 27.7em;
   }
 
   #sctn_8-links > div:nth-child(2), 

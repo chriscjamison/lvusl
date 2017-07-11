@@ -203,6 +203,18 @@ $jQ(document).ready(
       }
     );
 
+    $jQ("#email-bkgrnd").click(
+      function () {
+        animateEmailAlert(url_hash, time_value);
+      }
+    );
+
+    $jQ("#Field146").click(
+      function () {
+        window.alert("1");
+      }
+    )
+
    
 
     /*$jQ("#ntt-next_step, #ntt-previous_step").click(

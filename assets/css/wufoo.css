@@ -1,0 +1,161 @@
+/* wufoo.css */
+
+html.embed {
+  background: none;
+}
+
+.info, 
+.info[class], 
+#form57 .info[class], 
+.wufoo li span label, 
+.symbol, 
+#errorLi, .error-container, 
+form li.error p.error {
+  display: none !important;
+}
+
+.wufoo label.desc, 
+label.desc {
+	display: block;
+	font-family: 'cholla-wide', sans-serif !important;
+	font-size: 1.2em !important;
+	font-weight: 700;
+	color: #fff !important;
+  letter-spacing: 0.7px;
+}
+
+.wufoo input.btTxt {
+  display: block !important;
+}
+
+form li {
+  padding: 0;
+}
+
+form li.focused, 
+.wufoo li.focused, 
+.wufoo li.focused span {
+  background: none;
+}
+
+input[type=email], 
+input[type=text], 
+textarea, 
+select {
+  width: 20.4em;
+	margin: 0.5em 0;
+	display: block;
+  padding: 0.35em 0 0.5em 0.6em;
+	border: 2px solid #ccc;
+	font-family: 'cholla-wide', sans-serif;
+	font-size: 1.1em;
+	color: #000;
+	letter-spacing: 0.7px;
+}
+
+select {
+  height: 2.5em;
+  padding: 0.1em 0.3em;
+}
+
+.wufoo select.select {
+  width: 13em;
+}
+
+input[type=tel] {
+  margin: 0.5em 0 1.5em 0;
+	display: block;
+  padding: 0.35em 0 0.5em 0.6em;
+	border: 2px solid #ccc;
+	font-family: 'cholla-wide', sans-serif;
+	font-size: 1.1em;
+	color: #000;
+	letter-spacing: 0.7px;
+}
+
+#form55 textarea {
+  height: 7em;
+}
+
+/* li#fo55li16, 
+li#fo55li17, 
+li#fo55li149 {
+  display: none;
+} */
+
+#fo55li1 input, 
+#fo57li3 input {
+  width: 11.2em;
+}
+
+#fo57li5 .city {
+	width: 17.8em;
+}
+/* 
+ * Formats the <input> element for the question field which a visitor can enter 
+ * their city name within the form which collects season ticket requests.
+ */
+
+#fo57li5 .city input {
+	width: 17.75em;
+}
+ 
+
+#fo57li5 .zip {
+	width: 2.7em;
+	margin-left: 1.75em;
+} 
+/* 
+ * Formats the <input> element for the question field which a visitor can enter 
+ * their state name within the form which collects season ticket requests.
+ */
+
+#fo57li5 .state {
+  width: 4.9em;
+  margin-left: 1.75em;
+}
+
+input[type=submit], 
+button {
+	width: 9.05em;
+  height: 5.25em;
+	padding: 0 !important;
+  float: left !important;
+  background-color: #fff113 !important;
+  border: none !important;
+  box-shadow: 1px 1px 2px 1px #333 !important;
+	font-size: 1.2em !important;
+  font-family: 'korolev-military-stencil', sans-serif !important;
+	color: #00a1e1 !important;
+	letter-spacing: 0.4px !important;
+	cursor: pointer !important;
+}
+
+#fo55li13 input {
+	width: 4.9em;
+}
+
+form li span {
+  margin: 0 0.75em 0 0;
+}
+
+form li.buttons {
+  padding: 1.6em 0 0 0;
+}
+
+form li.error {
+  background: none !important;
+}
+
+.confirm h2 {
+  padding: 0;
+  color: #fff;
+}
+
+form li.complex div span {
+  padding-bottom: 0;
+}
+
+#form57 {
+  height: 27.7em;
+}
