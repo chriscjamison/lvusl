@@ -209,122 +209,6 @@ $jQ(document).ready(
       }
     );
 
-    $jQ("#Field146").click(
-      function () {
-        window.alert("1");
-      }
-    )
-
-   
-
-    /*$jQ("#ntt-next_step, #ntt-previous_step").click(
-    // Fades in the individual pages of the 'Request Season Tickets' form.
-
-      function () {
-        animateForm(time_value);
-        // "animateForm" fades in the "second" page of 'FORM TYPE #1'.
-      }
-    );*/
-/*
-    $jQ("#form-email, #form-request_tickets").submit(
-    // Validates the data contained within either the 'Email Alert' or 
-    // 'Request Season Tickets' forms.
-    
-      function (event) {
-        var form_element = new Object();
-
-        var form_complete_flag = new Boolean;
-        // A Boolean which is set to true if the all of the data 
-        // of a form is proper.
-        
-        var wndow_selector = new String();
-        var wndow_element = new Object();
-
-        form_element = this;
-
-        form_complete_flag = validateForm(form_element);
-        // If the data of the form is proper, the value 
-        // of "form_complete_flag" will be "true". 
-        // 
-        // If any of the data of the form is improper, 
-        // the value of "form_complete_flag" will be 
-        // false.
-        
-        if (form_complete_flag === false) {
-        // If the form that this function processes contains 
-        // improper data, then this condition is triggered.
-          
-          var alert_div_element = new String();
-          // Holds HTML which makes up an alert which appears 
-          // within the browser window to inform the visitor that 
-          // input withing the form needs to change.
-
-          var form_element_id = new String();
-          // Holds the selector which identifies the form under processing.
-
-          var email_search_string = new String();
-          var email_search_string_index_num = new Number();
-
-          var alrt_selector = new String();
-          var alrt_element = new Object();
-
-
-          alert_div_element = 
-            "<div id=\"alrt\">" + 
-            "  <div>" + 
-            "    <div>" + 
-            "      <span>Alert</span>" + 
-            "      <p>" + 
-            "        This form needs more information than you provided." + 
-            "      </p>" +
-            "      <p>" + 
-            "        Please check the form for text boxes that are surrounded by red borders." + 
-            "      </p>" +  
-            "      <p>" + 
-            "        Click the screen to close this alert." + 
-            "      </p>" + 
-            "    </div>" + 
-            "  </div>" + 
-            "</div>";
-          
-          form_element_id = $jQ(form_element).attr("id");
-
-          email_search_string = "email";
-          email_search_string_index_num = form_element_id.indexOf(email_search_string);
-
-          if (email_search_string === -1) {
-            wndow_selector = "#wndow-sctn_1";
-          } else {
-            wndow_selector = "#wndow-sctn_main";
-          }
-
-          wndow_element = $jQ(wndow_selector);
-
-          $jQ(wndow_element).prepend(alert_div_element);
-          // The HTML of "alert_div_element" is inserted into the HTML of the webpage.
-
-          alrt_selector = "#alrt";
-          alrt_element = $jQ(alrt_selector);
-
-          $jQ(alrt_element).click(
-          // Activates when the visitor clicks on the alert message.
-            function () {
-              $jQ(this).fadeTo(time_value, 0, 
-              // The alert message fades out.
-                function () {
-                  $jQ(this).detach();
-                  // The HTML code is removed from the webpage.
-                }
-              );
-            }
-          );
-
-          event.preventDefault();
-          // Code which validates the Method.
-        }
-      }
-    );
-*/
     $jQ(window).on("load", 
       function () {
         var url_hash = new String();
@@ -627,7 +511,7 @@ $jQ(document).ready(
 
             scroll_value = section_value * wndow_height;
 
-            $(window).scrollTop(scroll_value);
+            $jQ(window).scrollTop(scroll_value);
 /*
             copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
             copy_element = $jQ(copy_selector);

@@ -153,6 +153,7 @@ body {
 #wndow_footer-sctn_main > span, 
 .wndow_footer > p, 
 #email-content p,
+#email-content span, 
 .headr > div > a, 
 .wndow_footer > a:nth-child(2), 
 .blok-1 p,
@@ -178,6 +179,7 @@ h3,
 .headr > div + div > a, 
 #sctn_3-faq_links > a, 
 .faq_back > a, 
+#sctn_4-desc a, 
 #sctn_5-news_links > a, 
 #sctn_5-usl_news_links > a,
 #ntt-previous_step, 
@@ -194,6 +196,7 @@ h3,
 .clear > a, 
 #sctn_3-faq_links > a,
 .faq_back > a,
+#sctn_4-desc a,
 #sctn_5-news_links > a,
 #sctn_5-usl_news_links > a, 
 #wndow-sctn_6 > .copy > .blok-1 > a, 
@@ -209,7 +212,8 @@ h3,
 
 .clear > a:hover,  
 #sctn_3-faq_links > a:hover, 
-.faq_back > a:hover, 
+.faq_back > a:hover,
+#sctn_4-desc a:hover, 
 #sctn_5-article_links > a:hover, 
 #wndow-sctn_6 > .copy > .blok-1 > a:hover, 
 #ntt-previous_step:hover, 
@@ -256,8 +260,7 @@ h3,
 /* Deactivates the underline attribute of the above elements. */
 
 #info > div > a:first-of-type, 
-#info > div + div > p,
-#info > div a,  
+#info p > a, 
 .wndow_footer > span,
 .wndow_footer > a:nth-child(2), 
 .headr > div:first-of-type > span {
@@ -282,7 +285,8 @@ h3,
 
 .clear > a,
 #sctn_3-faq_links > a,
-.faq_back > a,
+.faq_back > a, 
+#sctn_4-desc a,
 #sctn_5-news_links > a, 
 #sctn_5-usl_news_links > a, 
 #wndow-sctn_6 > .copy > .blok-1 > a, 
@@ -420,7 +424,7 @@ h3 {
 #info > div + div > p {
   font-weight: 700;
   text-align: left;
-  color: #fff;
+  color: #032649;
 }
 
 #info > div > div {
@@ -566,6 +570,13 @@ h3 {
 }
 /* Formats the <p> element which contains the description copy. */
 
+#email-content span {
+  display: block;
+  padding-bottom: 0.75em;
+  font-size: 1em;
+  color: #fff;
+}
+
 #email-content > div > div {
   width: 23em;
   height: 6.25em;
@@ -573,9 +584,6 @@ h3 {
 }
 /* Formats the <div> elements holding the Calls to Action used on the splash screen. */
 
-.clear a {
-  margin-right: 0.82em;
-}
 
 #email-bkgrnd {
   position: absolute;
@@ -717,15 +725,12 @@ h3 {
   margin-right: 2.5em;
 }
 
-#sctn_4-desc, 
-#sctn_6-form {
-  height: 27.7em;
-} 
-
-#sctn_4-form {
-  height: 29.7em;
+#sctn_4-desc a {
+  height: 1.75em;
+  padding-top: 1.5em;
+  font-size: 1em;
+  line-height: 1.2em;
 }
-
 
 
 /* ---- 'SECTION #5' ---- */
@@ -752,6 +757,11 @@ h3 {
 #ntt-previous_step {
   margin: 2.3em 1em 0 0;
 }
+
+#sctn_6-form {
+  height: 27.7em;
+} 
+
 
 
 /* ---- 'SECTION #7' ---- */
@@ -890,16 +900,6 @@ h3 {
     height: 21em;
   }
 
-  #info > div {
-    height: 23.5em;
-    margin: 1.55em 0 0 0;
-  }
-
-  #info > div + div {
-    top: 15em;
-    left: 15.5em;
-  }
-  
   #email {
     width: 79em;
     height: 48em;
@@ -938,7 +938,7 @@ h3 {
   }
 
   #info > div + div > p {
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
   .wndow_footer {
@@ -1166,7 +1166,7 @@ h3 {
   }
 
   #info > div + div > p {
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
   .wndow_footer {
@@ -1351,7 +1351,7 @@ h3 {
 
   #info > div {
     width: 62.75em;
-    margin: 1.5em 0 0 0;
+    margin: 1.5em 0 0 13em;
   }
 
   #info > div > a:first-of-type {
@@ -1360,14 +1360,13 @@ h3 {
 
   #info > div + div {
     width: 53em;
-    top: 6em;
-    left: 22em;
+    top: 5em;
+    left: 9em;
   }
 
   #info > div + div > p {
-    font-size: 2.25em;
+    font-size: 1.6em;
   }
-
 
   #email {
     width: 99em;
@@ -1375,7 +1374,7 @@ h3 {
   }
 
   #email-content {
-    transform: translate(100%, 50%);
+    transform: translate(127%, 50%);
   }
 
   #email-bkgrnd {

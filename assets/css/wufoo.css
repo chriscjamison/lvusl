@@ -85,12 +85,14 @@ li#fo55li149 {
 
 #fo55li1 input, 
 #fo57li3 input {
-  width: 11.2em;
+  width: 13.25em;
 }
 
-#fo57li5 .city {
-	width: 17.8em;
+#fo57li5 div > span.addr1, 
+#fo57li5 div > span.addr2 {
+  width: 28em !important;
 }
+
 /* 
  * Formats the <input> element for the question field which a visitor can enter 
  * their city name within the form which collects season ticket requests.
@@ -140,7 +142,7 @@ form li span {
 }
 
 form li.buttons {
-  padding: 1.6em 0 0 0;
+  padding: 1em 0 0 0;
 }
 
 form li.error {
@@ -156,6 +158,21 @@ form li.complex div span {
   padding-bottom: 0;
 }
 
-#form57 {
-  height: 27.7em;
+#payment .section h3, 
+#payment .section div, 
+.invoice table {
+  color: #fff;
+}
+
+#ccSection {
+  padding: 1em;
+  border: 1px solid #88959a;
+  background: #cee1e9;
+}
+
+#billSection {
+  margin-top: 0.5em;
+  padding: 1em;
+  border: 1px solid #6c8d99;
+  background-color: #a4d6e9;
 }
