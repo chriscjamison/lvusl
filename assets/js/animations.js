@@ -1802,14 +1802,14 @@ function animateClubInfo(section_value)  {
   wndow_selector = "#wndow-sctn_" + section_value;
   copy_selector = wndow_selector + " > .copy";
   icon_selector = "#wndow_footer-sctn_" + section_value + " > a:first-of-type";
-  link_selector = "#wndow_footer-sctn_" + section_value + " > a:nth-child(2)";
+  span_selector = "#wndow_footer-sctn_" + section_value + " span";
   p_element = "#wndow_footer-sctn_" + section_value + " > p";
   
   headr_element = $jQ(headr_selector);
   wndow_element = $jQ(wndow_selector);
   copy_elements = $jQ(copy_selector);
   icon_element = $jQ(icon_selector);
-  link_element = $jQ(link_selector);
+  span_element = $jQ(span_selector);
 
   opacity_zero_css = {
     opacity: "0"
@@ -1825,8 +1825,7 @@ function animateClubInfo(section_value)  {
     $jQ(headr_element).fadeTo(time_value, 0, 
       function () {
         if (section_value === "1" || 
-            section_value === "2" ||
-            section_value === "4")  {
+            section_value === "2")  {
 
           var sctn_nav_selector = new String();
           var sctn_nav_element = new Object();
@@ -1838,7 +1837,7 @@ function animateClubInfo(section_value)  {
             function () {
               $jQ(copy_elements).fadeTo(time_value, 0);
 
-              $jQ(link_element).fadeTo(time_value, 0, 
+              $jQ(span_element).fadeTo(time_value, 0, 
                 function () {
                   $jQ(icon_element).css("backgroundPosition", "0px -56px");
 
@@ -1850,15 +1849,20 @@ function animateClubInfo(section_value)  {
             }
           );
         } else {
-          $jQ(copy_elements).fadeTo(time_value, 0, 
+          $jQ(headr_element).fadeTo(time_value, 0, 
             function () {
-              $jQ(link_element).fadeTo(time_value, 0, 
+               $jQ(copy_elements).fadeTo(time_value, 0, 
+
                 function () {
-                  $jQ(icon_element).css("backgroundPosition", "0px -56px");
+                  $jQ(span_element).fadeTo(time_value, 0, 
+                    function () {
+                      $jQ(icon_element).css("backgroundPosition", "0px -56px");
 
-                  $jQ(p_element).css("display", "block");
+                      $jQ(p_element).css("display", "block");
 
-                  $jQ(p_element).fadeTo(time_value, 1);
+                      $jQ(p_element).fadeTo(time_value, 1);
+                    }
+                  );
                 }
               );
             }
@@ -1867,30 +1871,15 @@ function animateClubInfo(section_value)  {
       }
     );
   } else if ($jQ(p_element).css("display") === "block") {
-    var url_hash = new String();
-
-    var position_value_search_string = new String();
-    var position_value_index_num = new Number();
-    var position_value = new String();
 
     var visible_copy_selector = new String();
     var visible_copy_element = new Object();
-    
-    url_hash = window.location.hash;
-
-    position_value_search_string = "pos=";
-    position_value_index_num = url_hash.indexOf(position_value_search_string);
-    position_value = url_hash.slice((position_value_index_num + position_value_search_string.length));
-
-    position_value = parseInt(position_value);
-    position_value = position_value + 1;
 
     visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(2)";
     visible_copy_element = $jQ(visible_copy_selector);
 
     if (section_value === "1" || 
-        section_value === "2" ||
-        section_value === "4")  {
+        section_value === "2")  {
 
       var sctn_nav_selector = new String();
       var sctn_nav_element = new Object();
@@ -1904,22 +1893,37 @@ function animateClubInfo(section_value)  {
 
           $jQ(icon_element).css("backgroundPosition", "0px 0px");
 
-          $jQ(link_element).fadeTo(time_value, 1);
+          // $jQ(link_element).fadeTo(time_value, 1);
+          $jQ(span_element).css("display", "block");
+          $jQ(span_element).css("opacity", "1");
           $jQ(visible_copy_element).fadeTo(time_value, 1);
           $jQ(sctn_nav_element).fadeTo(time_value, 1);
+          $jQ(headr_element).fadeTo(time_value, 1);
         }
       );
-    } else {
-      $jQ(p_element).fadeTo(time_value, 0, 
-        function () {
-          $jQ(p_element).css("display", "none");
+    } else if (section_value === "3") {
+$jQ(visible_copy_element).css("opacity", "1");
+          $jQ(headr_element).css("opacity", "1");
+          $jQ(icon_element).css("backgroundPosition", "0px 0px");
+          return false;
+      // $jQ(icon_element).css("backgroundPosition", "0px 0px");
+      // $jQ(p_element).css("display", "none");
 
+  /*      $jQ(p_element).fadeTo(time_value, 0, 
+        function () {
+          
           $jQ(icon_element).css("backgroundPosition", "0px 0px");
 
-          $jQ(link_element).fadeTo(time_value, 1);
-          $jQ(visible_copy_element).fadeTo(time_value, 1);
-        }
-      );
+          $jQ(link_element).css("display", "block");
+          $jQ(link_element).css("opacity", "1");
+          $jQ(visible_copy_element).css("opacity", "1");
+          $jQ(headr_element).css("opacity", "1");
+          /* $jQ(visible_copy_element).fadeTo(time_value, 1);
+          $jQ(headr_element).fadeTo(time_value, 1);
+        } 
+      );*/
     }
-  }  
+  }
+
+  return false;
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */

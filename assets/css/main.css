@@ -150,12 +150,11 @@ body {
 #info > div > a:first-of-type, 
 #info > div + div > p, 
 #info p > a, 
-#wndow_footer-sctn_main > span, 
+.wndow_footer span, 
 .wndow_footer > p, 
 #email-content p,
 #email-content span, 
 .headr > div > a, 
-.wndow_footer > a:nth-child(2), 
 .blok-1 p,
 h2, 
 .faq_listing > ul > li > a, 
@@ -165,6 +164,7 @@ h2,
 .article_usl_listing > ul > li > a, 
 .article_usl_listing > ul > li > a + span, 
 #sctn_6-desc a, 
+#sctn_7-desc a,
 h3, 
 .blok-social_media > a:nth-child(2), 
 #sctn_9-form p > a  {
@@ -233,12 +233,12 @@ h3,
 #info > div > a,
 #info p > a, 
 .headr > div + div > a, 
-.wndow_footer > a:nth-child(2), 
 .faq_listing > ul > li > a, 
 #wndow-sctn_3 > .copy > .blok-1 > div + p a, 
 .article_listing > ul > li > a, 
 .article_usl_listing > ul > li > a,
 #sctn_6-desc a, 
+#sctn_7-desc a, 
 .blok-social_media > a:nth-child(2), 
 #sctn_9-form p > a  {
   color: #fff113; 
@@ -261,8 +261,7 @@ h3,
 
 #info > div > a:first-of-type, 
 #info p > a, 
-.wndow_footer > span,
-.wndow_footer > a:nth-child(2), 
+.wndow_footer span,
 .headr > div:first-of-type > span {
   text-shadow: 1px 1px #333;
 }
@@ -276,7 +275,7 @@ h3,
 
 #email-content, 
 .sctn_nav > div > a, 
-.wndow_footer > a:nth-child(1), 
+.wndow_footer > span:nth-child(1), 
 .wndow_footer > p {
   box-shadow: 1px 1px 2px 1px #333;
 }
@@ -453,17 +452,18 @@ h3 {
   left: 1.7em;
 }
 
-.wndow_footer > span {
+.wndow_footer span {
+  margin-top: 1.05em;
   display: block;
-  position: absolute;
+  float: left;
   font-size: 1.1em;
   color: #fff;
   letter-spacing: 0.7px;
 }
 
-.wndow_footer > a:nth-child(1) {
-  width: 3.3em;
-  height: 3.3em;
+.wndow_footer > span:first-of-type {
+  width: 3em;
+  height: 3em;
   margin-right: 0.75em;
   display: block;
   float: left;
@@ -471,10 +471,10 @@ h3 {
   background-position: 0px 0px;
 }
 
-.wndow_footer > a:nth-child(2) {
+.wndow_footer > span:nth-child(2) {
   width: 70em;
   height: 2.5em;
-  margin-top: 0.6em;
+  margin-top: 2.05em;
   display: block;
 }
 
@@ -488,6 +488,12 @@ h3 {
   font-size: 1.2em;
   line-height: 1.5em;
   color: #fff113;
+}
+
+#wndow_footer-sctn_main span {
+  width: 30em;
+  background: none;
+  box-shadow: none;
 }
 
 #wndow_footer-sctn_1 > p {
@@ -768,6 +774,11 @@ h3 {
 
 #sctn_7-desc > div:first-of-type {
   height: 1.5em;
+}
+
+#sctn_7-desc a {
+  display: block;
+  margin-bottom: 0.75em;
 }
 
 

@@ -98,14 +98,17 @@ li#fo55li149 {
  * their city name within the form which collects season ticket requests.
  */
 
+#fo57li5 .city {
+  width: 17.6em;
+}
+
 #fo57li5 .city input {
 	width: 17.75em;
 }
  
 
 #fo57li5 .zip {
-	width: 2.7em;
-	margin-left: 1.75em;
+	width: 4.9em;
 } 
 /* 
  * Formats the <input> element for the question field which a visitor can enter 
@@ -113,8 +116,19 @@ li#fo55li149 {
  */
 
 #fo57li5 .state {
-  width: 4.9em;
+  width: 2em;
+  float: left;
+}
+
+#fo57li5 .state, 
+#fo57li5 .zip {
   margin-left: 1.75em;
+}
+
+
+
+#fo57li5 .country {
+  float: left;
 }
 
 input[type=submit], 
