@@ -1,0 +1,1719 @@
+/* Filename: main.css 
+ *  + Contains the CSS styling for all of the static visual elements.
+ *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
+ * 
+ *  + All measurements are given in terms of 'em' except for background position values which are 
+ *    given in terms of 'px'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1600x900
+ *    - 1366x768
+ *    - 1280x800
+ * ******************************************************************************************** */
+
+body {
+  margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+/* Formats the <body> HTML tag */
+
+#cntainr {
+  width: initial;
+  height: initial;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clear: both;
+	z-index: 3;
+}
+/* Formats the <div> which holds all of the text and form content. */
+
+.wndow {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+  z-index: 4;
+}
+/* Formats the <div> which holds the text and form content of a particular 'SECTION' */
+
+#bkgrnd {
+	position: absolute;
+	top: 0;
+  left: 0;
+	z-index: 0;
+}
+/* Formats the <div> which holds the <div> elements which hold the background images 
+ * for the individual sections. 
+ */
+
+ #bkgrnd > div {
+   background-repeat: no-repeat;
+ }
+ /* Formats the <div> elements which hold the background images for the individual sections. */
+
+.headr {
+	height: 4.4em;
+	position: absolute;
+}
+/* Formats the <div> which holds the 'SECTION' title for a given section. */
+
+.headr > div > span {
+  width: 16.25em;
+  display: block;
+  font-family: 'amboy-black', sans-serif;
+  font-size: 2.75em;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+	letter-spacing: 1px;
+}
+/* Formats the <span> element which holds the text of the 'SECTION' title of a 
+ *  particular section. 
+ */
+
+ .headr > div {
+   float: left;
+ }
+
+ .headr > div:nth-child(2) {
+   margin-top: 0.4em;
+ }
+
+.copy {
+  display: none;
+	position: absolute;
+  float: left;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+/* Formats the <div> which holds the text or form content within a section. 
+   '.copy' elements differ from '.wndow' elements in that '.copy' elements only 
+   hold the content of one sub-section, while '.wndow' elements hold many 
+   sub-sections.
+*/
+
+.blok-1 {
+  padding: 2.5em;
+  display: block;
+  background-image: url('/assets/img/misc/bkgrnd_copy.png');
+  border: 2px solid #f51b74;
+}
+
+#info > div > a,
+.headr > div > a, 
+.headr > div + div > a {
+  width: 12.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+  padding: 0.15em;
+  display: block;
+  float: left;
+  background-color: #00a1e1;
+  border: 1px solid #00a1e1;
+  font-size: 1.2em;
+  text-decoration: none;
+  text-align: center;
+}
+/* Formats the links which appear as buttons. */
+
+#info > div > a:first-of-type,
+.headr > div > a,
+.wndow_footer > a:nth-child(2) {
+  width: 12.5em;
+  height: 1.5em;
+  padding-top: 0.3em;
+  background: none;
+  border: none;
+  color: #fff113;
+  font-weight: 700;
+  text-decoration: underline;
+}
+/* 
+ * Formats the link, 'Email Alerts', which appears to the right of the logo within 
+ * MAIN LANDING SECTION. This link is formatted because the size of the button without 
+ * formatting is smaller than the link, 'Reserve Season Tickets'.
+ */
+
+.headr > div > a {
+  padding: 0 0 0 0.75em;
+  float: none;
+}
+ /* Formats the link which appears over the text of the header */
+
+#info > div > a:first-of-type, 
+#info > div + div > p, 
+#info p > a, 
+.wndow_footer span, 
+.wndow_footer > p, 
+#email-content p,
+#email-content span, 
+.headr > div > a, 
+.blok-1 p,
+h2, 
+.faq_listing > ul > li > a, 
+#wndow-sctn_3 > .copy > .blok-1 > div + p a, 
+.article_listing > ul > li > a, 
+.article_listing > ul > li > a + span,
+.article_usl_listing > ul > li > a, 
+.article_usl_listing > ul > li > a + span, 
+#sctn_6-desc a, 
+#sctn_7-desc a,
+h3, 
+.blok-social_media > a:nth-child(2), 
+#sctn_9-form p > a  {
+  font-family: 'cholla-wide', sans-serif;
+  letter-spacing: 0.7px;
+}
+/* Sets the fonts of various HTML elements as Cholla Wide (cholla-wide) */
+
+#info > div > a,
+.clear > a,  
+.sctn_nav > div > a, 
+.headr > div + div > a, 
+#sctn_3-faq_links > a, 
+.faq_back > a, 
+#sctn_4-desc a, 
+#sctn_5-news_links > a, 
+#sctn_5-usl_news_links > a,
+#ntt-previous_step, 
+#ntt-next_step, 
+#wndow-sctn_6 > .copy > .blok-1 > a {
+  font-family: 'korolev-military-stencil', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+/* Sets the fonts of the above elements as Korolev Military Stencil (korolev-military-stencil) */
+
+.clear > a, 
+#sctn_3-faq_links > a,
+.faq_back > a,
+#sctn_4-desc a,
+#sctn_5-news_links > a,
+#sctn_5-usl_news_links > a, 
+#wndow-sctn_6 > .copy > .blok-1 > a, 
+#ntt-previous_step, 
+#ntt-next_step{
+  padding: 2em 0;
+  display: block;
+  float: left;
+  background-color: #fff113;
+  color: #00a1e1;
+}
+/* Formats the Calls to Action used within the Splash screen. */
+
+.clear > a:hover,  
+#sctn_3-faq_links > a:hover, 
+.faq_back > a:hover,
+#sctn_4-desc a:hover, 
+#sctn_5-article_links > a:hover, 
+#wndow-sctn_6 > .copy > .blok-1 > a:hover, 
+#ntt-previous_step:hover, 
+#ntt-next_step:hover {
+  color: #f51b74;
+}
+
+#info > div > a:hover, 
+.headr > div + div > a:hover {
+  border-color: #fff113
+}
+
+#info > div > a:first-of-type:hover {
+  border-color: none;
+}
+
+#info > div > a,
+#info p > a, 
+.headr > div + div > a, 
+.faq_listing > ul > li > a, 
+#wndow-sctn_3 > .copy > .blok-1 > div + p a, 
+.article_listing > ul > li > a, 
+.article_usl_listing > ul > li > a,
+#sctn_6-desc a, 
+#sctn_7-desc a, 
+.blok-social_media > a:nth-child(2), 
+#sctn_9-form p > a  {
+  color: #fff113; 
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+.clear a,
+.sctn_nav > div > a {
+  color: #00a1e1;
+}
+/* Sets the color of the above elements to a shade of blue. */
+
+.headr > div + div > a, 
+.clear a, 
+#ntt-next_step, 
+#ntt-previous_step {
+  text-decoration: none;
+}
+/* Deactivates the underline attribute of the above elements. */
+
+#info > div > a:first-of-type, 
+#info p > a, 
+.wndow_footer span,
+.headr > div:first-of-type > span {
+  text-shadow: 1px 1px #333;
+}
+/* Sets the text within the above elements to display with a shadow. */
+
+.clear p,
+.blok-1 p {
+  line-height: 1.8em;
+}
+/* Sets the line height of the above elements. */
+
+#email-content, 
+.sctn_nav > div > a, 
+.wndow_footer > span:nth-child(1), 
+.wndow_footer > p {
+  box-shadow: 1px 1px 2px 1px #333;
+}
+/* Adds a shadow to the above elements using the 'box-shadow' property. */
+
+
+.clear > a,
+#sctn_3-faq_links > a,
+.faq_back > a, 
+#sctn_4-desc a,
+#sctn_5-news_links > a, 
+#sctn_5-usl_news_links > a, 
+#wndow-sctn_6 > .copy > .blok-1 > a, 
+#ntt-previous_step, 
+#ntt-next_step {
+  width: 8.87em;
+  height: 1.25em;
+}
+
+.blok-1 > div:first-of-type, 
+.article_listing > div:first-of-type, 
+.article_usl_listing > div:first-of-type, 
+#sctn_7-desc > h2 + div + p + div, 
+#sctn_8-links > div:nth-child(2), 
+#sctn_8-links > div:nth-child(4) {
+  height: 2em;
+  position: relative;
+}
+
+.blok-1 > div:first-of-type > span, 
+.article_listing > div:first-of-type > span,
+.article_usl_listing > div:first-of-type > span,
+#sctn_7-desc > h2 + div + p + div > span, 
+#sctn_8-links > div:nth-child(2) > span, 
+#sctn_8-links > div:nth-child(4) > span {
+  height: 2px;
+  display: block;
+  float: left;
+}
+
+#info > div > div > span:nth-child(1), 
+#info > div > div > span:nth-child(3), 
+.blok-1 > div:first-of-type > span:nth-child(1), 
+.article_listing > div:first-of-type > span:nth-child(1), 
+.article_usl_listing > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > div:first-of-type > span:nth-child(1), 
+#sctn_7-desc > h2 + div + p + div > span:nth-child(2), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+  border-bottom: 1px dotted #f51b74;
+}
+
+#info > div > div > span:nth-child(2), 
+.blok-1 > div:first-of-type > span:nth-child(2), 
+.article_listing > div:first-of-type > span:nth-child(2),
+.article_usl_listing > div:first-of-type > span:nth-child(2),
+#sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
+#sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+#sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+  border-bottom: 1px solid #f51b74;
+}
+
+.blok-1 p {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.blok-1 p:first-of-type {
+  margin-top: 0;
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.75em;
+  margin-top: 0;
+}
+
+.faq_listing > ul > li > a, 
+.article_listing > ul > li > a,
+.article_usl_listing > ul > li > a, 
+.blok-social_media > a:nth-child(2) {
+  font-size: 1.2em;
+}
+
+h3 {
+  color: #fff;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+/* ---- 'MAIN LANDING PAGE' ---- 
+ * Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
+ * portion of this template.
+ */
+
+#info {
+  position: relative;
+  z-index: -2;
+}
+/* Formats a <div> which contains the logo and <ul> list which is displayed 
+ * in the landing portion.
+ */
+
+#info > img {
+  padding: 1.7em;
+	display: none;
+  position: relative;
+  float: left;
+}
+/* Formats the logo which is contained within the <div> using the selctor, "#info". */
+
+#info > div {
+  height: 9.75em;
+  float: left;
+}
+/* 
+ * Formats the <div> element which appears to the right of the logo within a 
+ * desktop browser and contains <a> elements which allow a user to sign up for 
+ * a newsletter or reserve season tickets.
+ */
+
+#info > div > a:nth-child(4) {
+  margin-right: 0;
+}
+/* 
+ * Formats the link, 'Reserve Season Tickets', which appears to the right of the logo 
+ * within MAIN LANDING SECTION.
+ */
+
+#info, 
+#info > div > a, 
+#info > img, 
+#info > div > p, 
+#info > div > div, 
+#wndow_footer-sctn_main {
+  opacity: 0;
+}
+/* Sets the 'opacity' of various elements contained within 'MAIN LANDING SECTION'. */
+
+#info > div + div {
+  position: absolute;
+  top: 11em;
+  left: -11em;;
+}
+
+#info > div + div > p {
+  font-weight: 700;
+  text-align: left;
+  color: #032649;
+}
+
+#info > div > div {
+  width: 49.25em;
+  height: 14.25em;
+  margin: 4em 0;
+  position: relative;
+  left: 16em;
+  clear: both;
+}
+
+#info > div + div > p:nth-child(2) {
+  padding-left: 3em;
+}
+
+#info > div + div > p:nth-child(3) {
+  padding-left: 6em;
+}
+
+#info > div + div > p:nth-child(4) {
+  padding-left: 7em;
+}
+
+.wndow_footer {
+  position: absolute;
+  left: 1.7em;
+  z-index: -2;
+}
+
+.wndow_footer span {
+  margin-top: 1.05em;
+  display: block;
+  float: left;
+  font-size: 1.1em;
+  color: #fff;
+  letter-spacing: 0.7px;
+}
+
+.wndow_footer > span:first-of-type {
+  width: 3em;
+  height: 3em;
+  margin-right: 0.75em;
+  display: block;
+  float: left;
+  background-image: url('/assets/img/misc/footer_link_logo.png');
+  background-position: 0px 0px;
+}
+
+.wndow_footer > span:nth-child(2) {
+  width: 70em;
+  height: 2.5em;
+  margin-top: 2.05em;
+  display: block;
+}
+
+.wndow_footer > p {
+  width: 15em;
+  padding: 2.5em;
+  display: none;
+  position: absolute;
+  left: 4em;
+  background-color: #00a1e1;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #fff113;
+}
+
+#wndow_footer-sctn_main span {
+  width: 30em;
+  background: none;
+  box-shadow: none;
+}
+
+#wndow_footer-sctn_1, 
+#wndow_footer-sctn_2, 
+#wndow_footer-sctn_3, 
+#wndow_footer-sctn_4, 
+#wndow_footer-sctn_5, 
+#wndow_footer-sctn_6, 
+#wndow_footer-sctn_7, 
+#wndow_footer-sctn_8, 
+#wndow_footer-sctn_9 {
+  display: none;
+}
+
+
+#wndow_footer-sctn_1 > p {
+  height: 13em;
+  top: -16.25em;
+}
+
+#wndow_footer-sctn_2 > p {
+  height: 11.5em;
+  top: -14.75em;
+}
+
+#wndow_footer-sctn_3 > p {
+  height: 10.25em;
+  top: -13.5em;
+}
+
+#wndow_footer-sctn_4 > p {
+  height: 10em;
+  top: -13.5em;
+}
+
+#wndow_footer-sctn_5 > p {
+  height: 8.25em;
+  top: -11.5em;
+}
+
+#wndow_footer-sctn_6 > p {
+  height: 7.25em;
+  top: -10.5em;
+}
+
+#wndow_footer-sctn_7 > p {
+  top: -14.9em;
+}
+
+#wndow_footer-sctn_8 > p {
+  top: -15em;
+}
+
+#wndow_footer-sctn_9 > p {
+  height: 12.75em;
+  top: -16em;
+}
+
+/* #email {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 2;
+} */
+/* Formats the <div> element which holds the email alert splash page. */
+
+#email-content {
+  width: 22.5em;
+  height: 21em;
+  display: none;
+  z-index: -1;
+}
+/* 
+ * Formats the <div> element which holds the copy contained within the 
+ * splash page.
+ */
+
+
+#email-content img {
+  margin: 0 auto 1.25em auto;
+  display: block;
+}
+/* 
+ * Formats the logo image which displays on the 'splash' of the loading 
+ * of the webpage.
+ */
+
+#email-content p {
+  margin: 0.25em 0 0 0;
+  padding-bottom: 1em;
+  font-size: 1.2em;
+  color: #00a1e1;
+  text-align: center;
+}
+/* Formats the <p> element which contains the description copy. */
+
+#email-content span {
+  margin-top: 2.2em;
+  display: block;
+  position: relative;
+  top: 11em;
+  font-size: 1em;
+  text-align: center;
+  color: #fff;
+}
+    
+
+#email-content > div > div {
+  width: 23em;
+  height: 6.25em;
+  margin: 1.5em auto 0 auto;
+}
+/* Formats the <div> elements holding the Calls to Action used on the splash screen. */
+
+
+#email-bkgrnd {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  opacity: 0.7;
+  z-index: -2;
+}
+/* Formats the dark gray background of the splash page. */
+
+.visible {
+  display: block;
+}
+/* Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made visible. */
+
+.not_visible {
+  display: none;
+}
+/*  Formats a <div> element which allows two questions of 'FORM TYPE #2' to be made invisible. */
+
+.visible, 
+.not_visible {
+  opacity: 1;
+}
+/* Formats the <div> elements which contain the form questions of 'FORM TYPE #2'. */
+
+/* ---- 'SECTION #1' ---- */
+
+#wndow-sctn_1 .copy > div {
+  position: absolute;
+}
+
+#sctn_1-map img, 
+#sctn_1-video, 
+#sctn_1-document {
+  border: 2px solid #f51b74;
+}
+ 
+
+#ticket-line_3 {
+	margin-bottom: 1.25em;
+}
+/* Formats the text fields of the second question of 'FORM TYPE #2' of 'SECTION #1'. */
+
+/* ---- 'SECTION #2' ---- */
+
+#sctn_2-club_vision {
+  width: 25.5em;
+  height: 11.25em;
+}
+
+#sctn_2-ownership {
+  width: 30em;
+}
+
+
+/* ---- 'SECTION #3' ---- */
+
+.faq_listing > ul, 
+.article_listing > ul, 
+.article_usl_listing > ul {
+  margin: 0;
+  padding: 0.5em 0 0.5em 1em;
+}
+
+.faq_listing > ul > li, 
+.article_listing > ul > li, 
+.article_usl_listing > ul > li {
+  margin-bottom: 1em;
+  list-style-image: url('/assets/img/misc/disc.png');
+}
+
+.faq_listing > ul > li > a, 
+.article_listing > ul > li > a, 
+.article_usl_listing > ul > li > a {
+  line-height: 1.5em;
+}
+
+#wndow-sctn_3 > .copy > .blok-1 > div + p a {
+  font-size: 1em;
+}
+
+/* 
+ * Formats links within a <div> using the selector ".sctn_nav".
+ * The selectors attached to this CSS pairing are used for links with 
+ * text using 2 individual lines.
+ */
+
+#sctn_3-faq_links > a {
+  height: 1.75em;
+  padding-top: 1.2em;
+}
+
+#sctn_5-news_links > a, 
+#sctn_5-usl_news_links > a {
+  height: 1.25em;
+  padding-top: 2em;
+}
+
+#sctn_3-faq_links > a:nth-child(1), 
+#sctn_5-news_links > a:nth-child(1), 
+#sctn_5-usl_news_links > a:nth-child(1) {
+  display: none;
+}
+
+#wndow-sctn_3 > .copy h2 {
+  width: 14.5em;
+}
+
+.faq_back {
+  height: 6em;
+  margin-top: 2.5em;
+  position: relative;
+}
+
+#sctn_3-answer-4 p {
+  line-height: 1.6em;
+}
+
+
+/* ---- 'SECTION #4' ---- */
+
+#sctn_4-confirmation {
+  position: absolute;
+  left: 16em;
+}
+
+#wndow-sctn_4 > .copy > .blok-1,
+#wndow-sctn_5 > .copy > .blok-1,  
+#wndow-sctn_6 > .copy > .blok-1 {
+  float: left;
+}
+
+#sctn_4-desc, 
+#sctn_5-listing-bkgrnd, 
+#sctn_6-desc {
+  margin-right: 2.5em;
+}
+
+#sctn_4-desc a {
+  height: 1.75em;
+  padding-top: 1.5em;
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+
+/* ---- 'SECTION #5' ---- */
+
+#sctn_5-listing-bkgrnd h3 {
+  margin-bottom: 2.11em;
+}
+
+.article_listing > ul > li > a + span, 
+.article_usl_listing > ul > li > a + span {
+  display: block;
+  font-size: 1em;
+  color: #fff;
+}
+
+
+/* ---- 'SECTION #6' ---- */
+
+#wndow-sctn_6 > .copy > .blok-1 > a {
+  float: none;
+  letter-spacing: -1px;
+}
+
+#ntt-previous_step {
+  margin: 2.3em 1em 0 0;
+}
+
+#sctn_6-form {
+  height: 27.7em;
+} 
+
+
+
+/* ---- 'SECTION #7' ---- */
+
+#sctn_7-desc > div:first-of-type {
+  height: 1.5em;
+}
+
+#sctn_7-desc a {
+  display: block;
+  margin-bottom: 0.75em;
+}
+
+
+/* ---- 'SECTION #8' ---- */
+
+.blok-social_media {
+  height: 8.75em !important;
+  margin-bottom: 2em;
+  display: block;
+}
+
+.blok-social_media > a:first-of-type {
+  width: 6.25em;
+  margin: 0 auto;
+  display: block;
+}
+
+.blok-social_media > a:nth-child(2) {
+  margin: 1em auto 0 auto;
+  display: block;
+}
+
+#sctn_8-facebook > a:nth-child(2) {
+  width: 12.25em;
+}
+
+#sctn_8-instagram > a:nth-child(2) {
+  width: 12.5em;
+}
+
+#sctn_8-twitter {
+  margin-bottom: 0;
+}
+
+#sctn_8-twitter > a:nth-child(2) {
+  width: 12.1em;
+}
+
+@media screen and (min-width: 1260px) and (max-width: 1320px) {
+  /* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
+  * This breakpoint is optimized to fit resolutions of 1280x800. 
+  */
+
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_8-facebook, 
+  #sctn_9-form, 
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type,
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 23.5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 18em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type {
+    width: 30em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type >  span:nth-child(1) {
+    width: 9em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 > div:first-of-type > span:nth-child(2) {
+    width: 21em;
+  }
+  
+  #sctn_4-desc > div:first-of-type > span:nth-child(1) {
+    width: 5.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2) {
+    width: 18em;
+  }
+
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 {
+    width: 30em;
+  }
+  
+
+  #wndow-sctn_4 > .copy > .blok-1,
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1 {
+    width: 23.5em;
+  }
+
+ .blok-1 p {
+    font-size: 1em;
+    color: #fff;
+  }
+
+  #email-content p,
+  .blok-1 p {
+    line-height: 1.5em;
+  }
+
+  #cntainr {
+    width: 80em;
+  }
+
+  #info {
+    width: 80em;
+    height: 21em;
+  }
+/* 
+  #email {
+    width: 79em;
+    height: 48em;
+  } */
+
+  #email-content {
+    transform: translate(95%, -38%);
+  }
+
+  #email-bkgrnd {
+    width: 80em;
+    height: 50em;
+  }
+
+  .clear a {
+    top: 7em;
+    left: 11em;
+  }
+
+  #info > div {
+    width: 57.25em;
+    margin: 1.5em 0 0 0;
+  }
+
+  #info > div > a {
+    width: 11.5em;
+  }
+
+  #info > div > a:first-of-type {
+    width: 10em;
+  }
+
+  #info > div + div {
+    top: 5.5em;
+    left: 22.5em;
+  }
+
+  #info > div + div > p {
+    font-size: 1.2em;
+  }
+
+  .wndow_footer {
+    width: 78.5em;
+    height: 7.25em;
+    bottom: 0;
+    z-index: 2;
+  }
+  
+  .headr {
+    width: 77.8em;
+    margin: 2.75em 0 0 6.5em;
+  }
+
+  .headr > div > span {
+    font-size: 2.5em;
+  }
+
+  .headr > div + div > a:nth-child(2) {
+    margin-right: 0;
+  }
+
+  #wndow-sctn_1 > .copy {
+    width: 73.25em;
+    height: 35em;
+    margin: 15em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 > .copy, 
+  #wndow-sctn_4 > .copy, 
+  #wndow-sctn_5 > .copy {
+    width: 72.25em;
+    height: 42em;
+    margin: 8em 0 0 6.5em;
+  }
+
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy {
+    width: 32.25em;
+    height: 41.25em;
+    margin: 8.75em 0 0 48em;
+  }
+
+  #wndow-sctn_6 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 18.75em;
+  }
+
+  #wndow-sctn_9 > .copy {
+    width: 32.25em;
+    height: 41.25em;
+    margin: 8.75em 0 0 50em;
+  }
+
+  #sctn_1-copy {
+    width: 46.5em;
+    height: 13.5em;
+  }
+
+  #sctn_3-listing-bkgrnd {
+    height: 30em;
+  }
+
+  #wndow-sctn_3 > .copy > .blok-1 > div + p a {
+    font-size: 1em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing, 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing {
+    width: 23.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links, 
+  #sctn_5-usl_news_links {
+    width: 23.5em;
+    height: 5.5em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1), 
+  #sctn_5-usl_news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  .faq_listing > ul > li > a, 
+  .article_listing > ul > li > a,
+  .article_usl_listing > ul > li > a, 
+  .blok-social_media > a:nth-child(2) {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 1.3em;
+    margin-top: 0;
+  }
+
+  #wndow-sctn_5 > .copy > .blok-1,   
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  }
+
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    height: 1em;
+  }
+  
+  #sctn_8-facebook > a:nth-child(2) {
+    width: 16.75em;
+  }
+
+  #sctn_8-instagram > a:nth-child(2) {
+    width: 16em;
+  }
+
+  #sctn_8-twitter > a:nth-child(2) {
+    width: 12.25em;
+  }
+}
+
+@media screen and (min-width: 1340px) and (max-width: 1580px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1580px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px.
+  */
+  
+  .blok-1 > div:first-of-type, 
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type, 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 23.5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(1), 
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(2), 
+  #sctn_5-listing-bkgrnd > .article_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 18em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(1) {
+    width: 5.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2) {
+    width: 18em;
+  }
+  
+  #wndow-sctn_2 > .copy > .blok-1,
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1 {
+    width: 23.5em;
+  }
+
+ .blok-1 p {
+    font-size: 1.05em;
+    color: #fff;
+  }
+
+  #email-content p,
+  .blok-1 p {
+    line-height: 1.5em;
+  }
+
+  #cntnr {
+    width: 85.38em;
+  }
+
+  #bkgrnd {
+    width: 85.38em;
+  }
+
+  #info {
+    width: 85.25em;
+    height: 16.75em;
+  }
+
+  #info > div {
+    width: 62.5em;
+    margin: 1.75em 0 0 0;
+  }
+
+  #info > div > a:first-of-type {
+    width: 11em;
+  }
+
+  #info > div + div {
+    width: 45em;
+    top: 6em;
+    left: 23em;
+  }
+
+  #info > div + div > p {
+    font-size: 1.2em;
+  }
+
+  .wndow_footer {
+    width: 82.5em;
+    height: 7.25em;
+    bottom: 0;
+  }
+
+/*   #email {
+    width: 85.75em;
+    height: 48em;
+  }
+ */
+  #email-content {
+    transform: translate(97%, -22%);
+  }
+
+  #email-bkgrnd {
+    width: 85.75em;
+    height: 48em;
+  }
+
+  #email a {
+    top: 3em;
+    left: 13.5em;
+  }
+
+  .headr {
+    width: 77.8em;
+    margin: 2.75em 0 0 6.5em;
+  }
+
+  #wndow-sctn_1 > .copy {
+    width: 77.75em;
+    height: 41.25em;
+    margin: 15em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 > .copy {
+    width: 67.25em;
+    height: 40em;
+    margin: 8em 0 0 17em;
+  }
+
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy, 
+  #wndow-sctn_9 > .copy {
+    width: 32.25em;
+    height: 47.5em;
+    margin: 8.75em 0 0 52em;
+  }
+  
+  #wndow-sctn_4 > .copy {
+    width: 77.5em;
+    height: 48.5em;
+    margin: 8em 0 0 6.75em;
+  }
+
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_6 > .copy {
+    width: 67.25em;
+    height: 48.25em;
+    margin: 8em 0 0 22.75em;
+  }
+
+  h2 {
+    margin: 0 0 1em 0;
+    font-size: 1.25em;
+  }
+
+  #wndow-sctn_2 > .copy > .blok-1 {
+    width: 30em;
+  }
+
+  #scnt_2-ownership {
+    height: 27em;
+  }
+
+  #sctn_3-listing-bkgrnd {
+    height: 30em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing, 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing {
+    width: 23.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links, 
+  #sctn_5-usl_news_links {
+    width: 23.5em;
+    height: 6.3em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1), 
+  #sctn_5-usl_news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  .faq_listing > ul > li > a, 
+  .article_listing > ul > li > a, 
+  .article_usl_listing > ul > li > a, 
+  .blok-social_media > a:nth-child(2) {
+    font-size: 1.1em;
+  }
+
+  #wndow_sctn_6 > .copy > .blok-1 {
+    height: 32.25em;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+ 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    height: 1em;
+  }
+  
+  #sctn_8-facebook > a:nth-child(2) {
+    width: 12.5em !important;
+  }
+
+  #sctn_8-instagram > a:nth-child(2) {
+    width: 12.75em !important;
+  }
+
+  #sctn_8-twitter > a:nth-child(2) {
+    width: 12.25em !important;
+  } 
+}
+
+@media screen and (min-width: 1590px) and (max-width: 1900px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1590px and a width less than 1900px. 
+   * This breakpoint is optimized to fit resolutions of 1600x900px.
+   */
+
+  .blok-1 > div:first-of-type, 
+  .article_listing > div:first-of-type, 
+  .article_usl_listing > div:first-of-type, 
+  #sctn_4-desc > div:first-of-type, 
+  #sctn_6-desc > div:first-of-type, 
+  #sctn_7-desc > div:first-of-type, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 25.5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(1), 
+  .article_listing > div:first-of-type > span:nth-child(1), 
+  .article_usl_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_4-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_6-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(2), 
+  .article_listing > div:first-of-type > span:nth-child(2), 
+  .article_usl_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_4-desc > div:first-of-type > span:nth-child(2),
+  #sctn_6-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > div:first-of-type > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 20em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1,
+  #wndow-sctn_5 > .copy > .blok-1, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1, 
+  #sctn_8-links, 
+  #sctn_8-facebook {
+    width: 25.5em;
+  }
+
+  #info {
+    width: 99em;
+    height: 9em;
+  }
+
+  #info > div {
+    width: 62.75em;
+    margin: 1.5em 0 0 13em;
+  }
+
+  #info > div > a:first-of-type {
+    width: 11em;
+  }
+
+  #info > div + div {
+    width: 53em;
+    top: 5em;
+    left: 9em;
+  }
+
+  #info > div + div > p {
+    font-size: 1.6em;
+  }
+
+/*   #email {
+    width: 99em;
+    height: 56.5em;
+  }
+ */
+  #email-content {
+    transform: translate(127%, 23%);
+  }
+
+  #email-bkgrnd {
+    width: 99em;
+    height: 67.5em;
+  }
+
+  /* #email a {
+    top: 2em;
+    left: 13.5em;
+  }
+ */
+  .wndow_footer {
+    width: 84.5em;
+    height: 7.25em;
+    bottom: 6.5em;
+  }
+
+  #wndow-sctn_1 > .copy {
+    width: 92.5em;
+    height: 39.75em;
+    margin: 16.5em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 > .copy, 
+  #wndow-sctn_4 > .copy, 
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_6 > .copy {
+    width: 92.5em;
+    height: 47.5em;
+    margin: 8.75em 0 0 6.5em;
+  }
+
+  #wndow-sctn_3 > .copy {
+    width: 43em;
+    height: 47.5em;
+    margin: 8.75em 0 0 54em;
+  }
+
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy, 
+  #wndow-sctn_9 > .copy {
+    width: 32em;
+    height: 48.25em;
+    margin: 8.75em 0 0 53.75em;
+  }
+
+  .headr {
+    width: 92.5em;
+    margin: 3.25em 0 0 6.5em;
+  }
+
+  .headr > div:nth-child(2) {
+    margin: 2.1em 0 0 1.75em;
+  }
+
+  
+  #sctn_1-copy, 
+  #sctn_2-club_vision, 
+  #sctn_2-ownership, 
+  #wndow-sctn_3 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1 {
+    width: 25.5em;
+  }
+
+  #sctn_1-copy {
+    width: 46.75em;
+    height: 18.25em;
+  }
+
+  #sctn_3-listing-bkgrnd{
+    height: 30em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing, 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing {
+    width: 25.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links,
+  #sctn_5-usl_news_links {
+    width: 25.5em;
+    height: 5.5em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1), 
+  #sctn_5-usl_news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+/*   
+  #sctn_5-usl_listing-bkgrnd, 
+  .article_usl_listing {
+    height: 24.45em;
+  }
+ */
+  #sctn_6-desc > div:first-of-type,
+  #sctn_7-desc > div:first-of-type {
+    width: 25.5em;
+  }
+
+  #wndow-sctn_6 > .copy > .blok-1 {
+    float: left;
+  } 
+
+  #sctn_6-desc {
+    height: 29.4em;
+  }
+}
+
+@media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px. 
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+
+  .blok-1 > div:first-of-type, 
+  .article_listing > div:first-of-type, 
+  .article_usl_listing > div:first-of-type, 
+  #sctn_7-desc > h2 + div + p + div, 
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    width: 25.5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(1), 
+  .article_listing > div:first-of-type > span:nth-child(1), 
+  .article_usl_listing > div:first-of-type > span:nth-child(1), 
+  #sctn_7-desc > h2 + div + p + div > span:nth-child(2),
+  #sctn_8-links > div:nth-child(2) > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(2) {
+    width: 5em;
+  }
+
+  .blok-1 > div:first-of-type > span:nth-child(2), 
+  .article_listing > div:first-of-type > span:nth-child(2), 
+  .article_usl_listing > div:first-of-type > span:nth-child(2), 
+  #sctn_7-desc > h2 + div + p + div > span:nth-child(1), 
+  #sctn_8-links > div:nth-child(2) > span:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) > span:nth-child(1) {
+    width: 20em;
+  }
+
+  #info {
+    width: 119em;
+    height: 29.25em;
+  }
+
+  #info > div {
+    width: 63.75em;
+    margin: 1.5em 0 0 31.75em;
+  }
+
+  #info > div + div {
+    width: 26em;
+    top: 1.25em;
+    left: -22em;
+    font-size: 2.25em;
+    line-height: 1.3em;
+  }
+
+  .wndow_footer {
+    width: 117.25em;
+    height: 7.25em;
+    bottom: 6em;
+  }
+
+ /*  #email {
+    width: 119em;
+    height: 67.5em;
+  }
+ */
+  #email-content {
+    transform:translate(157%, -40%);
+  }
+
+  #email-bkgrnd {
+    width: 119em;
+    height: 67.5em;
+  }
+
+/*   #email a {
+    top: 11.25em;
+    left: 31.5em;
+  }
+ */
+  .headr {
+    width: 112.5em;
+    margin: 1.25em 0 0 6.5em;
+  }
+
+  .headr > div:nth-child(2) {
+    margin-left: 34.25em;
+  }
+
+  .copy {
+    width: 113.5em;
+    height: 53.5em;  
+    margin: 14em 0 0 6.5em;
+  }
+
+  #wndow-sctn_2 > .copy  {
+    width: 102em;
+    height: 60.5em;
+    margin: 7em 0 0 17em;
+  }
+
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_7 > .copy, 
+  #wndow-sctn_8 > .copy, 
+  #wndow-sctn_9 > .copy {
+    width: 32.5em;
+    height: 53.5em;
+    margin: 8em 0 0 86.5em;
+  }
+ 
+  #wndow-sctn_4 > .copy, 
+  #wndow-sctn_5 > .copy  {
+    width: 102em;
+    height: 60.5em;
+    margin: 7em 0 0 6.5em;
+  }
+
+  #wndow-sctn_6 > .copy {
+    width: 66em;
+    height: 53.5em;
+    margin: 8em 0 0 53em;
+  }
+  
+  #sctn_1-copy {
+    width: 25.5em;
+    height: 31em;
+  }
+
+  #wndow-sctn_3 > .copy .blok-1, 
+  #sctn_8-links {
+    width: 25.5em;
+  }
+
+  #sctn_3-listing-bkgrnd {
+    height: 30em;
+  }
+
+  #wndow-sctn_5 > .copy > .blok-1 {
+    height: 31.75em;
+  }
+
+  #sctn_3-listing-bkgrnd > .faq_listing, 
+  #sctn_5-listing-bkgrnd > .article_listing, 
+  #sctn_5-usl_listing-bkgrnd > .article_usl_listing {
+    width: 25.5em;
+    height: 24.5em;
+  }
+
+  #sctn_3-faq_links, 
+  #sctn_5-news_links, 
+  #sctn_5-usl_news_links {
+    width: 25.25em;
+    height: 6.35em;
+  }
+
+  #sctn_5-news_links, 
+  #sctn_5-usl_news_links {
+    margin-top: 1.25em;
+  }
+
+  #sctn_3-faq_links > a:nth-child(1), 
+  #sctn_5-news_links > a:nth-child(1), 
+  #sctn_5-usl_news_links > a:nth-child(1) {
+    margin-right: 1em;
+  }
+
+  #sctn_4-desc {
+    margin-right: 2.5em;
+  }
+
+  #wndow-sctn_4 > .copy > .blok-1, 
+  #wndow-sctn_5 > .copy > .blok-1, 
+  .article_listing,
+  .article_usl_listing, 
+  #wndow-sctn_6 > .copy > .blok-1, 
+  #wndow-sctn_7 > .copy > .blok-1, 
+  #wndow-sctn_9 > .copy > .blok-1 {
+    width: 25.5em;
+  }
+
+  #sctn_6-desc, 
+  #sctn_6-form {
+    height: 33.75em;
+  } 
+}

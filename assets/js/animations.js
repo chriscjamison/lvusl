@@ -742,118 +742,85 @@ function animateEmailAlert(url_hash, time_value)  {
   var email_selector = new String();
   var info_selector = new String();
 
-  var email_element = new Object();
+  var email_bkgrnd_element = new Object();
+  var email_form_element = new Object();
   var info_element = new Object();
 
-  var email_visibility_css = new Object();
+  var email_not_visible_css = new Object();
   var opacity_zero_css = new Object();
-
-  var email_display_value = new String();
 
   time_value_short = Math.round(time_value / 2);
 
-  email_selector = "#email";
+  email_bkgrnd_selector = "#email-bkgrnd";
+  email_form_selector = "#wufoo-s10l7nat0t4u9ec, #email-content";
   info_selector = "#info, #wndow_footer-sctn_main";
 
-  email_element = $jQ(email_selector);
+  email_bkgrnd_element = $jQ(email_bkgrnd_selector);
+  email_form_element = $jQ(email_form_selector);
   info_element = $jQ(info_selector);
 
   opacity_zero_css = {
     opacity: "0"
   };
 
-  email_display_value = $jQ(email_element).css("display");
+  email_not_visible_css = {
+    display: "none"
+  };
 
-  if (email_display_value === "none") {
-  // If the splash page is not visible, this condition is triggered.
+  if ($jQ(email_bkgrnd_element).css("display") === "block") {
+    email_not_visible_css = {
+      display: "none"
+    };
+console.log("block");
+    $jQ(email_form_element).fadeTo(time_value, 0, 
+    // The splash page is faded out.
 
-    $jQ(email_element).css(opacity_zero_css);
-    // Set the opacity of the <div> element holding the Email Alert content to 0.
-    $jQ(email_element).css(email_visibility_css);
-    // Make the <div> element holding the Email Alert content able to be visible.
-
-    $jQ(info_element).fadeTo(time_value_short, 0);
-    // Fade out the content in 'MAIN LANDING SECTION'.
-    $jQ(email_element).fadeTo(time_value, 1);
-    // Fade in the Email Alert content.
-
-  } else {
+      function () {
+        // $jQ(info_element).fadeTo(time_value_short, 1);
+        $jQ(email_form_element).css(email_not_visible_css);
+        $jQ(email_bkgrnd_element).fadeTo(time_value, 0, 
+          function () {
+            $jQ(email_bkgrnd_element).css(email_not_visible_css);
+            animateInfoElement(time_value);
+          }
+        );
+      }
+    );
+  
+  }  else {
   // Otherwise, if the splash page is visible, this condition is triggered.
 
-    var email_section_search_string = new String();
-    // Holds the String, "pos=email", which is searched for in, 
-    // "url_hash".
-    var email_section_index_num = new Number();
-    // Holds the location within, "url_hash", that "pos=email" is 
-    // found.
-
-    email_section_search_string = "#email?pos=1";
-    email_section_index_num = url_hash.indexOf(email_section_search_string);
     
-    if (email_section_index_num !== -1) {
-    // If the URL hash reflects the event of a visitor wishing 
-    // to enter their information into the form, this condition is triggered.
-      
-      var div_selector = new String();
-      var div_2_selector = new String();
+    email_visible_css = {
+      display: "block"
+    };
 
-      var div_1_element = new Object();
-      var div_2_element = new Object();
+    $jQ(info_element).fadeTo(time_value_short, 0);
 
-      var div_block_css = new Object();
-      var div_none_css = new Object();
+    $jQ(email_bkgrnd_element).css(email_visible_css);
+    $jQ(email_bkgrnd_element).fadeTo(time_value_short, 0.7, 
+      function () {
+        $jQ(email_form_element).fadeTo(time_value_short, 1);
+      });
+  
+  
 
-      div_1_selector = "#email-copy";
-      div_2_selector = "#email-form";
+    /* $jQ(email_form_element).fadeTo(time_value, 0, 
+    // The splash page is faded out.
 
-      div_1_element = $jQ(div_1_selector);
-      div_2_element = $jQ(div_2_selector);
+      function () {
+        // $jQ(info_element).fadeTo(time_value_short, 1);
+        $jQ(email_form_element).css(email_not_visible_css);
+        $jQ(email_bkgrnd_element).fadeTo(time_value, 0, 
+          function () {
+            $jQ(email_bkgrnd_element).css(email_not_visible_css);
+            animateInfoElement(time_value);
+          }
+        );
+      }
+    ); */
 
-      div_block_css = {
-        display: "block"
-      };
-      
-      div_none_css = {
-        display: "none"
-      };
-
-      $jQ(div_1_element).fadeTo(time_value_short, 0);
-      
-      $jQ(div_1_element).css(div_none_css);
-      $jQ(div_2_element).css(div_block_css);
-
-      $jQ(div_1_element).removeClass();
-      $jQ(div_1_element).addClass("not_visible");
-
-      $jQ(div_2_element).removeClass();
-      $jQ(div_2_element).addClass("visible");
-
-      $jQ(div_2_element).fadeTo(time_value, 1);
-    } else {
-    // Otherwise, if the visitor has either submitted their information 
-    // or declined to enter their email address, this condition is triggered.
-      var time_value_short = new Number();
-
-      email_visibility_css = {
-        display: "none"
-      };
-
-      time_value_short = Math.round(time_value / 2);
-
-      $jQ(email_element).fadeTo(time_value, 0, 
-      // The splash page is faded out.
-
-        function () {
-          $jQ(info_element).fadeTo(time_value_short, 1);
-          $jQ(email_element).css(email_visibility_css);
-          animateInfoElement(time_value);
-        }
-      );
-
-      
-    } // END of "if" STATEMENT which is triggered if the visitor wishes to enter 
-      // the email address into the form.
-  } // END of "if" STATEMENT which is triggered if the Email Alert content is 
+  } // END of "if" STATEMENT which is triggered if the Email Alert content is  */
     // not visible.
 
 } /* **************** END OF FUNCTION "animateEmailAlert" **************** */

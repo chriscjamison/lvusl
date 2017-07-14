@@ -194,15 +194,6 @@ $jQ(document).ready(
       }
     );
 
-    $jQ(".clear a").click(
-    // Closes the email alert splash page when a visitor clicks on the grey 'X' which 
-    // appears to the right of the email alert content.
-
-      function () {
-        animateEmailAlert(url_hash, time_value);
-      }
-    );
-
     $jQ("#email-bkgrnd").click(
       function () {
         animateEmailAlert(url_hash, time_value);
@@ -218,67 +209,47 @@ $jQ(document).ready(
         // of the webpage within the browser window are passed on to "page_dimensions_Array".
         var window_width = new Number();
         // Holds the numerical value of the width of the browser window.
+        var wndow_height = new Number();
+
+        var email_bkgrnd_selector = new String();
+        var email_bkgrnd_element = new Object();
 
         var sctn_main_search_string = new String();
         var sctn_main_index_num = new Number();
 
         var section_value = new String();
 
+        var current_position = new Number();
+
         url_hash = window.location.hash;
         
         page_dimensions_Array = parseWindowDimensions();
         window_width = page_dimensions_Array[0];
+        wndow_height = page_dimensions_Array[1];
         
         sctn_main_search_string = "sctn_main";
         sctn_main_index_num = url_hash.indexOf(sctn_main_search_string);
 
+        email_bkgrnd_selector = "#email-bkgrnd";
+        email_bkgrnd_element = $jQ(email_bkgrnd_selector);
+
+        current_position = $jQ(window).scrollTop();
+
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 
-
-        if ((url_hash === "" || 
-            sctn_main_index_num !== -1) && 
-            url_hash !== "email")  {
+console.log("url_hash = " + url_hash);
+        if (current_position === 0 && 
+            $jQ(email_bkgrnd_element).css("display") === "none" && 
+            (url_hash === "" || url_hash === "#email")) {
+          animateEmailAlert(url_hash, time_value);
+        } else if (current_position < wndow_height && 
+            $jQ(email_bkgrnd_element).css("display") === "none")  {
         // If the URL hash is blank or is "#sctn_main", this condition 
         // is triggered.
 
           animateInfoElement(time_value);
-            
-        } 
-
-        if (sctn_main_index_num !== -1) {
-        // If the viewable Section is 'MAIN LANDING SECTION', then this 
-        // condition is triggered.
-
-          var email_section_search_string = new String();
-          var email_section_search_index_num = new Number();
-
-          email_section_search_string = "email";
-          email_section_search_index_num = url_hash.indexOf(email_section_search_string);
-
-          if (email_section_search_index_num !== -1)  {
-          // If the visitor has submitted their email for an email alert, 
-          // then this condition is triggered.
-
-            animateEmailAlert(url_hash, time_value);
-          }
         }
         
-        section_value = url_hash.charAt(6);
-
-        if (section_value === "4") {
-        // If the viewable Section is 'SECTION #1', the this condition is 
-        // triggered.
-          
-          formatHeader(url_hash);
-          // "formatHeader" formats the text of the header for the Section 
-          // which contains the season ticket reservation form based upon 
-          // the URL hash. 
-        }
-
-        if (url_hash !== "#sctn_main") {
-          animateEmailAlert(url_hash, time_value);
-        }
-
         setPageInitialLocation(url_hash);
       }
     );
@@ -477,26 +448,10 @@ $jQ(document).ready(
 
             current_position = $jQ(window).scrollTop();
 
-            email_selector = "#email";
-            email_element = $jQ(email_selector);
-
-            if (section_value === "4") {
-            // If the viewable Section is 'SECTION #1', this condition is triggered.
-
-              formatHeader(url_hash);
-              // "formatHeader" changes the content of the header when a visitor 
-              // completes a season ticket reservation.
-            } else if (email_section_search_index_num !== -1 && 
-                       section_value !== "m") {
-            // If the visitor has chosen to view the content relating to email 
-            // alerts or the location of the webpage within the browser window 
-            // is 1, this condition is triggered.
-
+            if (url_hash === "email")  {
               animateEmailAlert(url_hash, time_value);
-              // "animateEmailAlert" displays content which allows the visitor 
-              // to sign up for an email alert.
-            } 
-
+            }
+            
             position_value_search_string = "pos=";
             position_value_index_num = url_hash.indexOf(position_value_search_string);
             position_value = url_hash.slice(position_value_index_num + position_value_search_string.length);

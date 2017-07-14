@@ -86,3 +86,11 @@
     margin-left: 6em !important;
   }
 }
+
+@media screen and (min-width: 1910px) {
+  #sctn_6-desc, 
+  #sctn_6-form {
+    height: 36em;
+  } 
+}
+ 

@@ -1,10 +1,10 @@
 /* wufoo.css */
-html {
-
-}
-
 html.embed {
   background: none;
+}
+
+iframe {
+  height: 100%;
 }
 
 .info, 
@@ -130,7 +130,7 @@ li#fo55li149 {
 
 #fo55li1 input, 
 #fo57li3 input {
-  width: 12.8em;
+  width: 12.4em;
 }
 
 
@@ -194,8 +194,9 @@ button {
   box-shadow: 1px 1px 2px 1px #333 !important;
 	font-size: 1.4em !important;
   font-family: 'korolev-military-stencil', sans-serif !important;
+  text-decoration: none;
+  letter-spacing: 0.4px !important;
 	color: #00a1e1 !important;
-	letter-spacing: 0.4px !important;
 	cursor: pointer !important;
 }
 
@@ -254,6 +255,10 @@ form li.complex div span {
 	margin: 0.75em 0 1.25em 0;
 }
 
-#form54 .buttons .submit {
-  margin-left: 5.5em;
+#form54 #saveForm {
+  margin-left: 5.3em;
+}
+
+#wufoo-s13auulu0k71a64 iframe  {
+  height: 28.75;
 }

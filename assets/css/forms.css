@@ -267,6 +267,22 @@ select {
 	width: 4.1em;
 }
 
+#wufoo-s10l7nat0t4u9ec {
+	width: 22.5em;
+	display: none;
+}
+
+#wufoo-s10l7nat0t4u9ec iframe {
+	height: 12.25em;
+}
+
+#wufoo-s13auulu0k71a64, 
+#wufoo-s13auulu0k71a64 iframe {
+	height: 28.75em !important;
+}
+
+
+
 @media screen and (min-width: 1260px) and (max-width: 1320px) {
 	/* This CSS breakpoint affects browsers which have a width between 1260px and 1320px. 
   * This breakpoint is optimized to fit resolutions of 1280x800. 
@@ -287,12 +303,13 @@ select {
 	#Form54 #Field3 {
 		font-size: 1.1em;
 	}
-/*	#form54 input[type=submit], 
-	#form55 input[type=submit], 
-	#input-contact_us-send_message {
-		margin-left: 10.25em;
-	}
-*/
+
+	#wufoo-s10l7nat0t4u9ec {
+		position: absolute;
+		top: 8.4em;
+    left: 2.56m;
+    z-index: 3;
+  }
 }
 
 @media screen and (min-width: 1340px) and (max-width: 1580px) {
@@ -312,12 +329,33 @@ select {
 		font-size: 1em;
 	}
 
-	/*#form54 input[type=submit], 
-	#form55 input[type=submit], 
-	#input-contact_us-send_message {
-		margin-left: 10.25em;
-	}*/
+	#wufoo-s10l7nat0t4u9ec {
+		position: absolute;
+		top: 19.6em;
+    left: 29.75em;
+    z-index: 3;
+  }
 }
+
+@media screen and (min-width: 1590px) and (max-width: 1900px) {
+	#wufoo-s10l7nat0t4u9ec {
+		position: absolute;
+		top: 24em;
+    left: 38em;
+    z-index: 3;
+  }
+}
+
+@media screen and (min-width: 1910px) { 
+  #wufoo-s10l7nat0t4u9ec {
+		position: absolute;
+		top: 27.75em;
+    left: 46.25em;
+    z-index: 3;
+  }
+}
+
+
 
 @media screen and (width: 980px) {
 	/* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
