@@ -93,7 +93,7 @@ nav {
 	position: fixed;
   left: -20.45em;
 	z-index: 7;
-	background-color: #666;
+	background-color: #07305a;
 }
 /* Formats a <div> element which serves as a background to the inter-sectional 
  * menu options. 
@@ -105,7 +105,7 @@ nav {
 	position: fixed;
   left: -20.45em;
 	z-index: 8;
-	background-color: #444;
+	background-color: #0f63ba;
 }
 /* Formats a <div> element which appears at the top of the inter-sectional navigation 
  * menu. 
@@ -143,8 +143,8 @@ nav {
  */
 
 .option-base {
-  background-color: #000 !important;
-  color: #fff !important;
+  background-color: #00aeef !important;
+  color: #fff013 !important;
   cursor: default !important;
 }
 /* Sets a class which is used to alter the 'click-state' of a menu option 
@@ -153,8 +153,8 @@ nav {
  */
 
 .option-hover {
-	background-color: #808080 !important;
-	color: #fff !important;
+	background-color: #fff013 !important;
+	color: #00aeef !important;
 	cursor: pointer !important;
 }
 /* Sets a class which is used to alter the 'click-state' of a menu option 
@@ -163,8 +163,8 @@ nav {
  */
 
 .option-click {
-	background-color: #A6A6A6 !important;
-	color: #000 !important;
+	background-color: #e81c74 !important;
+	color: #fff013 !important;
 }
 /* Sets a class which is used to alter the 'click-state' of a menu option 
  * which is contained in the navigation panel.
@@ -180,8 +180,8 @@ nav {
   float: left;
 	font-family: 'korolev-military-stencil', Arial, sans-serif;
   font-size: 1.25em;
-	background-color: #000;
-	color: #fff;
+	background-color: #00aeef;
+	color: #fff013;
 	cursor: pointer;
 }
 /* Formats the <a> elements which serve as menu options in the inter-sectional 

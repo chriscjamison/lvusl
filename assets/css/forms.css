@@ -160,9 +160,13 @@ select {
 	display: none;
 }
 
-#mce-EMAIL {
+#fo54li3 input {
 	width: 20.4em;
 	margin: 0.75em 0 2em 0;
+}
+
+#form54 .buttons .submit {
+	margin-left: 5.35em;
 }
 
 #ticket-question_2 input, 

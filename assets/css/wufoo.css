@@ -1,4 +1,7 @@
 /* wufoo.css */
+html {
+
+}
 
 html.embed {
   background: none;
@@ -7,10 +10,13 @@ html.embed {
 .info, 
 .info[class], 
 #form57 .info[class], 
-.wufoo li span label, 
 .symbol, 
 #errorLi, .error-container, 
-form li.error p.error {
+form li.error p.error, 
+#form55 > ul > li > span label, 
+#fo57li3 > span  label, 
+#fo57li14 > span label,
+#fo57li5 > div > span label {
   display: none !important;
 }
 
@@ -83,10 +89,50 @@ li#fo55li149 {
   display: none;
 } */
 
+#form57.page1 #fo57li5 div > span.addr1, 
+#form57.page1 #fo57li5 div > span.addr2 {
+    width: 100% !important;
+}
+
+#fo57li5 div > span.addr1, 
+#fo57li5 div > span.addr2 {
+  width: 28em !important;
+}
+
+#form57.page1 #fo57li5 .city {
+  width: 30%;
+}
+
+#form57.page1 #fo57li5 .city input {
+  width: 100%;
+}
+
+#form57.page1 #fo57li5 .state {
+  width: 15%;
+}
+
+#form57.page1 #fo57li5 .zip { 
+  width: 20%;
+}
+
+#form57 > ul > li {
+ margin-bottom: 1em;
+}
+
+#form55 > ul > li {
+  margin-bottom: 0.75em;
+}
+
+#form57 #fo57li14, 
+#form55 #fo55li4 {
+  height: 5.25em;
+}
+
 #fo55li1 input, 
 #fo57li3 input {
-  width: 13.25em;
+  width: 12.8em;
 }
+
 
 #fo57li5 div > span.addr1, 
 #fo57li5 div > span.addr2 {
@@ -97,6 +143,14 @@ li#fo55li149 {
  * Formats the <input> element for the question field which a visitor can enter 
  * their city name within the form which collects season ticket requests.
  */
+
+ #expMonth  {
+  float: left;
+}
+
+span.full {
+  margin-bottom: 1em;
+}
 
 #fo57li5 .city {
   width: 17.6em;
@@ -125,8 +179,6 @@ li#fo55li149 {
   margin-left: 1.75em;
 }
 
-
-
 #fo57li5 .country {
   float: left;
 }
@@ -140,7 +192,7 @@ button {
   background-color: #fff113 !important;
   border: none !important;
   box-shadow: 1px 1px 2px 1px #333 !important;
-	font-size: 1.2em !important;
+	font-size: 1.4em !important;
   font-family: 'korolev-military-stencil', sans-serif !important;
 	color: #00a1e1 !important;
 	letter-spacing: 0.4px !important;
@@ -172,6 +224,11 @@ form li.complex div span {
   padding-bottom: 0;
 }
 
+#payment .invoice table{
+  background: #fff;
+  color: #000;
+}
+
 #payment .section h3, 
 #payment .section div, 
 .invoice table {
@@ -189,4 +246,14 @@ form li.complex div span {
   padding: 1em;
   border: 1px solid #6c8d99;
   background-color: #a4d6e9;
+}
+
+
+#fo54li3 input {
+	width: 26.75em;
+	margin: 0.75em 0 1.25em 0;
+}
+
+#form54 .buttons .submit {
+  margin-left: 5.5em;
 }

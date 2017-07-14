@@ -1094,7 +1094,7 @@ function animateSideNav(time_value) {
   var wndow_elements = new Array();
   var headr_elements = new Array();
   var info_element = new Object();
-  var copy_elements = new Array();
+  var copy_element = new Array();
   var bkgrnd_element = new Object();
   var sctn_nav_element = new Object();
   var prev_next_sctn_element = new Object();
@@ -1127,7 +1127,7 @@ function animateSideNav(time_value) {
   cntainr_selector = "#cntainr";
   wndow_selector = ".wndow";
   headr_selector = ".headr";
-  copy_selector = ".copy";
+  copy_selector = ".copy:first-of-type";
   info_selector = "#info";
   sctn_nav_selector = ".sctn_nav";
   prev_next_sctn_selector = "#prev-sctn, #next-sctn";
@@ -1140,7 +1140,7 @@ function animateSideNav(time_value) {
   cntainr_element = $jQ(cntainr_selector);
   wndow_elements = $jQ(wndow_selector);
   headr_elements = $jQ(headr_selector);
-  copy_elements = $jQ(copy_selector);
+  copy_element = $jQ(copy_selector);
   info_element = $jQ(info_selector);
   sctn_nav_element = $jQ(sctn_nav_selector);
   prev_next_sctn_element = $jQ(prev_next_sctn_selector);
@@ -1177,6 +1177,7 @@ function animateSideNav(time_value) {
     var element_shifted_right_css = new Object();
     var element_extended_css = new Object();
     var element_invisible_css = new Object();
+    var element_visible_css = new Object();
 
     nav_visible_css = {
       left: "0px", 
@@ -1205,13 +1206,17 @@ function animateSideNav(time_value) {
     element_invisible_css = {
       display: "none"
     };
+
+    element_visible_css = {
+      display: "block"
+    };
     
     $jQ(info_element).css(element_invisible_css);
     // The block of HTML content that appears in the 'MAIN LANDING SECTION' 
     // is made invisible.
 
     $jQ(headr_elements).css(element_invisible_css);
-    $jQ(copy_elements).css(element_invisible_css);
+    $jQ(copy_element).css(element_invisible_css);
     $jQ(sctn_nav_element).css(element_invisible_css);
     // The visible headers, HTML content, and intrasection navigation is
     // made invisible.
@@ -1294,7 +1299,7 @@ function animateSideNav(time_value) {
         $jQ(nav_brdr_element).animate(nav_invisible_css, time_value);
         // The background of the intersection navigation is made invisible 
         // by scrolling the HTML elements to the left, out of view.
-
+        $jQ(sctn_nav_element).css(element_visible_css);
         if (wndow_width === 980)  {
         // If the browser is a mobile browser, this condition is triggered.
           $jQ(cntainr_element).css(element_visible_css);
@@ -1315,7 +1320,7 @@ function animateSideNav(time_value) {
             $jQ(bkgrnd_element).width(window_width);
             $jQ(wndow_elements).width(window_width);
             $jQ(headr_elements).css(headr_visible);
-            $jQ(copy_elements).css(element_visible_css);
+            $jQ(copy_element).css(element_visible_css);
             $jQ(info_element).css(element_visible_css);
             // Once the background is made visible, the visible HTML element 
             // containing content, intrasection navigation, headers, 
@@ -1502,19 +1507,19 @@ function animateMenuOptions(option_element) {
   var time_value_short = new Number();
  
   hover_css = {
-    "backgroundColor": "#ccc", 
-    "color": "#000"
+    "backgroundColor": "#fff013", 
+    "color": "#00aeef"
   };
 
   base_css = {
-    "backgroundColor": "#000", 
-    "color": "#fff"
+    "backgroundColor": "#00aeef", 
+    "color": "#fff013"
   };
   
   time_value_long = time_value / 2;
   time_value_short = time_value / 4;
   
-  if ($jQ(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
+  if ($jQ(option_element).css("backgroundColor") === "rgb(0, 174, 239)") {
   // If the click state of the menu option is in its "base" state, 
   // this condition is triggered.
 
