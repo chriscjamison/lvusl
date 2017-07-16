@@ -237,7 +237,7 @@ $jQ(document).ready(
 
         setupPage(time_value);
         // "setupPage" prepares for view the HTML elements of the visible Section 
-console.log("url_hash = " + url_hash);
+
         if (current_position === 0 && 
             $jQ(email_bkgrnd_element).css("display") === "none" && 
             (url_hash === "" || url_hash === "#email")) {
@@ -448,7 +448,7 @@ console.log("url_hash = " + url_hash);
 
             current_position = $jQ(window).scrollTop();
 
-            if (url_hash === "email")  {
+            if (url_hash === "#email")  {
               animateEmailAlert(url_hash, time_value);
             }
             

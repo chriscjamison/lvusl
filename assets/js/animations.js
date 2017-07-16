@@ -305,6 +305,7 @@ function setupPage(time_value)  {
 
   var cntainr_css = new Object();
   var width_height_css = new Object();
+  var bkgrnd_css = new Object();
   var nav_css = new Object();
   var copy_css = new Object();
   
@@ -358,6 +359,11 @@ function setupPage(time_value)  {
     width: page_dimensions_Array[0],
     height: page_dimensions_Array[1]
   };
+
+  bkgrnd_css = {
+    width: page_dimensions_Array[0],
+    height: (page_dimensions_Array[1] * $jQ(wndow_elements).length)
+  }
   
   nav_css = {
     left: nav_left_val
@@ -395,10 +401,12 @@ function setupPage(time_value)  {
   $jQ(cntainr_element).css(cntainr_css);
   // The HTML element using the selector, "#cntainr", is formatted to 
   // fit the dimensions of the webpage.
+
   $jQ(wndow_elements).css(width_height_css);
   // The HTML elements using the selector, ".wndow", is formatted to fit 
   // dimensions of a given "window".
-  $jQ(bkgrnd_element).css(width_height_css);
+
+  $jQ(bkgrnd_element).css(bkgrnd_css);
   // The HTML element using the selector, "#bkgrnd", is is formatted to fit 
   // dimensions of a given "window".
   $jQ(nav_elements).css(nav_css);
@@ -429,19 +437,7 @@ function setupPage(time_value)  {
         num_of_wndow_elements = $jQ(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
         
-        if (inc_bkgrnd === 4) {
-        // If the background image under processing is the background for 'SECTION #1", this 
-        // condition is triggered.
-
-          bkgrnd_width = wndow_width * 2;
-          // Since the confirmation message for a request for season tickets appears over 
-          // a different background image than that of the form, the value of, "bkgrnd_width", 
-          // changes.
-        } else {
-        // Otherwise, for all other Sections, this condition is triggered.
-
-          bkgrnd_width = wndow_width;
-        }
+        bkgrnd_width = wndow_width;
 
         bkgrnd_height = (wndow_height).toString();
         // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
@@ -451,9 +447,16 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/assets/img/bkgrnd/" + 
-                            inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
-                            ".jpg')";      
+        if (inc_bkgrnd === 9) {
+          bkgrnd_img_value = "url('/assets/img/bkgrnd/" + 
+                             inc_bkgrnd.toString() + "/" + bkgrnd_width.toString() + "x" + bkgrnd_height.toString() + 
+                             ".jpg?ver=1')";      
+          
+        } else {
+          bkgrnd_img_value = "url('/assets/img/bkgrnd/" + 
+                            inc_bkgrnd.toString() + "/" + bkgrnd_width.toString() + "x" + bkgrnd_height.toString() + 
+                            ".jpg')";        
+        }
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
         // The value of "bkgrnd_img_value" would be "url('/assets/img/bkgrnd/1/1920x1020.jpg')" 
@@ -477,8 +480,8 @@ function setupPage(time_value)  {
         // to a String.
 
         width_height_css.width = bkgrnd_width;
-        width_height_css.backgroundImage = "url('/assets/img/bkgrnd/main/" + bkgrnd_width +
-                                           "x" + bkgrnd_height + ".jpg')";
+        width_height_css.backgroundImage = "url('/assets/img/bkgrnd/main/" + bkgrnd_width.toString() +
+                                           "x" + bkgrnd_height.toString() + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
 
@@ -517,8 +520,9 @@ function setupPage(time_value)  {
 
       $jQ(copy_element).css(copy_css);
     }
-  )
+  );
 
+  $jQ(wndow_elements).css("display", "block");
   
   // animatePageElements();
   // "animatePageElements" is called to animate the blocks that are contained within an individual 
@@ -771,7 +775,7 @@ function animateEmailAlert(url_hash, time_value)  {
     email_not_visible_css = {
       display: "none"
     };
-console.log("block");
+    
     $jQ(email_form_element).fadeTo(time_value, 0, 
     // The splash page is faded out.
 
@@ -1641,8 +1645,8 @@ function loadLinks(direction, section_value)  {
     link_listing_selector = "#wndow-sctn_5 .article_usl_listing"
     previous_link_selector = "#sctn_5-usl_news_links > a:nth-child(1)";
     next_link_selector = "#sctn_5-usl_news_links > a:nth-child(2)";
-  }
-  
+  } 
+
   link_listing_elements = $jQ(link_listing_selector);
   previous_link_element = $jQ(previous_link_selector);
   next_link_element = $jQ(next_link_selector);
@@ -1755,6 +1759,7 @@ function animateClubInfo(section_value)  {
   var copy_selector = new String();
   var link_selector = new String();
   var icon_selector = new String();
+  var span_selector = new String();
   var p_selector = new String();
   
 
@@ -1763,6 +1768,7 @@ function animateClubInfo(section_value)  {
   var copy_elements = new Object();
   var link_element = new Object();
   var icon_element = new Object();
+  var span_element = new Object();
   var p_element = new Object();
 
   var opacity_zero_css = new Object();
@@ -1794,6 +1800,79 @@ function animateClubInfo(section_value)  {
   time_value = 180;
 
   if ($jQ(p_element).css("display") === "none") {
+    
+    $jQ(headr_element).fadeTo(time_value, 0, 
+      function () {
+
+        if (section_value === "1")  {
+
+          var sctn_nav_selector = new String();
+          var sctn_nav_element = new Object();
+          
+          sctn_nav_selector = "#nav-sctn_" + section_value;
+          sctn_nav_element = $jQ(sctn_nav_selector);
+
+          $jQ(sctn_nav_element).fadeTo(time_value, 0, 
+            function () {
+              $jQ(copy_elements).fadeTo(time_value, 0);
+              $jQ(span_element).fadeTo(time_value, 0);
+              $jQ(p_element).css("display", "block");
+              $jQ(p_element).fadeTo(time_value, 1);
+            }
+          );  
+        } else {
+          $jQ(copy_elements).fadeTo(time_value, 0, 
+            function () {
+              $jQ(span_element).fadeTo(time_value, 0);
+              $jQ(p_element).css("display", "block");
+              $jQ(p_element).fadeTo(time_value, 1);
+            }
+          );
+        }
+      }
+    );
+  } else if ($jQ(p_element).css("display") === "block") {
+    $jQ(p_element).fadeTo(time_value, 0, 
+      function () {
+        var visible_copy_selector = new String();
+        var visible_copy_element = new Object();
+
+        visible_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(2)";
+        visible_copy_element = $jQ(visible_copy_selector);
+
+        $jQ(p_element).fadeTo(time_value, 0);
+        $jQ(p_element).css("display", "none");
+
+        $jQ(span_element).fadeTo(time_value, 1);
+        $jQ(copy_elements).css("display", "none");
+        $jQ(visible_copy_element).css("display", "block");
+        $jQ(headr_element).fadeTo(time_value, 1);
+        $jQ(copy_elements).css("opacity", "1");
+
+        if (section_value === "1")  {
+          var sctn_nav_selector = new String();
+          var sctn_nav_element = new Object();
+          
+          sctn_nav_selector = "#nav-sctn_" + section_value;
+          sctn_nav_element = $jQ(sctn_nav_selector);
+
+          $jQ(sctn_nav_element).fadeTo(time_value, 1);
+        }
+
+         if (section_value === "3")  {
+          $jQ(visible_copy_element).css("opacity", "1");;  
+        } else {
+          $jQ(visible_copy_element).fadeTo(time_value, 1);
+        }
+
+        $jQ(copy_elements).css("opacity", "1");
+
+       }
+    );
+  }
+  
+// console.log("launch");/* 
+  /* if ($jQ(p_element).css("display") === "none") {
     $jQ(headr_element).fadeTo(time_value, 0, 
       function () {
         if (section_value === "1" || 
@@ -1881,7 +1960,7 @@ $jQ(visible_copy_element).css("opacity", "1");
       // $jQ(icon_element).css("backgroundPosition", "0px 0px");
       // $jQ(p_element).css("display", "none");
 
-  /*      $jQ(p_element).fadeTo(time_value, 0, 
+        $jQ(p_element).fadeTo(time_value, 0, 
         function () {
           
           $jQ(icon_element).css("backgroundPosition", "0px 0px");
@@ -1890,12 +1969,12 @@ $jQ(visible_copy_element).css("opacity", "1");
           $jQ(link_element).css("opacity", "1");
           $jQ(visible_copy_element).css("opacity", "1");
           $jQ(headr_element).css("opacity", "1");
-          /* $jQ(visible_copy_element).fadeTo(time_value, 1);
+           $jQ(visible_copy_element).fadeTo(time_value, 1);
           $jQ(headr_element).fadeTo(time_value, 1);
         } 
-      );*/
+      );
     }
-  }
+  } */
 
   return false;
 } /* **************** END OF FUNCTION "fadeCopyElements" **************** */

@@ -372,7 +372,8 @@ h3 {
  */
 
 #info {
-	position: relative;
+  position: relative;
+  z-index: -2;
 }
 /* Formats a <div> which contains the logo and <ul> list which is displayed 
  * in the landing portion.
@@ -450,6 +451,7 @@ h3 {
 .wndow_footer {
   position: absolute;
   left: 1.7em;
+  z-index: -2;
 }
 
 .wndow_footer span {
@@ -552,18 +554,20 @@ h3 {
   top: -16em;
 }
 
-#email {
+/* #email {
   position: absolute;
   top: 0;
   left: 0;
   display: none;
   z-index: 2;
-}
+} */
 /* Formats the <div> element which holds the email alert splash page. */
 
 #email-content {
   width: 22.5em;
   height: 21em;
+  display: none;
+  z-index: -1;
 }
 /* 
  * Formats the <div> element which holds the copy contained within the 
@@ -590,7 +594,7 @@ h3 {
 /* Formats the <p> element which contains the description copy. */
 
 #email-content span {
-  padding-bottom: 0.75em;
+  margin-top: 2.2em;
   display: block;
   position: relative;
   top: 11em;
@@ -609,13 +613,13 @@ h3 {
 
 
 #email-bkgrnd {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   background-color: #111;
   opacity: 0.7;
-  z-index: -1
-  ;
+  z-index: -2;
 }
 /* Formats the dark gray background of the splash page. */
 
@@ -658,10 +662,13 @@ h3 {
 #sctn_2-club_vision {
   width: 25.5em;
   height: 11.25em;
+  margin-right: 2.5em;
+  float: left;
 }
 
 #sctn_2-ownership {
   width: 30em;
+  float: left;
 }
 
 
@@ -927,14 +934,14 @@ h3 {
     width: 80em;
     height: 21em;
   }
-
+/* 
   #email {
     width: 79em;
     height: 48em;
-  }
+  } */
 
   #email-content {
-    transform: translate(95%, 29%);
+    transform: translate(95%, -38%);
   }
 
   #email-bkgrnd {
@@ -1207,13 +1214,13 @@ h3 {
     bottom: 0;
   }
 
-  #email {
+/*   #email {
     width: 85.75em;
     height: 48em;
   }
-
+ */
   #email-content {
-    transform: translate(97%, 26%);
+    transform: translate(97%, -22%);
   }
 
   #email-bkgrnd {
@@ -1240,7 +1247,7 @@ h3 {
   #wndow-sctn_2 > .copy {
     width: 67.25em;
     height: 40em;
-    margin: 8em 0 0 17em;
+    margin: 8em 0 0 6.5em;
   }
 
   #wndow-sctn_3 > .copy, 
@@ -1409,25 +1416,25 @@ h3 {
     font-size: 1.6em;
   }
 
-  #email {
+/*   #email {
     width: 99em;
     height: 56.5em;
   }
-
+ */
   #email-content {
-    transform: translate(127%, 50%);
+    transform: translate(127%, 23%);
   }
 
   #email-bkgrnd {
     width: 99em;
-    height: 56.5em;
+    height: 67.5em;
   }
 
-  #email a {
+  /* #email a {
     top: 2em;
     left: 13.5em;
   }
-
+ */
   .wndow_footer {
     width: 84.5em;
     height: 7.25em;
@@ -1589,13 +1596,13 @@ h3 {
     bottom: 6em;
   }
 
-  #email {
+ /*  #email {
     width: 119em;
     height: 67.5em;
   }
-
+ */
   #email-content {
-    transform: translate(157%, 47%);
+    transform:translate(157%, -40%);
   }
 
   #email-bkgrnd {
@@ -1603,11 +1610,11 @@ h3 {
     height: 67.5em;
   }
 
-  #email a {
+/*   #email a {
     top: 11.25em;
     left: 31.5em;
   }
-
+ */
   .headr {
     width: 112.5em;
     margin: 1.25em 0 0 6.5em;
@@ -1623,12 +1630,12 @@ h3 {
     margin: 14em 0 0 6.5em;
   }
 
-  #wndow-sctn_2 > .copy  {
+  /*   {
     width: 102em;
     height: 60.5em;
     margin: 7em 0 0 17em;
   }
-
+ */
   #wndow-sctn_3 > .copy, 
   #wndow-sctn_7 > .copy, 
   #wndow-sctn_8 > .copy, 
@@ -1638,6 +1645,7 @@ h3 {
     margin: 8em 0 0 86.5em;
   }
  
+  #wndow-sctn_2 > .copy, 
   #wndow-sctn_4 > .copy, 
   #wndow-sctn_5 > .copy  {
     width: 102em;

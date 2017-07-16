@@ -1,11 +1,19 @@
 /* es.css */
 
 #email-content {
-  height: 24em
+  height: 21em
+}
+
+#email-content span {
+  margin-top: 0;
 }
 
 #info > div + div > p:nth-child(4) {
   padding-left: 3.5em;
+}
+
+.wndow-footer > span {
+  width: 55.5em;
 }
 
 #nav-sctn_1 > div > a:nth-child(1), 
@@ -66,6 +74,14 @@
 
 
 @media screen and (min-width: 1340px) and (max-width: 1580px) { 
+  #email-content {
+    transform: translate(97%, -38%);
+  }
+
+  #wufoo-s10l7nat0t4u9ec {
+    top: 16.8em;
+  }
+  
   .headr.sctn_4 > div:nth-child(2) {
     width: 15.5em;
     margin-left: 7.5em !important;
@@ -74,6 +90,47 @@
   .headr.sctn_4 > div + div > a:first-of-type {
     margin-bottom: 0.4em;
   }
+
+  #sctn_4-desc {
+    width: 32.5em !important;
+  }
+
+  #sctn_4-desc > div:first-of-type {
+    width: 32.5em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(1) {
+    width: 11em;
+  }
+
+  #sctn_4-desc > div:first-of-type > span:nth-child(2) {
+    width: 21.5em;
+  }
+
+  #sctn_8-links {
+    height: 28em;
+  }
+
+  #sctn_8-links > div:nth-child(2), 
+  #sctn_8-links > div:nth-child(4) {
+    height: 1em;
+  }
+
+  .blok-social_media {
+    margin-bottom: 0.5em;
+  }
+
+  #sctn_8-facebook img, 
+  #sctn_8-instagram img {
+    width: 5em;
+    height: 5em;
+  }
+
+  #sctn_8-twitter img {
+    width: 6.05em;
+    height: 5em;
+  }
+
 }
 
 
