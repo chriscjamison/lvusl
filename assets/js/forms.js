@@ -643,7 +643,7 @@ function validateQuestionField(validation_type, question_value)  {
       break;
 
       case "email":
-        base_value = "you@lvusl.com";
+        base_value = "you@lvps.com";
         error_message = "XXX@XXXXX.XXX";
         error_length = 10;
       break;
